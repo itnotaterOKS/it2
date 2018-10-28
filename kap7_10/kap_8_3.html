@@ -20,9 +20,9 @@
   	</div>
   	<script type="text/javascript" src="meny7.js"></script>
   	<div class="innhold">
-	<h1> Hendelsestyper </h1>
-	<p> Vi husker tabellen med hendelser fra kapittel 8.1: </p>
-	<table>
+    	<h1> Hendelsestyper </h1>
+    	<p> Vi husker tabellen med hendelser fra kapittel 8.1: </p>
+    	<table>
     		<tr>
     			<th> Hendelse </th> <th> Forklaring </th>
     		</tr><tr>
@@ -67,7 +67,7 @@
   	 	&nbsp;&nbsp; var bodyEl = document.querySelector("body");<br><br>
   	 	Til bodyEl legger jeg til lytteren mousemove som kjører funksjonen visPos:<br>
   	 	&nbsp;&nbsp; bodyEl.addEventListener("mousemove", visPos);<br>
-		&nbsp;&nbsp; function visPos(e){ //tar inn e, for "event"<br>
+		  &nbsp;&nbsp; function visPos(e){ //tar inn e, for "event"<br>
   	 	&nbsp;&nbsp;&nbsp;&nbsp; console.log(e.clientX);<br>
   	 	&nbsp;&nbsp;&nbsp;&nbsp; console.log(e.clientY);<br>
   	 	&nbsp;&nbsp;&nbsp;&nbsp; xPosEl.innerHTML = "x-posisjonen er " + e.clientX;<br>
@@ -95,9 +95,9 @@
     	<p> Ved tastaturhendelser ønsker vi å vite hvilken tast som er trykket. Dette gjøres ved å be om e.keyCode. Her har hver tast en unicode-kode, og det er den vi får ut. For å oversette dette til tegn, må  vi bruke en unicode-tabell. Den finner vi på <a href="https://unicode-table.com/en/"> unicode-table.com</a>. Vi har også en metode som oversetter for oss: String.fromCharCode(e.keyCode). Denne fungerer dessverre dårlig for spesialtegn (æøå) på grunn av hvordan norske tastaturer er designet. <br><br>
     	Eksempel med tastaturhendelser: <br>
     	Lager først et p-element der jeg registrerer hvilken tast som trykkes.<br>
-		&nbsp;&nbsp; < p id="trykkTast" > Her skal jeg skrive ut hvilken tast som ble trykket ned< /p ><br>
-		Henter inn dette p-elementet og body-elementet:<br>
-		&nbsp;&nbsp; var trykkTastEl = document.querySelector("#trykkTast");<br>
+  		&nbsp;&nbsp; < p id="trykkTast" > Her skal jeg skrive ut hvilken tast som ble trykket ned< /p ><br>
+  		Henter inn dette p-elementet og body-elementet:<br>
+  		&nbsp;&nbsp; var trykkTastEl = document.querySelector("#trykkTast");<br>
   	 	&nbsp;&nbsp; var bodyEl = document.querySelector("body");<br><br>
   	 	Til bodyEl legger jeg til lytteren keydown og kjører funksjonen trykkerTast:<br>
   	 	&nbsp;&nbsp; bodyEl.addEventListener("keydown", trykkerTast);<br>
@@ -108,17 +108,17 @@
   	 	&nbsp;&nbsp; }</p>
 
   		<h3> Registrerer tastaturtrykk </h3>
-		<p id="trykkTast"> Her skal jeg skrive ut hvilken tast </p>
-		<script>
-			var trykkTastEl = document.querySelector("#trykkTast");
-	  	 	var bodyEl = document.querySelector("body");
-  	 		bodyEl.addEventListener("keydown", trykkerTast);
-  	 		function trykkerTast(e){
-  	 			console.log(e.keyCode);
-  	 			var bokstav = String.fromCharCode(e.keyCode);
-  	 			trykkTastEl.innerHTML = "Tasten som ble trykket var " +bokstav;
-  	 		}
-		</script>
-  </div>
+  		<p id="trykkTast"> Her skal jeg skrive ut hvilken tast </p>
+  		<script>
+  			var trykkTastEl = document.querySelector("#trykkTast");
+  	  	 	var bodyEl = document.querySelector("body");
+    	 		bodyEl.addEventListener("keydown", trykkerTast);
+    	 		function trykkerTast(e){
+    	 			console.log(e.keyCode);
+    	 			var bokstav = String.fromCharCode(e.keyCode);
+    	 			trykkTastEl.innerHTML = "Tasten som ble trykket var " +bokstav;
+    	 		}
+  		</script>
+    </div>
 </body>
 </html>

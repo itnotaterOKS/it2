@@ -32,7 +32,7 @@ dropdown7El.innerHTML="kapittel 7 - 10";
 var dropdown7HoverEl = document.createElement("div");
 dropdown7HoverEl.className="dropdown-content7";
 /* legg til alle med løkke*/
-var array7 = ["kap_7_1", "kap_7_2", "kap_7_3", "kap_7_4", "kap_7_eksempel", "kap_7_eksempel_script", "repOppgaveKap7", "kap_8_1", "kap_8_2", "kap_8_2_Ekstra", "kap_8_3", "kap_8_4","steinSaksPapir", "SSSspill", "kap_10_1", "kap_10_2", "kap_10_3", "oppg10_4", "skjema","notat", "montyHall", "montyHallEkstra", "oppgaver", "losningsforslag"];
+var array7 = ["kap_7_1", "kap_7_2", "kap_7_3", "kap_7_4", "kap_7_eksempel", "kap_7_eksempel_script", "repOppgaveKap7", "kap_8_1", "kap_8_2",  "montyHall", "kap_8_2_Ekstra", "montyHallEkstra", "kap_8_3", "kap_8_4","steinSaksPapir", "SSSspill", "kap_10_1", "kap_10_2", "kap_10_3", "oppg10_4", "skjema","notat", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array7.length; i++){
   var lenke7El = document.createElement("a");
   lenke7El.href=array7[i]+".html";
