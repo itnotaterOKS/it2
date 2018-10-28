@@ -35,7 +35,7 @@ dropdown7HoverEl.className="dropdown-content7";
 var array7 = ["kap_7_1", "kap_7_2", "kap_7_3", "kap_7_4", "kap_7_eksempel", "kap_7_eksempel_script", "repOppgaveKap7", "kap_8_1", "kap_8_1_oppg84", "kap_8_2", "kap_8_2_Ekstra", "kap_8_3", "kap_8_4","kap_10_1", "kap_10_2", "kap_10_3", "oppg10_4", "skjema", "montyHall", "montyHallEkstra", "steinSaksPapir", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array7.length; i++){
   var lenke7El = document.createElement("a");
-  lenke7El.href="kap7_10/"+array7[i]+".html";
+  lenke7El.href="it2/kap7_10/"+array7[i]+".html";
   lenke7El.innerHTML=array7[i];
   dropdown7HoverEl.appendChild(lenke7El);
 }
