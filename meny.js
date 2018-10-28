@@ -15,7 +15,7 @@ dropdown2HoverEl.className="dropdown-content2";
 var array2 = ["kap_1_3", "kap_2_1", "kap_2_2", "kap_2_3", "kap_3_1", "kap_3_1_rep", "kap_3_2", "kap_3_2_rep", "kap_4_1_2", "kap_4_1_2_rep", "kap_4_3", "kap_4_4_5","zellers_algoritme", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array2.length; i++){
   var lenke2El = document.createElement("a");
-  lenke2El.href="../kap2_4/"+array2[i]+".html";
+  lenke2El.href="kap2_4/"+array2[i]+".html";
   lenke2El.innerHTML=array2[i];
   dropdown2HoverEl.appendChild(lenke2El);
 }
@@ -35,7 +35,7 @@ dropdown7HoverEl.className="dropdown-content7";
 var array7 = ["kap_7_1", "kap_7_2", "kap_7_3", "kap_7_4", "kap_7_eksempel", "kap_7_eksempel_script", "repOppgaveKap7", "kap_8_1", "kap_8_1_oppg84", "kap_8_2", "kap_8_2_Ekstra", "kap_8_3", "kap_8_4","kap_10_1", "kap_10_2", "kap_10_3", "oppg10_4", "skjema", "montyHall", "montyHallEkstra", "steinSaksPapir", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array7.length; i++){
   var lenke7El = document.createElement("a");
-  lenke7El.href="../kap7_10/"+array7[i]+".html";
+  lenke7El.href="kap7_10/"+array7[i]+".html";
   lenke7El.innerHTML=array7[i];
   dropdown7HoverEl.appendChild(lenke7El);
 }
@@ -55,7 +55,7 @@ dropdown11HoverEl.className="dropdown-content11";
 var array11 = ["kap_11_1", "kap_11_2", "kap_11_2_forts", "kap_11_3", "bubblesort", "kap_12_1", "kap_12_3", "kap_12_4", "lf_oppg12_11_13", "obligatoriskFelt", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array11.length; i++){
   var lenke11El = document.createElement("a");
-  lenke11El.href="../kap11_12/"+array11[i]+".html";
+  lenke11El.href="kap11_12/"+array11[i]+".html";
   lenke11El.innerHTML=array11[i];
   dropdown11HoverEl.appendChild(lenke11El);
 }
@@ -75,7 +75,7 @@ dropdown14HoverEl.className="dropdown-content14";
 var array14 = ["kap_14_1_2", "kap_14_2_3_4", "kap_16_1", "kap_16_1_oppg", "kap_17_1_2", "kap_17_3", "kap_17_3b", "kap_18_1_2", "hangman_intro", "hangman", "losningTrillebar", "skjemaDiagram", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array14.length; i++){
   var lenke14El = document.createElement("a");
-  lenke14El.href="../kap14_19/"+array14[i]+".html";
+  lenke14El.href="kap14_19/"+array14[i]+".html";
   lenke14El.innerHTML=array14[i];
   dropdown14HoverEl.appendChild(lenke14El);
 }
@@ -95,7 +95,7 @@ dropdown20HoverEl.className="dropdown-content20";
 var array20 = ["pre_kap20", "kap_20_1_2", "kap_20_2_3", "post_kap20", "kap_21_1", "kap_21_2", "kap_21_3", "arvOppgaveBiler", "setOppgaveKalender","rep_canvas", "omPong", "pong", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array20.length; i++){
   var lenke20El = document.createElement("a");
-  lenke20El.href="../kap20_22/"+array20[i]+".html";
+  lenke20El.href="kap20_22/"+array20[i]+".html";
   lenke20El.innerHTML=array20[i];
   dropdown20HoverEl.appendChild(lenke20El);
 }
@@ -115,7 +115,7 @@ dropdownEHoverEl.className="dropdown-contentE";
 var arrayE = ["maloppnaelse", "arbeidEksamensopppgaver", "skjemaer"];
 for(var i = 0; i < arrayE.length; i++){
   var lenkeEEl = document.createElement("a");
-  lenkeEEl.href="../eksamen/"+arrayE[i]+".html";
+  lenkeEEl.href="eksamen/"+arrayE[i]+".html";
   lenkeEEl.innerHTML=arrayE[i];
   dropdownEHoverEl.appendChild(lenkeEEl);
 }
@@ -135,7 +135,7 @@ dropdownNHoverEl.className="dropdown-contentN";
 var arrayN = ["lenkerLokus", "lenkerw3schools"];
 for(var i = 0; i < arrayN.length; i++){
   var lenkeNEl = document.createElement("a");
-  lenkeNEl.href="../nyttig/"+arrayN[i]+".html";
+  lenkeNEl.href="nyttig/"+arrayN[i]+".html";
   lenkeNEl.innerHTML=arrayN[i];
   dropdownNHoverEl.appendChild(lenkeNEl);
 }
