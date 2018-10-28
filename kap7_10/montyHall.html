@@ -3,19 +3,26 @@
 <head>
   <title>Monty Hall</title>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../grid.css">
+	<link rel="stylesheet" type="text/css" href="../stil.css">
   <style>
   body {
     background-color: #323232;
     font-family: "Century Gothic", Arial, sans-serif;
     font-size: 14px;
-    color: #f2f2f2;	
+    color: #f2f2f2;
   }
   img:hover {
     cursor: pointer;
   }
   </style>
-</head>
-<body>
+	</head>
+	<body>
+	<div class="col-12 row header">
+		Monty Hall
+	</div>
+	<script type="text/javascript" src="meny7.js"></script>
+	<div class="innhold">
   <h1>Monty Hall</h1>
   <p>Hvilken dør vil du velge?</p>
   <img id="r" src="media/rod.png" width="227" height="324" alt="Dør">
@@ -32,7 +39,7 @@
   gronnDorEl.addEventListener("click", sjekkDor);
   blaaDorEl.addEventListener("click", sjekkDor);
 
-  var bilDor = Math.floor(Math.random()*3); 
+  var bilDor = Math.floor(Math.random()*3);
  // console.log(bilDor);
 
   function sjekkDor(e){
@@ -62,5 +69,6 @@
   }
 
 </script>
+</div>
 </body>
 </html>

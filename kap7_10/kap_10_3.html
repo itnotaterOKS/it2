@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"> 
-    <title> Skjemaer med JavaScript </title> 
-    <link rel="stylesheet" type="text/css" href="css/undervisning.css">
+	<meta charset="UTF-8">
+    <title> Skjemaer med JavaScript </title>
     <link rel="stylesheet" type="text/css" href="css/skjema.css">
-</head>
-<body>
+		<link rel="stylesheet" type="text/css" href="../grid.css">
+		<link rel="stylesheet" type="text/css" href="../stil.css">
+		</head>
+		<body>
+		<div class="col-12 row header">
+			Kapittel 10
+		</div>
+		<script type="text/javascript" src="meny7.js"></script>
+		<div class="innhold">
 	<h1> html-utgangspunkt </h1>
 	<p> Vi har gjort oppgave 10.1 og har et skjema vi kan bearbeide: </p>
 	<div id="skjema">
 		Skriv inn navn: <input type="text" placeholder="navn" id="navn">
-		Skriv inn telefonnr: <input type="number" min="1" placeholder="12345678" id="tlf"> 
+		Skriv inn telefonnr: <input type="number" min="1" placeholder="12345678" id="tlf">
 		Antall gjester: <select name="gjester" id="ant">
 			<option value="1"> 1 gjest </option>
 			<option value="2"> 2 gjester </option>
@@ -20,8 +26,8 @@
 			<option value="5"> 5 gjester </option>
 			<option value="6"> 6 gjester </option>
 		</select>
-		Frokost?<br> 
-		<input type="radio" name="frokost" id="frokostJa" checked> Ja <br> 
+		Frokost?<br>
+		<input type="radio" name="frokost" id="frokostJa" checked> Ja <br>
 		<input type="radio" name="frokost" id="frokostNei"> Nei<br>
 		Ekstraaktiviteter? <br>
 		<input type="checkbox" name="aktivitet" id="aktBo"> Dagspass Bø Sommarland (300 kr)<br>
@@ -137,5 +143,6 @@
 		}
 
 	</script>
+</div>
 </body>
 </html>
