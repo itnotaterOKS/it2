@@ -40,9 +40,7 @@
   		];
 
   		// bruker en løkke til å skrive ut spørsmålene  med radioknapper (kun ett riktig svar)
-  		var formEl = document.createElement("form");
-  		formEl.method = "post";
-  		formEl.action="/action_page.php";
+  		var formEl = document.createElement("div");
   		for (var i = 0; i < quizArray.length; i++){
   			// presenterer spørsmålet
   			var sporsmalEl  = document.createElement("p");
