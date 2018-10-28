@@ -55,7 +55,7 @@ dropdown11HoverEl.className="dropdown-content11";
 var array11 = ["kap_11_1", "kap_11_2", "kap_11_2_forts", "kap_11_3", "bubblesort", "kap_12_1", "kap_12_3", "kap_12_4", "lf_oppg12_11_13", "obligatoriskFelt", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array11.length; i++){
   var lenke11El = document.createElement("a");
-  lenke11El.href="kap11_12/"+array11[i]+".html";
+  lenke11El.href="it2/kap11_12/"+array11[i]+".html";
   lenke11El.innerHTML=array11[i];
   dropdown11HoverEl.appendChild(lenke11El);
 }
