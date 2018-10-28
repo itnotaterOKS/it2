@@ -92,7 +92,7 @@ dropdown20El.innerHTML="kapittel 20 - 22";
 var dropdown20HoverEl = document.createElement("div");
 dropdown20HoverEl.className="dropdown-content20";
 /* legg til alle med løkke*/
-var array20 = ["pre_kap20", "kap_20_1_2", "kap_20_2_3", "post_kap20", "kap_21_1", "kap_21_2", "kap_21_3", "arvOppgaveBiler", "setOppgaveKalender","rep_canvas", "omPong", "pong", "oppgaver", "losningsforslag"];
+var array20 = ["pre_kap20", "kap_20_1_2", "kap_20_2_3", "post_kap20", "intro_animasjonJs", "kap_21_1", "kap_21_2", "kap_21_3", "arvOppgaveBiler", "setOppgaveKalender","rep_canvas", "omPong", "pong", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array20.length; i++){
   var lenke20El = document.createElement("a");
   lenke20El.href=array20[i]+".html";

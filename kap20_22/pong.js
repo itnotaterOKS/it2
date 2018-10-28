@@ -8,7 +8,7 @@ var pSpiller2 = document.querySelector("#pSpiller2");
 // oppretter poengtellere
 // spiller 1 får poeng når ballen går ut til venstre, spiller 2 ut til høyre
 var poeng1 = 0;
-var poeng2 = 0;	
+var poeng2 = 0;
 
 // oppretter klasse for spillere
 class Spiller {
