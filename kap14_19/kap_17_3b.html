@@ -2,11 +2,17 @@
 <html>
   <head>
     <title>Animasjoner med css</title>
-    <link rel="stylesheet" type="text/css" href="kap_17_3b.css">
-    <link rel="stylesheet" type="text/css" href="css/undervisning.css">
     <meta charset="utf-8">
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="../grid.css">
+    <link rel="stylesheet" type="text/css" href="../stil.css">
+    <link rel="stylesheet" type="text/css" href="kap_17_3b.css">
+    </head>
+    <body>
+    <div class="col-12 row header">
+    Kapittel 17
+    </div>
+    <script type="text/javascript" src="meny14.js"></script>
+    <div class="innhold">
   	<h1> Fra forrige time: animasjoner med css </h1>
   	<p> Brukes blant annet til å gjenta overgangene og sette sammen ulike overganger. </p>
   	<table>
@@ -29,7 +35,7 @@
   		</tr> <tr>
   			<td> animation-duration: </td> <td> Legger inn hvor lang tid animasjonen skal ta </td>
   		</tr> <tr>
-  			<td> animation-delay: </td> <td> Legger inn forsinkelse i animasjonen </td>  		
+  			<td> animation-delay: </td> <td> Legger inn forsinkelse i animasjonen </td>
   		</tr> <tr>
   			<td> animation-iteration-count </td> <td> Hvor mange ganger skal animasjonen gjentas? <br>
   			Heltall eller infinite</td>
@@ -38,7 +44,7 @@
   		</tr> <tr>
   			<td> animation-fill-mode </td> <td> Legger inn hvordan animasjonen skal avsluttes <br>
   			For eksempel forwards: det siste utseendet </td>
-		  </tr>		
+		  </tr>
   	</table>
 
     <h1> Eksempel </h1>
@@ -71,7 +77,7 @@
     &nbsp;&nbsp; }</p>
 
     <div id="animasjon"></div>
-   
+
     <h1> Nytt i dag: animasjoner i kombinasjon med js </h1>
     <p> Når vi styrer animasjoner med JavaScript kan vi både styre animasjonens start til spesielle hendelser og styre animasjonstilstand (går animasjonen eller ikke?) ved hjelp av egenskapen elapsedTime (hvor lenge har animasjonen gått) og egenskapen animationPlayState. Vi kan også legge til elementene som skal animeres ved hjelp av createElement og deretter gi dem klasser slik at ikke alle animasjoner skjer etter samme tid. Vi illustrerer begge deler ved hjelp av to eksempler. </p>
 
@@ -112,7 +118,7 @@
 	&nbsp;&nbsp; var innpakningEl = document.querySelector(".innpakning");<br>
 	Bestemmer så hvor mange bokser vi vil animere at faller <br>
 	&nbsp;&nbsp; var antallBokser = 30;<br>
-	Lager en løkke som oppretter og animerer alle boksene med et tidsintervall for animasjonen<br>	
+	Lager en løkke som oppretter og animerer alle boksene med et tidsintervall for animasjonen<br>
 	&nbsp;&nbsp; for (var i = 0; i < antallBokser; i++) {<br>
 	Legger til boks med klassen animer<br>
   	&nbsp;&nbsp;&nbsp;&nbsp; var nyBoks = document.createElement("div");<br>
@@ -134,10 +140,10 @@
   		nyBoks.className = "animer"; // Her kan også nyBoks.classList.add("animer") brukes
 		nyBoks.style.left = i * 20 + "px";
 		nyBoks.style.animationDelay = i * 0.2 + "s";
-		innpakningEl.appendChild(nyBoks); 
+		innpakningEl.appendChild(nyBoks);
 	}
-	</script> 
-	
+	</script>
+
     <h1> Eksempel 2: Animasjoner som starter avhengig av om andre animasjoner er avsluttet </h1>
     <!--<div class="boks"> </div>
     <div class="sirkel"> </div>-->
@@ -219,5 +225,6 @@
 
 	<h1> Oppgave før pause </h1>
 	<p> Oppgave 17.22 s. 285 </p>
+</div>
   </body>
 </html>

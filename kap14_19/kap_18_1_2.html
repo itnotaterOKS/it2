@@ -2,11 +2,17 @@
 <html>
   <head>
     <title>Animasjoner med css</title>
-    <link rel="stylesheet" type="text/css" href="kap_18_1_2.css">
-    <link rel="stylesheet" type="text/css" href="css/undervisning.css">
     <meta charset="utf-8">
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="../grid.css">
+    <link rel="stylesheet" type="text/css" href="../stil.css">
+    <link rel="stylesheet" type="text/css" href="kap_18_1_2.css">
+    </head>
+    <body>
+    <div class="col-12 row header">
+    Kapittel 18
+    </div>
+    <script type="text/javascript" src="meny14.js"></script>
+    <div class="innhold">
   	<h1> Så langt: </h1>
   	<p> Grid gir oss mulighet til å plassere elementer der vi vil ha dem på en nettside <br>
   	Transitions gir oss mulighet til å lage enkle overganger mellom css-verdier <br>
@@ -60,7 +66,7 @@
 	&nbsp;&nbsp; #punktforflytt{<br>
 	&nbsp;&nbsp;&nbsp;&nbsp; background-color: orange;<br>
 	&nbsp;&nbsp;&nbsp;&nbsp; width: 400px;<br>
-	&nbsp;&nbsp;&nbsp;&nbsp; height: 200px;<br>	
+	&nbsp;&nbsp;&nbsp;&nbsp; height: 200px;<br>
 	&nbsp;&nbsp;&nbsp;&nbsp; transform: skew(30deg);<br>
 	&nbsp;&nbsp; }<br>
 	&nbsp;&nbsp; #samlet{<br>
@@ -70,7 +76,7 @@
 	&nbsp;&nbsp;&nbsp;&nbsp; transform: translate(800px, -40px) scale(2, 0.8) rotate(20deg);<br>
 	&nbsp;&nbsp; }</p>
 
-  	<div id="flytt"></div>  		
+  	<div id="flytt"></div>
   	<div id="skaler"></div>
   	<div id="roter"></div>
   	<div id="punktforflytt"></div>
@@ -132,7 +138,7 @@
 	<p> Transformasjoner kan skje om tre akser. Dette kalles 3D-transformasjoner. <br>
 	Lager først et element å rotere: setter inn skrift for å illustrere rotasjonen: <br>
 	< div class="boks3D" > Se på dette! < / div > </p>
-	
+
 	<div class="boks3D"> <p>Se på dette!</p> </div>
 	<p> Rotasjon om x: <br>
 	&nbsp;&nbsp; transform: rotateX(180deg); </p>
@@ -162,6 +168,6 @@
 	Side 290-291: Se på kodeeksempel 18.2, oppgave 18.4, 18.5 <br>
 	Side 292-293: Se på kodeeksempel 18,4, oppgave 18.7, 18.8 <br>
 	Evt jobbe med øveoppgaver (ligger på its)</p>
-
+</div>
   </body>
 </html>

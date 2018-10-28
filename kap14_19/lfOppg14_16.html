@@ -2,10 +2,16 @@
 <html>
   <head>
     <title>Canvaselementet</title>
-    <link rel="stylesheet" type="text/css" href="css/undervisning.css">
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../grid.css">
+    <link rel="stylesheet" type="text/css" href="../stil.css">
   </head>
   <body>
+    <div class="col-12 row header">
+    Kapittel 14-16
+    </div>
+    <script type="text/javascript" src="meny14.js"></script>
+    <div class="innhold">
     <h1> Oppgaven </h1>
     <p> Lag en funksjon som tar inn et datasett fra et skjema og tegner et sektordiagram. Skjemaet kan gjerne lages ved å bruke arrays/objects. </p>
 
@@ -46,7 +52,7 @@
       &nbsp;&nbsp; // funksjonen når knappen klikkes<br>
       &nbsp;&nbsp; function lagDiagram(){<br>
       &nbsp;&nbsp;&nbsp;&nbsp; var aktiviteter = document.querySelectorAll("input");<br>
-  
+
       &nbsp;&nbsp;&nbsp;&nbsp; // sjekker om antall timer totalt er 24<br>
       &nbsp;&nbsp;&nbsp;&nbsp; var sumTimer = 0;<br>
       &nbsp;&nbsp;&nbsp;&nbsp; for(var i = 0; i < aktiviteter.length; i++){<br>
@@ -73,7 +79,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp; var cX = canvas1.width/3;<br>
       &nbsp;&nbsp;&nbsp;&nbsp; var cY = canvas1.height/2;<br>
       &nbsp;&nbsp;&nbsp;&nbsp; var radius = 150;<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; var forrigeSlutt = 0;<br><br> 
+      &nbsp;&nbsp;&nbsp;&nbsp; var forrigeSlutt = 0;<br><br>
 
       &nbsp;&nbsp;&nbsp;&nbsp; for (var i = 0; i < info.length; i++) {<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var sektorSlutt = forrigeSlutt + info[i].sektor;<br>
@@ -81,7 +87,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx1.beginPath();<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx1.arc(cX, cY, radius, forrigeSlutt, sektorSlutt);<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx1.lineTo(cX, cY);<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx1.fillStyle = "hsl("+i*50 +" , 70%, 50%)";<br> 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx1.fillStyle = "hsl("+i*50 +" , 70%, 50%)";<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx1.fill();<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx1.closePath();<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; // Oppdaterer variabelen forrigeSlutt<br>
@@ -94,6 +100,6 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ctx1.fillText(info[i].akt + "(" + info[i].verdi + ")", tekstStartX, tekstStartY); <br>
       &nbsp;&nbsp;&nbsp;&nbsp; }<br>
       &nbsp;&nbsp; }<br>
-
+    </div>
   </body>
 </html>
