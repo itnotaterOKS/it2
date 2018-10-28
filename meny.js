@@ -15,7 +15,7 @@ dropdown2HoverEl.className="dropdown-content2";
 var array2 = ["kap_1_3", "kap_2_1", "kap_2_2", "kap_2_3", "kap_3_1", "kap_3_2", "kap_4_1_2", "kap_4_3", "kap_4_4_5", "kap_4", "zellers_algoritme", "primtall", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array2.length; i++){
   var lenke2El = document.createElement("a");
-  lenke2El.href="https://itnotateroks.github.io/it2/kap2_4/"+array2[i]+".html";
+  lenke2El.href="kap2_4/"+array2[i]+".html";
   lenke2El.innerHTML=array2[i];
   dropdown2HoverEl.appendChild(lenke2El);
 }
@@ -55,7 +55,7 @@ dropdown11HoverEl.className="dropdown-content11";
 var array11 = ["kap_11_1", "kap_11_2", "kap_11_2_forts", "kap_11_3", "bubblesort", "kap_12_1", "kap_12_3", "kap_12_4", "lf_oppg12_11_13", "obligatoriskFelt", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array11.length; i++){
   var lenke11El = document.createElement("a");
-  lenke11El.href="it2/kap11_12/"+array11[i]+".html";
+  lenke11El.href="kap11_12/"+array11[i]+".html";
   lenke11El.innerHTML=array11[i];
   dropdown11HoverEl.appendChild(lenke11El);
 }
