@@ -5,14 +5,88 @@
 	<title> Løsningsforslag </title>
 	<link rel="stylesheet" type="text/css" href="../grid.css">
 	<link rel="stylesheet" type="text/css" href="../stil.css">
+	<link rel="stylesheet" type="text/css" href="losningsforslag.css">
 </head>
 <body>
 	<div class="col-12 row header">
-	Oppgaver
+		Løsningsforslag
 	</div>
 	<script type="text/javascript" src="meny7.js"></script>
 	<div class="innhold">
-    <p> Løsningsforslag til ekstraoppgaver fra kapittel 7 - 10 legges snart ut her. </p>
+		<p> Åpne kildekoden (ctrl+u) for å se koden for oppgavene </p>
+
+		<h2> Oppgave 1 </h2>
+		<p id="tekst1"> Trykk på meg! </p>
+		<p id="tekst2"> Trykk på meg! </p>
+		<script>
+			var tekst1El = document.querySelector("#tekst1");
+			var tekst2El = document.querySelector("#tekst2");
+			tekst1El.addEventListener("click", endreTekst1);
+			function endreTekst1(){
+				tekst1El.innerHTML = "Hyggelig at du klikket på meg!";
+				tekst1El.removeEventListener("click", endreTekst1);
+				tekst1El.style.cursor="auto";
+				tekst2El.addEventListener("click", endreFarge1);
+			}
+			function endreFarge1(){
+				tekst1El.setAttribute("class", "klasse1");
+				tekst2El.removeEventListener("click", endreFarge2);
+				tekst2El.addEventListener("click", endreFarge3)
+			}
+			function endreFarge2(){
+				tekst1El.setAttribute("class", "klasse2");
+				tekst2El.removeEventListener("click", endreFarge3);
+				tekst2El.addEventListener("click", endreFarge4)
+			}
+			function endreFarge3(){
+				tekst1El.setAttribute("class", "klasse3");
+				tekst2El.removeEventListener("click", endreFarge3);
+				tekst2El.addEventListener("click", endreFarge4)
+			}
+			function endreFarge4(){
+				tekst1El.setAttribute("class", "klasse4");
+				tekst2El.removeEventListener("click", endreFarge3);
+				tekst2El.addEventListener("click", endreTekst2)
+			}
+			function endreTekst2(){
+				tekst2El.innerHTML = "Nå er det nok!";
+				tekst1El.removeEventListener("click", endreTekst2);
+				tekst2El.style.cursor="auto";
+			}
+		</script>
+
+		<h2> Oppgave 2 </h2>
+		<p id="tekst">Se hva som skjer </p>
+	 	<script>
+     var tekstEl = document.querySelector("#tekst");
+     tekstEl.addEventListener("mouseover", over);
+     tekstEl.addEventListener("mouseout", utenfor);
+     function over(){
+       tekstEl.innerHTML="over";
+     }
+     function utenfor(){
+       tekstEl.innerHTML="utenfor";
+     }
+   </script>
+
+	 <h2> Oppgave 3 </h2>
+	 <div id="oppgaven">
+		Hva er sidekantene i kvadratet? <input type="number" min=0 placeholder="sidekant i cm" id="kvadratS">
+	  <p id="svarKvadrat"></p>
+	  Hva er lengden i rektangelet? <input type="number" min=0 placeholder="lengde i cm" id="rektangelL">
+	  Hva er bredden i rektangelet? <input type="number" min=0 placeholder="bredde i cm" id="rektangelB">
+	  <p id="svarRektangel"></p>
+	  Hva er radius i sirkelen? <input type="number" min=0 placeholder="radius i cm" id="sirkelR">
+	  <p id="svarSirkel"></p>
+	  <button id="send"> Beregn omkrets og areal </button>
+	  </div>
+	  <script src="oppgave3.js"></script>
+
+		<h2> Oppgave 4 </h2>
+		<div id="quizen">
+    	<p id="start"> Klikk for å starte quizen </p>
+  	</div>
+		<script src="oppgave4.js"></script>
   </div>
 </body>
 </html>

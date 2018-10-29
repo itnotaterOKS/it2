@@ -1,0 +1,45 @@
+.klasse1{
+	background-color: red;
+}
+.klasse2{
+	background-color: blue;
+}
+.klasse3{
+	background-color: orange;
+}
+.klasse4{
+	background-color: green;
+}
+#tekst1, #tekst2{
+	font-size: 200%;
+	width: 30%;
+	cursor: pointer;
+}
+#tekst{
+ font-size: 200%;
+ width: 20%;
+ cursor: pointer;
+ background-color: orange;
+}
+input{
+	display: block;
+}
+#oppgaven{
+	width: 50%;
+	margin-left: 25%;
+	background-color: lightblue;
+	color: navy;
+	font-size: 150%;
+	font-family: "Courier New", Courier, monospace;
+}
+#quizen{
+	background-color: #99ff99;
+	color:  #001a00;
+	width: 70%;
+	margin-left: 15%;
+	font-size: 150%;
+	font-family: "Courier New", Courier, monospace;
+}
+#send1, #send2, #send3, #send4, #send5{
+	cursor: pointer;
+}
