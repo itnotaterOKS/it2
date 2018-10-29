@@ -12,7 +12,133 @@
 	</div>
 	<script type="text/javascript" src="meny2.js"></script>
 	<div class="innhold">
-    <p> Løsningsforslag til ekstraoppgaver fra kapittel 2 - 4 legges snart ut her. </p>
+		<p> Åpne kildekoden (ctrl+u) for å se koden for oppgavene<br>
+		Det kommer flere løsningsforslag her innen kort tid. </p>
+		<h1> Løsning kom-i-gang-oppgaver</h1>
+		<script>
+			// oppgave 4
+			var var1 = "Hello world";
+			var var2 = "14";
+			var var3 = 4;
+			var var4 = 3.14;
+			var var5 = Math.PI;
+			console.log(typeof(var1), typeof(var2), typeof(var3), typeof(var4), typeof(var5));
+			console.log(var1.length, var2.length);
+
+			// oppgave 5
+			var var1 = 5;
+			var var2 = "fem";
+			var var3 = Math.PI;
+			var var4 = 13;
+			var var5 = 7;
+			document.write((var1 + var2) + "<br>");
+			document.write((var1 * var2) + "<br>");
+			document.write((var3 + var4) + "<br>");
+			document.write((var5 - var4) + "<br>");
+			document.write((var4 / var5) + "<br>");
+		</script>
+
+		<h1> Løsning repetisjonsoppgaver </h1>
+		<script>
+
+
+  		// sammenlikningsoperatorer
+  		var a = 10;
+  		var b = 5;
+  		var c = '10';
+  		var d  = 2;
+
+  		//1
+  		console.log(a == c);
+  		//2
+  		console.log(c !== a);
+  		//3
+  		console.log((b+d) >= a);
+  		//4
+  		console.log(b > a && d<b);
+  		//5
+  		console.log(b>a || d<b);
+  		//6
+  		console.log(a % d==1);
+  		//7
+  		console.log(!(a+2 >= c));
+  		//8
+  		console.log(!(a % 3 < d && b % 3 == d));
+
+  		// if-setninger
+  		//a
+  		var tallA = Math.floor(Math.random()*101);
+  		if(tallA%2==0){
+  			console.log(tallA + ' er et partall');
+  		}
+  		else{
+  			console.log(tallA + ' er et oddetall');
+  		}
+  		//b
+  		tallB = Math.floor(Math.random()*101);
+  		if(tallB%2==0 && tallB%15==0){
+  			console.log(tallB + ' er et partall og delelig med 3 og 5');
+  		}
+  		else if(tallB%2==0 && tallB%3==0){
+  			console.log(tallB + ' er et partall og delelig med 3');
+  		}
+  		else if(tallB%2==0 &&tallB%5==0){
+  			console.log(tallB + ' er et partall og delelig med 5');
+  		}
+  		else if(tallB%2==0){
+  			console.log(tallB + ' er et partall');
+  		}
+  		else if(tallB%2==1 && tallB%15==0){
+  			console.log(tallB + ' er et oddetall og delelig med 3 og 5');
+  		}
+  		else if(tallB%2==1 && tallB%3==0){
+  			console.log(tallB + ' er et oddetall og delelig med 3');
+  		}
+  		else if(tallB%2==1 &&tallB%5==0){
+  			console.log(tallB + ' er et oddetall og delelig med 5');
+  		}
+  		else{
+  			console.log(tallB + ' er et oddetall');
+  		}
+
+  		//c
+  		var tallC = Math.floor(Math.random()*501) + 500;
+  		if(tallC >= 750 || tallC%100==0){
+  			console.log(tallC + ' er større eller lik 750, eller delelig med 100');
+  		}
+  		else{
+  			console.log(tallC + ' er mindre 750 og ikke delelig med 100');
+  		}
+
+      //sammensatt oppgave
+      var a = 'Det skjer helt garantert!';
+      var b = 'Ikke regn med det';
+      var c = 'Det er sannsynlig';
+      var d = 'Jeg ville ikke hatt for store forventninger';
+      var e = 'Kanskje neste år';
+      var f = 'Jeg har trua';
+
+      var tallD = Math.floor(Math.random()*6)+1;
+      console.log(tallD);
+      if (tallD == 1){
+        document.write(a);
+      }
+      else if (tallD == 2){
+        document.write(b);
+      }
+      else if (tallD == 3){
+        document.write(c);
+      }
+      else if (tallD == 4){
+        document.write(d);
+      }
+      else if (tallD == 5){
+        document.write(e);
+      }
+      else if (tallD == 6){
+        document.write(f);
+      }
+    </script>
   </div>
 </body>
 </html>

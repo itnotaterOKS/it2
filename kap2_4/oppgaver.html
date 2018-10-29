@@ -12,7 +12,169 @@
 	</div>
 	<script type="text/javascript" src="meny2.js"></script>
 	<div class="innhold">
-    <p> Ekstraoppgaver fra kapittel 2 - 4 legges snart ut her. </p>
+		<h1> Kom-i-gang-oppgaver variabler </h1>
+		<p> I oppgavene vil du, i tillegg til å behandle variabler, få bruk for metodene document.write, console.log, type of og length. Hvis du er usikker på disse kan du besøke w3schools.com</p>
+		<h2> Oppgave 1 </h2>
+		<p> Lag et HTML-dokument med alt det nødvendige. I dette skal du svare på alle oppgaver (du kan bruke intern < script >). Ikke bruk autocomplete-utvidelser</p>
+		<h2> Oppgave 2 </h2>
+		<p> Lag et script som</p>
+		<ul>
+			<li> Lagrer variablene fornavn, etternavn og favorittaktivitet med tekstverdier </li>
+			<li> Skriver ut på siden en personlig tekst av typen «Ola Nordmann liker å gå på ski» ved å bruke variablene</li>
+		</ul>
+		<h2> Oppgave 3 </h2>
+		<p> Lag et script som</p>
+		<ul>
+			<li> Lagrer variabelen alder med en tallverdi</li>
+			<li> Skriver til konsollen hvilket år personen er født (du kan ta utgangspunkt i at personen har hatt bursdag i år)</li>
+		</ul>
+		<h2> Oppgave 4 </h2>
+		<p> Lag et script som</p>
+		<ul>
+			<li> Oppretter de fem variablene <ol>
+      	<li> var var1 = "Hello world";</li>
+      	<li> var var2 = "14";</li>
+      	<li> var var3 = 4;</li>
+      	<li> var var4 = 3.14;</li>
+      	<li> var var5 = Math.PI;</li>
+			</ol></li>
+ 		<li> Sjekker datatypen til de fem variablene i konsollen</li>
+		<li> Sjekker lengden til de to første variablene i konsollen</li>
+	 	</ul>
+		<h2> Oppgave 5 </h2>
+		<p> Lag et script som </p>
+		<ul>
+			<li> Oppretter de fem variablene <ol>
+	      <li> var var1 = 5;</li>
+	      <li> var var2 = "fem";</li>
+	      <li> var var3 = Math.PI;</li>
+	      <li> var var4 = 13;</li>
+	      <li> var var5 = 7;</li>
+			</ol></li>
+	 	<li> Utfører regneoperasjonene under og skriv resultatet til nettsiden <ol>
+	      <li>var1 + var2 (document.write((var1 + var2) + "< br >");</li>
+	      <li>var1 * var2</li>
+	      <li>var3 + var4</li>
+	      <li>var5 – var4</li>
+	      <li>var4 / var5</li>
+			</ol> </li>
+		</ul>
+	 	<h2> Oppgave 6 </h2>
+		<p> Lag et script som </p>
+		<ul>
+			<li> Oppretter en variabel med teksten «Nå har jeg lært mye om variabler, men jeg vil lære mer»</li>
+			<li> Gjør om hele teksten til store bokstaver</li>
+			<li> Gjør om hele teksten til små bokstaver </li>
+	 		<li> Finner ut hvilken plass i teksten bokstaven y har</li>
+		</ul>
+
+		<h1> Ekstraoppgaver løkker </h1>
+		<h2> Oppgave 1 </h2>
+		<p> Lag en while-løkke der du trekker et tilfeldig tall mellom 1 og 10. Du kan for eksempel kalle variabelen for vinner. Dersom tallet som trekkes ikke er lik 10 (vinner !== 10) skal teksten «du vant ikke!» vises. Ellers skal teksten "du vant!" vises.</p>
+		<h2> Oppgave 2</h2>
+		<p> Lag en while-løkke der du kaster en terning (dvs lager et tilfeldig tall mellom 1 og 6). Opprett variabelen terningSum=0 og sett som betingelse at løkken kjører så lenge terningSum < 50. Så lenge betingelsen er oppfylt skal koden i løkken summere tallene fra terningen: terningSum=terningSum+tilfeldigTall og skrive ut en tekst sammen med resultatet av terningSum.</p>
+		<h2> Oppgave 3 </h2>
+		<p> Lag en while-løkke som viser verdien til variabelen i. Definer telleren var i = 10  og sett betingelsen til i < 30. La tellevariabelen øke med én for hver kjøring av løkken. <br>
+		a) Hva skjer dersom du endrer betingelsen til i <= 30?<br>
+		b) Hva skjer hvis du endrer slik at tellevariabelen øker med to?</p>
+		<h2> Oppgave 4 </h2>
+		<p> Lag en for-løkke som gir ut 8-gangeren fra gangetabellen</p>
+		<h2> Oppgave 5 </h2>
+		<p> Lag en for-løkke som gir ut<br>
+		a) alle tall fra 10 til 1 i synkende rekkefølge<br>
+		b) de 50 første positive partallene, sortert i stigende rekkefølge<br>
+		c) summen av alle tall fra 1 til 1000 (skriv kun ut summen til skjermen)</p>
+		<h2> Oppgave 6 </h2>
+		<p> Skriv ut den store gangetabellen ved hjelp av en dobbel for-løkke </p>
+		<h2> Oppgave 7 </h2>
+		<p> Lag en for-løkke som gir ut de 10 første fibonaccitallene</p>
+
+		<h1> Repetisjonsoppgaver kapittel 2 - 4 </h1>
+		<p> Kommentar til oppgavene: <br>
+		Alle variabler skal få verdier dere setter i scriptet (ingen bruk av brukerinput). Dersom det står «skriv til konsollen» skal metoden console.log brukes. Dersom det står «skriv til siden» skal metoden document.write brukes. </p>
+
+		<h2> Oppgave 1: variabler</h2>
+		<p> a)Lag script der du lagrer variablene lengde, bredde og høyde for en kasse og bruker disse til å regne ut kassens areal og volum. Kjør koden for ulike verdier av variablene. Skriv resultatet til konsollen.<br>
+		b) Lag et script der du lagrer to positive tall som variabler. Det ene tallet skal være grunnlinjen i en trekant og det andre tallet skal være trekantens høyde. Programmet skal regne ut arealet av trekanten. Skriv resultatet til konsollen.<br>
+		c) Lag et script der du lagrer valutakursene NOK/GBP, NOK/EUR og NOK/USD (bruk f.eks  10.87, 9.72 og 8.23) som konstanter og tre ulike beløp i NOK som variabler. Bruk disse til å regne ut prisene i GBP, EUR og USD. Skriv disse prisene til nettsiden.<br>
+		d) Bruk w3schools til å bli kjent med metoden Math.random(). Generer to tilfeldige heltall mellom 0 og 10 og logg disse til konsollen.<br>
+		e) Lag et script der du lagrer to tilfeldige tall til variablene tall1 og tall2, tall1 mellom 10 og 20 og tall2 mellom 0 og 10. Løs deretter regnestykkene og skriv resultatet på siden (på formen 11 + 3 = 14, dvs både regnestykket og svaret)<br>
+		<ul>
+			<li> tall1 + tall2 </li>
+			<li> tall1 – tall2 </li>
+			<li> tall1 / tall2 </li>
+			<li> tall1 * tall2 </li>
+			<li> tall1 % tall2 </li>
+		</ul>
+		Hvilken regneoperasjon utfører %-operatoren?</p>
+		<h2> Oppgave 2: Sammenlikningsoperatorer/if-setninger</h2>
+		<p> a) Hva forventer du at skal skrives til konsollen (true eller false) i disse tilfellene?<br>
+		Her er var a = 10, var b = 5, var c = ‘10’ og var d = 2</p>
+		<ol>
+			<li> console.log(a == c);</li>
+			<li> console.log(c !== a);</li>
+			<li> console.log((b+d) >= a);</li>
+			<li> console.log(b > a && d < b);</li>
+			<li> console.log(b > a || d < b);</li>
+			<li> console.log(a % d == 1);</li>
+			<li> console.log(!(a+2 >= c));</li>
+			<li> console.log(!(a % 3 < d && b % 3 == d));</li>
+		</ol>
+		<p> b) Skriv uttrykkene til konsollen og se om det stemmer med a)<br>
+		c) Lag et script der du lagrer et tilfeldig tall mellom 1 og 100 til en variabel. Scriptet skal sjekke om tallet er et partall eller et oddetall og skrive resultatet til konsollen på formen «tallet 6 er et partall».<br>
+		d) Lag et script der en tilfeldig alder mellom 0 og 100 år lagres i en variabel. Programmet skal avgjøre om brukeren kan kjøre sparkesykkel (ingen aldersgrense), moped (aldersgrense 16 år) eller bil (aldersgrense 18 år). Skriv resultatet til nettsiden på formen «Du er er 20 år. Du kan kjøre bil, moped og sparkesykkel».</p>
+		<h2> Oppgave 3: Sammenlikningsoperatorer </h2>
+		<p>	a) Hva forventer du at skal skrives til konsollen i disse tilfellene?<br>
+			Her er a = 10, b = 5, c = ‘10’ og d = 2</p>
+				<ol>
+				<li> console.log(a == c);</li>
+				<li> console.log(c !== a);</li>
+				<li> console.log((b+d) >= a);</li>
+				<li> console.log(b > a && d < b);</li>
+				<li> console.log(b > a || d < b);</li>
+				<li> console.log(a % d == 1);</li>
+				<li> console.log(!(a+2 >= c));</li>
+				<li> console.log(!(a % 3 < d && b % 3 == d));</li>
+			</ol>
+		<p> b) Skriv uttrykkene til konsollen og se om det stemmer </p>
+		<h2> Oppgave 4: If-setninger </h2>
+		<p> a) Skriv kode som genererer et tilfeldig tall mellom 0 og 100 og sjekker om det det er et partall eller oddetall.<br>
+		b)	Skriv kode som genererer et tilfeldig tall mellom 0 og 100 og sjekker om det er et partall eller oddetall OG om det er delelig med tre og fem.<br><br>
+		Eksempel:<br>
+		Dersom tallet er 45 skal det returneres ‘Tallet er et oddetall og er delelig med 3 og 5.’<br>
+		Dersom tallet er 42 skal det returneres ‘Tallet er et partall og er delelig med 3.’<br><br>
+		c)	Skriv kode som genererer et tilfeldig tall mellom 500 og 1000 (obs! ikke bruk integrerte metoder i JavaScript, bruk Math.random() osv som før) og sjekker om tallet er større eller lik 750 ELLER om det er delelig med 100.<br><br>
+		Eksempel:<br>
+		Dersom tallet er 699 skal det returneres ‘Tallet er mindre enn 750.’<br>
+		Dersom tallet er 700 skal det returneres ‘Tallet er større eller lik 750, eller delelig med 100.’<br>
+		Dersom tallet er 820 skal det returneres ‘Tallet er større eller lik 750, eller delelig med 100.’</p>
+		<h2> Oppgave 5: Sammensatt oppgave </h2>
+		<p> En «Magic 8-ball» er en kule som svarer på typiske ja-/nei-spørsmål, med svar som ‘Ja, garantert’, ‘Ikke regn med det’, ‘Spør senere’ osv. Det vil for eksempel si at vi kan stille spørsmålet ‘Vinner jeg i lotto til helgen’ og få svaret ‘Tviler på det’.<br>
+		Lag din egen tekstbaserte Magic 8-ball som gir opptil 6 ulike svar hver gang brukeren stiller et spørsmål og laster inn siden på nytt.</p>
+
+		<h1> Større oppgaver kapittel 2 - 4 </h1>
+		<h2> Oppgave 1: quiz </h2>
+		<p> Lag et script for en quiz. Quizen skal ha 5 spørsmål og hvert av svarene skal være et navn (fornavn+etternavn). Dere kan for eksempel ta inn svaret via prompt eller som et skjema.</p>
+		<ul>
+			<li> Dersom brukeren svarer feil, skal han få beskjed om at «svaret er feil» før neste spørsmål kommer opp, og få null poeng for spørsmålet.</li>
+			<li> Dersom brukeren har enten riktig fornavn eller riktig etternavn, skal han få beskjed om at «svaret er delvis riktig», og få ett poeng for spørsmålet.</li>
+			<li> Dersom brukeren har både riktig fornavn og riktig etternavn, skal han få beskjed om at «svaret er helt riktig» og få to poeng for spørsmålet.</li>
+		</ul>
+		<p> Til slutt skal brukeren få ut en beskjed om hvor mange poeng som er oppnådd for hele quizen.</p>
+		<h2> Oppgave 2: funksjoner </h2>
+		<p> Lag tre funksjoner:</p>
+		<ul>
+			<li> Funksjonen kvadrat som tar inn siden til en side i kvadratet og beregner omkretsen og arealet av kvadratet </li>
+			<li> Funksjonen rektangel som tar inn de to sidene i rektangelet og beregner omkretsen og arealet av rektangelet</li>
+			<li> Funksjonen sirkel som tar inn radiusen til en sirkel og beregner omkretsen og arealet av sirkelen. </li>
+		</ul>
+		<p> Lag så et skript der du bruker funksjonene til å beregne arealet av to ulike kvadrater, to ulike rektangler og to ulike sirkler, med valgfrie parametere (dere gir selv verdiene her, i stedet for å ta det inn fra brukeren). Kontroller at parameterne er positive tall. Skriv ut parameterne og svaret på skjermen: <br>
+		f.eks. <i> Sidekantene i et kvadrat er 2 cm. Omkretsen er 8 cm og arealet er 4 cm<sup>2</sup>.</i>.</p>
+		<h2> Oppgave 3: minibank </h2>
+		<p> Lag kode som simulerer uttak fra en minibank. Dere skal først skrive pseudokode for problemet, før dere skriver koden i javascript.<br>
+		Lag først en funksjon for uttak:<br>
+		Funksjonen skal ta inn to parametere: hvor mye penger som finnes på konto og hvor mye brukeren ønsker å ta ut. Dersom brukeren forsøker å ta ut en negativ sum, skal programmet gi tilbake <i>uttaket er mindre enn 0, transaksjon er ikke mulig</i>. Dersom brukeren forsøker å ta ut en sum som er større enn kontostørrelsen, skal programmet gi tilbake <i>beklager, du har ikke dekning for denne transaksjonen</i>. Dersom beløpet er gyldig, skal programmet skrive ut <i>du har XX kroner på konto og vil nå ta ut YY kroner. Resterende sum på konto er ZZ kroner</i>.<br>
+		Lag så et script som tar inn og kjører denne funksjonen. I scriptet skal verdien til de to parameterne bebestemmes av brukeren.</p>
   </div>
 </body>
 </html>
