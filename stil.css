@@ -28,6 +28,10 @@ h1, h2{
   font-size: 80%;
   margin-top: 200px;
 }
+.hjem{
+  width: 7%;
+  float: right;
+}
 /* dropdownmenyen*/
 .dropbtn2, .dropbtn7, .dropbtn11, .dropbtn14, .dropbtn20, .dropbtnE, .dropbtnN {
     background-color: #3399FF;

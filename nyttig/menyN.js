@@ -14,23 +14,12 @@ menyEl.appendChild(lenke2El);
 
 // kap 7 - 10
 var kap7El = document.createElement("div");
-kap7El.className="dropdown7 col-15"
-var dropdown7El = document.createElement("div");
-dropdown7El.className="dropbtn7";
-dropdown7El.innerHTML="kapittel 7 - 10";
-var dropdown7HoverEl = document.createElement("div");
-dropdown7HoverEl.className="dropdown-content7";
-/* legg til alle med løkke*/
-var array7 = ["kap_7_1", "kap_7_2", "kap_7_3", "kap_7_4", "kap_7_eksempel", "kap_7_eksempel_script", "repOppgaveKap7", "kap_8_1", "kap_8_2",  "montyHall", "kap_8_2_Ekstra", "montyHallEkstra", "kap_8_3", "kap_8_4","steinSaksPapir", "SSSspill", "kap_10_1", "kap_10_2", "kap_10_3", "skjema","notat", "oppgaver", "losningsforslag"];
-for(var i = 0; i < array7.length; i++){
-  var lenke7El = document.createElement("a");
-  lenke7El.href=array7[i]+".html";
-  lenke7El.innerHTML=array7[i];
-  dropdown7HoverEl.appendChild(lenke7El);
-}
-dropdown7El.appendChild(dropdown7HoverEl);
-kap7El.appendChild(dropdown7El);
-menyEl.appendChild(kap7El);
+kap7El.className ="dropbtn7 col-15";
+kap7El.innerHTML = "kapittel 7 - 10";
+var lenke7El = document.createElement("a");
+lenke7El.href="../kap7_10/index.html";
+lenke7El.appendChild(kap7El);
+menyEl.appendChild(lenke7El);
 
 // kap 11-12
 var kap11El = document.createElement("div");
@@ -70,11 +59,22 @@ menyEl.appendChild(lenkeEEl);
 
 // nyttig
 var nyttigEl = document.createElement("div");
-nyttigEl.className ="dropbtnN col-15";
-nyttigEl.innerHTML = "nyttig tillegsstoff";
-var lenkeNEl = document.createElement("a");
-lenkeNEl.href="../nyttig/index.html";
-lenkeNEl.appendChild(nyttigEl);
-menyEl.appendChild(lenkeNEl);
+nyttigEl.className="dropdownN col-15"
+var dropdownNEl = document.createElement("div");
+dropdownNEl.className="dropbtnN";
+dropdownNEl.innerHTML="nyttig tilleggsstoff";
+var dropdownNHoverEl = document.createElement("div");
+dropdownNHoverEl.className="dropdown-contentN";
+/* legg til alle med løkke*/
+var arrayN = ["lenkerLokus", "lenkerw3schools"];
+for(var i = 0; i < arrayN.length; i++){
+  var lenkeNEl = document.createElement("a");
+  lenkeNEl.href="../nyttig/"+arrayN[i]+".html";
+  lenkeNEl.innerHTML=arrayN[i];
+  dropdownNHoverEl.appendChild(lenkeNEl);
+}
+dropdownNEl.appendChild(dropdownNHoverEl);
+nyttigEl.appendChild(dropdownNEl);
+menyEl.appendChild(nyttigEl);
 
 bodyEl.appendChild(menyEl);
