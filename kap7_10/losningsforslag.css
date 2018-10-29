@@ -16,10 +16,10 @@
 	cursor: pointer;
 }
 #tekst{
- font-size: 200%;
- width: 20%;
- cursor: pointer;
- background-color: orange;
+	font-size: 200%;
+	width: 20%;
+	cursor: pointer;
+	background-color: orange;
 }
 input{
 	display: block;
