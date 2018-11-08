@@ -12,7 +12,111 @@
 	</div>
 	<script type="text/javascript" src="meny11.js"></script>
 	<div class="innhold">
-    <p> Ekstraoppgaver fra kapittel 11 - 12 legges snart ut her. </p>
+		<p> Oppgavene er tredelt etter vanskegrad, i tillegg er det en litt større oppsummerende oppgave. Jeg anbefaler at dere både gjør oppgaver på det nivået der dere står i dag og det nivået dere sikter etter på prøven.</p>
+		<h1> Grunnleggende oppgaver</h1>
+		<p> a) Lag en array med 7 tilfeldige tall mellom 1 og 10<br>
+		Bruk en løkke sammen med if-setninger til å finne det minste tallet i arrayen<br>
+		Bruk en løkke sammen med if-setninger til å finne det største tallet i arrayen<br><br>
+		b) Definer en array med fem forskjellige matvarer<br>
+		Skriv kode som logger den tredje matvaren i arrayen til konsollen.<br>
+		Skriv kode som fjerner den siste matvaren fra arrayen.<br>
+		Skriv kode som fjerner den andre matvaren fra arrayen.<br>
+		Skriv kode som legger til tre nye matvarer i arrayen (du velger selv plassering i arrayen).<br>
+		Skriv kode som viser hvor mange matvarer du har i arrayen.<br>
+		Sorter matvarene alfabetisk ved bruk av en innebygget funksjon.<br><br>
+		c) Oppgaver i boka på grunnleggende nivå: <br>
+		s. 190: oppgave 12.1, 12.2<br>
+		s. 191: oppgave 12.3<br>
+		s. 192: oppgave 12.4, 12.5<br>
+		s. 193: oppgave 12.6, 12.7<br>
+		s. 195: oppgave 12.8, 12.9<br>
+		s. 196: oppgave 12.10 <br><br>
+		d) Utvidelse av quizoppgave i kapittel 12.4:  <br>
+		Implementer din egen quiz  med minst fire spørsmål, med utgangspunkt i koden fra kapittelnotatene. <br>
+		Stilsett nettsiden slik at den ser mer oversiktlig ut. <br>
+		Skriv kode slik at galt svar gir minuspoeng. </p>
+
+		<h1> Middels oppgaver</h1>
+		a) Bubblesortrepetisjon: <br>
+		Lag en array med 7 tilfeldige tall mellom -10 og 10<br>
+		Sorter arrayen i stigende rekkefølge ved å sjekke om tallet er større enn det neste tallet og i såfall bytte plass, uten å bruke noen innebygd funksjon<br><br>
+		Lag en funksjon som tar inn lengden til en array, fyller den med tilfeldige tall og sorterer den ved å sjekke om tallet er mindre enn det forrige og så bytte plass, uten å bruke noen innebygd funksjon<br><br>
+		b) Deklarer en array mineTall med åtte ulike tall.<br>
+		Bruk en løkke for å finne summen av tallene. Logg summen til konsollen.<br>
+		Ta ut det første og det siste tallet i arrayen.<br>
+		Legg til et nytt tall i midten av arrayen. Dette blir det fjerde tallet i arrayet, siden det er 6 igjen etter at du tok ut to tall.<br>
+		Bruk svg til å tegne opp 6 sirkler med 100 piksler mellomrom mellom sentrum av hver sirkel. La sirklene få diameter lik verdiene av tallene i arrayen. Bruk en løkke som går gjennom arrayen når du skal skrive koden<br><br>
+		c) Lag en array som inneholder fire linjer med tre elementer der du lagrer informasjonen<br>
+		Navn &nbsp;&nbsp; Alder &nbsp;&nbsp; Favorittmat (eller annet dersom dere har bedre ideer) til fire ulike personer<br>
+		Skriv ut alderene på en nettside<br>
+		Fjern den andre personen og skriv ut alderene på nytt<br><br>
+		d) Lagre den samme informasjonen som i oppgave c) i objects i kombinasjon med arrays.<br>
+		Skriv ut informasjonen som en tabell på en nettside<br>
+		Fjern den andre personen og skriv ut informasjonen på nytt<br><br>
+		e) Oppgaver i boka på middels nivå: <br>
+		s. 199: oppgave 12.11, 12.12, 12.13<br><br>
+		f) Utvidelse av quizoppgave i kapittel 12.4: <br>
+		Gi bruker en tilbakemelding som er avhengig av antall poeng oppnådd (f.eks. "Du fikk 0 poeng. Det er dårlig").<br>
+		Skriv kode slik at det er obligatorisk å svare på alle spørsmål.<br>
+		Utvid quizen til å ta inn ett svar som nedtrekksmeny (select, option).<br>
+		Utvid quizen til å kunne ha flere riktige svar i ett spørsmål (checkbox).</p>
+
+		<h1>Vanskeligere oppgaver</h1>
+		a) Lag et tre på rad-spill ved å lage en 3x3-array som oppdateres og skriver ut nytt resultat hver gang en brikke blir plassert.<br>
+		Skriv resultatene til en tabell på en nettside der hver celle har en lytter og fylles med enten kryss eller runding.<br><br>
+		b) Lag et HTML-dokument med et tekstfelt og en knapp. Dokumentet skal også inneholde to CSS-klasser, den ene med en rød bakgrunnsfarge og den andre med en grønn bakgrunnsfarge.<br><br>
+		Legg til 6 < p >-elementer. Det første skal brukes til beskjeder som du skal lage med JavaScript senere. De fem neste skal tilhøre en CSS-klasse med grønn bakgrunnsfarge. PS: tomme < p >-elementer uten størrelse blir ikke synlige.<br><br>
+		Lag en array som inneholder et løsningsord. Bokstavene skal utgjøre verdiene i arrayen, slik at første bokstav i løsningsordet har indeks 0, andre har indeks 1, osv.<br>
+		Når en bruker gjetter en bokstav (skriver en bokstav i tekstfeltet og trykker på knappen), skal følgende skje:<br>
+		<ol>
+	 		<li> Alle gjettede bokstaver skal registreres i en array med navnet gjettedeBokstaver. Du kan anta at brukeren alltid skriver inn én bokstav og at hver bokstav er en ny bokstav (brukeren gjetter ikke samme bokstav to ganger).</li>
+		 	<li> Programmet skal sjekke om den gjettede bokstaven er i løsningsordet. Hvis den er det skal bokstaven plasseres i en array med navnet riktigeBokstaver (på riktig posisjon, slik at en bokstav som er på posisjon to i løsningsordet skal havne på posisjon to i riktigeBokstaver). Hvis den ikke er det, skal et av de fargede  < p >-elementene skifte farge til rød (for å indikere at brukeren har brukt opp én sjanse).</li>
+			<li> Programmet skal til enhver tid skrive ut følgende informasjon på nettsiden:
+				<ul>
+		 			<li> antall bokstaver i løsningsordet</li>
+					<li> antall bokstaver gjettet totalt</li>
+					<li> riktige bokstaver så langt</li>
+					<li> en sortert liste over alle gjettede bokstaver</li>
+				</ul></li>
+				<li> Hvis brukeren har gjettet alle bokstavene i løsningsordet, eller alle de fem  < p >-elementene har blitt røde, skal det dukke opp en passende beskjed til brukeren om at spillet er over</li>
+		</ol>
+		c) Utvidelse av quizoppgave i kapittel 12.4:<br>
+		Utvid quizen til å kunne ha tekstsvar på ett spørsmål.<br>
+		Skriv kode slik at ett spørsmål vises av gangen.<br><br>
+		d) Tabellen fra Statistisk sentralbyrå på neste side viser antall levendefødte barn (gutter og jenter) mellom 2006 og 2016. <br><br>
+		Lag en applikasjon som viser data fra perioden 2010-2016 i en tabell. Tabellen skal også inneholde en kolonne som viser totalt antall fødsler, altså summen av gutter og jenter, for hvert år.<br><br>
+		Applikasjonen skal skrive ut en tekst som sier hvilket år som hadde færrest fødsler og hvilket år som hadde flest fødsler. Applikasjonen skal også skrive ut det totale fødselstallet over hele perioden. <br><br>
+		Brukeren skal kunne velge et utvalg som inneholder flere år. Applikasjonen skal skrive ut det totale <br>antallet barn født i de valgte årene. Det vil si at hvis en bruker velger 2010, 2012 og 2013, skal summen av fødslene i de tre årene skrives ut. Brukeren skal altså kunne velge alt fra ett år til alle syv årene.</p>
+		<img src="vedlegg.png" width="70%">
+
+		<h1> Oppgave: kapittel 10, 11, 12 </h1>
+		<p> I tabellen under finner du medaljeoversikten for de 20 landene som fikk flest medaljer i vinter-OL 2014.<br>
+		I denne oppgaven skal du lage en applikasjon som lar brukeren velge et land (du velger selv type inputfelt), og som deretter viser medaljeoversikten til landet (antall gull, antall sølv, antall bronse og antall medaljer til sammen).<br>
+		Applikasjonen skal gi en feilmelding hvis brukeren oppgir et land som ikke er registrert.<br>
+		Du trenger bare å registrere de 5 første landene når du løser denne oppgaven, men det bør være lett å utvide løsningen din med resten av landene i listen.</p>
+		<table>
+			<tr> <th> Land </th><th> Gull </th><th> Sølv </th><th> Bronse</th></tr>
+			<tr> <td> Sør-Korea </td><td> 3 </td><td> 3 </td><td> 2 </td></tr>
+			<tr> <td> Japan </td><td> 1 </td><td> 4 </td><td> 3 </td></tr>
+			<tr><td> Sverige </td><td> 2 </td><td> 7 </td><td> 6 </td></tr>
+			<tr><td> Norge </td><td> 11 </td><td> 5 </td><td> 10 </td></tr>
+			<tr><td> Kina </td><td> 3 </td><td> 4 </td><td> 2 </td></tr>
+			<tr><td> Russland </td><td> 9 </td><td> 3 </td><td> 8 </td></tr>
+			<tr><td> Finland </td><td> 1 </td><td> 3 </td><td> 1 </td></tr>
+			<tr><td> Østerrike </td><td> 4 </td><td> 8 </td><td> 5 </td></tr>
+			<tr><td> USA </td><td> 9 </td><td> 7 </td><td> 12 </td></tr>
+			<tr><td> Hviterussland </td><td> 5 </td><td> 0 </td><td> 1 </td></tr>
+			<tr><td> Canada </td><td> 10 </td><td> 10 </td><td> 5 </td></tr>
+			<tr><td> Storbritannia </td><td> 1 </td><td> 1 </td><td> 2 </td></tr>
+			<tr><td> Sveits </td><td> 6 </td><td> 3 </td><td> 2 </td></tr>
+			<tr><td> Slovenia </td><td> 2 </td><td> 2 </td><td> 4 </td></tr>
+			<tr><td> Frankrike </td><td> 4 </td><td> 4 </td><td> 7 </td></tr>
+			<tr><td> Tsjekkia </td><td> 2 </td><td> 4 </td><td> 2 </td></tr>
+			<tr><td> Tyskland </td><td> 8 </td><td> 6 </td><td> 5 </td></tr>
+			<tr><td> Ukraina </td><td> 1 </td><td> 0 </td><td> 1 </td></tr>
+			<tr><td> Nederland </td><td> 8 </td><td> 7 </td><td> 9 </td></tr>
+			<tr><td> Polen </td><td> 4 </td><td> 1 </td><td> 1 </td></tr>
+		</table>
   </div>
 	<a href="../index.html"><img class="hjem" src="../hjem.png"></a>
 </body>

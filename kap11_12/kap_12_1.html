@@ -13,16 +13,17 @@
   	<script type="text/javascript" src="meny11.js"></script>
   	<div class="innhold">
     	<h1> Hva er forskjellen på arrays og objects? </h1>
-    	<p> I en array henter vi verdiene med å referere til plasseringen deres i arrayen. Det er ingen annen måte å skille mellom verdiene på, og arrays er derfor mest praktisk når vi har flere verdier av samme slag: f.eks. en samling over hele klassens fødselsår, eller hele klassens navn. Dersom vi heller ønsker å lagre flere typer informasjon om én elev i klassen, vil det være upraktisk å bruke arrays fordi vi ikke kan vite (uten å huske fra da vi laget arrayen) om det var fornavn eller etternavn som sto på den første plassen, eller om vi lagret alder eller fødselsår. Det er da objects kommer inn i bildet. <br><br>
-    	I et object er vi ikke interessert i plasseringen til verdien, men hva slags verdi det er. For å vite dette lagrer vi hver enkelt verdi sammen med en nøkkel som sier noe om verdien (tilsvarer assosiative arrays i php):<br>
+    	<p> I en array henter vi verdiene med å referere til plasseringen deres i arrayen. Det er ingen annen måte å skille mellom verdiene på, og arrays er derfor mest praktisk når vi har flere verdier av samme slag: f.eks. en samling over hele klassens fødselsår, eller hele klassens navn. Dersom vi heller ønsker å lagre flere typer informasjon om én elev i klassen, vil det være upraktisk å bruke arrays fordi vi ikke kan vite (uten å huske fra da vi laget arrayen) om det var fornavn eller etternavn som sto på den første plassen, eller om vi lagret alder eller fødselsår. Det er da objects kommer inn i bildet. <br>
+      For de som hadde IT-1 i fjor kan det vi nå kaller arrays i js sammenliknes med indekserte arrays i php, mens objects i js sammenliknes med assosiative arrays i php. <br><br>
+      I et object er vi ikke interessert i plasseringen til verdien, men hva slags verdi det er. For å vite dette lagrer vi hver enkelt verdi sammen med en nøkkel som sier noe om verdien (tilsvarer assosiative arrays i php):<br>
     	&nbsp;&nbsp; var objectVar = {nøkkel1: "verdi1", nøkkel2: "verdi2", osv.}<br>
     	Som et eksempel kan jeg lagre personinfo i et object: <br>
-    	&nbsp;&nbsp; var person = {fnavn: "Asta", enavn: "Fjærli", alder: 27, hobby: "løfte tungt"};<br>
+    	&nbsp;&nbsp; var person = {fnavn: "Asta", enavn: "Fjærli", alder: 28, hobby: "løfte tungt"};<br>
     	Mer oversiktlig er det å skrive <br>
     	&nbsp;&nbsp; var person = {<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
     	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 27, <br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
     	&nbsp;&nbsp;&nbsp;&nbsp; hobby: "løfte tungt"<br>
     	&nbsp;&nbsp; };<br>
     	Som vi ser, kan objectverdiene inneholde både tekst og tall. De kan også inneholde boolske variabler og arrays.</p>
@@ -32,7 +33,7 @@
     	&nbsp;&nbsp; var person = {<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
     	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 27, <br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
     	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["spille fløyte", "løfte tungt", "strikke"] <br>
     	&nbsp;&nbsp; };</p>
 
@@ -40,7 +41,7 @@
     	var person  = {
     		fnavn: "Asta",
     		enavn: "Fjærli",
-    		alder: 27,
+    		alder: 28,
     		hobby: ["spille fløyte", "løfte tungt", "strikke"]
     	}
     	</script>
@@ -56,7 +57,7 @@
      	&nbsp;&nbsp; var person  = {<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta",<br>
    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli",<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 27,<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28,<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["spille fløyte", "løfte tungt", "strikke"]<br>
     	&nbsp;&nbsp; }<br>
     	&nbsp;&nbsp; console.log(person["fnavn"], person.fnavn);<br>
@@ -78,7 +79,7 @@
     	&nbsp;&nbsp; for(var jul in person){<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; console.log(jul);<br>
     	&nbsp;&nbsp; }<br>
-    	returnerer begge alle egenskaper i objectet. Her må vi bruke klammenotasjon for å få ut verdiene. Her kan ikke dot-notasjon brukes. <br>
+    	returnerer begge alle egenskaper i objectet. Her må vi bruke klammenotasjon for å få ut verdiene.<b> Her kan ikke dot-notasjon brukes.</b> <br>
     	&nbsp;&nbsp; for(var egenskap in person){<br>
   	&nbsp;&nbsp;&nbsp;&nbsp; console.log(person[egenskap]);<br>
     	&nbsp;&nbsp; }<br>
@@ -150,7 +151,7 @@
     	&nbsp;&nbsp; var person = {<br>
    	   &nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta Rønning",<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli",<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 27,<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28,<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["korps", "vektløfting", "strikke", "turn"],<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; favorittbok: "Ringdrotten",<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; favorittland: "Island",<br>
@@ -177,7 +178,7 @@
     	var person = {
     		fnavn: "Asta Rønning",
     		enavn: "Fjærli",
-    		alder: 27,
+    		alder: 28,
     		hobby: ["korps", "vektløfting", "strikke", "turn"],
     		favorittbok: "Ringdrotten",
     		favorittland: "Island",
