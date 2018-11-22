@@ -66,7 +66,7 @@ dropdownNEl.innerHTML="nyttig tilleggsstoff";
 var dropdownNHoverEl = document.createElement("div");
 dropdownNHoverEl.className="dropdown-contentN";
 /* legg til alle med løkke*/
-var arrayN = ["lenkerLokus", "lenkerw3schools"];
+var arrayN = ["lenkerLokus", "lenkerw3schools", "multimedieredigeing", "oppsummering"];
 for(var i = 0; i < arrayN.length; i++){
   var lenkeNEl = document.createElement("a");
   lenkeNEl.href="../nyttig/"+arrayN[i]+".html";
