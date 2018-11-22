@@ -71,7 +71,7 @@ menyEl.appendChild(eksamenEl);
 // nyttig
 var nyttigEl = document.createElement("div");
 nyttigEl.className ="dropbtnN col-15";
-nyttigEl.innerHTML = "nyttig tillegsstoff";
+nyttigEl.innerHTML = "nyttig tilleggsstoff";
 var lenkeNEl = document.createElement("a");
 lenkeNEl.href="../nyttig/index.html";
 lenkeNEl.appendChild(nyttigEl);
