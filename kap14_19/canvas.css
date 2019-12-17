@@ -1,0 +1,41 @@
+[class*="col-"]{
+  border:none;
+}
+.ramme{
+	background-color:#8ba2b1;
+}
+.header{
+	background-image: url('kaniner.jpg');
+	background-size: 25%;
+	background-position: center left;
+	background-repeat: no-repeat;
+
+}
+.header h1{
+	color: #607d8f;
+	text-align: right;
+	font-size: 300%
+}
+.lenke{
+	background-color: #8bb1ad;
+	border-radius: 10px;
+	text-align: center;
+}
+.lenke a{
+	text-decoration: none;
+}
+.bilder{
+  height:100%;
+  position: relative;
+}
+.bilde{
+  height: 100%;
+}
+.bilde img{
+	width: 100%;
+  padding: 3px;
+}
+#canvas{
+  border: solid 1px blue;
+  width: 100%;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> Grid med canvas </title>
+        <link rel="stylesheet" type="text/css" href="../grid.css">
+        <link rel="stylesheet" type="text/css" href="../stil.css">
+        <link rel="stylesheet" type="text/css" href="canvas.css">
+  </head>
+  <body>
+    		<div class="col-12 header">
+    		    Eksempel med canvas
+    		</div>
+        <script type="text/javascript" src="meny14.js"></script>
+        <div class="innhold">
+  		  <div class="row lenker">
+      		<div class="col-2"> </div>
+      		<a href="#" target="_blank"><div class="col-2 lenke"> Lenke 1 </div></a>
+      		<div class="col-1"> </div>
+      		<a href="#" target="_blank"><div class="col-2 lenke"> Lenke 2 </div></a>
+      		<div class="col-1"> </div>
+      		<a href="#" target="_blank"><div class="col-2 lenke"> Lenke 3 </div></a>
+      		<div class="col-2"> </div>
+    		</div>
+    		<div class="row bilder">
+    			<div class="col-9 bilde">
+    				<img src="foss.jpg">
+    			</div>
+    			<div class="col-3 bilde">
+            <img src="lundefugl.jpg" id="bunn">
+          </div>
+    		</div>
+    		<div class="row">
+    			<div class="col-2"></div>
+          <div class="col-8">
+            <canvas id="canvas"></canvas>
+          </div>
+          <div class="col-2"></div>
+    		</div>
+    </div>
+      <script>
+      // fikser høyden på kolonne rundt bilde
+      var bildeRadEl = document.querySelector(".bilder");
+      var bildeRaderEl = document.querySelectorAll(".bilde");
+      var radHoyde = bildeRadEl.offsetHeight;
+      console.log(radHoyde);
+      for(i=0; i<bildeRaderEl.length;i++){
+          bildeRaderEl[i].style.height=radHoyde+"px";
+      }
+
+      //flytte bilde nederst i diven
+      var imgEl = document.querySelector("#bunn");
+      imgEl.style.marginTop = radHoyde - imgEl.offsetHeight - 30 + "px"; // 36 pga 2*15 i padding i div og 3 px i img
+      console.log(imgEl.padding);
+
+      // fikser størrelse på canvas
+      var canvasEl = document.querySelector('#canvas');
+      var heightRatio = 0.5; // ønsker at canvaset har forhold 1,5:1
+      canvas.height = canvas.width * heightRatio;
+
+      // tegner i canvas
+      var ctx = canvasEl.getContext("2d");
+      var midX = canvas.width/2;
+      var midY = canvas.height/2
+      if (midX <= midY){
+        radius = midX*0.7;
+      }
+      else{
+        radius=midY*0.7;
+      }
+      ctx.strokeStyle="red";
+      ctx.lineWidth=5;
+      ctx.fillStyle="pink";
+      ctx.beginPath(); //begynn å tegne linje
+      ctx.arc(midX,midY,radius, 0,2*Math.PI); //lager en krum linje med verdiene(senterX, senterY, radius, startvinkel, sluttvinkel)
+      ctx.stroke(); //tegner linje
+      ctx.fill(); //fyller sirkel
+      </script>
+    </body>
+  </html>

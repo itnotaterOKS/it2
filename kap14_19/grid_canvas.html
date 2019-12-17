@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> Grid </title>
+    <link rel="stylesheet" type="text/css" href="../grid.css">
+    <link rel="stylesheet" type="text/css" href="../stil.css">
+    <link rel="stylesheet" type="text/css" href="canvas.css">
+    <style>
+    .visKant div {  
+      border: 1px solid red; /* kun for å se boksene visuelt */
+    }
+    .header{
+      background-image: none;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="col-12 row header">
+    Grid (repetisjon fra IT1)
+    </div>
+    <script type="text/javascript" src="meny14.js"></script>
+  	<h1> Å strukturere innhold vertikalt </h1>
+  	<p> Div-elementer er fine for å strukturere en side. Div-elementet er et <i>blockelement</i>, dvs at nye elementer automatisk legger seg under div-elementet. Ved å overstyre dette med css kan vi få en nettside med innhold plassert ved siden av hverandre. <br><br>
+
+  	For at plasseringene skal holde seg likt når på skjermer av ulike dimensjoner og når vi endrer størrelse på nettleservinduet, bruker vi enten flexboxer eller grid der vi angir alle størrelser i prosent av moderelementet. Det finnes flere utgangspunkter for et grid, disse notatene baserer seg på <a href="https://www.w3schools.com/css/css_rwd_grid.asp">dette</a>. </p>
+  	<h1> Grid </h1>
+  	<p> Vi kommer til å forholde oss til grid for å strukturere innhold. Gridet er en slags tabell der hver rad har ulikt antall kolonner og ulik størrelse på kolonnene. </p>
+  	<div class="row visKant">
+  		<div class="col-1"> 8.33 % </div>
+  		<div class="col-11"> 91.66 % </div>
+  	</div>
+	<div class="row visKant">
+		<div class="col-4"> 33.33% </div>
+		<div class="col-4"> 33.33% </div>
+		<div class="col-4"> 33.33% </div>
+  	</div>
+  	<div class="row visKant">
+  		<div class="col-3"> 25% </div>
+  		<div class="col-6"> 50% </div>
+  		<div class="col-3"> 25% </div>
+  	</div>
+  	<div class="row visKant">
+  		<div class="col-1"> 8.33% </div>
+  		<div class="col-1"> 8.33% </div>
+  		<div class="col-6"> 50% </div>
+  		<div class="col-4"> 33.33% </div>
+  	</div>
+  	<p> Alt innhold kan vi da legge i disse div'ene. For at det skal leses som grid må følgende kode inngå i css: <br><br>
+  	&nbsp;&nbsp;* { /* gjelder alle html-elementer */ <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;box-sizing: border-box;<br>
+	&nbsp;&nbsp;}<br>
+	&nbsp;&nbsp;[class*="col-"] { /* gjelder alle klasser som heter col- */<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;float: left;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;padding: 15px; /*vi setter selv en passende padding */<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;border: 1px solid red; /* kun for å se boksene visuelt */<br>
+	&nbsp;&nbsp;}<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;.row::after { /*innholdet etter en rad */<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;content: "";<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;clear: both;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;display: table;<br>
+	&nbsp;&nbsp;} <br><br>
+	I tillegg definerer vi de breddene vi tror vi kan få bruk for. Følgende oppsett er et godt forslag, da hver rad vil summeres til 100% så lenge kolonnenumrene summeres til 12: <br>
+	&nbsp;&nbsp;.col-1 {width: 8.33%;}<br>
+	&nbsp;&nbsp;.col-2 {width: 16.66%;}<br>
+	&nbsp;&nbsp;.col-3 {width: 25%;}<br>
+	&nbsp;&nbsp;.col-4 {width: 33.33%;}<br>
+	&nbsp;&nbsp;.col-5 {width: 41.66%;}<br>
+	&nbsp;&nbsp;.col-6 {width: 50%;}<br>
+	&nbsp;&nbsp;.col-7 {width: 58.33%;}<br>
+	&nbsp;&nbsp;.col-8 {width: 66.66%;}<br>
+	&nbsp;&nbsp;.col-9 {width: 75%;}<br>
+	&nbsp;&nbsp;.col-10 {width: 83.33%;}<br>
+	&nbsp;&nbsp;.col-11 {width: 91.66%;}<br>
+	&nbsp;&nbsp;.col-12 {width: 100%;}<br><br>
+
+  Man kan selvfølgelig også lage seg sine egne standardstørrelser, det eneste man må passe på er at bredden summerer seg til 100%. </p>
+
+  <h1> Videre muligheter med grid </h1>
+  <p> Vi kan for eksempel en lage en meny ved hjelp av div-bokser som kun inneholder en lenke. Dersom man har tre lenker kan man se for seg en rad som består av: <br>
+  &nbsp;&nbsp; 16.66 % tom div <br>
+  &nbsp;&nbsp; 16.66 % lenkediv <br>
+  &nbsp;&nbsp; 8.33 % tom div <br>
+  &nbsp;&nbsp; 16.66 % lenkediv <br>
+  &nbsp;&nbsp; 8.33 % tom div <br>
+  &nbsp;&nbsp; 16.66 % lenkediv <br>
+  &nbsp;&nbsp; 16.66 % tom div </p>
+  <div class="row lenker">
+    <div class="col-2"> </div>
+    <a href=""><div class="col-2 lenke">lenke 1</div></a>
+    <div class="col-1"> </div>
+    <a href=""><div class="col-2 lenke">lenke 2</div></a>
+    <div class="col-1"> </div>
+    <a href=""><div class="col-2 lenke">lenke 3</div></a>
+    <div class="col-2"> </div>
+  </div>
+
+  <p> HTML-kode for denne (legg merke til at < a> ligger før < div>), det gjør at hele boksen utgjør lenken: <br>
+  &nbsp;&nbsp; < div class="row lenker"><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; < div class="col-2"> < /div><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; < a href=""> < div class="col-2 lenke"> lenke 1 < /div>< /a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; < div class="col-1"> </ div><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; < a href="">< div class="col-2 lenke"> lenke 2  < /div>< /a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; < div class="col-1">  /div><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; < a href="">< div class="col-2 lenke"> lenke 3 < /div>< /a><br>
+  &nbsp;&nbsp;&nbsp;&nbsp; < div class="col-2"> < /div><br>
+  &nbsp;&nbsp; < /div><br><br>
+  CSS-kode for denne, i tillegg til grid-css: <br>
+  &nbsp;&nbsp; .lenker div{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; border: none; /* tar bort den røde kantlinja */<br>
+  &nbsp;&nbsp; }<br>
+  &nbsp;&nbsp; .lenke{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; background-color: #8bb1ad;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; border-radius: 10px;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; text-align: center;<br>
+  &nbsp;&nbsp; }<br>
+  &nbsp;&nbsp; .lenke a{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp; text-decoration: none;<br>
+  &nbsp;&nbsp; }<br>
+
+  <h2> Som et eksempel kan en side bestå av: </h2>
+  <ul>
+    <li> En omkringliggende < div class = "col-12 ramme"> < /div > som rammer inn alt innhold på siden og har bredde 100 %</li>
+    <li> En header < div class ="col-12 header"> < /div > som inneholder en overskrift med et bakgrunnsbilde </li>
+    <li> Lenker i div-elementer </li>
+    <li> To elementer ved siden av hverandre der det ene har < div class = "col-9" > < /div > og det andre har < div class = "col-3"> < /div > og begge inneholder hvert sitt bilde </li>
+    <li> Et canvaselement som er midtstilt på siden med en tom < div class = "col-2" > < /div > på hver side </li>
+  </ul>
+
+  <h1> Oppgave </h1>
+  <p> Lag siden beskrevet over ved bruk av grid. Gi elementene ulike skriftfarger/bakgrunnsfarger/kantlinjer slik at du ser dem tydelig. Prøv deg frem videre med å legge andre elementer i klasser med andre størrelser og se hva som skjer dersom kolonnebreddene ikke summerer seg til 100%. </p>
+  </body>
+</html>

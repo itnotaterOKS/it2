@@ -39,7 +39,7 @@ dropdown14El.innerHTML="kapittel 14 - 19";
 var dropdown14HoverEl = document.createElement("div");
 dropdown14HoverEl.className="dropdown-content14";
 /* legg til alle med løkke*/
-var array14 = ["kap_14_1_2", "kap_14_2_3_4",  "hangman_intro", "hangman", "kap_16_1", "kap_16_1_oppg", "kap_17_1_2", "kap_17_3", "kap_17_3b", "kap_18_1_2", "losningTrillebar", "skjemaDiagram", "oppgaver", "losningsforslag"];
+var array14 = ["kap_14_1_2", "kap_14_2_3_4",  "grid_canvas", "grid_canvas_eks", "hangman_intro", "hangman", "kap_16_1", "kap_16_1_oppg", "kap_17_1_2", "kap_17_3", "kap_17_3b", "kap_18_1_2", "losningTrillebar", "skjemaDiagram", "oppgaver", "losningsforslag"];
 for(var i = 0; i < array14.length; i++){
   var lenke14El = document.createElement("a");
   lenke14El.href=array14[i]+".html";
