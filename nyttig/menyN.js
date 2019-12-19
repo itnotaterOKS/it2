@@ -66,7 +66,7 @@ dropdownNEl.innerHTML="repetisjon og annet nyttig";
 var dropdownNHoverEl = document.createElement("div");
 dropdownNHoverEl.className="dropdown-contentN";
 /* legg til alle med løkke*/
-var arrayN = ["lenkerLokus", "lenkerw3schools", "multimedieredigering", "oppsummering"];
+var arrayN = ["programmering", "dom_hendelser", "brukerinput", "datakolleksjoner", "brukerinput_datakolleksjoner", "lenkerLokus", "lenkerw3schools", "multimedieredigering", "oppsummering"];
 for(var i = 0; i < arrayN.length; i++){
   var lenkeNEl = document.createElement("a");
   lenkeNEl.href="../nyttig/"+arrayN[i]+".html";
