@@ -57,7 +57,7 @@ dropdownEEl.innerHTML="eksamenstrening";
 var dropdownEHoverEl = document.createElement("div");
 dropdownEHoverEl.className="dropdown-contentE";
 /* legg til alle med løkke*/
-var arrayE = ["maloppnaelse", "arbeidEksamensopppgaver", "skjemaer"];
+var arrayE = ["maloppnaelse", "arbeidEksamensopppgaver"];
 for(var i = 0; i < arrayE.length; i++){
   var lenkeEEl = document.createElement("a");
   lenkeEEl.href=arrayE[i]+".html";
