@@ -62,7 +62,7 @@ var nyttigEl = document.createElement("div");
 nyttigEl.className="dropdownN col-15"
 var dropdownNEl = document.createElement("div");
 dropdownNEl.className="dropbtnN";
-dropdownNEl.innerHTML="nyttig tilleggsstoff";
+dropdownNEl.innerHTML="repetisjon og annet nyttig";
 var dropdownNHoverEl = document.createElement("div");
 dropdownNHoverEl.className="dropdown-contentN";
 /* legg til alle med løkke*/
