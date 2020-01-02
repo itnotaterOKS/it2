@@ -1,0 +1,13 @@
+.innpakning {
+  width: 600px;
+  margin: auto;
+}
+canvas {
+  background-color: white;
+}
+input[type="text" ]{
+  width: 30%;
+}
+#tilbakemelding{
+  color: red;
+}

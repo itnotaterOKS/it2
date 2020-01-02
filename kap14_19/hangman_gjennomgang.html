@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+  <title>Hangman</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="../grid.css">
+  <link rel="stylesheet" type="text/css" href="../stil.css">
+  <link rel="stylesheet" type="text/css" href="hangman_gjennomgang.css">
+  </head>
+  <body>
+  <div class="col-12 row header">
+  Kapittel 15: Hangman
+  </div>
+  <script type="text/javascript" src="meny14.js"></script>
+  <div class="innhold">
+    <h1> hangman </h1>
+    <p> Oppgaven kan løses på flere måter, denne løsningen følger oppbyggingen læreboka har lagt opp til. Noen utvidelser er lagt inn fortløpende. <br>
+    Ved å klikke <a href="">her</a> laster du ned alle filene i denne gjennomgangen. </p>
+
+    <h1> html og css </h1>
+    <p>  Nettsiden må inneholde følgende elementer: <br>
+      <ul>
+        <li> Et felt med spilleregler til brukeren </li>
+        <li> Et felt der brukeren kan få beskjed om antall sjanser igjen </li>
+        <li> Et felt der brukeren ser de korrekte bokstavene som er gjettet </li>
+        <li> Et felt der brukeren ser de gale bokstavene som er gjettet </li>
+        <li> Et canvas der galgen tegnes </li>
+        <li> Et felt der brukeren kan skrive inn bokstaver som gjettes og en knapp som "sender bokstav" </li>
+      </ul>
+    Stilsettingen <i>kan</i> være slik at spillfeltet åpnes i et forgrunnsvindu, eller det kan ligge som en del av hovedsiden.
+    Løsningen med forgrunnsvindu finner du <a href="https://itnotateroks.github.io/it2/kap14_19/hangman.html">her</a>, selve spillet er ellers likt som denne.
+    Her gjennomgås en løsning med spillfeltet som en del av denne siden. <br>
+    Dettte er en oppgave der både html, css og script burde ligge i egne filer. </p>
+
+    <h1> script </h1>
+    <p> Scriptet bør inneholde følgende: </p>
+    <ul>
+      <li> En variabel (array) for løsningsordet </li>
+      <li> En variabel (array) for bokstaver brukeren har gjettet </li>
+      <li> En variabel (array) for riktige bokstaver brukeren har gjettet </li>
+      <li> En variabel som teller antall sjanser brukeren har brukt </li>
+      <li> En funksjon som kjøres når brukeren klikker på knappen, der følgende skjer: </li>
+    </ul>
+    <ol>
+      <li> Finn ut hvilken bokstav brukeren har skrevet inn </li>
+      <li> Sjekk at bokstaven ikke er skrevet inn tidligere </li>
+      <li> Sjekk om bokstaven finnes i løsningsordet. Skriv den i så fall inn på rett plass i arrayen med korrekte bokstaver </li>
+      <li> Hvis bokstaven ikke finnes i løsningsordet: trekk fra en sjanse og tegn en ny del av figuren </li>
+      <li> Sjekk om alle bokstaver i løsningsordet er gjettet og gi i så fall beskjed om at brukeren har vunnet + fjern muligheten til å gjette flere bokstaver </li>
+      <li> Sjekk om alle sjanser er brukt opp og gi i så fall beskjed om at brukeren har tapt + fjern muligheten til å gjette flere bokstaver </li>
+    </ol>
+    <p> Tips: lag en funksjon for å tegne galgen og en funksjon for å tegne hver kroppsdel, så kan du tegne korrekt kroppsdel avhengig av antall sjanser igjen. </p>
+
+    <h1> Utvidelser </h1>
+    <p> Noen utvidelser er implementert i denne løsningen. Det er tydeliggjort med kommentarer i scriptet hva som er utvidelser, og den opprinnelige koden er tatt vare på og kommentert ut. <br>
+      Følgende utvidelser er implementert: <br>
+      <ul>
+        <li> tømme tekstfeltet </li>
+        <li> validering </li>
+        <li> array med løsningsord </li>
+        <li> beskjed til vinneren </li>
+        <li> enter for å sende bokstav </li>
+        <li> lydeffekter </li>
+        <li> hjerter som representerer liv </li>
+        <li> bakgrunnsmusikk </li>
+      </ul>
+    <div class="innpakning">
+      <h1> Hangman </h1>
+      <p id="sjanserIgjen">Antall sjanser igjen:</p>
+      <p id="riktigeBokstaver">Dine bokstaver:</p>
+      <p id="brukteBokstaver">Gjettede bokstaver: </p>
+      <p id="tilbakemelding">UTVIDELSE: kan skrive til brukeren her. </p>
+      <canvas width="600" height="400" id="mittCanvas"></canvas>
+      <p id="mottaBokstav">
+        <input type="text" name="bokstav" id="bokstav">
+        <button id="knapp">Test bokstav</button>
+      </p>
+      <!-- UTVIDELSE! -->
+      <audio id="lydeffekt"> </audio><!-- Legger inn et lydelement som får kilde hvis man vinner/taper -->
+      <!-- utvidelse slutt -->
+      <!-- UTVIDELSE! -->
+      <audio id="bakgrunnsmusikk" loop>
+        <source src="sommervind.mp3" type="audio/mpeg"> <!-- legger inn bakgrunnsmusikk som starter når man gjetter første bokstav -->
+      </audio>
+      <!-- utvidelse slutt -->
+
+
+  </div>
+
+  <script type="text/javascript" src="hangman_gjennomgang.js"> </script>
+  </div>
+</body>
+</html>
