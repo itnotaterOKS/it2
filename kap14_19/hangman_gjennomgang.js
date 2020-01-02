@@ -57,6 +57,16 @@ function tegnHoyreBein(){
 	ctx.stroke();
 	ctx.closePath();
 }
+/* UTVIDELSE! */
+bakgrunnsbilde = document.createElement("img"); // må legge inn bildet så det lastes før det legges inn som bakgrunn i canvas
+bakgrunnsbilde.src = "bakgrunn.jpg"
+window.addEventListener("load", tegnBakgrunn)
+function tegnBakgrunn(){
+	console.log(bakgrunnsbilde);
+	ctx.drawImage(bakgrunnsbilde, 0, 0, 600, 400);
+	tegnGalge(); // tegner opp galgen på nytt fordi funksjonen tegnBakgrunn kjører etter at alt er lastet, dvs etter at tegnGalge() er kjørt første gang.
+}
+/* utvidelse slutt */
 tegnGalge(); // tegner opp galgen
 
 var tekstfeltEl = document.querySelector("#bokstav"); // henter inn tekstfeltet
@@ -68,7 +78,6 @@ var tilbakemeldingEl = document.querySelector("#tilbakemelding");// trenger et e
 var lydeffektEl = document.querySelector("#lydeffekt");// trenger et lydelement som kan spille av vinne/tape
 var bakgrunnsmusikkEl = document.querySelector("#bakgrunnsmusikk"); // trenger et lydelement til å spille av bakgrunnsmusikk
 /* utvidelse slutt */
-
 
 var knappEl = document.querySelector("#knapp"); // henter inn knappen
 knappEl.addEventListener("click", mottaBokstav); // kobler en hendelse til knappen
@@ -175,6 +184,3 @@ function mottaBokstav() { // funksjon som kjører når knappen trykkes (eller en
 	}
 	/* utvidelse slutt*/
 }
-
-// UTVIDELSE! SPILLE LYD AUTOPLAY I CHROME!
-//TODO!
