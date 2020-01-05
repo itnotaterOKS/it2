@@ -118,23 +118,7 @@
 			En viktig egenskap med å bruke return, er at funksjonen automatisk avsluttes her. All kode i funksjonen som ligger etter return, vil ikke bli lest, og tar dermed ikke opp unødvendig kapasitet for maskinen. Dette kan brukes i kombinasjon med if-else-setninger. <br>
 
 
-	<h1> Eksempel </h1>
-	<p> Lag en funksjon som tar inn en min- og en max-verdi og returnerer et tilfeldig tall mellom disse <br>
-		&nbsp;&nbsp; function tilfeldigTall(min, max){<br>
-		&nbsp;&nbsp;&nbsp;&nbsp; return(Math.floor(Math.random()*(max - min + 1)+min)); <br>
-		&nbsp;&nbsp; } <br>
-		&nbsp;&nbsp; var tilfeldig = tilfeldigTall(2, 10);<br>
-		&nbsp;&nbsp; document.write(tilfeldig);</p>
-
-	<script>
-		function tilfeldigTall(min, max){
-			return(Math.floor(Math.random()*(max - min + 1)+min));
-			//var tilfeldig = Math.floor(Math.random()*(max - min + 1)+min);
-		}
-		var tilfeldig = tilfeldigTall(2, 10);
-		document.write("<p>"+tilfeldig+"</p>");
-	</script>
-
+	<
 	<h1> Eksempel </h1>
 	<p> Lag et tilfeldig tall mellom 10 og 20 (med tilfeldig-funksjonen!) og sjekker om det er et partall. Partall skal returne true, mens oddetall skal returnere false. <br>
 		&nbsp;&nbsp; function sjekkPartall(min, max){<br>

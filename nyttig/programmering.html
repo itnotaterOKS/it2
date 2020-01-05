@@ -13,19 +13,261 @@
 	<script type="text/javascript" src="menyN.js"></script>
 	<div class="innhold">
     <h1> Grunnleggende programmering </h1>
-    <p> Ønsketemaer knyttet til programmering er tilfeldige tall, avrunding og løkker </p>
+    <p> Ønsketemaer knyttet til programmering er tilfeldige tall, avrunding og løkker. I tillegg vil det så vidt bli gjennomgått sammenlikningsoperatorer og if-setninger. <br>
+		Hvis du trenger en grundigere gjennomgang av dette temaet finner du det i notatene fra kapittel 2-4 <a href="https://itnotateroks.github.io/it2/kap2_4/">her</a> eller du kan bruke <a href="https://www.w3schools.com/js/js_variables.asp">w3schools</a> sine ressurser.</p>
 
-		<h1> Tilfeldige tall </h1>
+		<h1> Tilfeldige tall, avrunding, sammenlikningsoperatorer og if-setninger </h1>
+		Variabler brukes til å holde orden på verdier underveis i et program. Slike verdier kan være tekst (f.eks. navn), tall (f.eks. konstanter) eller de boolske verdiene sann eller usann.<br>
+		Dersom vil ønsker å finne ut hva slags variabel vi har å jobbe med kan vi logge <br>
+		&nbsp;&nbsp; console.log(typeof vairabelnavn);
+		F.eks. vil resultatet av følgende kode være <br>
+		&nbsp;&nbsp; var tallVar = 1;<br>
+		&nbsp;&nbsp; log (typeof tallVar); // returnerer number<br>
+		&nbsp;&nbsp; var tekstVar = "tekst"; <br>
+		&nbsp;&nbsp; console.log(typeof tekstVar); // returnerer string <br>
+		&nbsp;&nbsp; var testVar = "";<br>
+		&nbsp;&nbsp; console.log(typeof testVar); // returnerer string<br>
+		&nbsp;&nbsp; var tallTekst = "1";<br>
+		&nbsp;&nbsp; console.log(typeof tallTekst); // returnerer string<br>
+		&nbsp;&nbsp; var tomVar<br>
+		&nbsp;&nbsp; console.log(tomVar); // returnerer undefined <br>
+		&nbsp;&nbsp; var boolskVar = true;<br>
+		&nbsp;&nbsp; console.log(typeof boolskVar); // returnerer boolean <br><br>
+		Vi kan gjøre om en numbervariabel til en tekstvariabel med <br>
+		&nbsp;&nbsp; var tallTekstVar = 3489; <br>
+		&nbsp;&nbsp; console.log(typeof tallTekstVar); // returnerer number  <br>
+		&nbsp;&nbsp; var tekstFraTall = String(tallTekstVar); <br>
+		&nbsp;&nbsp; console.log(typeof tekstFraTall); // returnerer string <br>
+		Dette kan vi få bruk for når vi for eksempel skal finne antall siffer i et tall. Antall siffer vil være lengden av stringen: <br>
+		&nbsp;&nbsp; console.log(tekstFraTall.length); // returnerer 4 <br>
+		<script>
+			var tallVar = 1;
+			console.log(typeof tallVar);
+			var tekstVar = "tekst";
+			console.log(typeof tekstVar);
+			var testVar = "";
+			console.log(typeof testVar);
+			var tallTekst = "1";
+			console.log(typeof tallTekst);
+			var tomVar
+			console.log(tomVar);
+			var boolskVar = true;
+			console.log(typeof boolskVar);
+			var tallTekstVar = 3489;
+			console.log(typeof tallTekstVar);
+			var tekstFraTall = String(tallTekstVar);
+			console.log(typeof tekstFraTall);
+			console.log(tekstFraTall.length);
+		</script>
+		<br>
+		Tallvariabler kan opprettes ved å tilordne variabelen en kjent verdi, f.eks. <br>
+		&nbsp;&nbsp; var tall = 7;
+		eller vi kan tilordne variabelen en tilfeldig verdi. <br>
+		<p> Metoden Math.random(); genererer et tilfeldig tall mellom 0 og 0,99999999999999999.... Dersom vi ønsker å ha et heltall, må vi
+			<ol>
+				<li> Multiplisere det med den (øvre grensen + 1) for hvilket tall vi ønsker å ha </li>
+				<ul> <li> Ved å gange det tilfeldige tallet med 11 får vi et tilfeldig desimaltall mellom 0 og 10 </li></ul>
+				<li> Runde tallet ned til nærmeste heltall for å slippe desimaltall. Dette gjøres med metoden floor (rund ned) </li>
+				<ul> <li> Ved å runde ned får vi et tilfeldig heltall mellom 0 og 10 </li> </ul>
+			</ol>
+		<p> Altså:<br>
+		&nbsp;&nbsp; var tilfeldig = Math.random();<br>
+		&nbsp;&nbsp; console.log(tilfeldig); // returnerer et tilfeldig desimaltall mellom 0 og 0,99999<br>
+		&nbsp;&nbsp; tilfeldig = tilfeldig * 11;<br>
+		&nbsp;&nbsp; console.log(tilfeldig); // returnerer et tilfeldig desimaltall mellom 0 og 10,9999999 <br>
+		&nbsp;&nbsp; tilfeldig = Math.floor(tilfeldig);<br>
+		&nbsp;&nbsp; console.log(tilfeldig); // returnerer et tilfeldig heltall mellom 0 og 10 <br>
+		Dette kan også skrives enklere: <br>
+		&nbsp;&nbsp; var tilfeldigTall = Math.floor(Math.random()*11);<br>
+		&nbsp;&nbsp; console.log(tilfeldigTall);<br><br>
+		<script>
+			var tilfeldig = Math.random();
+			console.log(tilfeldig);
+			tilfeldig = tilfeldig * 11; // eller tilfeldig *= 11;
+			console.log(tilfeldig);
+			tilfeldig = Math.floor(tilfeldig);
+			console.log(tilfeldig);
 
-		<h1> Avrunding </h1>
+			var tilfeldigTall = Math.floor(Math.random()*11);
+			console.log(tilfeldigTall);
+		</script>
+		Det finnes også andre avrundingsmetoder. Avrundingen Math.ceil(tall) runder tallet opp til nærmeste heltall og avrundingen Math.round() runder av tallet slik vi gjør i matematikken.
+		Dersom du ikke ønsker nærmeste heltall kan du bestemme antall desimaler i tallet med tall.toFixed(antall): <br>
+		&nbsp;&nbsp; var tilfeldig = Math.random();<br>
+		&nbsp;&nbsp; console.log(tilfeldig); // returnerer f.eks. 0.8656078085086074<br>
+		&nbsp;&nbsp; var tilfeldigOpp = Math.ceil(tilfeldig*10);<br>
+		&nbsp;&nbsp; console.log(tilfeldigOpp); // returnerer da 9<br>
+		&nbsp;&nbsp; var tilfeldigNed = Math.floor(tilfeldig*11);<br>
+		&nbsp;&nbsp; console.log(tilfeldigNed); // returnerer da 9<br>
+		&nbsp;&nbsp; var tilfeldigRound10 = Math.round(tilfeldig*10);<br>
+		&nbsp;&nbsp; console.log(tilfeldigRound10); // returnerer da 9<br>
+		&nbsp;&nbsp; var tilfeldigRound11 = Math.round(tilfeldig*11);<br>
+		&nbsp;&nbsp; console.log(tilfeldigRound11); returnerer da 10<br>
+		&nbsp;&nbsp; var tilfeldigToDesimaler = (tilfeldig*10).toFixed(2); // runder av matematisk til antall siffer<br>
+		&nbsp;&nbsp; console.log(tilfeldigToDesimaler); // returnerer da 8.66<br>
+		&nbsp;&nbsp; console.log(typeof tilfeldigToDesimaler); // OBS! returnerer string<br>
 
-		<h2> Oppgaver: Tilfeldige tall og avrunding </h2>
+		<script>
+		var tilfeldig = Math.random();
+		console.log(tilfeldig);
+		var tilfeldigOpp = Math.ceil(tilfeldig*10);
+		console.log(tilfeldigOpp);
+		var tilfeldigNed = Math.floor(tilfeldig*11);
+		console.log(tilfeldigNed);
+		var tilfeldigRound10 = Math.round(tilfeldig*10);
+		console.log(tilfeldigRound10);
+		var tilfeldigRound11 = Math.round(tilfeldig*11);
+		console.log(tilfeldigRound11);
+		var tilfeldigToDesimaler = (tilfeldig*10).toFixed(2); // runder av matematisk til antall siffer
+		console.log(tilfeldigToDesimaler);
+		console.log(typeof tilfeldigToDesimaler); // string!!
+		</script>
 
-		<h1> For-løkker </h1>
 
-		<h1> While-løkker </h1>
+		<h2> Hva bruker vi tilfeldige tall til? </h2>
+		<p> I en tekstvariabel kan vi plukke ut et tilfeldig tegn ved å opprette et tilfeldig tall mellom 0 og (lengden av teksten)-1.
+		I en array kan vi hente ut en tilfeldig verdi ved å opprette et tilfeldig tall mellom 0 og (lengden av arrayen)-1.
+		På denne måten kan vi f.eks. ha tilfeldige løsningsord i en hangman, vi kan lage en quiz der svaralternativene kommer i tilfeldig rekkefølge osv. </p>
+
+		<h2> Oppgave: standardfunksjoner.js </h2>
+		<p> Skriv i fila standardfunksjoner.js en funksjon tilfeldig(max, min) som returnerer et tilfeldig heltall mellom to verdier.<br>
+		Dersom du ønsker det kan du også bruke denne til å lage en funksjon terning(sider) som kaster en terning med et gitt antall sider og en funksjon som finner en tilfeldig plass i en array ved å ta inn lengden av arrayen. </p>
+		<script>
+			function tilfeldigTall(min, max){
+				return(Math.floor(Math.random()*(max - min + 1)+min));
+			}
+			var tilfeldig = tilfeldigTall(15, 20);
+			console.log(tilfeldig)
+		</script>
+
+		<h2> Oppgaver: tilfeldige tall, avrunding, sammenlikningsoperatorer og if-setninger  </h2>
+		<p> Oppgave a) og b) kan du gjerne løse både med å runde opp (ceil) og ned (floor) når du oppretter det tilfeldige tallet. <br>
+			a) Opprett et tilfeldig desimaltall mellom 0 og 0,99999. <br>
+			Bruk dette til å opprette et tilfeldig desimaltall mellom 0 og 9,99999. <br>
+			Bruk dette til å opprette et tilfeldig heltall mellom 0 og 9. <br>
+			b) Opprett et tilfeldig desimaltall mellom 0 og 0,99999. <br>
+			Bruk dette til å opprette et tilfeldig desimaltall mellom 0 og 19,9999. <br>
+			Bruk dette til å opprette et tilfeldig heltall mellom 1 og 20. <br>
+			c) Fullfør tabellen under der du antar at <br>
+			&nbsp;&nbsp; var tall = 17;<br>
+			&nbsp;&nbsp; var tekst = "Nils"
+			<table>
+				<tr> <th> Kode </th> <th> Resultat </th> </tr>
+				<tr> <td> console.log(tall > 1) </td> <td> true </td> </tr>
+				<tr> <td> console.log(tall <= 17)	</td> <td> </td> </tr>
+				<tr> <td> console.log(tall != 20)	</td> <td> </td> </tr>
+				<tr> <td> console.log(tall === ‘’17’’)</td> <td>	 </td> </tr>
+				<tr> <td> console.log(tekst == ‘’Nils’’)</td> <td>	 </td> </tr>
+				<tr> <td> console.log(tall > 20 || tall > 40) </td> <td> </td> </tr>
+			</table>
+			d) Lag et script som
+			<ul>
+				<li> Oppretter en variabel med teksten «Nå har jeg lært mye om variabler, men jeg vil lære mer» </li>
+ 				<li> Gjør om hele teksten til store bokstaver </li>
+				<li> Gjør om hele teksten til små bokstaver </li>
+				<li> Finner ut hvilken plass i teksten bokstaven y har </li>
+			</ul>
+			e) Skriv kode som genererer et tilfeldig tall mellom 0 og 100 og sjekker om det det er et partall eller oddetall. <br>
+			f)	Skriv kode som genererer et tilfeldig tall mellom 0 og 100 og sjekker om det er et partall eller oddetall OG om det er delelig med tre og fem.<br>
+			&nbsp;&nbsp; Eksempel:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 45 skal det returneres ‘Tallet er et oddetall og er delelig med 3 og 5.’<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 42 skal det returneres ‘Tallet er et partall og er delelig med 3.’<br>
+			g)	Skriv kode som genererer et tilfeldig tall mellom 500 og 1000 (obs! ikke bruk integrerte metoder i JavaScript, bruk Math.random() osv) og sjekker om tallet er større eller lik 750 ELLER om det er delelig med 100.<br>
+			&nbsp;&nbsp; Eksempel:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 699 skal det returneres ‘Tallet er mindre enn 750.’<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 700 skal det returneres ‘Tallet er større eller lik 750, eller delelig med 100.’<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 820 skal det returneres ‘Tallet er større eller lik 750, eller delelig med 100.’<br>
+			h) Skriv et program som generer to tilfeldige tall mellom 0 og 100. Programmet skal skrive ut det største av de to tallene. Hvis tallene er like skal programmet skrive at tallene er like.<br>
+			i) Får du rabatt hos NSB? Skriv et program lager en tilfeldig alder mellom 0 og 100 år. Programmet skal avgjøre om brukeren får rabatt hos NSB, og eventuelt hvor stor rabatten er. Barn fra 0 til og med 3 år kjører gratis, barn fra 4 til og med 15 år får 50 % rabatt og de som er 67 år eller mer får 50 % rabatt.
+		</p>
+
+		<h2> Oppgave: Zellers algoritme </h2>
+		<p> Oppgaveteksten ligger <a href="https://itnotateroks.github.io/it2/nyttig/ZellersAlgoritme.pdf">her</a>.</p>
+
+		<h1> Forløkker </h1>
+		<p> Forløkker er fine å bruke når vi vet på forhånd hvor mange ganger vi skal løpe gjennom en kode. Et eksempel på dette er når vi skal utføre en operasjon for en hel datakolleksjon.
+			Et annet eksempel er når vi skal gjøre en operasjon et visst antall ganger, som i dette eksempelet der vi lager en tabell med den store gangetabellen: <br>
+			&nbsp;&nbsp; document.write('< table >');<br>
+  		&nbsp;&nbsp; for (var i=1; i<=10; i++){<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp; document.write('< tr >');<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp; for(var j=1; j<=10; j++){<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.write('< td >'+i*j+'< /td >');<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp; document.write('< /tr >');<br>
+  		&nbsp;&nbsp; }<br>
+  		&nbsp;&nbsp; document.write('< /table >');<br>
+			<script>
+			  document.write('<table>');
+		      for (var i=1; i<=10; i++){
+		        document.write('<tr>');
+		        for(var j=1; j<=10; j++){
+		          document.write('<td>'+i*j+'</td>');
+		        }
+		        document.write('</tr>');
+		      }
+		      document.write('</table>');
+		 	</script>
+			<br>
+			En forløkke kan også telle nedover: <br>
+			Skriv kode for å telle ned partallene fra 50 til 30 <br>
+			&nbsp;&nbsp; for(i = 50; i>= 30; i-=2){ // i = i-2<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; //if(i % 2==0){ // if-setningen er ikke nødvendig når vi teller annenhver<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; console.log(i);<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;	//}<br>
+			&nbsp;&nbsp; }<br>
+			<script>
+			for(i = 50; i>= 30; i-=2){ // i = i-2
+				//if(i % 2==0){ // if-setningen er ikke nødvendig når vi teller annenhver
+				console.log(i);
+				//}
+			}
+			</script>
+			<br>
+			Eksempel med forløkker og datakolleksjoner kommer når vi repeterer datakolleksjoner.
+
+		<h1> Whileløkker </h1>
+		I en whileløkkene har vi ikke en teller som gir antall repetisjoner av koden, men en betingelse som sier om koden skal kjøres.
+		Den kan derfor sammenlignes med et ukjent antall if-else-setninger.
+		Et eksempel der vi trenger en whileløkke er når vi skal finne ut hvor mange ganger vi må "kaste to terninger" før vi får to seksere: <br>
+		&nbsp;&nbsp; var terning1 = 0;<br>
+		&nbsp;&nbsp; var terning2 = 0;<br>
+		&nbsp;&nbsp; var teller = 0;<br>
+		&nbsp;&nbsp; while (terning1!==6 || terning2!==6){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; terning1 = Math.floor(Math.random() * 6) + 1;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; terning2 = Math.floor(Math.random() * 6) + 1;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; teller++<br>
+		&nbsp;&nbsp; }<br>
+		console.log("det tok " + teller + " forsøk før terningene viste " + terning1 +" og " + terning2);<br><br>
+		<script>
+		var terning1 = 0;
+		var terning2 = 0;
+		var teller = 0;
+		while (terning1!==6 || terning2!==6){
+			terning1 = Math.floor(Math.random() * 6) + 1;
+			terning2 = Math.floor(Math.random() * 6) + 1;
+			teller++
+		}
+		console.log("det tok " + teller + " forsøk før terningene viste " + terning1 +" og " + terning2);
+		</script>
+		<br>
+		Typiske feil man gjør når man bruker whileløkker er at betingelsen aldri blir sann slik at løkken kjører uendelig antall ganger (hvis man ikke endrer verdi på begge terningene i eksempelet over).
+
 
 		<h2> Oppgaver: løkker </h2>
+		<p>  a)	Skriv ut tallene fra og med 10 til og med 20 med en for-løkke. <br>
+	 	b)	Skriv ut alle partallene fra og med 2 til og med 30 med en for-løkke.<br>
+		c)	Forklar koden nedenfor. <br>
+		&nbsp;&nbsp; var terning = 0; <br>
+		&nbsp;&nbsp; while (terning != 6) {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; terning = Math.floor(Math.random() * 6) + 1; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; console.log(terning); <br>
+		&nbsp;&nbsp; }<br>
+	 	d) Skriv om koden fra oppgaven ovenfor slik at den teller antall forsøk den bruker før løkken stopper. <br>
+		e) Lag en funksjon gangetabell(tall1, tall2) der du skriver ut gangetabellen opp til de to tallene på siden. <br>
+		&nbsp;&nbsp; Eksempel: gangetabell(7, 10) skriver ut tabellen opp til 7*10 (dvs 7 kolonner og 10 rader).<br>
+		f) Lag en funksjon primfinner(max) som finner alle primtallene til og med dette tallet. </p>
+
+		<p> Det ligger også flere oppgaver til kapittel 2 - 4 <a href="https://itnotateroks.github.io/it2/kap2_4/oppgaver.html">her.</a></p>
   </div>
 	<a href="../index.html"><img class="hjem" src="../hjem.png"></a>
 </body>
