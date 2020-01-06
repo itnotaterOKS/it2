@@ -138,6 +138,13 @@
 			}
 			var tilfeldig = tilfeldigTall(15, 20);
 			console.log(tilfeldig)
+
+			function tilfeldigFarge() {//Denne gir tilfeldig kombinasjon av rgb-verdier
+			  var r = Math.floor(Math.random() * 256);
+			  var g = Math.floor(Math.random() * 256);
+			  var b = Math.floor(Math.random() * 256);
+			  return 'rgb('+r+', '+g+', '+b+')';
+			}
 		</script>
 
 		<h2> Oppgaver: tilfeldige tall, avrunding, sammenlikningsoperatorer og if-setninger  </h2>
