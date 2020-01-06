@@ -16,7 +16,8 @@
     <p> Ønsketemaer knyttet til programmering er tilfeldige tall, avrunding og løkker. I tillegg vil det så vidt bli gjennomgått sammenlikningsoperatorer og if-setninger. <br>
 		Hvis du trenger en grundigere gjennomgang av dette temaet finner du det i notatene fra kapittel 2-4 <a href="https://itnotateroks.github.io/it2/kap2_4/">her</a> eller du kan bruke <a href="https://www.w3schools.com/js/js_variables.asp">w3schools</a> sine ressurser.</p>
 
-		<h1> Tilfeldige tall, avrunding, sammenlikningsoperatorer og if-setninger </h1>
+		<h1> Variabler </h1>
+
 		Variabler brukes til å holde orden på verdier underveis i et program. Slike verdier kan være tekst (f.eks. navn), tall (f.eks. konstanter) eller de boolske verdiene sann eller usann.<br>
 		Dersom vil ønsker å finne ut hva slags variabel vi har å jobbe med kan vi logge <br>
 		&nbsp;&nbsp; console.log(typeof vairabelnavn);
@@ -60,6 +61,52 @@
 			console.log(tekstFraTall.length);
 		</script>
 		<br>
+
+		<h1> Tekstvariabler </h1>
+
+		<p> Datatypen string brukes for tekstvariabler. All tekst skal legges i fnutter ('tekst') eller dobbeltfnutter ("tekst"): <br>
+		&nbsp;&nbsp; < script ><br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var tekstVar = 'En setning med tekst!';
+		&nbsp;&nbsp; < script ><br>< /script ><br>
+		En tekststreng er indexert fra 0  til (n-1) der n er antall tegn. Vi kan behandle tekstvariabler ved flere metoder, blant annet </p>
+			<table>
+				<tr> <th> Metode </th> <th> Forklaring </th> <th> Eksempel </th> </tr>
+				<tr> <td> [plass] </td> <td> Gir tegnet på en gitt plassering </td> <td> console.log(tekstVar[3]); returnerer s</td> </tr>
+				<tr> <td> indexOf("tegn") </td> <td> Finner plasseringen til første element (ett eller flere tegn) av typen et spørres etter </td> <td> console.log(tekstVar.indexOf('n')); returnerer <i>1</i> </td></tr>
+				<tr> <td> indexOf("tegn", plass) </td> <td> Finner plasseringen til første element (ett eller flere tegn) av typen et spørres etter fra og med plassen </td> <td> console.log(tekstVar.indexOf('n'). 2); returnerer <i>6</i> </td></tr>
+				<tr> <td> lastIndexOf("tegn")</td> <td> Finner plasseringen til siste element (ett eller flere tegn) av typen det spørres etter </td> <td> console.log(tekstVar.lastIndexOf('n')); returnerer <i>8</i> </td> </tr>
+				<tr> <td> lastIndexOf("tegnn", plass) </td> <td> Finner plasseringen til siste element  (ett eller flere tegn) av typen det spørres etter foran plassen </td> <td> console.log(tekstVar.lastIndexOf('n'), 7); returnerer <i>6</i> </td> </tr>
+				<tr> <td> search() </td> <td> Finner posisjonen til et element (ett eller flere tegn) i en string (finner alltid første) </td> <td> console.log(tekstVar.search("med")); returnerer <i>11</i> </td> </tr>
+				<tr> <td> toUpperCase() </td> <td> Gjør om til kun store bokstaver </td> <td> console.log(tekstVar.toUpperCase()); returnerer <i>EN SETNING MED TEKST</i> </td> </tr>
+				<tr> <td> toLowerCase() </td> <td> Gjør om til kun små bokstaver </td> <td> console.log(tekstVar.toLowerCase()); returnerer <i>en setning med tekst!</i></td> </tr>
+				<tr> <td> length </td> <td> Gir antall tegn i stringen </td> <td> console.log(tekstVar.length); returnerer <i>21</i> </td> </tr>
+				<tr> <td> substring(start, slutt) </td> <td> Gir tegnene i et intervall (kun positivt) </td> <td> console.log(tekstVar.substring(11, 14)); returnerer <i>med</i></td> </tr>
+				<tr> <td> slice(start, slutt) </td> <td> Gir tegnene i et intervall (både positivt og negativt) </td> <td> console.log(tekstVar.slice(11, 14)); returnerer <i>med</i>, console.log(tekstVar.slice(-10, -7)) returnerer <i>med</i>, console.log(tekstVar.slice(15)); returnerer <i>tekst!</i> </td> </tr>
+				<tr> <td> substr(start, lengde) </td> <td> Gir tegnene fra en start med en viss lengde </td> <td> console.log(tekstVar.substr(0, 2)); returnerer <i>En</i> </td> </tr>
+				<tr> <td> replace() </td> <td> Erstatter ett/flere tegn med ett/flere andre (det første)</td> <td> console.log(tekstVar.replace("med", "uten")); returnerer <i>En setning uten tekst</i> </td> </tr>
+				<tr> <td> </td> <td> </td> <td> </td> </tr>
+			</table>
+			Dersom verdien som spørres etter med indexOf eller lastIndexOf ikke finnes i variabelen, returneres -1. Du kan finne flere tekstmetoder på <a href="https://www.w3schools.com/js/js_string_methods.asp">w3schools.</a>
+			<script>
+			var tekstVar = 'En setning med tekst!';
+			console.log(tekstVar[3]);
+			console.log(tekstVar.indexOf('n'));
+			console.log(tekstVar.indexOf('n', 2));
+			console.log(tekstVar.lastIndexOf('n'));
+			console.log(tekstVar.lastIndexOf('n', 7));
+			console.log(tekstVar.search("med"));
+			console.log(tekstVar.toUpperCase());
+			console.log(tekstVar.toLowerCase());
+			console.log(tekstVar.length);
+			console.log(tekstVar.substring(11, 14));
+			console.log(tekstVar.slice(11, 14));
+			console.log(tekstVar.slice(-10, -7));
+			console.log(tekstVar.slice(15));
+			console.log(tekstVar.substr(0, 2));
+			console.log(tekstVar.replace("med", "uten"));
+			</script>
+
+		<h1> Tilfeldige tall, avrunding, sammenlikningsoperatorer og if-setninger </h1>
 		Tallvariabler kan opprettes ved å tilordne variabelen en kjent verdi, f.eks. <br>
 		&nbsp;&nbsp; var tall = 7;
 		eller vi kan tilordne variabelen en tilfeldig verdi. <br>
