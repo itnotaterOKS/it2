@@ -112,7 +112,7 @@
 		<p> Metoden Math.random(); genererer et tilfeldig tall mellom 0 og 0,99999999999999999.... Dersom vi ønsker å ha et heltall, må vi
 			<ol>
 				<li> Multiplisere det med den (øvre grensen + 1) for hvilket tall vi ønsker å ha </li>
-				<ul> <li> Ved å gange det tilfeldige tallet med 11 får vi et tilfeldig desimaltall mellom 0 og 10 </li></ul>
+				<ul> <li> Ved å gange det tilfeldige tallet med 11 får vi et tilfeldig desimaltall mellom 0 og 10,999999 </li></ul>
 				<li> Runde tallet ned til nærmeste heltall for å slippe desimaltall. Dette gjøres med metoden floor (rund ned) </li>
 				<ul> <li> Ved å runde ned får vi et tilfeldig heltall mellom 0 og 10 </li> </ul>
 			</ol>
@@ -179,6 +179,8 @@
 		<h2> Oppgave: standardfunksjoner.js </h2>
 		<p> Skriv i fila standardfunksjoner.js en funksjon tilfeldig(max, min) som returnerer et tilfeldig heltall mellom to verdier.<br>
 		Dersom du ønsker det kan du også bruke denne til å lage en funksjon terning(sider) som kaster en terning med et gitt antall sider, en funksjon som finner en tilfeldig plass i en array ved å ta inn lengden av arrayen eller en tilfeldig rgb-farge. </p>
+		<h1 id="nyFarge">Tester tilfeldig farge-funksjon </h1>
+
 		<script>
 			function tilfeldigTall(min, max){
 				return(Math.floor(Math.random()*(max - min + 1)+min));
@@ -192,6 +194,8 @@
 			  var b = Math.floor(Math.random() * 256);
 			  return 'rgb('+r+', '+g+', '+b+')';
 			}
+			console.log(tilfeldigFarge());
+			document.querySelector("#nyFarge").style.color=tilfeldigFarge();
 		</script>
 
 		<h2> Oppgaver: tilfeldige tall, avrunding, sammenlikningsoperatorer og if-setninger  </h2>
