@@ -68,7 +68,6 @@
 
       // oppgave b: lag en funksjon som utfører algoritmen
       function zellers(D, M, Y){
-
         if(M == 1 || M == 2){
           M+=12; //M = M + 12
           Y-=1; // Y = Y - 1
@@ -121,16 +120,11 @@
 
       }
 
-    	//zellers(7, 1, 2020)
-			console.log(zellers(31, 12, 2019));
-			console.log(zellers(1, 1, 2020));
 			console.log(zellers(7, 1, 2020));
 
       // oppgave c: finn ut ukedagen du ble født på
       // dvs: kjør funksjonen med fødselsdato
-    	// zellers(15, 4, 1990, 19, 90);
-      //zellers(14, 6, 2000, 20, 00);
-      //zellers(28, 9, 2000, 20, 00);
+    	console.log(zellers(15, 4, 1990));
 
       // oppgave d: la funksjonen forstå datoinput dd.mm.yyyy
 
@@ -145,58 +139,54 @@
         var M = Number(dato.substring(3,5));
         var Y = Number(dato.substring(6,10));
 
-          //  document.write(typeof K)
-          if(M == 1 || M == 2){
-            M+=12; //M = M + 12
-            Y-=1; // Y = Y - 1
-          }
+        if(M == 1 || M == 2){
+          M+=12; //M = M + 12
+          Y-=1; // Y = Y - 1
+        }
 					// Obs! Dette må legges etter if-setningen!
-					var Ystr = String(Y);
-					var Cstr = Ystr.substring(0, 2); // to første sifre i år
-					var C = Number(Cstr)
-					var Kstr = Ystr.substring(2, 4); // to siste sifre i år
-					var K = Number(Kstr)
-					console.log(D, M, Y, C, K);
+				var Ystr = String(Y);
+				var Cstr = Ystr.substring(0, 2); // to første sifre i år
+				var C = Number(Cstr)
+				var Kstr = Ystr.substring(2, 4); // to siste sifre i år
+				var K = Number(Kstr)
+				// console.log(D, M, Y, C, K);
 
-          var X = 2.6*M - 5.39;
+        var X = 2.6*M - 5.39;
+				if(X < 0){
+          X = Math.ceil(X); // runder X opp
+        }
+        else{
+          X = Math.floor(X); // runder X ned
+        }
 
-          if(X < 0){
-            X = Math.ceil(X); // runder X opp
-          }
-          else{
-            X = Math.floor(X); // runder X ned
-          }
+        Y = Math.floor(K/4);
+        var Z = Math.floor(C/4);
 
-          Y = Math.floor(K/4);
-          var Z = Math.floor(C/4);
-
-          var S = X + Y +Z + D + K - 2*C;
-          var R = S%7;
-					console.log(R);
-
-					if(R == 0){
-						return("søndag")
-					}
-					else if(R == 1){
-						return("mandag")
-					}
-					else if(R == 2){
-						return("tirsdag")
-					}
-					else if(R == 3){
-						return("onsdag")
-					}
-					else if(R == 4){
-						return("torsdag")
-					}
-					else if(R == 5){
-						return("fredag")
-					}
-					else{
-						return("lørdag")
-					}
+				var S = X + Y +Z + D + K - 2*C;
+        var R = S%7;
+				console.log(R);
+				if(R == 0){
+					return("søndag")
+				}
+				else if(R == 1){
+					return("mandag")
+				}
+				else if(R == 2){
+					return("tirsdag")
+				}
+				else if(R == 3){
+					return("onsdag")
+				}
+				else if(R == 4){
+					return("torsdag")
+				}
+				else if(R == 5){
+					return("fredag")
+				}
+				else{
+					return("lørdag")
+				}
       }
-
 
       console.log(zellersDato("07.01.2020"))
 

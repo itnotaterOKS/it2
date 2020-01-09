@@ -5,6 +5,18 @@
 	<title> Repetisjon </title>
 	<link rel="stylesheet" type="text/css" href="../grid.css">
 	<link rel="stylesheet" type="text/css" href="../stil.css">
+	<style>
+	.rodBakgrunn{
+		background-color: red;
+		color: white;
+	}
+	.kursiv{
+		font-style: italic;
+	}
+	.overskrifter{
+    		font-size: 500%;
+    	}
+	</style>
 </head>
 <body>
 	<div class="col-12 row header">
@@ -16,23 +28,284 @@
     <p> Vi repeterer bruk av script for å hente inn, endre, slette og opprette innhold på en nettside. Dette kombinerer vi videre med hendelser </p>
 
     <h1> Hente inn html-elementer </h1>
+		<p> Vi har flere ulike måter for å hente inn html-elementer med script: <br>
+			&nbsp;&nbsp; metoden getElementById('bilde1') vil hente elementet med denne iden <br>
+			&nbsp;&nbsp; metoden getElementsByClassName('overskrifter') vil hente alle elementene med denne klassen <br>
+			&nbsp;&nbsp; metoden getElementsByTagName('img') vil hente alle elementene av denne typen <br>
+			Legg merke til at de to siste henter alle elementer: getElement<b>s</b>By<br><br>
+			Det kan være tungvint å forholde seg til flere metoder for å hente html-elementer avhengig av hvordan vi identifiserer elementet, og vi velger derfor å erstatte de tre metodene med <br>
+			&nbsp;&nbsp; metoden querySelector('#bilde1'), querySelector('.overskrifter'), querySelector('img') som henter inn det første elementet av typen <br>
+			&nbsp;&nbsp; metoden querySelectorAll('.overskrifter'), querySelectorAll('img') som henter alle elementer av klassen/typen.<br><br>
+			Elementene vi henter inn lagres til variabler. Disse kan gjerne få navn som bilde1El (elementet bilde1), overskrifterEl (elementene overskrifter lagret i en array). Deretter kan vi bruke disse variablene til å endre elementene, enten ved stilsetting eller overskriving av innholdet. Vi kan også slette hele elementer. <br>
 
-    <h1> Endre og slette innhold på en nettside </h1>
+		<h1> Endre og slette innhold på en nettside </h1>
+		<p> Når vi har hentet inn elementet kan vi endre innhold eller utseende, eller vi kan slette elementet helt: <br>
+		For å endre utseendet til et element kan vi enten tildele elementet en id eller klasse, eller vi kan endre style direkte. Vi endrer style ved dot-notasjon <br>
+		&nbsp;&nbsp; 	var endreEl = document.querySelector("#endre");<br>
+		&nbsp;&nbsp;	endreEl.setAttribute("style", "font-size: 40px");<br>
+		&nbsp;&nbsp;	endreEl.setAttribute("class", "rodBakgrunn");<br>
+		&nbsp;&nbsp;	endreEl.classList.add("kursiv");<br>
+		&nbsp;&nbsp;	endreEl.style.fontFamily = "Courier New";<br>
+		&nbsp;&nbsp;	console.log(endreEl); // ser at alt er lagt til i taggen<br>
+		For å endre innholdet til elementet overskriver vi innerHTML ved å bruke innerHTML. Vi kan legge til innhold med += og erstatte innhold med = <br>
+		&nbsp;&nbsp; endreEl.innerHTML+=" og vi vil gjerne legge til mer innhold";<br>
+		&nbsp;&nbsp; endreEl.innerHTML = "jeg har full kontroll over dette elementet"<br>
+		Vi kan slette attributter vi har satt med <br>
+		&nbsp;&nbsp; endreEl.removeAttribute("class"); <br>
+		Legg merke til at dette fjerner alle klasser dersom man har lagt inn flere.<br>
+		Dersom vi bare ønsker å fjerne én klasse, bruker vi <br>
+		&nbsp;&nbsp; endreEl.classList.remove("rodBakgrunn");<br>
+		Dersom vi ønsker å fjerne hele elementet kan vi enten sette innerHTML til å være tomt: <br>
+		&nbsp;&nbsp; endreEl.innerHTML = "" ; <br>
+		Eller vi kan slette hele elementet fra siden: <br>
+		&nbsp;&nbsp;	endreEl.remove(); </p>
+
+		<h3 id="endre">dette elementet skal endres</h3>
+		<script>
+			var endreEl = document.querySelector("#endre");
+			endreEl.setAttribute("style", "font-size: 40px");
+			endreEl.setAttribute("class", "rodBakgrunn");
+			endreEl.classList.add("kursiv");
+			endreEl.style.fontFamily = "Courier New";
+			console.log(endreEl);
+		/*	endreEl.innerHTML+=" og vi vil gjerne legge til mer innhold";
+			endreEl.innerHTML = "jeg har full kontroll over dette elementet"
+			endreEl.removeAttribute("class");
+			endreEl.classList.remove("rodBakgrunn");
+			endreEl.innerHTML = "" ;
+			endreEl.remove(); */
+		</script>
+
+		<h2> Eksempel: hente inn et element og gi det en tilfeldig skriftfarge </h1>
+		<h1 id="nyFarge">Gir dette elementet en tilfeldig skriftfarge</h1>
+		<p> Vi må hente inn elementet med querySelector og bruke tilfeldigFarge-funksjonen til å endre fargen. <br>
+		I html opprettes et element<br>
+		&nbsp;&nbsp; < h1 id="nyFarge" >Gir dette elementet en tilfeldig skriftfarge< /h1 >
+		I script endrer vi fargen: <br>
+		&nbsp;&nbsp; function tilfeldigFarge() {//Denne gir tilfeldig kombinasjon av rgb-verdier<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var r = Math.floor(Math.random() * 256);<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var g = Math.floor(Math.random() * 256);<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var b = Math.floor(Math.random() * 256);<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; return 'rgb('+r+', '+g+', '+b+')';<br>
+		&nbsp;&nbsp; }<br>
+		&nbsp;&nbsp; var fargeEl = document.querySelector("#nyFarge");<br>
+		&nbsp;&nbsp; fargeEl.style.color=tilfeldigFarge();<br>
+		&nbsp;&nbsp; // de to siste linjene kan evt erstattes med<br>
+		&nbsp;&nbsp; // document.querySelector("#nyFarge").style.color=tilfeldigFarge();</p>
+			<script>
+					function tilfeldigFarge() {//Denne gir tilfeldig kombinasjon av rgb-verdier
+					var r = Math.floor(Math.random() * 256);
+					var g = Math.floor(Math.random() * 256);
+					var b = Math.floor(Math.random() * 256);
+					return 'rgb('+r+', '+g+', '+b+')';
+				}
+				var fargeEl = document.querySelector("#nyFarge");
+				fargeEl.style.color=tilfeldigFarge();
+				//document.querySelector("#nyFarge").style.color=tilfeldigFarge();
+			</script>
 
     <h1> Opprette innhold på en nettside </h1>
+		<p> Ved å hente inn < body > kan vi legge til og slette innhold fra en nettside med metodene createElement og appendChild. Dette er en mye bedre løsning enn body +=, der vi får større kontroll over de nye elementene våre.  <br>
+			Med denne metoden forteller vi føst hvilket element som skal legges til, uten å si noe om innholdet:
+			<h1> Legge til elementer ved createElement og appendChild </h1>
+	    	<p> En annen metode for å lage nye html-elementer er å bruke metoden document.createElement("type element"). Med denne metoden forteller vi kun hvilket element som skal legges til, uten å si noe om innholdet: <br>
+	   		&nbsp;&nbsp; var nyOverskrift  = document.createElement("h1");<br>
+	    	For å legge til innhold i elementet bruker vi fortsatt metoden innerHTML. Vi kan også legge til attributter som klasse, eller annen stil:<br>
+				&nbsp;&nbsp; var nyOverskrift = document.createElement("h1");<br>
+	    	&nbsp;&nbsp; nyOverskrift.innerHTML = 'Dette er en overskrift'; <br>
+	    	&nbsp;&nbsp; nyOverskrift.setAttribute("class", "overskrifter");<br>
+	    	&nbsp;&nbsp; nyOverskrift.style.color="green";<br>
+	    	Til slutt ønsker vi å legge til elementet på siden, dvs i DOM-treet. Vi bruker da metoden bodyEl.appendChild(elementVariabel). I dette tilfellet er elementVariabel lik nyOverskrift:<br>
+	    	&nbsp;&nbsp; var bodyEl = document.querySelector("body");<br>
+	    	&nbsp;&nbsp; bodyEl.appendChild(nyOverskrift); // elementet legges nå til på slutten av siden. Dersom det skal ligge andre steder må vi (bruke f.eks grid til å) strukturere siden i div-elementer og legge til elementet i det div-elementet det tilhører i stedet for å legge det til i body. <br>
+
+	    	<script>
+	    		var nyOverskrift = document.createElement("h1");
+	    		nyOverskrift.innerHTML = 'Dette er en overskrift';
+	    		nyOverskrift.setAttribute("class", "overskrifter");
+	    		nyOverskrift.style.color="green";
+	    		var bodyEl = document.querySelector("body");
+	    		bodyEl.appendChild(nyOverskrift);
+	    	</script>
+
+	    	<h1> Oppsummering av metoder knyttet til DOM: </h1>
+	    	<table>
+	    		<tr><th> Metode </th> <th> Forklaring </th></tr>
+					<tr><td> document.querySelector("p")</td> <td> Henter ut elementer av typen p </td>	</tr>
+					<tr><td> document.querySelector("#tekst")</td> <td> Henter ut elementer med iden tekst </td></tr>
+					<tr><td> document.querySelector(".tekst")</td> <td> Henter ut elementer med klassen tekst </td></tr>
+					<tr><td> variabel.innerHTML="ny verdi" </td> <td> Gir variablen et nytt innhold (overskriver) </td></tr>
+					<tr><td> variabel.innerHTML += "mer innhold" </td> <td> Legger til innhold i variabelen </td></tr>
+					<tr><td> variabel.setAttribute("type attributt", "verdi")</td> <td> Legger til nytt attributt, f.eks. en klasse  (verdien er da klassenavnet)</td></tr>
+					<tr><td> variabel.removeAttribute("type attributt")</td><td> Fjerner et attributt, f.eks. en klasse, fra variabelen </td></tr>
+					<tr><td> variabel.classList.add("klassenavn")</td><td> Legger til en ny klasse</td></tr>
+					<tr><td> variabel.style.egenskap="ny verdi" </td> <td> Endrer en enkelt css-egenskap uten bruk av klasser/ider </td></tr>
+					<tr><td> variabel.removeAttribute("type attributt")</td><td> Fjerner alle attributter av denne typen </td></tr>
+					<tr><td> variabel.classList.remove("klassenavn") </td><td> Fjerner en enkelt klasse </td></tr>
+					<tr><td> variabel.innerHTML="" </td><td> Tømmer elementet for innhold </td></tr>
+					<tr><td> variabel.remove() </td><td> Sletter elementet fra DOM </td></tr>
+					<tr><td> document.createElement("type element")</td> <td> Legger til et element. Det har foreløpig ikke innhold og synes ikke på nettsiden</td></tr>
+					<tr><td> bodyEl.appendChild(elementVariabel)</td> <td> Legger til det nye elementet i DOM slik at det vises på nettsiden.</td></tr>
+				</table>
+
+				<p> Som vi ser, gjøres alle disse endringene med en gang vi laster nettsiden. Det er veldig nyttig å kunne styre når innhold slettes/endres/legges til, og det gjør vi ved å bruke hendelser. </p>
 
     <h2> Eksempel: </h2>
-
-    <h2> Eksempel: lage menyen for denne nettsiden </h2>
-
-    <h2> Oppgaver DOM </h2>
-		<p> Du finner en større oppgave løst <a href="https://itnotateroks.github.io/it2/kap7_10/kap_7_eksempel.html">her</a>.</p>
+		<p> Du finner en større oppgave løst <a href="https://itnotateroks.github.io/it2/kap7_10/kap_7_eksempel.html">her</a>, med scriptet <a href="https://itnotateroks.github.io/it2/kap7_10/kap_7_eksempel_script.html">her</a>. </p>
 
     <h1> Hendelser </h1>
+		<p> Hendelsene vi snakker om i IT-faget er ikke hendelser som "rakk ikke bussen", "har bursdag" eller liknende, men hendelser som er knyttet til nettleseren og brukeren av en nettside. Disse kan være å laste siden, å bevege musepekeren, å fylle input i et skjema, å klikke på en knapp eller andre. <br>
+      	Hendelser kan vi bruke til å lage det vi kaller hendelsesstyrte funksjoner: funksjoner som kjører først når en bestemt hendelse skjer. <br>
+      	Vi samler de viktigste hendelsene i en tabell (flere finnes på s. 124 i boka): </p>
+    	<table>
+    		<tr><th> Hendelse </th> <th> Forklaring </th></tr>
+				<tr><td> load </td> <td> Nettsiden lastes </td></tr>
+				<tr><td> click </td> <td> Et element klikkes</td></tr>
+				<tr><td> dblclick </td> <td> Et element dobbelklikkes </td></tr>
+				<tr><td> input </td> <td> Noe skrives i et inputfelt </td></tr>
+				<tr><td> change </td> <td> Et select-element (element i en drop-down-meny) endres</td></tr>
+				<tr><td> keydown </td> <td> En tast trykkes ned </td></tr>
+				<tr><td> keyup </td> <td> En tast slippes opp </td></tr>
+				<tr><td> mousemove </td> <td> Musepekeren beveges </td></tr>
+				<tr><td> mouseover </td> <td> Musepekeren beveges på et element </td></tr>
+				<tr><td> mouseout </td> <td> Musepekeren beveges fra et element</td></tr>
+    	</table>
 
-    <h2> Oppgaver hendelser </h2>
+		<h2 class="overskrift"> Lyttere og hendelsesstyrte funksjoner </h2>
+      	<p> For å finne ut om en hendelse inntreffer, må vi ha en lytter som følger med. Denne lytteren er selve elementet, som kan være enten document, body eller enkeltelementer på nettsiden. Til denne legger vi en lytter som skal følge med på en spesiell hendelse (fra tabellen over f.eks.). Dersom hendelsen inntreffer, blir en funksjon kallet. Vi kaller slike funksjoner <i>hendelsesstyrte funksjoner</i><br>
+      	Syntaksen for å legge til lyttere er <br>
+      	&nbsp;&nbsp; element.addEventListener("hendelse", funksjon); <br><b>Legg merke til at funksjonen ikke kalles når koden skrives, men kun nevnes</b> (vi bruker ikke funksjon())<br><br>
+      	For å legge til en lytter må vi først hente inn elementet. I dette tilfellet er elementet overskriften til dette avsnittet (med klasse .overskrift).<br>
+      	&nbsp;&nbsp; var overskriftEl = document.querySelector(".overskrift");<br>
+      	&nbsp;&nbsp; overskriftEl.addEventListener("click", fargeFunksjon);<br><br>
+      	Denne funksjonen må defineres:<br>
+      	&nbsp;&nbsp; function fargeFunksjon() {<br>
+      	&nbsp;&nbsp;&nbsp;&nbsp; overskriftEl.style.color="red";<br>
+      	&nbsp;&nbsp; }</p>
+    	<script>
+    		var overskriftEl = document.querySelector(".overskrift");
+    		overskriftEl.addEventListener("click", fargeFunksjon);
+    		function fargeFunksjon() {
+    			overskriftEl.style.color="red";
+    		}
+    	</script>
 
-		
+			<h2> Alternativ kode </h2>
+      	<p> Det går også an å ha funksjoner knyttet til hendelser uten å legge inn en lytter. Dersom du vet du har kontroll nok til å veksle mellom de to kan mindre hendelsesstyrte funksjoner lages på denne måten.<br>
+        Skal du kun velge én (det gjelder de fleste av dere) holder dere dere til å bruke lyttere som i forrige eksempel, da det er denne metoden boka forholder seg til.<br>
+      	Den andre metoden er at vi lager funksjonen som <br>
+      	&nbsp;&nbsp; element.onHendelse = function(){<br>
+      	&nbsp;&nbsp;&nbsp;&nbsp; definer funksjon;<br>
+      	&nbsp;&nbsp;} <br><br>
+      	Eksemplet over blir da<br>
+      	&nbsp;&nbsp; < div id="tom2" >< /div ><br>
+      	&nbsp;&nbsp; < script ><br>
+      	&nbsp;&nbsp;&nbsp;&nbsp; var divEl2 = document.querySelector("#tom2");<br>
+      	&nbsp;&nbsp;&nbsp;&nbsp; var tekstEl2 = document.createElement("p");<br>
+      	&nbsp;&nbsp;&nbsp;&nbsp; tekstEl2.innerHTML = "jeg er heller ikke en tom div!";<br>
+      	&nbsp;&nbsp;&nbsp;&nbsp; divEl2.ondblclick = function(){<br>
+      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; divEl2.appendChild(tekstEl2);<br>
+      	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+      	&nbsp;&nbsp; < /script ></p>
+
+      	<div id="tom2"></div>
+      	<script>
+      		var divEl2 = document.querySelector("#tom2");
+      		var tekstEl2 = document.createElement("p");
+      		tekstEl2.innerHTML = "jeg er heller ikke en tom div!";
+      		divEl2.ondblclick = function(){
+      			divEl2.appendChild(tekstEl2);
+      		}
+      	</script>
+
+				<h2> removeEventListener </h2>
+      	<p> Dersom vi øsnker å fjerne en lytter når funksjonen har kjørt, bruker vi metoden <br>
+      	&nbsp;&nbsp; element.removeEventListener("hendelse", funksjon)<br>
+      	For eksempel <br>
+      	&nbsp;&nbsp; divEl.removeEventListener("dblclick", tekstFunksjon)<br><br>
+
+				Det går også an å knytte hendelsen til ett objekt og resutlatet til et annet. Dette vises blant annet i oppgaven Monty Hall. </p>
+
+				<h1> Hendelser knyttet til musebevegelser </h1>
+		   	<p> Før vi kan registrere musebevegelser, må vi først definere at hele nettleservinduet er med, uavhengig av om det er elementer som fyller det opp. Dette gjøres i css ved <br>
+		    	&nbsp;&nbsp; html, body{<br>
+		    	&nbsp;&nbsp;&nbsp;&nbsp; height:100%;<br>
+		    	&nbsp;&nbsp; }<br><br>
+		    	Deretter trenger vi metoder til å finne ut hvor musepekeren befinner seg. Vi ser på skjermen som et rutenett der øvre venstre hjørne har x-posisjon 0 og y-posisjon 0, og y-posisjonen øker nedover siden mens x-posisjon øker mot høyre. <br>
+		    	For å registrere posisjonene ber vi om hendelsen sin clientX og clientY. La meg illustrere med et eksempel:<br><br>
+
+		    	Først lager jeg to p-elementer der jeg skal skrive ut posisjonen:<br>
+		    	&nbsp;&nbsp; < p id="xPos" > Her skal jeg skrive ut x-posisjonen < /p ><br>
+		  		&nbsp;&nbsp; < p id="yPos" > Her skal jeg skrive ut y-posisjonen < /p ><br><br>
+		  		Deretter henter jeg ut disse to elementene, samt bodyelementet:<br>
+		  		&nbsp;&nbsp; var xPosEl = document.querySelector("#xPos");<br>
+		  	 	&nbsp;&nbsp; var yPosEl = document.querySelector("#yPos");<br>
+		  	 	&nbsp;&nbsp; var bodyEl = document.querySelector("body");<br><br>
+		  	 	Til bodyEl legger jeg til lytteren mousemove som kjører funksjonen visPos:<br>
+		  	 	&nbsp;&nbsp; bodyEl.addEventListener("mousemove", visPos);<br>
+				  &nbsp;&nbsp; function visPos(e){ //tar inn e, for "event"<br>
+		  	 	&nbsp;&nbsp;&nbsp;&nbsp; console.log(e.clientX);<br>
+		  	 	&nbsp;&nbsp;&nbsp;&nbsp; console.log(e.clientY);<br>
+		  	 	&nbsp;&nbsp;&nbsp;&nbsp; xPosEl.innerHTML = "x-posisjonen er " + e.clientX;<br>
+		  	 	&nbsp;&nbsp;&nbsp;&nbsp; yPosEl.innerHTML = "y-posisjonen er " + e.clientY;<br>
+		  	 	&nbsp;&nbsp; }<br><br>
+
+		  <h3> Registrerer musebevegelser </h3>
+		  <p id="xPos"> Her skal jeg skrive ut x-posisjonen </p>
+		  <p id="yPos"> Her skal jeg skrive ut y-posisjonen </p>
+		  	<script>
+		  		var xPosEl = document.querySelector("#xPos");
+		   		var yPosEl = document.querySelector("#yPos");
+		   		var bodyEl = document.querySelector("body");
+		   		bodyEl.addEventListener("mousemove", visPos);
+		   		function visPos(e){ //tar inn e, for "event"
+		   			/*console.log(e.clientX);
+		   			console.log(e.clientY);*/
+		   			xPosEl.innerHTML = "x-posisjonen er " + e.clientX;
+		   			yPosEl.innerHTML = "y-posisjonen er " + e.clientY;
+		   			console.log(e.type);
+		   		}
+		   	</script>
+
+		 	<h1> Hendelser knyttet til tastaturet </h1>
+		  <p> Ved tastaturhendelser ønsker vi å vite hvilken tast som er trykket. Dette gjøres ved å be om e.keyCode. Her har hver tast en unicode-kode, og det er den vi får ut. For å oversette dette til tegn, må  vi bruke en unicode-tabell. Den finner vi på <a href="https://unicode-table.com/en/"> unicode-table.com</a>. Vi har også en metode som oversetter for oss: String.fromCharCode(e.keyCode). Denne fungerer dessverre dårlig for spesialtegn (æøå) på grunn av hvordan norske tastaturer er designet. <br><br>
+
+			Eksempel med tastaturhendelser: <br>
+		  Lager først et p-element der jeg registrerer hvilken tast som trykkes.<br>
+		  &nbsp;&nbsp; < p id="trykkTast" > Her skal jeg skrive ut hvilken tast som ble trykket ned< /p ><br>
+		  Henter inn dette p-elementet og body-elementet:<br>
+		  &nbsp;&nbsp; var trykkTastEl = document.querySelector("#trykkTast");<br>
+		  &nbsp;&nbsp; var bodyEl = document.querySelector("body");<br><br>
+		  Til bodyEl legger jeg til lytteren keydown og kjører funksjonen trykkerTast:<br>
+		  &nbsp;&nbsp; bodyEl.addEventListener("keydown", trykkerTast);<br>
+		  &nbsp;&nbsp; function trykkerTast(e){<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp; console.log(e.keyCode);<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp; var bokstav = String.fromCharCode(e.keyCode);<br>
+		  &nbsp;&nbsp;&nbsp;&nbsp; trykkTastEl.innerHTML = "Tasten som ble trykket var " +bokstav;<br>
+		  &nbsp;&nbsp; }</p>
+
+		  <h3> Registrerer tastaturtrykk </h3>
+		  <p id="trykkTast"> Her skal jeg skrive ut hvilken tast </p>
+		  <script>
+		  var trykkTastEl = document.querySelector("#trykkTast");
+		  var bodyEl = document.querySelector("body");
+		  bodyEl.addEventListener("keydown", trykkerTast);
+		  function trykkerTast(e){
+		  		console.log(e.keyCode);
+		  		var bokstav = String.fromCharCode(e.keyCode);
+		  		trykkTastEl.innerHTML = "Tasten som ble trykket var " +bokstav;
+		  }
+		  </script>
+
+    <h2> Oppgaver DOM og hendelser </h2>
+		<p> Det er samlet flere oppgaver til kapitlene i et pdf-dokument <a href="https://itnotateroks.github.io/it2/nyttig/oppgaver_kap_7_8.pdf">her</a>.
+
+		<h2> Oppgave fra heldags høst 2018 </h2>
+		<p> Du velger selv om du vil lage ´en eller ﬂere nettsider for denne oppgaven. Dersom du velger å presentere alle oppgaver p samme side skal det komme tydelig frem hvilken oppgave du svarer på, f.eks. ved bruk av < div > og kantlinjer. Alle svar i denne oppgaven skal skrives til nettsiden.<br>
+			&nbsp;&nbsp; a) Lag et tekstelement som bytter bakgrunnsfarge og skriftstørrelse når musepekeren beveger seg over det og som bytter tilbake til opprinnelig når musepekeren ikke lenger er over det.<br>
+			&nbsp;&nbsp; b) Lag et tekstelement der tekstinnholdet er musepekerens posisjon på nettsiden.<br>
+			&nbsp;&nbsp; c) Lag en applikasjon der brukeren kan skrive inn en avstand i m og få den omgjort til km, miles eller yards (1 yard ≈ 0.91 m). Applikasjonen skal bestå av et number-felt til å skrive inn avstanden, en måte å velge mellom km, miles eller yards på, en knapp for å kjøre beregningen og et felt der resultatet skrives ut. Det skal ikke være mulig å skrive inn en negativ avstand. Gi svaret med to desimaler.<br>
+			&nbsp;&nbsp; d) Lag en applikasjon der brukeren velger to tall, X og Y, mellom 1 og 15 i et skjema og får skrevet ut gangetabellen til og med X·Y. Eksempel: Dersom brukeren velger tallene 3 og 12, skrives det ut en multiplikasjonstabell med kolonner fra 1 til 3 og rader fra 1 til 12<br>
   </div>
 	<a href="../index.html"><img class="hjem" src="../hjem.png"></a>
 </body>
