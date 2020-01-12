@@ -5,6 +5,7 @@
 	<title> Repetisjon </title>
 	<link rel="stylesheet" type="text/css" href="../grid.css">
 	<link rel="stylesheet" type="text/css" href="../stil.css">
+	<link rel="stylesheet" type="text/css" href="css/skjema.css">
 </head>
 <body>
 	<div class="col-12 row header">
@@ -16,13 +17,268 @@
     <p> Vi repeterer hvordan vi legger til skjemaer og henter inn informasjon med javascript </p>
 
     <h1> HTML for ulike inputfelt </h1>
+		<p> I IT-1 la dere inn alle skjemaer i taggen < form > og la inn en metode (post eller get) for å hente inn informasjon med php.
+			Disse skjemaene måtte ha en knapp i form av < input type="submit" > for å kunne sende informasjon.
+			Med JavaScript er det ikke nødvendig med < form >-taggen for annet enn stilsetting, og når vi bruker hendelsesstyrte funksjoner kan vi sende informasjonen i et skjema med alle slags hendelser.</p>
+
+		<p> Vi har fortsatt bruk for å legge inn et skjema med inputfelt av ulike typer, og her vises de vanligste typene: <br>
+			<table>
+				<tr> <th> Inputfelt </th> <th> Beskrivelse </th> </tr>
+				<tr> <td> < input type = "text" > </td> <td> Gir et textfelt. Datatypen til det som skrives inn her er string. </td> </tr>
+				<tr> <td> < input type = "number" > </td> <td> Datatypen til det som skrives inn her er string, men kan gjøres om til number.</td> </tr>
+				<tr> <td> < select > </td> <td> Gir en valgmuligheter som dropdown </td> </tr>
+				<tr> <td> < input type = "radio" > </td> <td> Gir valgmuligheter som radioknapper (kan huke av én)</td> </tr>
+				<tr> <td> < input type = "checkbox" ></td> <td> Gir valgmuligheter som checkboxer (kan huke av flere)</td> </tr>
+				<tr> <td> < input type = "submit" ></td> <td> Gir en "send-knapp". Denne er ikke nødvendig for at skjemaet skal fungere. </td> </tr>
+				<tr> <td> < option > </td> <td> Hver valgmulighet i en select legges i en < option ></td> </tr>
+			</table>
+			For de ulike input feltene er det flere ting vi må huske på. <br>
+			<ul>
+				<li> Alle inputfelt må ha et navn, som settes som attributt "name = navn". Uten dette kan vi ikke identifisere hva slags verdi som legges inn. </li>
+				<li> Number-felt kan få en min- og max-verdi ved å sette som attributt min = "0" max = "10". Det går fortsatt an å skrive inn andre verdier manuelt, så disse attributtener erstatter <b>ikke</b> en sjekk av at brukeren har skrevet inn gyldig verdi. </li>
+				<li> Radioknapper til samme felt må ha samme verdi for name. Dette for at det ikke skal være mulig å knysse av for flere radioknapper. Det samme bør checkboxer til samme felt ha. </li>
+				<li> Radioknapper og checkboxer må også få en unik value <i>eller</i> id sånn at man kan finne ut av hvilke(n) som er valgt </li>
+				<li> Vi kan legge enn en placeholder i et felt med attributtet placeholder = "tekst som vises" </li>
+			</ul>
+			Koden for et skjema kan dermed være <br><br>
+			&nbsp;&nbsp; < form > // denne taggen er ikke nødvendig <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; Skriv inn navn: < input type = "text" name = "navn" > < br > <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; Skriv inn alder: < input type = "number" name = "alder" min = "0" max = "100"> < br > <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; Hva synes du om denne nettsiden? < select name="tilbakemelding" ><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="1" > Dårlig < /option ><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="2" > Helt OK < /option ><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="3" > Kjempebra! < /option ><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; < /select > < br > <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; Kjønn: < input type = "radio" name = "kjonn" value = "k"> Kvinne < input type="radio" name="kjonn" value = "m"> Mann < br ><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; Hva liker du å spise til middag? <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; < input type="checkbox" name="middag" value="pasta"> Pasta < br > <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; < input type="checkbox" name="middag" value="pizza"> Pizza < br> <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; < input type="checkbox" name="middag" value="taco"> Taco < br > <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; < input type="submit" name="send" value="Send tilbakemelding" > // her kunne det også vært en div, en button eller hva som helst annet<br>
+    	&nbsp;&nbsp; < /form > // denne taggen er ikke nødvendig </p>
+
+    	<form> <!-- Denne taggen er ikke nødvendig -->
+	    	Skriv inn navn: <input type = "text" name = "navn"> <br>
+	    	Skriv inn alder: <input type = "number" name = "alder" min = "0" max = "100"><br>
+	    	Hva synes du om denne nettsiden? <select name="tilbakemelding">
+	        <option value="1"> Dårlig </option>
+	        <option value="2"> Helt OK </option>
+	        <option value="3"> Kjempebra! </option>
+	      </select><br>
+	      Kjønn: <input type = "radio" name = "kjonn" value = "k"> Kvinne <input type="radio" name="kjonn" value ="m"> Mann <br>
+	      Hva liker du å spise til middag? <br>
+	      <input type="checkbox" name="middag" value="pasta"> Pasta <br>
+	      <input type="checkbox" name="middag" value="pizza"> Pizza <br>
+	      <input type="checkbox" name="middag" value="taco"> Taco <br>
+	    	<input type="submit" name="send" value="Send tilbakemelding"><!-- Her kunne det også vært en div, en button eller hva som helst annet -->
+			</form>  <!-- Denne taggen er ikke nødvendig --> </p>
+
+		<h2> Stilsetting av skjemaer </h2>
+		<p> Alle inputelementer er inlineelementer. Vi kan overstyre i html ved å sette inn < br > etter hvert element, eller vi kan gå inn i css og bestemme at <br>
+			&nbsp;&nbsp; input, select{<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; display: block;<br>
+			&nbsp;&nbsp; }<br><br>
+
+			Når vi ellers stilsetter skjemaet, har vi valget mellom å stilsettte <br>
+			&nbsp;&nbsp; form {}/* stilsetter hele skjemaet gitt at det ligger i form-tagger (det kommer det ikke til å gjøre) */<br>
+			&nbsp;&nbsp; input[type="text"]{} /* stilsetter alle inputfelt av typen text <br>
+			&nbsp;&nbsp; input[type="number"]{} /* stilsetter alle inputfelt av typen number <br>
+			&nbsp;&nbsp; input[type="submit"]{} /* stilsettter alle inputfelt av typen submit <br>
+			&nbsp;&nbsp; /* osv for andre inputfelt */ <br>
+			I tillegg kan enkeltfelt stilsettes ved bruk av klasser eller id'er. </p>
+
+		<h2> Eksempel på et skjema uten form-tag og submit-knapp </h2>
+		<p> Stilsettingen av dette skjemaet ligger i en egen css-fil dere kan finne i kildekoden. <br>
+			&nbsp;&nbsp; < div id="skjema" ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Skriv inn navn: < input type="text" placeholder="navn" id="navn" ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Skriv inn telefonnr: < input type="number" min="1" placeholder="12345678" id="tlf" ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Antall gjester: < select name="gjester" id="ant" > <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="1" > 1 gjest < /option > <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="2" > 2 gjester < /option ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="3" > 3 gjester < /option ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="4" > 4 gjester < /option ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="5" > 5 gjester < /option ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; < option value="6" > 6 gjester < /option ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < /select ><br>
+			&nbsp;&nbsp; Frokost?< br ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < input type="radio" name="frokost" id="frokostJa" checked> Ja < br ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < input type="radio" name="frokost" id="frokostNei"> Nei< br ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Ekstraaktiviteter? < br ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < input type="checkbox" name="aktivitet" id="aktBo"> Dagspass Bø Sommarland (300 kr)<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < input type="checkbox" name="aktivitet" id="aktHoyt"> Dagspass Høyt og Lavt klatrepark (250 kr)<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < input type="checkbox" name="aktivitet" id="aktFrukt"> Omvisning på fruktgård (200 kr)<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < input type="checkbox" name="aktivitet" id="aktTelemark"> Dagstur på Telemarkskanalen (800 kr) <br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < button id="send" >Registrer< /button ><br>
+			&nbsp;&nbsp; < /div ><br>
+			&nbsp;&nbsp; < div id="kvittering" >< /div > </p>
+		<div id="skjema">
+				Skriv inn navn: <input type="text" placeholder="navn" id="navn">
+				Skriv inn telefonnr: <input type="number" min="1" placeholder="12345678" id="tlf">
+				Antall gjester: <select name="gjester" id="ant">
+					<option value="1"> 1 gjest </option>
+					<option value="2"> 2 gjester </option>
+					<option value="3"> 3 gjester </option>
+					<option value="4"> 4 gjester </option>
+					<option value="5"> 5 gjester </option>
+					<option value="6"> 6 gjester </option>
+				</select>
+				Frokost?<br>
+				<input type="radio" name="frokost" id="frokostJa" checked> Ja <br>
+				<input type="radio" name="frokost" id="frokostNei"> Nei<br>
+				Ekstraaktiviteter? <br>
+				<input type="checkbox" name="aktivitet" id="aktBo"> Dagspass Bø Sommarland (300 kr)<br>
+				<input type="checkbox" name="aktivitet" id="aktHoyt"> Dagspass Høyt og Lavt klatrepark (250 kr)<br>
+				<input type="checkbox" name="aktivitet" id="aktFrukt"> Omvisning på fruktgård (200 kr)<br>
+				<input type="checkbox" name="aktivitet" id="aktTelemark"> Dagstur på Telemarkskanalen (800 kr) <br>
+				<button id="send">Registrer</button>
+		</div>
+		<div id="kvittering"></div>
 
     <h1> Hendelser for å hente inn informasjon </h1>
+		<p> Som oftest bruker vi en klikkhendelse der lytteren er en knapp for å sende inn all informasjon fra et skjema samlet.
+			Det kan også være aktuelt å legge hendelsen change til select-elementer direkte: <br>
+			&nbsp;&nbsp; < select name = "test" id="test" ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < option value="1" >1< /option ><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; < option value="2" >2< /option ><br>
+			&nbsp;&nbsp; < /select ><br>
+			&nbsp;&nbsp; < p id="skrivHer" >< /p ><br>
+			I scriptet henter man ut verdien til "test" med en gang: <br>
+			&nbsp;&nbsp; var testEl=document.querySelector("#test");<br>
+			&nbsp;&nbsp; testEl.addEventListener("change", skrivUt);<br>
+			&nbsp;&nbsp; var skrivHerEl = document.querySelector("#skrivHer");<br>
+			&nbsp;&nbsp; function skrivUt(){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; skrivHerEl.innerHTML="du har valgt "+testEl.value;<br>
+			&nbsp;&nbsp; }</p>
+		<select name = "test" id="test">
+			<option value="1">1</option>
+			<option value="2">2</option>
+		</select>
+		<p id="skrivHer"></p>
+		<script>
+		var testEl=document.querySelector("#test");
+		testEl.addEventListener("change", skrivUt);
+		var skrivHerEl = document.querySelector("#skrivHer")
+		function skrivUt(){
+			skrivHerEl.innerHTML="du har valgt "+testEl.value;
+		}
+		</script>
 
-    <h2> Eksempel: </h2>
+		<h2> Eksempel: henter inn info i skjemaet over </h2>
+		<p> I skjemaet over har ga inputfeltene hver sin id. Dette er for senere å kunne hente ut svarene. Disse svarene kommer jeg til å skrive ut til et tomt div-element jeg har lagt under skjemaet. Jeg ønsker ikke å hente ut svarene før knappen trykkes, og legger derfor til en lytter:<br>
+			&nbsp;&nbsp; var sendEl = document.querySelector("#send");<br>
+			&nbsp;&nbsp; sendEl.addEventListener("click", sendSvar);<br><br>
+			Jeg henter også ut kvitteringsdiven som jeg skal skrive til:<br>
+			&nbsp;&nbsp; var kvitteringEl = document.querySelector("#kvittering"); <br><br>
+			I funksjonen sendSvar vil jeg finne ut hva som er registrert i feltene og skriver ut kvittering: <br>
+			&nbsp;&nbsp; function sendSvar(){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; // henter inn svar<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var navnEl = document.querySelector("#navn");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var tlfEl = document.querySelector("#tlf");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var gjesterEl = document.querySelector("#ant");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var frokostJaEl = document.querySelector("#frokostJa");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var frokostNeiEl = document.querySelector("#frokostNei");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktBoEl = document.querySelector("#aktBo");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktHoytEl = document.querySelector("#aktHoyt");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktFruktEl = document.querySelector("#aktFrukt");<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktTelemarkEl = document.querySelector("#aktTelemark");<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;  // finner ut om gjestene skal ha frokost<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;  var frokost ="";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; if(frokostJaEl.checked){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frokost = "skal ha frokost";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; else if(frokostNeiEl.checked){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; frokost = "skal ikke ha frokost";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; // finner ut hvilke aktiviteter<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktBo = "";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; if(aktBoEl.checked){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aktBo = "Bø Sommarland < br >";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktHoyt = "";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; if(aktHoytEl.checked){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aktHoyt = "Høyt og Lavt klatrepark< br >";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktFrukt = "";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; if(aktFruktEl.checked){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aktFrukt = "Omvisning på fruktgård< br >";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktTelemark = "";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; if(aktTelemarkEl.checked){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; aktTelemark = "Dagstur på Telemarkskanalen< br >";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var aktIngen = "";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; if(!(aktBoEl.checked || aktHoytEl.checked || aktFruktEl.checked || aktTelemarkEl.checked)){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var aktIngen = "Ingen aktiviteter < br >";<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp; fyller tom div med kvittering<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; kvitteringEl.innerHTML = "< p > Navnet er " + navnEl.value + " og du er registrert med telefonnr " + tlfEl.value + ". Dere er " + gjesterEl.value + " gjester, og dere " + frokost + ". Av aktiviteter har dere valgt: < br >" + aktBo + aktHoyt + aktFrukt + aktTelemark + aktIngen + "< /p >";<br>
+			&nbsp;&nbsp; }
+			</p>
+
+			<script>
+				var sendEl = document.querySelector("#send");
+				sendEl.addEventListener("click", sendSvar);
+				var kvitteringEl = document.querySelector("#kvittering");
+
+				function sendSvar(){
+					// henter inn svar
+					var navnEl = document.querySelector("#navn");
+					var tlfEl = document.querySelector("#tlf");
+					var gjesterEl = document.querySelector("#ant");
+					var frokostJaEl = document.querySelector("#frokostJa");
+					var frokostNeiEl = document.querySelector("#frokostNei");
+					var aktBoEl = document.querySelector("#aktBo");
+					var aktHoytEl = document.querySelector("#aktHoyt");
+					var aktFruktEl = document.querySelector("#aktFrukt");
+					var aktTelemarkEl = document.querySelector("#aktTelemark");
+
+					// finner ut om gjestene skal ha frokost
+					var frokost ="";
+					if(frokostJaEl.checked){
+						frokost = "skal ha frokost";
+					}
+					else if(frokostNeiEl.checked){
+						frokost = "skal ikke ha frokost";
+					}
+
+					// finner ut hvilke aktiviteter
+					var aktBo = "";
+					if(aktBoEl.checked){
+						aktBo = "Bø Sommarland <br>";
+					}
+					var aktHoyt = "";
+					if(aktHoytEl.checked){
+						aktHoyt = "Høyt og Lavt klatrepark<br>";
+					}
+					var aktFrukt = "";
+					if(aktFruktEl.checked){
+						aktFrukt = "Omvisning på fruktgård<br>";
+					}
+					var aktTelemark = "";
+					if(aktTelemarkEl.checked){
+						aktTelemark = "Dagstur på Telemarkskanalen<br>";
+					}
+					var aktIngen = "";
+					if(!(aktBoEl.checked || aktHoytEl.checked || aktFruktEl.checked || aktTelemarkEl.checked)){
+						var aktIngen = "Ingen aktiviteter <br>";
+					}
+
+					// fyller tom div med kvittering
+					kvitteringEl.innerHTML = "<p> Navnet er " + navnEl.value + " og du er registrert med telefonnr " + tlfEl.value + ". Dere er " + gjesterEl.value + " gjester, og dere " + frokost + ". Av aktiviteter har dere valgt: <br>" + aktBo + aktHoyt + aktFrukt + aktTelemark + aktIngen + "</p>";
+				}
+			</script>
+
+    <h2> Oppgave </h2>
+		<p> Det er samlet flere oppgaver til kapitlene 7-10 i et pdf-dokument der oppgave 3 og 4 er relevante til dette temaet: <a href="https://itnotateroks.github.io/it2/nyttig/oppgaver_kap_7_8.pdf">her</a>.
 
     <h2> Oppgave: Eksamen høst 2016, oppgave 2 </h2>
-
+	</p><b>Bestillingsverktøy for matkasse</b><br>
+	Bestillingen av matkassene skal foregå på nettsiden.
+	Du skal lage en applikasjon der kunden (brukeren) kan velge en matkasse som inneholder to eller tre middager, og hvor mange personer middagene skal lages til. <br>
+ 	Når brukeren har valgt matkasse, skal det komme opp et bilde som illustrerer om det er to eller tre middager som er valgt. Applikasjonen bør sjekke om antall personer som er registrert, er innenfor lovlige/sannsynlige verdier.  <br>
+ 	Prisen beregnes ut fra valgene, og du kan regne med 80 kroner per person per måltid.  Bestilles det matkasser til fem personer eller mer, vil prisen per person være 70 kroner.   <br>
+ 	Applikasjonen skal bekrefte valgene som er gjort, og navnet og adressen til den som bestiller, skal legges inn og vises sammen med de andre opplysningene.  <br>
+ 	<i> (Bestillingen vil på en virkelig nettside måtte sendes/lagres ved hjelp av for eksempel epost eller en fil, men på eksamen trenger du ikke gjøre noe med dette.) </i></p>
   </div>
 	<a href="../index.html"><img class="hjem" src="../hjem.png"></a>
 </body>

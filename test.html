@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+    html, body{
+      height:100%;
+    }
+    </style>
+  </head>
+  <body>
+    <h1> kun en overskrift </h1>
+    <p> Vi bestemmer at vi skal fylle hele nettleservinduet for å kunne registrere musebevegelser i hele vinduet<p>
+    <p id="skrivUt">Deretter skriver vi ut verdien her</p>
+    <script>
+    var skrivUtEl = document.querySelector("#skrivUt");
+    var bodyEl = document.querySelector("body");
+    bodyEl.addEventListener("mousemove", visPos);
+    function visPos(e){ //tar inn e, for "event"
+      /*console.log(e.clientX);
+      console.log(e.clientY);*/
+      skrivUtEl.innerHTML = "x-posisjonen er " + e.clientX + " og y-posisjonen er " + e.clientY;
+    }
+    </script>
+  </body>
+</html>

@@ -164,6 +164,9 @@
 
 				var S = X + Y +Z + D + K - 2*C;
         var R = S%7;
+				if(R<0){
+					R=R+7;
+				}
 				console.log(R);
 				if(R == 0){
 					return("søndag")
@@ -183,12 +186,12 @@
 				else if(R == 5){
 					return("fredag")
 				}
-				else{
+				else if(R==6){
 					return("lørdag")
 				}
       }
 
-      console.log(zellersDato("07.01.2020"))
+      console.log(zellersDato("03.03.2014"))
 
     </script>
   </div>
