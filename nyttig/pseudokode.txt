@@ -1,0 +1,66 @@
+﻿Pseudokode for oppgave 3: 
+3a) 
+
+var poengteller = 0; 
+var poengsum = 0; 
+
+var spm1 = img, id, input(radio)
+var spm2 =  img, id, input(radio)
+var spm3 = img, id, input(radio)
+var spm4 = img, id, input(radio)
+
+addEventlistener for startfunksjon
+funksjon for å starte quizen, 
+function startQuizen --> kommer til første bilde
+hente ut svar1 fra første bildet 
+
+addEventlistener for svar1funksjon
+
+sjekker svar alternativene i spm1:
+
+function svar1() {
+	 henter ut svaralternativene 
+	IF (svarer == riktig alternativ)
+		poeng++ 
+	ELSE IF (svarer == feil alternativ)
+		poeng-1 
+	ELSE (svarer blankt)
+		poeng (får 0 poeng)
+
+	var send2 
+	for å sendes til neste spørsmål 
+	addEventlistener for svar2funksjon 
+}
+
+for at neste bilde skal dukke opp: 
+function oppg2() {
+legger inn hendelse klikk 
+}
+
+function svar2() {
+	 henter ut alternativene (querySelector)
+	IF (svarer == riktig alternativ)
+		poeng++ 
+	ELSE IF (svarer == feil alternativ)
+		poeng-1 
+	ELSE (svarer blankt)
+		poeng (får 0 poeng)
+
+	var send3
+	addEventlistener for svar3funksjon 
+} 
+
+Gjentar dette for hvert spørsmål i quizen.  
+
+
+
+
+
+
+
+
+
+
+
+
+

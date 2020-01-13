@@ -1,0 +1,1 @@
+Du vil nå få presentert 10 bilder av ulike fugler. For hver fugl er det tre svaralternativer. Du vil få 1 poeng for korrekt svar, -1 poeng for feil svar og 0 poeng for blankt svar. Fyll inn navnet ditt og start treningseksamen! Lykke til!

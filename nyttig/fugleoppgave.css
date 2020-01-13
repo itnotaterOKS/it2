@@ -1,0 +1,32 @@
+#visning{
+	background-color:#f18039;
+	color: #30190b;
+	width: 70%;
+	padding: 15px;
+	margin-top: 50px;
+	margin-left: 15%;
+	font-size: 150%;
+	font-family: "Courier New", Courier, monospace;
+	border: 2px solid  #30190b;
+}
+#navn{
+	width: 50%;
+	margin-left: 25%;
+}
+#start{
+	width: 20%;
+	margin-left: 40%;
+}
+#start, #send1, #send2, #send3, #send4, #send5{
+	cursor: pointer;
+}
+#visning p, #visning h2{
+	text-align: center;
+}
+#visning img{
+	width: 50%;
+	margin-left: 25%;
+}
+button{
+	cursor: pointer;
+}

@@ -16,18 +16,800 @@
     <p> Vi repeterer datakolleksjonene array og object samt hvordan vi kan kombinere disse. Dette er et viktig grunnlag før vi går videre og kombinerer det med brukerinput! </p>
 
     <h1> Array </h1>
+		<p> Vi definerer en array på samme måte som en variabel: <br>
+		&nbsp;&nbsp; var tallArray  <br>
+		Hvis vi vil  opprette en array uten innhold sånn at vi har bestemt datatypen skriver vi <br>
+		&nbsp;&nbsp; var tallArray = []<br>
+		Når vi fyller arrayen med verdier samler vi alt som skal lagres i arrayen mellom [] og skiller verdiene med komma: <br>
+		&nbsp;&nbsp; var tallArray = [0, 1, 2, 3, 4, 5];<br>
+		Variablen over er array med lengde 6.		En array er indeksert fra 0 til lengden-1 der arrayens lengde er antall verdier<br>
+		Vi henter ut enkeltverdier med <br>
+		&nbsp;&nbsp; console.log(tallArray[0]) // returnerer 0<br>
+		og finner lengden med <br>
+		&nbsp;&nbsp; console.log(tallArray.length) // returnerer 5</p>
 
-    <h2> Oppgaver array </h2>
+		<script>
+			var tallArray = [0, 1, 2, 3, 4, 5];
+			console.log(tallArray[0])
+			console.log(tallArray.length)
+		</script>
+		Vi <b>endrer</b> verdier i en array ved: <br>
+		&nbsp;&nbsp; var tallArray = [0, 1, 2, 3, 4, 5];<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [0, 1, 2, 3, 4, 5]<br>
+		&nbsp;&nbsp; tallArray[2] = 42;<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [0, 1, 42, 3, 4, 5] <br><br>
+
+		<script>
+			var tallArray = [0, 1, 2, 3, 4, 5];
+			console.log(tallArray);
+			tallArray[2] = 42;
+			console.log(tallArray);
+		</script>
+
+		Vi <b>legger til</b> verdier i en array ved metodene arrayNavn.push(verdi) (legger til på slutten av arrayen) og arrayNavn.unshift(verdi) (legger til på starten av arrayen): <br>
+		&nbsp;&nbsp; var tallArray = [0, 1, 2, 3, 4, 5];<br>
+		&nbsp;&nbsp; console.log(tallArray);  // returnerer [0, 1, 2, 3, 4, 5] <br>
+		&nbsp;&nbsp; tallArray.push(42); <br>
+		&nbsp;&nbsp; console.log(tallArray); //returnerer [0, 1, 2, 3, 4, 5, 42] <br>
+		&nbsp;&nbsp; tallArray.unshift(42);<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [42, 0, 1, 2, 3, 4, 5, 42] <br><br>
+
+		<script>
+			var tallArray = [0, 1, 2, 3, 4, 5];
+			console.log(tallArray);
+			tallArray.push(42);
+			console.log(tallArray);
+			tallArray.unshift(42);
+			console.log(tallArray);
+		</script>
+
+		Vi <b>fjerner</b> verdier i en array ved metodene arrayNavn.pop() (fjerner på slutten av arrayen) og arrayNavn.shift() (fjerner på starten av arrayen): <br>
+		&nbsp;&nbsp; var tallArray = [0, 1, 2, 3, 4, 5];<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [0, 1, 2, 3, 4, 5] <br>
+		&nbsp;&nbsp; tallArray.pop();<br>
+		&nbsp;&nbsp; console.log(tallArray);// returnerer [0, 1, 2, 3, 4] <br>
+		&nbsp;&nbsp; tallArray.shift();<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [1, 2, 3, 4] <br><br>
+
+		<script>
+			var tallArray = [0, 1, 2, 3, 4, 5];
+			console.log(tallArray);
+			tallArray.pop();
+			console.log(tallArray);
+			tallArray.shift();
+			console.log(tallArray);
+		</script>
+
+		Vi <b>finner enkeltverdier</b> i en arrray ved metoden arrayNavn.indexOf(verdi) som gir oss plasseringen til den første forekomsten av en gitt verdi (senere skal vi klare å finne alle): <br>
+		&nbsp;&nbsp; var tallArray = [0, 1, 2, 3, 4, 5];<br>
+		&nbsp;&nbsp; console.log(tallArray);  // returnerer [0, 1, 2, 3, 4, 5] <br>
+		&nbsp;&nbsp; console.log(tallArray.indexOf(2)); // returnerer 2 <br>
+		&nbsp;&nbsp; tallArray.unshift(2);<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [2, 0, 1, 2, 3, 4, 5] <br>
+		&nbsp;&nbsp; console.log(tallArray.indexOf(2)); // returnerer 0 <br><br>
+
+		<script>
+			var tallArray = [0, 1, 2, 3, 4, 5];
+			console.log(tallArray);
+			console.log(tallArray.indexOf(2));
+			tallArray.unshift(2);
+			console.log(tallArray);
+			console.log(tallArray.indexOf(2));
+		</script>
+
+		Vi <b>fjerner enkeltverdier midt i arrayen</b> ved metoden arrayNavn.splice(index, antall verdier). Her kan indexen finnes i samme operasjon: arrayNavn.splice(arrayNavn.indexOf(verdi), antall verdier): <br>
+		&nbsp;&nbsp; var tallArray = [0, 1, 2, 3, 4, 5];<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [0, 1, 2, 3, 4, 5] <br>
+		&nbsp;&nbsp; tallArray.splice(tallArray.indexOf(1), 1); <br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [0, 2, 3, 4, 5] <br><br>
+
+		<script>
+			var tallArray = [0, 1, 2, 3, 4, 5];
+			console.log(tallArray);
+			tallArray.splice(tallArray.indexOf(1), 1);
+			console.log(tallArray);
+		</script>
+
+		Vi kan også <b>legge til enkeltverdier midt i arrayen</b> ved bruk av arrayNavn.splice(indexForForsteNye, antallSlettes, verdiSomLeggesTil, verdiSomLeggesTil osv.) <br>
+		&nbsp;&nbsp; var tallArray = [0, 1, 2, 3, 4, 5];<br>
+		&nbsp;&nbsp; console.log(tallArray);  // returnerer [0, 1, 2, 3, 4, 5]<br>
+		&nbsp;&nbsp; tallArray.splice(3, 0, 42, 42, 42);<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [0, 1, 2, 42, 42, 42, 3, 4, 5] <br>
+		&nbsp;&nbsp; tallArray.splice(3, 2, 11, 12, 'tall? tull?');<br>
+		&nbsp;&nbsp; console.log(tallArray); // returnerer [0, 1, 2, 11, 12, "tall? tull?", 42, 3, 4, 5] </p>
+
+		<script>
+			var tallArray = [0, 1, 2, 3, 4, 5];
+			console.log(tallArray);
+			tallArray.splice(3, 0, 42, 42, 42);
+			console.log(tallArray);
+			tallArray.splice(3, 2, 11, 12, 'tall? tull?');
+			console.log(tallArray);
+		</script>
+
+		<p> Vi bruker forløkker til å løkke gjennom arrays. Dersom vi ønsker at samme kode skal gjennomføres for alle elementer i en array setter vi
+			startverdi for telleren til å være i = 0 og lar løkken løpe til i < arrayens lengde: <br>
+			&nbsp;&nbsp; for (var i = 0; i < arrayen.length; i++){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; // kode<br>
+			&nbsp;&nbsp; }<br><br>
+			Vi kan for eksempel bruke dette til å skrive ut alle elementene i en array (ikke så spennende):<br>
+			&nbsp;&nbsp; var tallArray = [1, 3, 5, 8, 10, 2, 44, 0];<br>
+			&nbsp;&nbsp; for(var i = 0; i < tallArray.length; i++){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; console.log(tallArray[i]);<br>
+			&nbsp;&nbsp; }<br><br>
+
+		<h2> Oversikt over metoder vi bruker på arrays </h2>
+						<table>
+							<tr><th>Metode</th><th>Kode</th></tr>
+							<tr><td>Opprette en array</td><td> var arrayen = [verdi1, verdi2, verdi3];</td></tr>
+							<tr><td>Endre en verdi i en array</td><td>arrayen[plass] = nyVerdi;</td></tr>
+							<tr><td>Legge til en verdi i starten av en array</td><td>arrayen.unshift(verdi)</td></tr>
+							<tr><td>Legge til en verdi på slutten av en array</td><td>arrayen.push(verdi)</td></tr>
+							<tr><td>Fjerne verdien i starten av en array</td><td>arrayen.shift()</td></tr>
+							<tr><td>Fjerne verdien på slutten av array</td><td>arrayen.pop()</td></tr>
+							<tr><td>Finne plass til enkeltverdi i en array</td><td>arrayen.indexOf(verdi)</td></tr>
+							<tr><td>Fjerne enkeltverdier i en array</td><td>arrayen.splice(plass, antall verdier som fjernes)</td></tr>
+							<tr><td>Legge til enkeltverdier i en array</td><td>arrayen.splice(plass, antall verdier som fjernes, verdi som legges til, verdi som legges til, osv)</td></tr>
+							<tr><td>Løkke gjennom en array</td><td> for(var i = 0; i < arrayen.length; i++){// kode}</td></tr>
+						</table>
+
+			<h2> Metoden querySelectorAll </h2>
+			<p> Vi husker fra tidligere at metoden querySelector finner første forekomst av et element (querySelector("p")), av et element med en gitt klasse (querySelector(".klassenavn")) eller av et element med en gitt id (querySelector("#idnavn")). Det ble også nevnt at det finnes en metode querySelectorAll som tar inn alle elementer av en gitt type/klasse. Denne har vi spart fordi disse variablene lagres som nettopp en array. For å bearbeide dem må jeg da hente inn alle ved hjelp av en løkke. <br><br>
+
+			Som eksempel kan jeg hente inn alle td-elementer i dette dokumentet og gi dem rosa bakgrunn: <br>
+				&nbsp;&nbsp; var tdEl = document.querySelectorAll("td");<br>
+				&nbsp;&nbsp; for(var i = 0; i < tdEl.length; i++){<br>
+				&nbsp;&nbsp;&nbsp;&nbsp; tdEl[i].style.backgroundColor = "pink";<br>
+				&nbsp;&nbsp; }</p>
+
+			<script>
+				var tdEl = document.querySelectorAll("td");
+				for(var i = 0; i < tdEl.length; i++){
+					tdEl[i].style.backgroundColor = "pink";
+				}
+			</script>
+
+
+		<h2> Sorteringsalgoritmer </h2>
+		<p> Det finnes mange måter å sortere arrays på, og det varierer hvor effektive de er. En av disse er bubblesort. Den blir ikke repetert nå, men du kan lese deg opp <a href="https://itnotateroks.github.io/it2/kap11_12/kap_11_3.html">i notatene</a> med et <a href="https://itnotateroks.github.io/it2/kap11_12/bubblesort.html">kodeeksempel</a>.<br>
+			Det finnes også innebygde sorteringsfunksjoner: <a href="https://www.w3schools.com/js/js_array_sort.asp">sort og reverse</a></p>.
+
+    <h2> Oppgaver arrays </h2>
+		<p> 1. Lag en funksjon som finner det minste tallet i en array. <br>
+			2. Lag en funksjon som finner summen av tallene i en array. <br>
+			3. Lag en funksjon som finner gjennomsnittet av tallene i en array.<br>
+			4. Lag et html-dokument med mellom 5 og 10 checkbox (dette er eneste inputfelt). Bruk querySelectorAll til å skrive ut en liste over hvilke bokser som er krysset av. </p>
+
+		<h2> Løsning til opppgaver arrays </h2>
+		&nbsp;&nbsp; var storst = tallArray[0];<br>
+			&nbsp;&nbsp; for(var i = 0; i < tallArray.length; i++){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; if (tallArray[i] > storst){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; storst = tallArray[i];<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp; console.log(storst, tallArray.indexOf(storst));<br><br>
+
+			Koden for å finne største verdi i en array kan også utvides til en funksjon som tar inn arrayen og finner det største tallet:<br>
+			&nbsp;&nbsp; function finnStorst(tall){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var storst = tall[0];<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; for(var i = 0; i < tall.length; i++){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (tall[i] > storst){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; storst = tall[i];<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; console.log(storst, tall.indexOf(storst));<br>
+			&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp; var tallArray = [1, 2, 3, 7, 10, 2];<br>
+			&nbsp;&nbsp; finnStorst(tallArray) // evt finnStorst([1, 2, 3, 7, 10, 2])<br><br>
+
+			Lager en funksjon som finner det minste tallet i en array. <br>
+				&nbsp;&nbsp; var tallArray = [4, 3, 11, 7, 9, -3, 4];<br>
+				&nbsp;&nbsp; var minst = tallArray[0];<br>
+				&nbsp;&nbsp; var plass = 0;<br>
+				&nbsp;&nbsp; for(var i = 0; i < tallArray.length; i++){<br>
+				&nbsp;&nbsp;&nbsp;&nbsp; if(tallArray[i] < minst){<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minst = tallArray[i];<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; plass = i;<br>
+				&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+				&nbsp;&nbsp; }<br>
+				&nbsp;&nbsp; console.log('Det minste tallet er '+minst+' og står på plass '+plass);
+				<br><br>
+
+			Lager en funksjon som finner summen av tallene i en array. <br>
+				&nbsp;&nbsp; var sum = 0;<br>
+				&nbsp;&nbsp; for(var i = 0; i < tallArray.length; i++){<br>
+				&nbsp;&nbsp;&nbsp;&nbsp; sum += tallArray[i]<br>
+				&nbsp;&nbsp; }<br>
+				&nbsp;&nbsp; console.log('Summen av tallene i arrayen er  '+sum);<br><br>
+
+			Lager en funksjon som finner gjennomsnittet av tallene i en array.<br>
+				&nbsp;&nbsp; var snitt = sum / tallArray.length;<br>
+				&nbsp;&nbsp; console.log('Gjennomsnittet av tallene i arrayen er '+snitt); <br><br>
+
+			HTML for oppgave 4: <br>
+					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="fotball">Fotball<br>
+					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="kunstløp">Kunstløp<br>
+					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="langrenn">Langrenn<br>
+					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="turn">Turn<br>
+					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="skihopping">Skihopping<br>
+					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="vektløfting">Vektløfting<br>
+					&nbsp;&nbsp; < button id="send">Send svar < /button ><br>
+					&nbsp;&nbsp; < p id="skrivUt">< /p ><br><br>
+
+				Scriptet for dette:<br>
+					&nbsp;&nbsp; var idrettEl = document.querySelectorAll("input[name='idrett']");<br>
+					&nbsp;&nbsp; var skrivUtEl = document.querySelector("#skrivUt");<br>
+					&nbsp;&nbsp; var sendEl = document.querySelector("#send");<br>
+					&nbsp;&nbsp; sendEl.addEventListener("click", sjekkSkjema);<br>
+					&nbsp;&nbsp; function sjekkSkjema(){<br>
+					&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += 'Du liker å drive med < ul >';<br>
+					&nbsp;&nbsp;&nbsp;&nbsp; for(i = 0; i < idrettEl.length; i++){<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(idrettEl[i].checked){<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += '< li >' + idrettEl[i].value + '< /li >';<br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+					&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+					&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += '< /ul >';<br>
+					&nbsp;&nbsp; }</p>
+
+				<h3> Hvilke idretter liker du? </h3>
+					<p><input type="checkbox" name="idrett" value="fotball">Fotball<br>
+					<input type="checkbox" name="idrett" value="kunstløp">Kunstløp<br>
+					<input type="checkbox" name="idrett" value="langrenn">Langrenn<br>
+					<input type="checkbox" name="idrett" value="turn">Turn<br>
+					<input type="checkbox" name="idrett" value="skihopping">Skihopping<br>
+					<input type="checkbox" name="idrett" value="vektløfting">Vektløfting</p>
+					<button id="send">Send svar </button>
+					<p id="skrivUt"></p>
+
+			<script>
+				var tallArray = [1, 3, 5, 8, 10, 2, 44, 0];
+				// skriver ut alle elementer
+				for(var i = 0; i < tallArray.length; i++){
+					console.log(tallArray[i]);
+				}
+
+				// finner det største elementet og plassen deres
+				var storst = tallArray[0];
+				for(var i = 0; i < tallArray.length; i++){
+					if (tallArray[i] > storst){
+						storst = tallArray[i];
+					}
+				}
+				console.log(storst, tallArray.indexOf(storst));
+
+				// funksjon som finner det største elementet i en array
+				function finnStorst(tall){
+					var storst = tall[0];
+					for(var i = 0; i < tall.length; i++){
+						if (tall[i] > storst){
+							storst = tall[i];
+						}
+					}
+					console.log(storst, tall.indexOf(storst));
+				}
+				var tallArray = [1, 2, 3, 7, 10, 2];
+				finnStorst(tallArray) // evt finnStorst([1, 2, 3, 7, 10, 2])
+
+				var tallArray = [4, 3, 11, 7, 9, -3, 4];
+					// finner det minste tallet
+					var minst = tallArray[0];
+					var plass = 0;
+					for(var i = 0; i < tallArray.length; i++){
+						if(tallArray[i] < minst){
+							minst = tallArray[i];
+							plass = i;
+						}
+					}
+					console.log('Det minste tallet er '+minst+' og står på plass '+plass);
+
+					// finner summen
+					var sum = 0;
+					for(var i = 0; i < tallArray.length; i++){
+						sum += tallArray[i]
+					}
+					console.log('Summen av tallene i arrayen er  '+sum);
+
+					//finner gjennomsnittet
+					var snitt = sum / tallArray.length;
+					console.log('Gjennomsnittet av tallene i arrayen er '+snitt);
+
+									var idrettEl = document.querySelectorAll("input[name='idrett']");
+							var skrivUtEl = document.querySelector("#skrivUt");
+							var sendEl = document.querySelector("#send");
+							sendEl.addEventListener("click", sjekkSkjema);
+							function sjekkSkjema(){
+								skrivUtEl.innerHTML += 'Du liker å drive med <ul>';
+								for(i = 0; i < idrettEl.length; i++){
+									if(idrettEl[i].checked){
+										skrivUtEl.innerHTML += '<li>' + idrettEl[i].value + '';
+									}
+								}
+								skrivUtEl.innerHTML += '</ul>';
+							}
+				</script>
 
     <h1> Object </h1>
+		<p> I en array er det plassen til hver verdi vi viser til når vi skal bruke den. Objects kan sammelgnes med det vi i php kalte assosiative arrays, der hver verdi har en nøkkel vi refererer til når vi skal ha verdien.
+		Vi lagrer hver enkelt verdi sammen med en nøkkel som sier noe om verdien (tilsvarer assosiative arrays i php):<br>
+	    	&nbsp;&nbsp; var objectVar = {nøkkel1: "verdi1", nøkkel2: "verdi2", osv.}<br>
+	    	Som et eksempel kan jeg lagre personinfo i et object: <br>
+	    	&nbsp;&nbsp; var person = {fnavn: "Asta", enavn: "Fjærli", alder: 28, hobby: "løfte tungt"};<br>
+	    	Mer oversiktlig er det å skrive <br>
+	    	&nbsp;&nbsp; var person = {<br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp; hobby: "løfte tungt"<br>
+	    	&nbsp;&nbsp; };<br>
+	    	Som vi ser, kan objectverdiene inneholde både tekst og tall. De kan også inneholde boolske variabler og arrays.<br><br>
+				I en array finner man verdien ved å referere til plasseringen og bruke klammenotasjon: array[plass]. I en object refererer vi til nøkkelen og bruker enten klammenotasjon eller dotnotasjon: <br>
+				&nbsp;&nbsp; console.log(person["fnavn"], person.fnavn);<br>
+				&nbsp;&nbsp; console.log(person["hobby"], person.hobby);<br><br>
+
+				Av og til tilhører det flere verdier til hver nøkkel, f.eks. kan man ha flere hobbyer. Da legger man disse i en array til nøkkelen, dette er nyttig for å unngå et uvisst antall nøkler <i>hobby1, hobby2, osv</i>, og det gir oss muligheten til å bruke de vanlige metodene på arrayen: <br>
+				&nbsp;&nbsp; var person = {<br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
+	    	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["spille fløyte", "løfte tungt", "strikke"] <br>
+	    	&nbsp;&nbsp; };<br><br>
+
+				For å hente ut en gitt hobby holder det ikke å be om person["hobby"], da det vil returnere <br>
+	    	&nbsp;&nbsp; (3) ["spille fløyte", "løfte tungt", "strikke"]<br>
+	    	For å få ut en viss hobby må man derfor be om person["hobby"][1];<br><br>
+
+			<script>
+
+	    	var person  = {
+	    		fnavn: "Asta",
+	    		enavn: "Fjærli",
+	    		alder: 28,
+					hobby: ["spille fløyte", "løfte tungt", "strikke"]
+			}
+			console.log(person["fnavn"], person.fnavn);
+    	console.log(person["hobby"], person.hobby);
+			console.log(person["hobby"][1], person.hobby[1])
+
+			</script>
+
+			<h2> Endre verdier i objects </h2>
+			<p> På samme måte som i arrays kan vi overskrive enkeltverdier i objects. Her kan vi bruke både klammenotasjon og dotnotasjon: <br>
+    	&nbsp;&nbsp; person.fnavn = "Asta Rønning";<br>
+    	&nbsp;&nbsp; person["alder"] = 1000;<br>
+    	&nbsp;&nbsp; person.hobby[0] = "korps";<br>
+    	&nbsp;&nbsp; person["hobby"][1] = "vektløfting";<br><br>
+
+    	På samme måte kan vi legge til verdier:<br>
+    	&nbsp;&nbsp; person.favorittbok = "Ringdrotten";<br>
+    	&nbsp;&nbsp; person["favorittland"] = "Island";<br>
+    	&nbsp;&nbsp; person["hobby"].push("turn");<br><br>
+
+    	Og vi kan slette verdier:<br>
+    	&nbsp;&nbsp; delete person.enavn;<br>
+    	&nbsp;&nbsp; delete person["fnavn"];<!--<br><br>
+
+    	Den nyeste utgaven finner vi ved å løkke gjennom på nytt: <br>
+    	&nbsp;&nbsp; for(var egenskap in person){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; console.log(person[egenskap]);<br>
+    	&nbsp;&nbsp; }--></p>
+
+
+    	<script>
+    	person.fnavn = "Asta Rønning";
+    	person["alder"] = 1000;
+    	person.hobby[0] = "korps";
+    	person["hobby"][1] = "vektløfting";
+
+    	person.favorittbok = "Ringdrotten";
+    	person["favorittland"] = "Island";
+    	person["hobby"].push("turn");
+
+    	delete person.enavn;
+    	delete person["fnavn"];
+
+    /*	for(var egenskap in person){
+    		console.log(person[egenskap]);
+    	}*/
+    	</script>
+
+			<h2> Løkke gjennom objects </h2>
+			<p> Vi kjenner til forløkker som for(var i = startverdi; i <= sluttverdi; i++) der vi vet antall ganger koden skal gjentas. For objects kjenner vi ikke nødvendigvis til antall egenskaper, og kan heller ikke referere til objectets lengde. Forløkker for objects kaller vi derfor for - in - løkker. Her konstrueres en egenskapsvariabel som sørger for at alle egenskaper i et object blir løkket gjennom. Denne egenskapsvariablen kan vi kalle hva som helst: kodene <br>
+  	&nbsp;&nbsp; for(var egenskap in person){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; console.log(egenskap);<br>
+    	&nbsp;&nbsp; }<br>
+    	og<br>
+    	&nbsp;&nbsp; for(var jul in person){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; console.log(jul);<br>
+    	&nbsp;&nbsp; }<br>
+    	returnerer begge alle egenskaper i objectet. Her må vi bruke klammenotasjon for å få ut verdiene,<b> vi kan ikke bruke dot-notasjon.</b> <br>
+			Vi kan skrive ut enten nøkkelen eller verdien:<br>
+			&nbsp;&nbsp; for(var egenskap in person){<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp; console.log(egenskap, person[egenskap]);<br>
+    	&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp; for(var jul in person){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; console.log(jul, person[jul]);<br>
+  		&nbsp;&nbsp; }</p>
+
+    	<script>
+    	for(var egenskap in person){
+    		console.log(egenskap, person[egenskap]);
+    	}
+    	for(var jul in person){
+    		console.log(jul, person[jul]);
+    	}
+    	</script>
+
+
+			<h2> This-notasjon </h2>
+			<p> Et object kan, i tillegg til egenskaper, ha metoder. Disse fungerer som funksjoner, og oppgaven til en slik metode kan for eksempel være å returnere alder og favorittland, eller å skrive ut en liste over hobbyene. Fordi funksjonen er definert inne i objectet, bruker vi kodeordet this for å peke på egenskapen. Det forteller at vi skal finne egenskapen i nettopp dette objectet.<br><br>
+    	&nbsp;&nbsp; var person = {<br>
+   	   &nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta Rønning",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28,<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["korps", "vektløfting", "strikke", "turn"],<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; favorittbok: "Ringdrotten",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; favorittland: "Island",<br>
+   	  &nbsp;&nbsp; // returnere alder og favorittland<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alderLand: function(){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return this.alder + " " + this.favorittland;<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; },<br>
+    	&nbsp;&nbsp; // skrive ut en liste over hobbyer<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; hobbyer: function(){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var bodyEl = document.querySelector("body");<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var liste = document.createElement("ul");<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i = 0; i < this.hobby.length; i++){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var listeEl = document.createElement("li")<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listeEl.innerHTML = this.hobby[i];<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; liste.appendChild(listeEl)<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bodyEl.appendChild(liste);<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp; console.log(person.alderLand());<br>
+    	&nbsp;&nbsp; person.hobbyer();</p>
+
+    	<script>
+    	var person = {
+    		fnavn: "Asta Rønning",
+    		enavn: "Fjærli",
+    		alder: 28,
+    		hobby: ["korps", "vektløfting", "strikke", "turn"],
+    		favorittbok: "Ringdrotten",
+    		favorittland: "Island",
+
+    		// returnere alder og favorittland
+    		alderLand: function(){
+    			return this.alder + " " + this.favorittland;
+    		},
+
+    		// skrive ut en liste over hobbyer
+    		hobbyer: function(){
+    			var bodyEl = document.querySelector("body");
+    			var liste = document.createElement("ul");
+    			for(i = 0; i < this.hobby.length; i++){
+    				var listeEl = document.createElement("li")
+    				listeEl.innerHTML = this.hobby[i];
+    				liste.appendChild(listeEl)
+    			}
+    			bodyEl.appendChild(liste);
+    		}
+
+    	}
+    	console.log(person.alderLand());
+    	person.hobbyer();
+    	</script>
+
 
     <h2> Oppgaver object </h2>
+		<p>	a) Lag et object for filmen The Fellowship of the Ring. Dette skal inneholde nøklene tittel, regissør, komponist, utgivelsesår og varighet.<br>
+			Bruk en løkke til å skrive verdiene i objectet til konsollen (uten nøkler).<br>
+			Legg så til nøkkelen skuespillere for filmen. I denne nøkkelen skal tre skuespillere legges inn: Elijah Wood, Viggo Mortensen og Ian McKellen.<br>
+			b) Opprett en object for hver av Tesla-modellene. De skal inneholde følgende informasjon (denne finner dere også i heldagsprøven høst 2019):<br>
+			<ul>
+				<b> Prisliste: Tesla model X </b>	<br>
+				Grunnpris:
+				<li> Performance: 1 005 000,- </li>
+				<li> Long range: 846 000,- </li>
+				Fargetillegg:
+				<li>Hvit: 0 ,- </li>
+				<li>Sort, sølv eller blå:	12 000,- </li>
+				<li>Rød: 20 000,- </li>
+				Interiørtillegg:
+				<li> Helsort:	0,- </li>
+				<li> Sort og hvitt:	16 000,- </li>
+				<li> Krem:	4 000,- </li>
+			</ul>
+			<ul>
+				<b> Prisliste: Tesla model S </b>	<br>
+				Grunnpris:
+				<li> Performance: 955 000,- </li>
+				<li> Long range: 791 000,- </li>
+				Fargetillegg:
+				<li>Hvit: 0 ,- </li>
+				<li>Sort, sølv eller blå:	12 000,- </li>
+				<li>Rød: 20 000,- </li>
+				Interiørtillegg:
+				<li> Helsort:	0,- </li>
+				<li> Sort og hvitt:	12 500,- </li>
+				<li> Krem:	12 500,- </li>
+			</ul>
+			<ul>
+				<b> Prisliste: Tesla model 3 </b>	<br>
+				Grunnpris:
+				<li> Performance: 500 000,- </li>
+				<li> Long range: 460 000,- </li>
+				Fargetillegg:
+				<li>Hvit: 0 ,- </li>
+				<li>Sort, sølv eller blå:	8 000,- </li>
+				<li>Rød: 17 000,- </li>
+				Interiørtillegg:
+				<li> Helsort:	0,- </li>
+				<li> Sort og hvitt:	8 800,- </li>
+			</ul>
+		Utforsk hvordan du kan legge inn informasjon om valgene sånn at det blir lett å hente ut enten valgene man kan gjøre, prisen de gir eller begge deler</p>
 
-    <h1> Kombinasjoner av arrays og objects </h1>
+		<h1> Kombinasjoner av arrays og objects </h1>
+		<h2> Arrays med arrays </h2>
+		<p> Todimensjonale arrays er arrays med arrays inne i: <br>
+				&nbsp;&nbsp; var A = [<br>
+				&nbsp;&nbsp;&nbsp;&nbsp; [1, 2, 3],<br>
+				&nbsp;&nbsp;&nbsp;&nbsp; [4, 5, 6] <br>
+				&nbsp;&nbsp; ]<br><br>
+				For å løkke gjennom disse må vi bruke to for-løkker: <br>
+				&nbsp;&nbsp; for(var i = 0; i < A.length; i++){<br>
+				&nbsp;&nbsp;&nbsp;&nbsp; for (var j = 0; j < A[i].length; j++){<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(A[i][j]);<br>
+				&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+				&nbsp;&nbsp; }<br>
+
+				<script>
+					var a = [
+						[1, 2, 3],
+						[4, 5, 6]
+					]
+					for(var i = 0; i < a.length; i++){
+						for (var j = 0; j < a[i].length; j++){
+							console.log(a[i][j]);
+						}
+					}
+				</script>
+
+				<h2> Objects med arrays </h2>
+				<p> Så langt har vi laget objects med arrays i stedet for enkeltverdier:<br>
+		    	&nbsp;&nbsp; var person = {<br>
+		    	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
+		    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
+		    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
+		    	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["spille fløyte", "løfte tungt", "strikke"] <br>
+		    	&nbsp;&nbsp; };<br><br>
+
+		    	Dette er nyttig for å unngå et uvisst antall nøkler <i>hobby1, hobby2, osv</i>, og det gir oss muligheten til å bruke de vanlige metodene på arrayen: <br>
+		    	&nbsp;&nbsp; person.hobby[1] = "vektløfting";<br>
+					endrer en verdi i arrayen i objectet ved å referere til plasseringen i arrayen. <br>
+		    	&nbsp;&nbsp; person.hobby.push("turn");<br>
+		    	legger til en verdi sist i arrrayen i objectet ved metoden push. <br>
+		    	&nbsp;&nbsp; person.hobby.pop();<br>
+		    	fjerner den siste verdien i arrayen ved metoden pop. Vi kan også bruke shift, unshift og splice til å legge til og fjerne verdier</p>
+
+		    	<script>
+		    	var person  = {
+		    		fnavn: "Asta",
+		    		enavn: "Fjærli",
+		    		alder: 28,
+		    		hobby: ["spille fløyte", "løfte tungt", "strikke"]
+		    	}
+		    	console.log(person.hobby);
+		    	person.hobby[1] = "vektløfting";
+		    	console.log(person.hobby);
+		    	person.hobby.push("turn");
+		    	console.log(person.hobby);
+		    	person["hobby"].pop();
+		    	console.log(person.hobby);
+		    	</script>
+
+		<h2> Arrays med objects </h2>
+		Vi kan også få bruk for å lagre en array som inneholder objects i stedet for enkeltverdier. Som eksempel bruker vi elever i en klasse. Disse elevene får hver sin plass i arrayen: <br>
+    	&nbsp;&nbsp; var elever = ["Andrea", "Damir", "Silje", "Thomas"];<br>
+    	Dersom vi ønsker å lagre mer informasjon enn bare navnet på disse elevene i arrayen, får vi et problem. Det gir jo ikke mening å sette inn Andrea s etternavn som elever[4]. Da er det bedre å legge inn et object for hver elev og la denne objecten ha egenskaper som fornavn, etternavn, alder, telefonnummer osv. Da kan vi godt lage elevenes objects først, og deretter legge dem inn i en array etterpå. <br>
+    	&nbsp;&nbsp; var elev1 = {<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Andrea",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fredriksen",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 18<br>
+    	&nbsp;&nbsp; };<br>
+    	&nbsp;&nbsp; var elev2 = {<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Damir",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Hansen",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 19<br>
+    	&nbsp;&nbsp; };<br>
+    	&nbsp;&nbsp; var elev3 = {<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Silje",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Aasen",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 17<br>
+    	&nbsp;&nbsp; };<br>
+    	&nbsp;&nbsp; var elev4 = {<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Thomas",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fris",<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 18<br>
+    	&nbsp;&nbsp; };<br>
+    	&nbsp;&nbsp; var elever = [elev1, elev2, elev3, elev4]; <br>
+    	Eller vi kan legge inn objectene direkte i arrayen:<br>
+    	&nbsp;&nbsp; elever.push({fnavn: "Silje", enavn: "Evensen", alder: 19});<br><br>
+
+  	Om vi lager objectene først som egne variabler og deretter legger dem inn eller om vi legger hele objects i arrayen kommer helt an på hva vi synes er mest praktisk og om vi starter fra ingenting eller har en eksisterende array/eksisterende objects fra før.</p>
+    	<script>
+    	var elever = ["Andrea", "Damir", "Silje", "Thomas"];
+    	console.log(elever);
+    	var elev1 = {
+    		fnavn: "Andrea",
+    		enavn: "Fredriksen",
+    		alder: 18
+    	};
+    	console.log(elev1);
+    	var elev2 = {
+    		fnavn: "Damir",
+    		enavn: "Hansen",
+    		alder: 19
+    	};
+    	var elev3 = {
+    		fnavn: "Silje",
+    		enavn: "Aasen",
+    		alder: 17
+    	};
+    	var elev4 = {
+    		fnavn: "Thomas",
+    		enavn: "Fris",
+    		alder: 18
+    	};
+    	var elever = [elev1, elev2, elev3, elev4];
+    	console.log(elever);
+    	elever.push({fnavn: "Silje", enavn: "Evensen", alder: 19});
+    	console.log(elever);
+    	</script>
+
+    	<p> Vi henter ut hele objectet ved å referere til plassen: elever[1] gir ut hele objectet til Damir. Skal vi ha ut kun en egenskap, refererer vi til nøkkelen ved enten dot-notasjon eller klammenotasjon: elever[1].fnavn og elever[1]["fnavn"] gir begge ut fornavnet.</p>
+
+    	<script>
+    		console.log(elever[1]);
+    		console.log(elever[1].fnavn);
+    		console.log(elever[1]["fnavn"]);
+    	</script>
+
+    	<h3> Å løkke gjennom arrays med objects </h3>
+    	<p> Siden arrays med objects fortsatt har en gitt lengde, dvs en gitt mengde objects, bruker vi en vanlig forløkke for å bruke alle objectene. Vi kan for eksempel finne gjennomsnittsalderen:<br>
+    	&nbsp;&nbsp; var alderSum = 0;<br>
+    	&nbsp;&nbsp; for(var i = 0; i < elever.length; i++){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; alderSum += elever[i].alder;<br>
+    	&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp; var snittAlder = alderSum/elever.length;<br>
+    	&nbsp;&nbsp; console.log(snittAlder.toFixed(2));<br>
+
+    	<script>
+    		var alderSum = 0;
+    		for(var i = 0; i < elever.length; i++){
+    			alderSum += elever[i].alder;
+    		}
+    		var snittAlder = alderSum/elever.length;
+    		console.log(snittAlder.toFixed(2));
+    	</script>
+			<h3> Å sortere objects i en array </h3>
+    	<p> For arrays har vi den innebygde sorteringsmetoden sort(arrayNavn); som sorterer en tekstarray i alfabetisk rekkefølge.<br>
+    	&nbsp;&nbsp; var tekst = ["def", "aeg", "abc", "aaaa"];<br>
+    	&nbsp;&nbsp; tekst.sort();<br>
+    	&nbsp;&nbsp; console.log(tekst);<br>
+    	Denne må utvides for å også gjelde tall: koden under fungerer ikke optimalt og returnerer [-1, -20, 0, 19, 2, 4] fordi 2 er større enn 1, og maskinen derfor tror at -20 er større enn -1 (håpløst).<br>
+    	&nbsp;&nbsp; var tall = [2, 0, -1, 4, 19, -20];<br>
+    	&nbsp;&nbsp; tall.sort();<br>
+    	&nbsp;&nbsp; console.log(tall);<br>
+    	Her må vi fortelle at sorteringen skal fortsette til arrayen faktisk er sortert. Dette implementerer vi ved å legge inn en funksjon i sorteringen som finner forskjellen mellom tallene og sorterer ved å sjekke om forskjellen mellom to tall er positiv +1 (den andre verdien er mindre enn den første), null 0 (verdiene er like store) eller negativ -1 (den andre verdien er større enn den første):<br>
+    	&nbsp;&nbsp; var tall = [2, 0, -1, 4, 19, -20];<br>
+    	&nbsp;&nbsp; tall.sort(function(a, b){return a-b});<br>
+    	&nbsp;&nbsp; console.log(tall);<br><br>
+
+    	Vi kan skrive ut hele denne sorteringen for å kunne utvide den til å sortere en array med objects etter en av nøklene (her må vi prioritere hvilken nøkkel vi skal sortere etter):<br>
+    	&nbsp;&nbsp; var tall = [2, 0, -1, 4, 19, -20];<br>
+    	&nbsp;&nbsp; tall.sort(function(a, b){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; if(a > b){<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 1;<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; else if(a < b){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return -1;<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; else{<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp; });<br>
+    	&nbsp;&nbsp; console.log(tall);<br><br>
+
+    	Skal vi sortere en array med objects bruker vi samme konseptet, men spesifiserer hvilken nøkkel vi sorterer på:<br>
+    	&nbsp;&nbsp; elever.sort(function(a, b){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; if(a.enavn > b.enavn){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 1;<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; else if(a.enavn < b.enavn){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return -1;<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; else{<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return 0;<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp; })<br>
+    	&nbsp;&nbsp; console.log(elever);</p>
+
+    	<script>
+    	var tekst = ["def", "aeg", "abc", "aaaa"];
+    	tekst.sort();
+    	console.log(tekst);
+    	var tall = [2, 0, -1, 4, 19, -20];
+    	tall.sort();
+    	console.log(tall);
+    	var tall = [2, 0, -1, 4, 19, -20];
+    	tall.sort(function(a, b){return a-b});
+    	console.log(tall);
+    	var tall = [2, 0, -1, 4, 19, -20];
+    	tall.sort(function(a, b){
+    		if(a > b){
+    			return 1;
+    		}
+    		else if(a < b){
+    			return -1;
+    		}
+    		else{
+    			return 0;
+    		}
+    	});
+    	console.log(tall);
+
+    	elever.sort(function(a, b){
+    		if(a.enavn > b.enavn){
+    			return 1;
+    		}
+    		else if(a.enavn < b.enavn){
+    			return -1;
+    		}
+    		else{
+    			return 0;
+    		}
+    	})
+    	console.log(elever);
+    	</script>
+
+			<h3> Å skrive ut objects i en array til en tabell på nettsiden </h3>
+    	<p> To av bruksområdene til arrays med objects er å oversiktlig kunne skr</li>ive ut data til siden, for eksempel i tabellform, og å kunne lagre inputverdier fra skjemaer oversiktlig. Når vi skal skrive ut data til en tabell, bruker vi nøklene som kolonneoverskrifter og fyller inn hver arrayverdi i en ny rad. I dagens eksempel vil det være å skrive ut en tabell med kolonnene fnavn, enavn og alder der hver elev får sin rad. Vi starter helt fra scratch med å lage selve tabellelementet: <br><br>
+
+    	&nbsp;&nbsp; var bodyEl = document.querySelector("body")<br>
+    	&nbsp;&nbsp; var tabellEl = document.createElement("table");<br>
+    	&nbsp;&nbsp; var overskriftEl = document.createElement("tr");<br>
+    	&nbsp;&nbsp; overskriftEl.innerHTML="< th >Fornavn< /th >< th >Etternavn< /th >< th >Alder< /th >";<br>
+    	&nbsp;&nbsp; tabellEl.appendChild(overskriftEl);<br>
+    	&nbsp;&nbsp; for(var i=0; i < elever.length; i++){<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; var radEl = document.createElement("tr");<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; radEl.innerHTML = "< td >"+elever[i].fnavn+"< /td >"+"< td >"+elever[i].enavn+"< /td >"+"< td >"+elever[i].alder+"< /td >";<br>
+    	&nbsp;&nbsp;&nbsp;&nbsp; tabellEl.appendChild(radEl);<br>
+    	&nbsp;&nbsp; }<br>
+    	&nbsp;&nbsp; bodyEl.appendChild(tabellEl);<br><br>
+
+    	Deretter kan vi stilsette tabellen som vi ønsker.
+
+    	</p>
+
+    	<script>
+    	var bodyEl = document.querySelector("body")
+    	var tabellEl = document.createElement("table");
+    	var overskriftEl = document.createElement("tr");
+    	overskriftEl.innerHTML="<th>Fornavn</th><th>Etternavn</th><th>Alder</th>";
+    	tabellEl.appendChild(overskriftEl);
+    	for(var i=0; i < elever.length; i++){
+    		var radEl = document.createElement("tr");
+    		radEl.innerHTML = "<td>"+elever[i].fnavn+"</td>"+"<td>"+elever[i].enavn+"</td>"+"<td>"+elever[i].alder+"</td>";
+    		tabellEl.appendChild(radEl);
+    	}
+    	bodyEl.appendChild(tabellEl);
+    	</script>
+
 
     <h2> Sammensatte oppgaver </h2>
+		<p> Koden for en quiz der en array med objects er grunnlaget for hele nettsiden ligger <a href="https://itnotateroks.github.io/it2/kap11_12/kap_12_4.html">her</a>. Lag en tilsvarende quiz med flervalgsoppgaver.</p>
 
-		<p> Det ligger også en samling oppgaver til dette temaet <a href="https://itnotateroks.github.io/it2/kap11_12/oppgaver.html">her</a>.
+		<p> Det ligger også en samling oppgaver til dette temaet <a href="https://itnotateroks.github.io/it2/kap11_12 	/oppgaver.html">her</a>.
 
   </div>
 	<a href="../index.html"><img class="hjem" src="../hjem.png"></a>

@@ -13,6 +13,41 @@
   	</div>
   	<script type="text/javascript" src="menyN.js"></script>
   	<div class="innhold">
+      <div id="skjema"></div>
+      <script>
+        var skjemaEl=document.querySelector("#skjema");
+        var skjema = {
+          navn: {id: "navn", placeholder: "navn", type: "text"},
+          telefon: {id: "tlf", placeholder: "12345678", type: "text"},
+          gjester: ["1", "2", "3", "4", "5", "6"],
+          frokost: ["ja", "nei"],
+          aktiviteter: [
+            {id:"aktBo", navn: "Dagspass Bø Sommarland (300 kr)"},
+            {id: "aktHoyt", navn: "Dagspass Høyt og Lavt klatrepark (250 kr)"},
+            {id: "aktFrukt", navn:"Omvisning på fruktgård (200 kr)"},
+            {id: "aktTelemark", navn: "Dagstur på Telemarkskanalen (800 kr)"}
+            ]
+        }
+        console.log(skjema);
+        pNavnEl = document.createElement("p");
+        pNavnEl.innerHTML = "skriv inn "+skjema.navn.id + ":";
+        skjemaEl.appendChild(pNavnEl)
+        var navnEl = document.createElement("input");
+      /*  for(var n in skjema.navn){
+            navnEl.n=skjema.navn[n];
+        }*/
+        navnEl.type=skjema.navn.type;
+        navnEl.placeholder=skjema.navn.placeholder;
+        navnEl.id=skjema.navn.id;
+        skjemaEl.appendChild(navnEl);
+        pTlfEl = document.createElement("p");
+        pTlfEl.innerHTML = "skriv inn "+skjema.telefon.id + ":";
+        skjemaEl.appendChild(pTlfEl);
+        var tlfEl = document.createElement("input");
+        navnEl.type=skjema.navn.type;
+        navnEl.placeholder=skjema.navn.placeholder;
+        navnEl.id=skjema.navn.id;
+      </script>
       <div id="skjema">
           Skriv inn navn: <input type="text" placeholder="navn" id="navn">
           Skriv inn telefonnr: <input type="number" min="1" placeholder="12345678" id="tlf">
@@ -97,11 +132,9 @@
           }
 
           pEl = document.createElement("p");
-          pEl.innerHTML="Navnet er " + svar.navn + " og du er registrert med telefonnr " + svar.tlf + ". Dere er " + svar.gjester + " gjester, og dere har svart " + svar.frokost + " til frokost. Av aktiviteter har dere valgt: ";
+          pEl.innerHTML="Navnet er " + svar.navn + " og du er registrert med telefonnr " + svar.tlf + ". Du har registrert " + svar.gjester + " gjester, og du har svart " + svar.frokost + " til frokost. Av aktiviteter har du valgt: ";
           kvitteringEl.appendChild(pEl);
           kvitteringEl.appendChild(ulEl)
-					// fyller tom div med kvittering
-					//kvitteringEl.innerHTML = "<p> Navnet er " + navnEl.value + " og du er registrert med telefonnr " + tlfEl.value + ". Dere er " + gjesterEl.value + " gjester, og dere " + frokost + ". Av aktiviteter har dere valgt: <br>" + aktBo + aktHoyt + aktFrukt + aktTelemark + aktIngen + "</p>";
 				}
 			</script>
     </div>
