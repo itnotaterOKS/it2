@@ -1,5 +1,5 @@
-//ssf står for standarfunksjoner. her er de samlet i en kolleksjon og hentes ut med objektorientering (kap 20 - 22)
-var ssf = {
+//sf står for standarfunksjoner. her er de samlet i en kolleksjon og hentes ut med objektorientering (kap 20 - 22)
+var sf = {
 	randInt: function(min, max) {//Tilfeldig heltallgenerator
 	    return Math.floor(Math.random() * (max - min + 1)) + min;
 	},
