@@ -1,10 +1,10 @@
-//ssf står for sigurds standarfunksjoner
+//ssf står for standarfunksjoner. her er de samlet i en kolleksjon og hentes ut med objektorientering (kap 20 - 22)
 var ssf = {
 	randInt: function(min, max) {//Tilfeldig heltallgenerator
 	    return Math.floor(Math.random() * (max - min + 1)) + min;
 	},
 
-	storst: function(array) {
+	storst: function(array) {  // finner største tall i en array
 		var storst = 0;
 		for (var i = 0; i < array.length; i++) {
 			if(array[i] > storst) {
@@ -14,7 +14,7 @@ var ssf = {
 		return storst;
 	},
 
-	minst: function(array) {
+	minst: function(array) { // finner minste tall i en array
 		var minst = array[0];
 		for (var i = 0; i < array.length; i++) {
 			if(array[i] < minst) {
@@ -24,7 +24,7 @@ var ssf = {
 		return minst;
 	},
 
-	bubbleSort: function(array) {
+	bubbleSort: function(array) { // sorterer en array etter metoden bubblesort
 		for (var i = 0; i < array.length; i++) {
 			for (var j = 1; j < array.length - i; j++) {
 				if(array[j-1] > array[j]) {
@@ -37,7 +37,7 @@ var ssf = {
 		return array;
 	},
 
-	shuffle: function(array) {
+	shuffle: function(array) { // sorterer en array etter metoden shuffle
 	  var currentIndex = array.length, temporaryValue, randomIndex;
 
 	  // While there remain elements to shuffle...
@@ -56,7 +56,7 @@ var ssf = {
 	  return array;
 	},
 
-	terning: function() {//Returnerer et tall fra 1 til 6
+	terning: function() {//Returnerer et tilfeldig tall fra 1 til 6
 		var n = Math.floor(Math.random() * 6) + 1;
 		return n
 	},
@@ -103,7 +103,7 @@ var ssf = {
 		}
 	},
 
-	decToHex: function(dec) {
+	decToHex: function(dec) { // gjør om fra desimaltall til hexadecimalt
 		var hexVerdi = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
 		var hex = '';
 
@@ -118,7 +118,7 @@ var ssf = {
 		return hex
 	},
 
-	klokkeslett: function(dato) {//For å få klokkeslett nå bruk new Date() som argument
+	klokkeslett: function(dato) {//For å få klokkeslettet akkurat nå bruk new Date() som argument
 		var h = dato.getHours();
 		if (h < 10) {h = '0'+h;}
 
