@@ -175,7 +175,7 @@
 			Det finnes også innebygde sorteringsfunksjoner: <a href="https://www.w3schools.com/js/js_array_sort.asp">sort og reverse</a></p>.
 
     <h2> Oppgaver arrays </h2>
-		<p> 1. Lag en funksjon som finner det minste tallet i en array. <br>
+		<p> 1. Lag en funksjon som finner det største og minste tallet i en array uten å bruke innebygde funksjoner. <br>
 			2. Lag en funksjon som finner summen av tallene i en array. <br>
 			3. Lag en funksjon som finner gjennomsnittet av tallene i en array.<br>
 			4. Lag et html-dokument med mellom 5 og 10 checkbox (dette er eneste inputfelt). Bruk querySelectorAll til å skrive ut en liste over hvilke bokser som er krysset av. </p>
@@ -203,63 +203,62 @@
 			&nbsp;&nbsp; finnStorst(tallArray) // evt finnStorst([1, 2, 3, 7, 10, 2])<br><br>
 
 			Lager en funksjon som finner det minste tallet i en array. <br>
-				&nbsp;&nbsp; var tallArray = [4, 3, 11, 7, 9, -3, 4];<br>
-				&nbsp;&nbsp; var minst = tallArray[0];<br>
-				&nbsp;&nbsp; var plass = 0;<br>
-				&nbsp;&nbsp; for(var i = 0; i < tallArray.length; i++){<br>
-				&nbsp;&nbsp;&nbsp;&nbsp; if(tallArray[i] < minst){<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minst = tallArray[i];<br>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; plass = i;<br>
-				&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-				&nbsp;&nbsp; }<br>
-				&nbsp;&nbsp; console.log('Det minste tallet er '+minst+' og står på plass '+plass);
-				<br><br>
+			&nbsp;&nbsp; var tallArray = [4, 3, 11, 7, 9, -3, 4];<br>
+			&nbsp;&nbsp; var minst = tallArray[0];<br>
+			&nbsp;&nbsp; var plass = 0;<br>
+			&nbsp;&nbsp; for(var i = 0; i < tallArray.length; i++){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; if(tallArray[i] < minst){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; minst = tallArray[i];<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; plass = i;<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp; console.log('Det minste tallet er '+minst+' og står på plass '+plass);
+			<br><br>
 
 			Lager en funksjon som finner summen av tallene i en array. <br>
-				&nbsp;&nbsp; var sum = 0;<br>
-				&nbsp;&nbsp; for(var i = 0; i < tallArray.length; i++){<br>
-				&nbsp;&nbsp;&nbsp;&nbsp; sum += tallArray[i]<br>
-				&nbsp;&nbsp; }<br>
-				&nbsp;&nbsp; console.log('Summen av tallene i arrayen er  '+sum);<br><br>
-
+			&nbsp;&nbsp; var sum = 0;<br>
+			&nbsp;&nbsp; for(var i = 0; i < tallArray.length; i++){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; sum += tallArray[i]<br>
+			&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp; console.log('Summen av tallene i arrayen er  '+sum);<br><br>
 			Lager en funksjon som finner gjennomsnittet av tallene i en array.<br>
-				&nbsp;&nbsp; var snitt = sum / tallArray.length;<br>
-				&nbsp;&nbsp; console.log('Gjennomsnittet av tallene i arrayen er '+snitt); <br><br>
+			&nbsp;&nbsp; var snitt = sum / tallArray.length;<br>
+			&nbsp;&nbsp; console.log('Gjennomsnittet av tallene i arrayen er '+snitt); <br><br>
 
 			HTML for oppgave 4: <br>
-					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="fotball">Fotball<br>
-					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="kunstløp">Kunstløp<br>
-					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="langrenn">Langrenn<br>
-					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="turn">Turn<br>
-					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="skihopping">Skihopping<br>
-					&nbsp;&nbsp; < input type="checkbox" name="idrett" value="vektløfting">Vektløfting<br>
-					&nbsp;&nbsp; < button id="send">Send svar < /button ><br>
-					&nbsp;&nbsp; < p id="skrivUt">< /p ><br><br>
+			&nbsp;&nbsp; < input type="checkbox" name="idrett" value="fotball">Fotball<br>
+			&nbsp;&nbsp; < input type="checkbox" name="idrett" value="kunstløp">Kunstløp<br>
+			&nbsp;&nbsp; < input type="checkbox" name="idrett" value="langrenn">Langrenn<br>
+			&nbsp;&nbsp; < input type="checkbox" name="idrett" value="turn">Turn<br>
+			&nbsp;&nbsp; < input type="checkbox" name="idrett" value="skihopping">Skihopping<br>
+			&nbsp;&nbsp; < input type="checkbox" name="idrett" value="vektløfting">Vektløfting<br>
+			&nbsp;&nbsp; < button id="send">Send svar < /button ><br>
+			&nbsp;&nbsp; < p id="skrivUt">< /p ><br><br>
 
-				Scriptet for dette:<br>
-					&nbsp;&nbsp; var idrettEl = document.querySelectorAll("input[name='idrett']");<br>
-					&nbsp;&nbsp; var skrivUtEl = document.querySelector("#skrivUt");<br>
-					&nbsp;&nbsp; var sendEl = document.querySelector("#send");<br>
-					&nbsp;&nbsp; sendEl.addEventListener("click", sjekkSkjema);<br>
-					&nbsp;&nbsp; function sjekkSkjema(){<br>
-					&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += 'Du liker å drive med < ul >';<br>
-					&nbsp;&nbsp;&nbsp;&nbsp; for(i = 0; i < idrettEl.length; i++){<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(idrettEl[i].checked){<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += '< li >' + idrettEl[i].value + '< /li >';<br>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-					&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-					&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += '< /ul >';<br>
-					&nbsp;&nbsp; }</p>
+			Scriptet for dette:<br>
+			&nbsp;&nbsp; var idrettEl = document.querySelectorAll("input[name='idrett']");<br>
+			&nbsp;&nbsp; var skrivUtEl = document.querySelector("#skrivUt");<br>
+			&nbsp;&nbsp; var sendEl = document.querySelector("#send");<br>
+			&nbsp;&nbsp; sendEl.addEventListener("click", sjekkSkjema);<br>
+			&nbsp;&nbsp; function sjekkSkjema(){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += 'Du liker å drive med < ul >';<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; for(i = 0; i < idrettEl.length; i++){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(idrettEl[i].checked){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += '< li >' + idrettEl[i].value + '< /li >';<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; skrivUtEl.innerHTML += '< /ul >';<br>
+			&nbsp;&nbsp; }</p>
 
-				<h3> Hvilke idretter liker du? </h3>
-					<p><input type="checkbox" name="idrett" value="fotball">Fotball<br>
-					<input type="checkbox" name="idrett" value="kunstløp">Kunstløp<br>
-					<input type="checkbox" name="idrett" value="langrenn">Langrenn<br>
-					<input type="checkbox" name="idrett" value="turn">Turn<br>
-					<input type="checkbox" name="idrett" value="skihopping">Skihopping<br>
-					<input type="checkbox" name="idrett" value="vektløfting">Vektløfting</p>
-					<button id="send">Send svar </button>
-					<p id="skrivUt"></p>
+			<h3> Hvilke idretter liker du? </h3>
+			<p><input type="checkbox" name="idrett" value="fotball">Fotball<br>
+			<input type="checkbox" name="idrett" value="kunstløp">Kunstløp<br>
+			<input type="checkbox" name="idrett" value="langrenn">Langrenn<br>
+			<input type="checkbox" name="idrett" value="turn">Turn<br>
+			<input type="checkbox" name="idrett" value="skihopping">Skihopping<br>
+			<input type="checkbox" name="idrett" value="vektløfting">Vektløfting</p>
+			<button id="send">Send svar </button>
+			<p id="skrivUt"></p>
 
 			<script>
 				var tallArray = [1, 3, 5, 8, 10, 2, 44, 0];
@@ -313,187 +312,175 @@
 					var snitt = sum / tallArray.length;
 					console.log('Gjennomsnittet av tallene i arrayen er '+snitt);
 
-									var idrettEl = document.querySelectorAll("input[name='idrett']");
-							var skrivUtEl = document.querySelector("#skrivUt");
-							var sendEl = document.querySelector("#send");
-							sendEl.addEventListener("click", sjekkSkjema);
-							function sjekkSkjema(){
-								skrivUtEl.innerHTML += 'Du liker å drive med <ul>';
-								for(i = 0; i < idrettEl.length; i++){
-									if(idrettEl[i].checked){
-										skrivUtEl.innerHTML += '<li>' + idrettEl[i].value + '';
-									}
-								}
-								skrivUtEl.innerHTML += '</ul>';
+					var idrettEl = document.querySelectorAll("input[name='idrett']");
+					var skrivUtEl = document.querySelector("#skrivUt");
+					var sendEl = document.querySelector("#send");
+					sendEl.addEventListener("click", sjekkSkjema);
+					function sjekkSkjema(){
+						skrivUtEl.innerHTML += 'Du liker å drive med <ul>';
+						for(i = 0; i < idrettEl.length; i++){
+							if(idrettEl[i].checked){
+								skrivUtEl.innerHTML += '<li>' + idrettEl[i].value + '';
 							}
+						}
+						skrivUtEl.innerHTML += '</ul>';
+					}
 				</script>
 
     <h1> Object </h1>
 		<p> I en array er det plassen til hver verdi vi viser til når vi skal bruke den. Objects kan sammelgnes med det vi i php kalte assosiative arrays, der hver verdi har en nøkkel vi refererer til når vi skal ha verdien.
 		Vi lagrer hver enkelt verdi sammen med en nøkkel som sier noe om verdien (tilsvarer assosiative arrays i php):<br>
-	    	&nbsp;&nbsp; var objectVar = {nøkkel1: "verdi1", nøkkel2: "verdi2", osv.}<br>
-	    	Som et eksempel kan jeg lagre personinfo i et object: <br>
-	    	&nbsp;&nbsp; var person = {fnavn: "Asta", enavn: "Fjærli", alder: 28, hobby: "løfte tungt"};<br>
-	    	Mer oversiktlig er det å skrive <br>
-	    	&nbsp;&nbsp; var person = {<br>
-	    	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
-	    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
-	    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
-	    	&nbsp;&nbsp;&nbsp;&nbsp; hobby: "løfte tungt"<br>
-	    	&nbsp;&nbsp; };<br>
-	    	Som vi ser, kan objectverdiene inneholde både tekst og tall. De kan også inneholde boolske variabler og arrays.<br><br>
-				I en array finner man verdien ved å referere til plasseringen og bruke klammenotasjon: array[plass]. I en object refererer vi til nøkkelen og bruker enten klammenotasjon eller dotnotasjon: <br>
-				&nbsp;&nbsp; console.log(person["fnavn"], person.fnavn);<br>
-				&nbsp;&nbsp; console.log(person["hobby"], person.hobby);<br><br>
+	  &nbsp;&nbsp; var objectVar = {nøkkel1: "verdi1", nøkkel2: "verdi2", osv.}<br>
+	  Som et eksempel kan jeg lagre personinfo i et object: <br>
+	  &nbsp;&nbsp; var person = {fnavn: "Asta", enavn: "Fjærli", alder: 28, hobby: "løfte tungt"};<br>
+	  Mer oversiktlig er det å skrive <br>
+	  &nbsp;&nbsp; var person = {<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; hobby: "løfte tungt"<br>
+	  &nbsp;&nbsp; };<br>
+	  Som vi ser, kan objectverdiene inneholde både tekst og tall. De kan også inneholde boolske variabler og arrays.<br><br>
+		I en array finner man verdien ved å referere til plasseringen og bruke klammenotasjon: array[plass]. I en object refererer vi til nøkkelen og bruker enten klammenotasjon eller dotnotasjon: <br>
+		&nbsp;&nbsp; console.log(person["fnavn"], person.fnavn);<br>
+		&nbsp;&nbsp; console.log(person["hobby"], person.hobby);<br><br>
 
-				Av og til tilhører det flere verdier til hver nøkkel, f.eks. kan man ha flere hobbyer. Da legger man disse i en array til nøkkelen, dette er nyttig for å unngå et uvisst antall nøkler <i>hobby1, hobby2, osv</i>, og det gir oss muligheten til å bruke de vanlige metodene på arrayen: <br>
-				&nbsp;&nbsp; var person = {<br>
-	    	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
-	    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
-	    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
-	    	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["spille fløyte", "løfte tungt", "strikke"] <br>
-	    	&nbsp;&nbsp; };<br><br>
+		Av og til tilhører det flere verdier til hver nøkkel, f.eks. kan man ha flere hobbyer. Da legger man disse i en array til nøkkelen, dette er nyttig for å unngå et uvisst antall nøkler <i>hobby1, hobby2, osv</i>, og det gir oss muligheten til å bruke de vanlige metodene på arrayen: <br>
+		&nbsp;&nbsp; var person = {<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta", <br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli", <br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; alder: 28, <br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; hobby: ["spille fløyte", "løfte tungt", "strikke"] <br>
+	  &nbsp;&nbsp; };<br><br>
 
-				For å hente ut en gitt hobby holder det ikke å be om person["hobby"], da det vil returnere <br>
-	    	&nbsp;&nbsp; (3) ["spille fløyte", "løfte tungt", "strikke"]<br>
-	    	For å få ut en viss hobby må man derfor be om person["hobby"][1];<br><br>
+		For å hente ut en gitt hobby holder det ikke å be om person["hobby"], da det vil returnere <br>
+	  &nbsp;&nbsp; (3) ["spille fløyte", "løfte tungt", "strikke"]<br>
+	  For å få ut en viss hobby må man derfor be om person["hobby"][1];<br><br>
 
-			<script>
-
-	    	var person  = {
-	    		fnavn: "Asta",
-	    		enavn: "Fjærli",
-	    		alder: 28,
-					hobby: ["spille fløyte", "løfte tungt", "strikke"]
+		<script>
+	  	var person  = {
+	   		fnavn: "Asta",
+	   		enavn: "Fjærli",
+	   		alder: 28,
+				hobby: ["spille fløyte", "løfte tungt", "strikke"]
 			}
 			console.log(person["fnavn"], person.fnavn);
     	console.log(person["hobby"], person.hobby);
 			console.log(person["hobby"][1], person.hobby[1])
+		</script>
 
-			</script>
-
-			<h2> Endre verdier i objects </h2>
-			<p> På samme måte som i arrays kan vi overskrive enkeltverdier i objects. Her kan vi bruke både klammenotasjon og dotnotasjon: <br>
-    	&nbsp;&nbsp; person.fnavn = "Asta Rønning";<br>
-    	&nbsp;&nbsp; person["alder"] = 1000;<br>
-    	&nbsp;&nbsp; person.hobby[0] = "korps";<br>
-    	&nbsp;&nbsp; person["hobby"][1] = "vektløfting";<br><br>
-
-    	På samme måte kan vi legge til verdier:<br>
-    	&nbsp;&nbsp; person.favorittbok = "Ringdrotten";<br>
-    	&nbsp;&nbsp; person["favorittland"] = "Island";<br>
-    	&nbsp;&nbsp; person["hobby"].push("turn");<br><br>
-
-    	Og vi kan slette verdier:<br>
-    	&nbsp;&nbsp; delete person.enavn;<br>
-    	&nbsp;&nbsp; delete person["fnavn"];<!--<br><br>
-
-    	Den nyeste utgaven finner vi ved å løkke gjennom på nytt: <br>
+		<h2> Endre verdier i objects </h2>
+		<p> På samme måte som i arrays kan vi overskrive enkeltverdier i objects. Her kan vi bruke både klammenotasjon og dotnotasjon: <br>
+    &nbsp;&nbsp; person.fnavn = "Asta Rønning";<br>
+    &nbsp;&nbsp; person["alder"] = 1000;<br>
+    &nbsp;&nbsp; person.hobby[0] = "korps";<br>
+    &nbsp;&nbsp; person["hobby"][1] = "vektløfting";<br><br>
+  	På samme måte kan vi legge til verdier:<br>
+  	&nbsp;&nbsp; person.favorittbok = "Ringdrotten";<br>
+  	&nbsp;&nbsp; person["favorittland"] = "Island";<br>
+  	&nbsp;&nbsp; person["hobby"].push("turn");<br><br>
+  	Og vi kan slette verdier:<br>
+  	&nbsp;&nbsp; delete person.enavn;<br>
+  	&nbsp;&nbsp; delete person["fnavn"];<!--<br><br>
+			Den nyeste utgaven finner vi ved å løkke gjennom på nytt: <br>
     	&nbsp;&nbsp; for(var egenskap in person){<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; console.log(person[egenskap]);<br>
     	&nbsp;&nbsp; }--></p>
 
 
-    	<script>
-    	person.fnavn = "Asta Rønning";
-    	person["alder"] = 1000;
-    	person.hobby[0] = "korps";
-    	person["hobby"][1] = "vektløfting";
-
-    	person.favorittbok = "Ringdrotten";
-    	person["favorittland"] = "Island";
-    	person["hobby"].push("turn");
-
-    	delete person.enavn;
-    	delete person["fnavn"];
-
+  <script>
+  	person.fnavn = "Asta Rønning";
+  	person["alder"] = 1000;
+  	person.hobby[0] = "korps";
+  	person["hobby"][1] = "vektløfting";
+  	person.favorittbok = "Ringdrotten";
+  	person["favorittland"] = "Island";
+  	person["hobby"].push("turn");
+  	delete person.enavn;
+  	delete person["fnavn"];
     /*	for(var egenskap in person){
     		console.log(person[egenskap]);
     	}*/
-    	</script>
+	</script>
 
-			<h2> Løkke gjennom objects </h2>
-			<p> Vi kjenner til forløkker som for(var i = startverdi; i <= sluttverdi; i++) der vi vet antall ganger koden skal gjentas. For objects kjenner vi ikke nødvendigvis til antall egenskaper, og kan heller ikke referere til objectets lengde. Forløkker for objects kaller vi derfor for - in - løkker. Her konstrueres en egenskapsvariabel som sørger for at alle egenskaper i et object blir løkket gjennom. Denne egenskapsvariablen kan vi kalle hva som helst: kodene <br>
+	<h2> Løkke gjennom objects </h2>
+	<p> Vi kjenner til forløkker som for(var i = startverdi; i <= sluttverdi; i++) der vi vet antall ganger koden skal gjentas. For objects kjenner vi ikke nødvendigvis til antall egenskaper, og kan heller ikke referere til objectets lengde. Forløkker for objects kaller vi derfor for - in - løkker. Her konstrueres en egenskapsvariabel som sørger for at alle egenskaper i et object blir løkket gjennom. Denne egenskapsvariablen kan vi kalle hva som helst: kodene <br>
   	&nbsp;&nbsp; for(var egenskap in person){<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; console.log(egenskap);<br>
-    	&nbsp;&nbsp; }<br>
-    	og<br>
-    	&nbsp;&nbsp; for(var jul in person){<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; console.log(jul);<br>
-    	&nbsp;&nbsp; }<br>
-    	returnerer begge alle egenskaper i objectet. Her må vi bruke klammenotasjon for å få ut verdiene,<b> vi kan ikke bruke dot-notasjon.</b> <br>
-			Vi kan skrive ut enten nøkkelen eller verdien:<br>
-			&nbsp;&nbsp; for(var egenskap in person){<br>
-  		&nbsp;&nbsp;&nbsp;&nbsp; console.log(egenskap, person[egenskap]);<br>
-    	&nbsp;&nbsp; }<br>
-    	&nbsp;&nbsp; for(var jul in person){<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; console.log(jul, person[jul]);<br>
-  		&nbsp;&nbsp; }</p>
+  	&nbsp;&nbsp;&nbsp;&nbsp; console.log(egenskap);<br>
+  	&nbsp;&nbsp; }<br>
+  	og<br>
+  	&nbsp;&nbsp; for(var jul in person){<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; console.log(jul);<br>
+  	&nbsp;&nbsp; }<br>
+  	returnerer begge alle egenskaper i objectet. Her må vi bruke klammenotasjon for å få ut verdiene,<b> vi kan ikke bruke dot-notasjon.</b> <br>
+		Vi kan skrive ut enten nøkkelen eller verdien:<br>
+		&nbsp;&nbsp; for(var egenskap in person){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; console.log(egenskap, person[egenskap]);<br>
+  	&nbsp;&nbsp; }<br>
+  	&nbsp;&nbsp; for(var jul in person){<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; console.log(jul, person[jul]);<br>
+		&nbsp;&nbsp; }</p>
 
-    	<script>
-    	for(var egenskap in person){
-    		console.log(egenskap, person[egenskap]);
-    	}
-    	for(var jul in person){
-    		console.log(jul, person[jul]);
-    	}
-    	</script>
+  	<script>
+  	for(var egenskap in person){
+  		console.log(egenskap, person[egenskap]);
+  	}
+  	for(var jul in person){
+  		console.log(jul, person[jul]);
+  	}
+  	</script>
 
+		<h2> This-notasjon </h2>
+		<p> Et object kan, i tillegg til egenskaper, ha metoder. Disse fungerer som funksjoner, og oppgaven til en slik metode kan for eksempel være å returnere alder og favorittland, eller å skrive ut en liste over hobbyene. Fordi funksjonen er definert inne i objectet, bruker vi kodeordet this for å peke på egenskapen. Det forteller at vi skal finne egenskapen i nettopp dette objectet.<br><br>
+  	&nbsp;&nbsp; var person = {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta Rønning",<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli",<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28,<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["korps", "vektløfting", "strikke", "turn"],<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; favorittbok: "Ringdrotten",<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; favorittland: "Island",<br>
+ 	  &nbsp;&nbsp; // returnere alder og favorittland<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; alderLand: function(){<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return this.alder + " " + this.favorittland;<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; },<br>
+  	&nbsp;&nbsp; // skrive ut en liste over hobbyer<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; hobbyer: function(){<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var bodyEl = document.querySelector("body");<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var liste = document.createElement("ul");<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i = 0; i < this.hobby.length; i++){<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var listeEl = document.createElement("li")<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listeEl.innerHTML = this.hobby[i];<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; liste.appendChild(listeEl)<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bodyEl.appendChild(liste);<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+  	&nbsp;&nbsp; }<br>
+  	&nbsp;&nbsp; console.log(person.alderLand());<br>
+  	&nbsp;&nbsp; person.hobbyer();</p>
+  	<script>
+  	var person = {
+			fnavn: "Asta Rønning",
+  		enavn: "Fjærli",
+  		alder: 28,
+  		hobby: ["korps", "vektløfting", "strikke", "turn"],
+    	favorittbok: "Ringdrotten",
+    	favorittland: "Island",
+  		// returnere alder og favorittland
+  		alderLand: function(){
+    		return this.alder + " " + this.favorittland;
+    	},
 
-			<h2> This-notasjon </h2>
-			<p> Et object kan, i tillegg til egenskaper, ha metoder. Disse fungerer som funksjoner, og oppgaven til en slik metode kan for eksempel være å returnere alder og favorittland, eller å skrive ut en liste over hobbyene. Fordi funksjonen er definert inne i objectet, bruker vi kodeordet this for å peke på egenskapen. Det forteller at vi skal finne egenskapen i nettopp dette objectet.<br><br>
-    	&nbsp;&nbsp; var person = {<br>
-   	   &nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Asta Rønning",<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fjærli",<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; alder: 28,<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; hobby: ["korps", "vektløfting", "strikke", "turn"],<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; favorittbok: "Ringdrotten",<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; favorittland: "Island",<br>
-   	  &nbsp;&nbsp; // returnere alder og favorittland<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; alderLand: function(){<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return this.alder + " " + this.favorittland;<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; },<br>
-    	&nbsp;&nbsp; // skrive ut en liste over hobbyer<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; hobbyer: function(){<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var bodyEl = document.querySelector("body");<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var liste = document.createElement("ul");<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i = 0; i < this.hobby.length; i++){<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var listeEl = document.createElement("li")<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; listeEl.innerHTML = this.hobby[i];<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; liste.appendChild(listeEl)<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; bodyEl.appendChild(liste);<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-    	&nbsp;&nbsp; }<br>
-    	&nbsp;&nbsp; console.log(person.alderLand());<br>
-    	&nbsp;&nbsp; person.hobbyer();</p>
-
-    	<script>
-    	var person = {
-    		fnavn: "Asta Rønning",
-    		enavn: "Fjærli",
-    		alder: 28,
-    		hobby: ["korps", "vektløfting", "strikke", "turn"],
-    		favorittbok: "Ringdrotten",
-    		favorittland: "Island",
-
-    		// returnere alder og favorittland
-    		alderLand: function(){
-    			return this.alder + " " + this.favorittland;
-    		},
-
-    		// skrive ut en liste over hobbyer
-    		hobbyer: function(){
-    			var bodyEl = document.querySelector("body");
-    			var liste = document.createElement("ul");
-    			for(i = 0; i < this.hobby.length; i++){
-    				var listeEl = document.createElement("li")
-    				listeEl.innerHTML = this.hobby[i];
-    				liste.appendChild(listeEl)
-    			}
-    			bodyEl.appendChild(liste);
+    	// skrive ut en liste over hobbyer
+    	hobbyer: function(){
+    		var bodyEl = document.querySelector("body");
+    		var liste = document.createElement("ul");
+    		for(i = 0; i < this.hobby.length; i++){
+    			var listeEl = document.createElement("li")
+    			listeEl.innerHTML = this.hobby[i];
+    			liste.appendChild(listeEl)
     		}
-
+    		bodyEl.appendChild(liste);
+    		}
     	}
     	console.log(person.alderLand());
     	person.hobbyer();
@@ -627,7 +614,7 @@
     	&nbsp;&nbsp;&nbsp;&nbsp; alder: 17<br>
     	&nbsp;&nbsp; };<br>
     	&nbsp;&nbsp; var elev4 = {<br>
-  	&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Thomas",<br>
+  		&nbsp;&nbsp;&nbsp;&nbsp; fnavn: "Thomas",<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; enavn: "Fris",<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; alder: 18<br>
     	&nbsp;&nbsp; };<br>
