@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Løsningsforslag arrays/objects</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="losning.css">
+</head>
+  <body>
+  	<h1> Oppgave 1: basic arrays og objects </h1>
+  	<div id="ramme"></div>
+  	<script>
+    // alle svar på oppgave a og b skrives til konsollen. Den blir litt rotete, men det er greit.
+    // 1a
+    // i Lag en array der du legger inn de ni fornavnene på medlemmene i Ringens brorskap.
+    var brorskap = ["Frodo", "Sam", "Meriadoc", "Perergrin", "Aragorn", "Boromir", "Gimli", "Legolas", "Gandalf"];
+    // ii Bruk en løkke til å skrive ut alle navnene til konsollen.
+    for (var i = 0; i < brorskap.length; i++) {
+  	   console.log(brorskap[i]);
+     }
+  	// iii Legg til et nytt navn (Arwen) på slutten av arrayen og skriv navnene til konsollen på nytt.
+  	brorskap.push("Arwen");
+  	for (var i = 0; i < brorskap.length; i++) {
+  	   console.log(brorskap[i]);
+  	}
+
+		// iv Sorter arrayen alfabetisk og skriv ut navnene til konsollen på nytt.
+    // det er en array med navn, og den trenger derfor ikke bearbeides
+		brorskap.sort();
+		for (var i = 0; i < brorskap.length; i++) {
+			console.log(brorskap[i]);
+		}
+
+		//1b
+		// i Lag et object for filmen The Fellowship of the Ring. Dette skal inneholde nøklene tittel, regissør, komponist, utgivelseår og varighet.
+		var fellowship = {
+			tittel: "The Fellowship of the Ring",
+			regissor: "Peter Jackson",
+			komponist: "Howard Shore",
+			utgivelsesar: 2001,
+			varighet: "178 minutter"
+		}
+
+		// ii Bruk en løkke til å skrive verdiene i objectet til konsollen (uten nøkler)
+		for (var i in fellowship) {
+			console.log(fellowship[i]);
+		}
+
+		// iii Legg å til nøkkelen skuespillere for filmen. I denne nøkkelen skal tre skuespillere legges inn: Elijah Wood, Viggo Mortensen og Ian McKellen.
+		fellowship.skuespillere = ["Elijah Wood", "Viggo Mortensen", "Ian McKellen"];
+
+		// 1c
+		// i Lag en array med informasjon om de tre filmene i Lord of the Rings-trilogien. Informasjonen som skal lagres for hver film er tittel, regissør, komponist, utgivelsesår og varighet.
+		var filmer = [
+			{
+				tittel: "The Fellowship of the Ring",
+				regissor: "Peter Jackson",
+				komponist: "Howard Shore",
+				utgivelsesar: 2001,
+				varighet: "178 minutter"
+			},
+			{
+				tittel: "The Two Towers",
+				regissor: "Peter Jackson",
+				komponist: "Howard Shore",
+				utgivelsesar: 2002,
+				varighet: "179 minutter"
+			},
+			{
+				tittel: "The Return of the King",
+				regissor: "Peter Jackson",
+				komponist: "Howard Shore",
+				utgivelsesar: 2003,
+				varighet: "200 minutter"
+			}
+		];
+
+		// ii Bruk denne arrayen til å skrive ut en tabell med informasjon om filmene på nettsiden
+		var rammeEl = document.querySelector("#ramme");
+		var tabellEl = document.createElement("table");
+
+		var overskrifter = ["Tittel", "Regissør", "Komponist", "Utgivelsesår", "Varighet"];
+
+		// Skriver ut overskrifter:
+		var trEl = document.createElement("tr");
+		for (var i = 0; i < overskrifter.length; i++) {
+			var thEl = document.createElement("th");
+			thEl.innerHTML = overskrifter[i];
+			trEl.appendChild(thEl);
+		}
+		tabellEl.appendChild(trEl)
+
+		// Skriver ut innhold:
+		for (var i = 0; i < filmer.length; i++) {
+			var trEl = document.createElement("tr");
+			for (var egenskap in filmer[i]) {
+				var tdEl = document.createElement("td");
+				trEl.appendChild(tdEl);
+				tdEl.innerHTML = filmer[i][egenskap];
+			}
+			tabellEl.appendChild(trEl);
+		}
+		rammeEl.appendChild(tabellEl);
+  	</script>
+
+    <h1> Oppgave 2: arrays, objects og skjemaer </h1>
+  	<div id="ramme2"></div>
+  	<div id="tilbakemelding"></div>
+  	<script>
+  	// Nødvendige variabler: henter inn div"ene og oppretter en array for skjemafelt
+  	var ramme2El = document.querySelector("#ramme2");
+		var tilbakemeldingEl = document.querySelector("#tilbakemelding");
+		var felt = ["Navn", "Klasse", "Skole", "Favorittfag"];
+
+		// Lager et skjema ved hjelp av arrayen
+		for (var i = 0; i < felt.length; i++) {
+			var pEl = document.createElement("p");
+			pEl.innerHTML = felt[i] + ": ";
+			var inputEl = document.createElement("input");
+			inputEl.type="text";
+			inputEl.name=felt[i];
+			pEl.appendChild(inputEl);
+			ramme2El.appendChild(pEl);
+		}
+
+		// Lager en knapp for å sende svar og legger til lytter
+		var sendEl = document.createElement("button");
+		sendEl.innerHTML = "Send inn";
+		ramme2El.appendChild(sendEl);
+		sendEl.addEventListener("click", send);
+
+		// Henter inn data som er skrevet inn og skriver til siden
+		function send(){
+			var info = document.querySelectorAll("input");
+			tilbakemeldingEl.innerHTML = "Du heter "+info[0].value+", går i klasse "+info[1].value+" på "+info[2].value+" og elsker "+info[3].value;
+		}
+  	</script>
+  </body>
+</html>

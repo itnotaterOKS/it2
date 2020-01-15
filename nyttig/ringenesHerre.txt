@@ -1,0 +1,31 @@
+﻿navn:
+
+Frodo, Sam, Meriadoc, Peregrin, Aragorn, Boromir, Gimli, Legolas, Gandalf
+
+
+filmer:
+
+The Fellowship of the Ring
+regissør: Peter Jackson
+komponist: Howard Shore
+utgivelsesår: 2001
+varighet: 178 minutter
+
+The Two Towers
+regissør: Peter Jackson
+komponist: Howard Shore
+utgivelsesår: 2002
+varighet: 179 minutter
+
+The Return of the King
+regissør: Peter Jackson
+komponist: Howard Shore
+utgivelsesår: 2003
+varighet: 200 minutter
+
+
+skuespillere:
+
+Elijah Wood (Frodo)
+Viggo Mortensen (Aragorn)
+Ian McKellen (Gandalf)
