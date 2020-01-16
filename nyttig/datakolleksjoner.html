@@ -165,6 +165,7 @@
 
 		<script>
 			var tdEl = document.querySelectorAll("td");
+			console.log(tdEl);
 			for(var i = 0; i < tdEl.length; i++){
 				tdEl[i].style.backgroundColor = "pink";
 			}
@@ -404,6 +405,14 @@
     	/*	for(var egenskap in person){
     		console.log(person[egenskap]);
     	}*/
+			var bodyEl = document.querySelector("body");
+			var tabellEl = document.createElement("table");
+			for (var i in person){
+				var radEl = document.createElement("tr");
+				radEl.innerHTML = "<td>"+i+"</td><td>"+person[i]+"</td>";
+				tabellEl.appendChild(radEl);
+			}
+			bodyEl.appendChild(tabellEl)
 		</script>
 
 		<h2> Løkke gjennom objects </h2>
