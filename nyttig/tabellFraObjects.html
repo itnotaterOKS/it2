@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tabell</title>
+    <style>
+      body{
+        font-size: 200%;
+      }
+      table, tr, th, td{
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      </style>
+  </head>
+  <body>
+    <script>
+      var elev1 = {
+    		fnavn: "Andrea",
+    		enavn: "Fredriksen",
+    		alder: 18,
+        klasse: "2a" // med løkkene under er det lett å legge inn flere nøkler slik at de inkluderes i tabellen!
+    	};
+    	var elev2 = {
+    		fnavn: "Damir",
+    		enavn: "Hansen",
+    		alder: 19,
+        klasse: "3c"
+    	};
+    	var elev3 = {
+    		fnavn: "Silje",
+    		enavn: "Aasen",
+    		alder: 17,
+        klasse: "2f"
+    	};
+    	var elev4 = {
+    		fnavn: "Thomas",
+    		enavn: "Fris",
+    		alder: 18,
+        klasse: "3c"
+    	};
+    	var elever = [elev1, elev2, elev3, elev4];
+      // Oppretter en array med overskriftene for å kunne legge inn en overskriftrad i tabellen
+      var overskrifter = ["Fornavn", "Etternavn", "Alder", "Klasse"]
+      var bodyEl = document.querySelector("body")
+      var tabellEl = document.createElement("table");
+      var overskriftEl = document.createElement("tr");
+      for(var i = 0; i < overskrifter.length; i++){ // løkker gjennom overskriftene
+        var thEl = document.createElement("th");
+        thEl.innerHTML = overskrifter[i];
+        overskriftEl.appendChild(thEl);
+      }
+      tabellEl.appendChild(overskriftEl);
+      for(var i=0; i < elever.length; i++){ // løkker gjennom arrayene med objectsene for hver elev
+        var radEl = document.createElement("tr"); // oppretter en rad for hver elev
+        for(var j in elever[i]){ // løkker gjennom nøklene i hver object
+           var tdEl = document.createElement("td"); // lager en tabellcelle for hver nøkkel og fyller den med verdien før den legges til i raden
+           tdEl.innerHTML = elever[i][j]; // husk å bruke klammenotasjon i for-in-løkker!
+           radEl.appendChild(tdEl);
+         }
+         tabellEl.appendChild(radEl);
+       }
+   bodyEl.appendChild(tabellEl);
+    </script>
+
+  </body>
+</html>
