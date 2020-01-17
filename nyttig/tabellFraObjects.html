@@ -18,30 +18,26 @@
       var elev1 = {
     		fnavn: "Andrea",
     		enavn: "Fredriksen",
-    		alder: 18,
-        klasse: "2a" // med løkkene under er det lett å legge inn flere nøkler slik at de inkluderes i tabellen!
-    	};
+    		alder: 18
+      };
     	var elev2 = {
     		fnavn: "Damir",
     		enavn: "Hansen",
-    		alder: 19,
-        klasse: "3c"
-    	};
+    		alder: 19
+      };
     	var elev3 = {
     		fnavn: "Silje",
     		enavn: "Aasen",
-    		alder: 17,
-        klasse: "2f"
+    		alder: 17
     	};
     	var elev4 = {
     		fnavn: "Thomas",
     		enavn: "Fris",
-    		alder: 18,
-        klasse: "3c"
+    		alder: 18
     	};
     	var elever = [elev1, elev2, elev3, elev4];
       // Oppretter en array med overskriftene for å kunne legge inn en overskriftrad i tabellen
-      var overskrifter = ["Fornavn", "Etternavn", "Alder", "Klasse"]
+      var overskrifter = ["Fornavn", "Etternavn", "Alder"]
       var bodyEl = document.querySelector("body")
       var tabellEl = document.createElement("table");
       var overskriftEl = document.createElement("tr");
