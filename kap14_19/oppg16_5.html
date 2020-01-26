@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS-animasjon</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="../grid.css">
+  <link rel="stylesheet" type="text/css" href="../stil.css">
+  <link rel="stylesheet" type="text/css" href="oppg16_5.css">
+</head>
+<body>
+  <div class="col-12 row header">
+  Oppgave 16.5
+  </div>
+  <div class="innhold col-10">
+    <div id="sirkel"></div>
+  </div>
+  <script>
+  // Henter body-elementet og div-elementet
+  var bodyEl = document.querySelector("body");
+  var innholdEl = document.querySelector(".innhold");
+  var sirkelEl = document.querySelector("#sirkel");
+
+  // Lytter etter musebevegelser i innholdsdiven (i stedet for body)
+  innholdEl.addEventListener("mousemove", flyttSirkel);
+
+    // Funksjonen flyttSirkel() flytter sirkelen etter musepekeren og endrer farge på sirkelen
+  function flyttSirkel(e) {
+    // Setter sirkelens left-egenskap lik musepekerens x-koordinat
+  //  sirkelEl.style.left = (e.clientX - 25) + "px";
+    // Setter sirkelens top-egenskap lik musepekerens y-koordinat
+  //  sirkelEl.style.top = (e.clientY - 25) + "px";
+    // Lar musepekerens posisjon styre sirkelens farge
+    sirkelEl.style.backgroundColor = "hsl(" + e.clientX + "," + e.clientY + "% , 50%)";
+
+    // Løser oppgave 10.5 herfra
+    // gjør om koden ovenfor slik at sirkelens størrelse også bestemmes av posisjonen i nettleservinduet
+    // variablene bredde og hoyde inneholder posisjonen i x- og y-retning og bestemmer størrelsen på div-elementet:
+  /*  var bredde = e.clientX;
+    sirkelEl.style.width = bredde + "px";
+    var hoyde = e.clientY;
+    sirkelEl.style.height = hoyde + "px";
+
+    // Som i eksempelkoden settes left og top til koordinatene. Her er ikke størrelsen 25 px som over, men hoyde og bredde
+    sirkelEl.style.left = (e.clientX - (bredde / 2)) + "px";
+    sirkelEl.style.top = (e.clientY - (hoyde / 2)) + "px";*/
+
+    // gjør om koden ovenfor sånn at sirkelen blir større på vei mot midten og mindre på vei fra midten
+    // bredden er nå avhengig av avstanden fra div-kanten til posisjonen:
+    // fordi sirkelen skal bli størst på midten og ikke langs høyre kant får vi en størrelse av diven
+
+    var nyBredde = (-160/(Math.pow(window.innerWidth, 2)))*Math.pow(e.clientX, 2) + (160/window.innerWidth)*e.clientX;
+    var nyHoyde = (-160/(Math.pow(window.innerHeight, 2)))*Math.pow(e.clientY, 2) + (160/window.innerHeight)*e.clientY;
+
+    sirkelEl.style.width = nyBredde + "px";
+    sirkelEl.style.left = (e.clientX - (nyBredde / 2)) + "px";
+    sirkelEl.style.height = nyHoyde + "px";
+    sirkelEl.style.top = (e.clientY - (nyHoyde / 2)) + "px";
+  }
+  </script>
+ <a href="../index.html"><img class="hjem" src="../hjem.png"></a>
+</body>
+</html>
