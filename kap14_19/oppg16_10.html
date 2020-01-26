@@ -23,19 +23,24 @@
       for(var i = 0; i < alleFirkanter.length; i++){
         innholdEl.removeChild(alleFirkanter[i]);
       }
+      // finner posisjonen til musepeker
       var x = e.clientX;
       var y = e.clientY;
+      // tegner opp 10 firkanter i dette området
       for (var i = -5; i < 5; i++) { // fra -5 til 5 i stedet for 0 til 10 fordi jeg vil ha de på alle sider av klikkstedet
+        // tilfeldig avstand fra musepekeren
         var forskyvningX = Math.random() * i * 10;
         var forskyvningY = Math.random() * i * 10;
         // logger der firkantene skal tegnes
         console.log(x+forskyvningX, y+forskyvningY);
         var hsl_h = Math.floor(Math.random() * 360); // hver farge får ny h, samme s og l
+        // oppretter et div-element for hver firkant som får klassen firkanter, en tilfeldig farge og riktig koordinater
         var divEl = document.createElement("div");
         divEl.classList.add("firkanter");
         divEl.style.backgroundColor = "hsl(" + hsl_h + ", 70%, 50%)";
         divEl.style.left = (x + forskyvningX)+"px";
         divEl.style.top = (y + forskyvningY) + "px";
+        // legger til elementet i innholdsdiven
         innholdEl.appendChild(divEl);
       }
     }
