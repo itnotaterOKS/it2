@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Løsning heldagsprøve </title>
+    <link rel="stylesheet" type="text/css" href="../grid.css">
+    <link rel="stylesheet" type="text/css" href="../stil.css">
+    <link rel="stylesheet" type="text/css" href="skjema.css">
+  </head>
+  <body>
+    <div class="col-12 row header">
+      Løsning på oppgave 3, heldagsprøve høst 2019
+  	</div>
+  	<script type="text/javascript" src="menyN.js"></script>
+  	<div class="innhold">
+    <div id="visSkjema"></div>
+    <script>
+      /* Setningen "Det skal være mulig for kommunen å enkelt endre alternativene hvis dette tiltaket viser seg å være for dyrt."
+      impliserer at vi skal bruke datakolleksjoner når vi oppretter skjemaet sånn at det blir lett å endre valgene. */
+
+      // henter inn visSkjema-diven
+      var visSkjemaEl = document.querySelector("#visSkjema");
+
+      // oppretter en object for hver bilmodell:
+      var teslaX = {
+        stilling: "Lektor med opprykk",
+        bil: "model X",
+        modell: ["Performance", "Long Range"],
+        pris: [1005000, 846000],
+        farge: ["hvit", "sort", "sølv", "blå", "rød"],
+        prisFarge: [0, 12000, 12000, 12000, 20000],
+        interior: ["helsort", "sort og hvitt", "krem"],
+        prisInterior: [0, 16000, 4000]
+      }
+      var teslaS = {
+        stilling:  "Lektor",
+        bil: "model S",
+        modell: ["Performance", "Long Range"],
+        pris: [955000 , 791000 ],
+        farge: ["hvit", "sort", "sølv", "blå", "rød"],
+        prisFarge: [0, 12000, 12000, 12000, 20000],
+        interior: ["helsort", "sort og hvitt", "krem"],
+        prisInterior: [0, 12500, 12500]
+      }
+      var tesla3 = {
+        stilling:  "Adjunkt",
+        bil: "model 3",
+        modell: ["Performance", "Long Range"],
+        pris: [500000, 460000],
+        farge: ["hvit", "sort", "sølv", "blå", "rød"],
+        prisFarge: [0, 8000, 8000, 8000, 17000],
+        interior: ["helsort", "sort og hvitt"],
+        prisInterior: [0, 8800]
+      }
+
+      // legger de tre objectene i en array
+      var biler = [teslaX, teslaS, tesla3];
+
+      // oppretter et skjema for valg av stilling, som legger grunnlaget for valg av bil
+      var stillingSelectEl = document.createElement("select");
+      stillingSelectEl.name = "stilling";
+      for (var i = 0; i < biler.length; i++){
+        var stillingOptionEl = document.createElement("option");
+        stillingOptionEl.value = biler[i].stilling;
+        stillingOptionEl.innerHTML = biler[i].stilling;;
+        stillingSelectEl.appendChild(stillingOptionEl);
+      }
+      // legger selecten inn i diven
+      visSkjemaEl.appendChild(stillingSelectEl);
+
+      // Oppretter variabler jeg ønsker at skal være globale selv om de får verdi underveis
+      var valgtStillingEl //= document.createElement("p");
+      var modellSelectEl // = document.createElement("select");
+      var valgtModellEl // = document.createElement("p");
+      var fargeSelectEl // = document.createElement("select");
+      var valgtFargeEl // = document.createElement("p");
+      var interiorSelectEl // = document.createElement("select");
+      var prisEl // = document.createElement("p");
+
+      var valgtStilling;
+      var valgtModell;
+      var valgtFarge;
+      var valgtInterior;
+      var prisModell;
+      var prisFarge;
+      var prisInterior;
+      var totalPris;
+
+
+      // leser av valget og legger inn akutell bilmodell og de nye valgene for denne
+      stillingSelectEl.addEventListener("change", visStilling)
+      stillingSelectEl.addEventListener("click", visStilling)
+      function visStilling() {
+        // nuller ut overflødige tidligere valg
+        var alleSkjema = document.querySelectorAll("select");
+        var alleP = document.querySelectorAll("p");
+        // sletter alle select unntatt det første
+        for (var i = 1; i < alleSkjema.length; i++){
+          visSkjemaEl.removeChild(alleSkjema[i]);
+        }
+        // sletter alle p
+        for (var i = 0; i < alleP.length; i++){
+          visSkjemaEl.removeChild(alleP[i]);
+        }
+
+        // sjekker hvilken object vi skal bruke
+        for(var i = 0; i < biler.length; i++){
+          if(biler[i].stilling == stillingSelectEl.value){
+            valgtStilling = i;
+          }
+        }
+        valgtStillingEl = document.createElement("p"); // opprettet som global variabel
+        valgtStillingEl.innerHTML = "Du har valgt stillingen " + biler[valgtStilling].stilling + " og får derfor bilen Tesla " + biler[valgtStilling].bil;
+        visSkjemaEl.appendChild(valgtStillingEl);
+
+        // oppretter et skjema for valg av modell
+        modellSelectEl = document.createElement("select"); // opprettet som global variabel
+        modellSelectEl.name = "modell";
+        for (var i = 0; i < biler[valgtStilling].modell.length; i++){
+          var modellOptionEl = document.createElement("option");
+          modellOptionEl.value = biler[valgtStilling].modell[i];
+          modellOptionEl.innerHTML = biler[valgtStilling].modell[i];
+          modellSelectEl.appendChild(modellOptionEl);
+        }
+        // legger inn selecten i diven
+        visSkjemaEl.appendChild(modellSelectEl)
+
+        // leser av valet og legger inn aktuelle valg for den valgte modellen
+        modellSelectEl.addEventListener("change", visModell);
+        modellSelectEl.addEventListener("click", visModell);
+      }
+
+      function visModell(){
+        // nuller ut overflødige tidligere valg
+        var alleSkjema = document.querySelectorAll("select");
+        var alleP = document.querySelectorAll("p");
+        // sletter alle select unntatt det første og andre
+        for (var i = 2; i < alleSkjema.length; i++){
+          visSkjemaEl.removeChild(alleSkjema[i]);
+        }
+        // sletter alle p unntatt første
+        for (var i = 1; i < alleP.length; i++){
+          visSkjemaEl.removeChild(alleP[i]);
+        }
+
+        // sjekker hvilken pris vi skal bruke
+        for(var i = 0; i < biler[valgtStilling].modell.length; i++){
+          if(biler[valgtStilling].modell[i] == modellSelectEl.value){
+            valgtModell = biler[valgtStilling].modell[i];
+            prisModell = biler[valgtStilling].pris[i];
+          }
+        }
+
+        valgtModellEl = document.createElement("p"); // opprettet som global varibel
+        valgtModellEl.innerHTML = "Du har valgt modellen " + valgtModell;
+        visSkjemaEl.appendChild(valgtModellEl);
+
+        // oppretter et skjema for valg av farge
+        fargeSelectEl = document.createElement("select"); // opprettet som global variabel
+        fargeSelectEl.name = "farge";
+        for (var i = 0; i < biler[valgtStilling].farge.length; i++){
+          var fargeOptionEl = document.createElement("option");
+          fargeOptionEl.value = biler[valgtStilling].farge[i];
+          fargeOptionEl.innerHTML = biler[valgtStilling].farge[i];
+          fargeSelectEl.appendChild(fargeOptionEl);
+        }
+        // legger inn selecten i diven
+        visSkjemaEl.appendChild(fargeSelectEl)
+
+        // leser av valet og legger inn aktuelle valg for den valgte modellen
+        valgtFargeEl = document.createElement("p"); // opprettet som global variabel
+        fargeSelectEl.addEventListener("change", visFarge);
+        fargeSelectEl.addEventListener("click", visFarge);
+      }
+
+      function visFarge(){
+        // nuller ut overflødige tidligere valg
+        var alleSkjema = document.querySelectorAll("select");
+        var alleP = document.querySelectorAll("p");
+        // sletter alle select unntatt det første, andre og tredjë
+        for (var i = 3; i < alleSkjema.length; i++){
+          visSkjemaEl.removeChild(alleSkjema[i]);
+        }
+        // sletter alle p unntatt første og andre
+        for (var i = 2; i < alleP.length; i++){
+          visSkjemaEl.removeChild(alleP[i]);
+        }
+
+        // sjekker hvilken pris vi skal bruke
+        for(var i = 0; i < biler[valgtStilling].farge.length; i++){
+          if(biler[valgtStilling].farge[i] == fargeSelectEl.value){
+            valgtFarge = biler[valgtStilling].farge[i];
+            prisFarge = biler[valgtStilling].prisFarge[i];
+          }
+        }
+
+        valgtFargeEl = document.createElement("p"); // opprettet som global varibel
+        valgtFargeEl.innerHTML = "Du har valgt fargen " + valgtFarge;
+        visSkjemaEl.appendChild(valgtFargeEl);
+
+        // oppretter et skjema for valg av farge
+        interiorSelectEl = document.createElement("select"); // opprettet som global variabel
+        interiorSelectEl.name = "interior";
+        for (var i = 0; i < biler[valgtStilling].interior.length; i++){
+          var interiorOptionEl = document.createElement("option");
+          interiorOptionEl.value = biler[valgtStilling].interior[i];
+          interiorOptionEl.innerHTML = biler[valgtStilling].interior[i];
+          interiorSelectEl.appendChild(interiorOptionEl);
+        }
+        // legger inn selecten i diven
+        visSkjemaEl.appendChild(interiorSelectEl)
+
+        // leser av valet og legger inn aktuelle valg for den valgte modellen
+        valgtInteriorEl = document.createElement("p"); // opprettet som global variabel
+        interiorSelectEl.addEventListener("change", visInterior);
+        interiorSelectEl.addEventListener("click", visInterior);
+      }
+
+      function visInterior(){
+        // nuller ut overflødige tidligere valg
+        var alleSkjema = document.querySelectorAll("select");
+        var alleP = document.querySelectorAll("p");
+        // sletter alle select unntatt det første, andre, tredje og fjerde
+        for (var i = 4; i < alleSkjema.length; i++){
+          visSkjemaEl.removeChild(alleSkjema[i]);
+        }
+        // sletter alle p unntatt første, andre og tredje
+        for (var i =3; i < alleP.length; i++){
+          visSkjemaEl.removeChild(alleP[i]);
+        }
+
+        // sjekker hvilken pris vi skal bruke
+        for(var i = 0; i < biler[valgtStilling].interior.length; i++){
+          if(biler[valgtStilling].interior[i] == interiorSelectEl.value){
+            valgtInterior = biler[valgtStilling].interior[i];
+            prisInterior = biler[valgtStilling].prisInterior[i];
+          }
+        }
+
+        valgtInteriorEl = document.createElement("p"); // opprettet som global varibel
+        valgtInteriorEl.innerHTML = "Du har valgt interiørfargen " + valgtInterior;
+        visSkjemaEl.appendChild(valgtInteriorEl);
+
+        // leser av valet og legger inn aktuelle valg for den valgte modellen
+        valgtInteriorEl = document.createElement("p"); // opprettet som global variabel
+        interiorSelectEl.addEventListener("change", visPris);
+        interiorSelectEl.addEventListener("click", visPris);
+      }
+
+      function visPris(){
+        totalPris = prisModell + prisFarge + prisInterior;
+        prisEl = document.createElement("p");
+        prisEl.innerHTML = "Dine valgt som " + biler[valgtStilling].stilling + " er en Tesla " + biler[valgtStilling].modell[valgtModell] + " i fargen " + biler[valgtStilling].farge[valgtFarge] + " med interiøret " + biler[valgtStilling].interior[valgtInterior] + ". Dette vil koste Oslo kommune " + totalPris + " kroner.";
+        visSkjema.appendChild(prisEl);
+      }
+    </script>
+
+    </div>
+  </body>
+</html>

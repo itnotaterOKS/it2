@@ -15,7 +15,13 @@
     <div class="innhold">
       <h1> Informasjon om perioden </h1>
       <p> Dekker kapittel 16, 17 og 18 i Achehoug-boka <br>
-          Det kommer endel oppgaver utover oppgavene i boka. </p>
+          Det kommer endel oppgaver utover oppgavene i boka. <br>
+
+      Kapittel 16 dekker posisjonering med css: å bruke css til å posisjonere elementer på nettsiden.<br>
+      Kapittel 17 dekker overganger og animasjoner med css og hvordan man kan bruke javascript til å styre når disse skal skje. <br>
+      Kapittel 18 dekker transformasjoner med css og hvordan man kan bruke javascript til å styre når disse skal skje. <br>
+      Kapittel 19 oppsummerer kapittel 16-18 med et bildekarusellprosjekt. <br>
+      Temaet er altså ganske css-dominert.</p>
 
       <h1> Position </h1>
       <p> Hva? <br>
@@ -24,23 +30,14 @@
           Bruker egenskapen position, som kan ha ulike verdier </p>
       <p> Minner i tillegg om at alle elementer enten har display: inline (ved siden av, f.eks. < img > og < span >) eller block (under, f.eks < li > og < div >)</p>
       <table>
-          <tr>
-              <th> verdi </th> <th> beskrivelse </th>
-          </tr>
-          <tr>
-              <td> static </td> <td> default verdi, elementet følger rekkefølgen det legges i koden</td>
-          </tr>
-          <tr>
-              <td> absolute </td> <td> elementet ligger inne i et annet element, posisjonen justeres i forhold til dette </td>
-          </tr>
-          <tr>
-              <td> relative </td> <td> posisjonen sammenliknes med der det normalt ville vært plassert </td>
-          </tr>
-          <tr>
-              <td> fixed </td> <td> posisjonen bestemmes relativt til vinduet </td>
-           </tr>
+        <tr><th> verdi </th> <th> beskrivelse </th></tr>
+        <tr><td> static </td> <td> default verdi, elementet følger rekkefølgen det legges i koden</td></tr>
+        <tr><td> absolute </td> <td> elementet ligger inne i et annet element, posisjonen justeres i forhold til dette </td></tr>
+        <tr><td> relative </td> <td> posisjonen sammenliknes med der det normalt ville vært plassert </td></tr>
+        <tr><td> fixed </td> <td> posisjonen bestemmes relativt til vinduet </td></tr>
       </table>
-      <h2> Viser med div-bokser </h2>
+
+    <h2> Viser med div-bokser </h2>
      <div id="ramme">
           <div id="stat"> <p> static </p> </div>
           <div id="abs"> <p> absolute </p> </div>
@@ -64,38 +61,38 @@
       #stat{ <br>
       &nbsp;&nbsp; position: static; <br>
       } <br>
-
       #abs{ <br>
       &nbsp;&nbsp; position: absolute; <br>
       &nbsp;&nbsp; left: 70px; <br>
       &nbsp;&nbsp; top: 80px; <br>
       } <br>
-
       #rel{ <br>
       &nbsp;&nbsp; position: relative; <br>
       &nbsp;&nbsp; top: 100px; <br>
       &nbsp;&nbsp; left: 50px; <br>
       } <br>
-
       #fix{ <br>
       &nbsp;&nbsp; position: fixed; <br>
       &nbsp;&nbsp; left: 0px; <br>
       &nbsp;&nbsp; top: 150px; <br>
       &nbsp;&nbsp; border: 1px solid black; <br>
-      } <br> </p>
+      } </p>
 
       <h2> Oppgaver: </h2>
-      <p> Lag et .html-side med følgende elementer: <br>
+      <p> 1) Oppgaver s. 253: Oppg. 16.1 - 16.4 <br><br>
+      2) Lag et .html-side med følgende elementer: <br>
       &nbsp;&nbsp; < div > <br>
       &nbsp;&nbsp;&nbsp;&nbsp; < h1 > Overskrift < /h1 > <br>
       &nbsp;&nbsp;&nbsp;&nbsp; < img > Sett selv inn et bilde < /img > <br>
       &nbsp;&nbsp;&nbsp;&nbsp; < table > Sett selv inn en tabell < /table > <br>
       &nbsp;&nbsp;&nbsp;&nbsp; < ul > Sett selv inn en liste < /ul > <br>
       &nbsp;&nbsp; < /div> <br> <br>
-      Bestem plasseringene til elementene med de ulike egenskapene vist over, legg merke til hva som skjer<br>
+      Bestem plasseringene til elementene med de ulike egenskapene vist over, legg merke til hva som skjer når du endrer css-koden.
+      Gi gjerne elementene bakgrunnsfarge og/eller kantlinjer sånn at du ser hvor de starter og sluter. <br>
       Hva skjer hvis du øker bredden på innpakningsdiven?</p>
 
-      <h2> Å bruke css og js til å la et element følge musepekeren </h2>
+
+      <h2> Eksempel: å bruke css og js til å la et element følge musepekeren </h2>
       <p> I html-koden: <br>
       &nbsp;&nbsp;< div id="folgerPil" > Følger musepeker! < /div ></p>
 
@@ -126,21 +123,22 @@
       </p>
 
      <script>
-          var bodyEl = document.querySelector("body");
-          var mouseEl = document.querySelector("#folgerMus");
-          bodyEl.addEventListener ("mousemove", flyttSirkel);
-          function flyttSirkel(e) {
-              mouseEl.style.left = (e.clientX - 25) + "px";
-              mouseEl.style.top = (e.clientY - 25) + "px";
-              //mouseEl.style.backgroundColor = "#F16699";
-              mouseEl.style.backgroundColor = " hsl(" + e.clientX + "," + e.clientY + "% , 50%) ";
-          }
+        var bodyEl = document.querySelector("body");
+        var mouseEl = document.querySelector("#folgerMus");
+        bodyEl.addEventListener ("mousemove", flyttSirkel);
+        function flyttSirkel(e) {
+            mouseEl.style.left = (e.clientX - 25) + "px";
+            mouseEl.style.top = (e.clientY - 25) + "px";
+            //mouseEl.style.backgroundColor = "#F16699";
+            mouseEl.style.backgroundColor = " hsl(" + e.clientX + "," + e.clientY + "% , 50%) ";
+      }
       </script>
 
 
-      <h2> Å bruke css + js til å styre et element med piltastene </h2>
+      <h2> Eksempel: å bruke css + js til å styre et element med piltastene </h2>
       <p> Ganske liknende eksempel som forrige, men vil her la elementet følge piltaster <p>
-      <p> I html-koden
+      <p> I html-koden<br>
+      < div id="folgerPil" >Følger piltaster!< /div >
       <div id="folgerPil">Følger piltaster!</div>
       </p>
 
@@ -205,7 +203,10 @@
 
       <h2> Oppgaver </h2>
       <p> 1. La to div-elementer være de eneste på en side. Gi dem ulike kjennetegn (feks tekst, bilde, bakgrunnsfarge) og styr plasseringen til det ene med musepeker og til det andre med piltaster. Gi dem ulike position og se hvilke konsekvenser det har for muligheten til å styre plasseringen. <br>
-      2. Oppgave 16.5, 16. 6, 16.7, 16.8, 16.9 </p>
+      2. I boka (s. 255, 258): oppgave 16.5, 16.6, 16.7, 16.8, 16.9 </p>
+
+      <h2> Eksempel: oppgave 16.10 </h2>
+      <p> Oppgaven er løst <a href="oppg16_10.html">her</a>.
     </div>
     <a href="../index.html"><img class="hjem" src="../hjem.png"></a>
   </body>

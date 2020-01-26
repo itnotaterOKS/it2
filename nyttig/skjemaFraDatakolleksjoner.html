@@ -1,142 +1,177 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title> Repetisjon </title>
-    <link rel="stylesheet" type="text/css" href="../grid.css">
-    <link rel="stylesheet" type="text/css" href="../stil.css">
-    <link rel="stylesheet" type="text/css" href="css/skjema.css">
-  </head>
-  <body>
-    <div class="col-12 row header">
-      Repetisjon
-  	</div>
-  	<script type="text/javascript" src="menyN.js"></script>
-  	<div class="innhold">
-      <div id="skjema"></div>
-      <script>
-        var skjemaEl=document.querySelector("#skjema");
-        var skjema = {
-          navn: {id: "navn", placeholder: "navn", type: "text"},
-          telefon: {id: "tlf", placeholder: "12345678", type: "text"},
-          gjester: ["1", "2", "3", "4", "5", "6"],
-          frokost: ["ja", "nei"],
-          aktiviteter: [
-            {id:"aktBo", navn: "Dagspass Bø Sommarland (300 kr)"},
-            {id: "aktHoyt", navn: "Dagspass Høyt og Lavt klatrepark (250 kr)"},
-            {id: "aktFrukt", navn:"Omvisning på fruktgård (200 kr)"},
-            {id: "aktTelemark", navn: "Dagstur på Telemarkskanalen (800 kr)"}
-            ]
-        }
-        console.log(skjema);
-        pNavnEl = document.createElement("p");
-        pNavnEl.innerHTML = "skriv inn "+skjema.navn.id + ":";
-        skjemaEl.appendChild(pNavnEl)
-        var navnEl = document.createElement("input");
-      /*  for(var n in skjema.navn){
-            navnEl.n=skjema.navn[n];
-        }*/
-        navnEl.type=skjema.navn.type;
-        navnEl.placeholder=skjema.navn.placeholder;
-        navnEl.id=skjema.navn.id;
-        skjemaEl.appendChild(navnEl);
-        pTlfEl = document.createElement("p");
-        pTlfEl.innerHTML = "skriv inn "+skjema.telefon.id + ":";
-        skjemaEl.appendChild(pTlfEl);
-        var tlfEl = document.createElement("input");
-        navnEl.type=skjema.navn.type;
-        navnEl.placeholder=skjema.navn.placeholder;
-        navnEl.id=skjema.navn.id;
-      </script>
-      <div id="skjema">
-          Skriv inn navn: <input type="text" placeholder="navn" id="navn">
-          Skriv inn telefonnr: <input type="number" min="1" placeholder="12345678" id="tlf">
-          Antall gjester: <select name="gjester" id="ant">
-            <option value="1"> 1 gjest </option>
-            <option value="2"> 2 gjester </option>
-            <option value="3"> 3 gjester </option>
-            <option value="4"> 4 gjester </option>
-            <option value="5"> 5 gjester </option>
-            <option value="6"> 6 gjester </option>
-          </select>
-          Frokost?<br>
-          <input type="radio" name="frokost" id="frokostJa" checked> Ja <br>
-          <input type="radio" name="frokost" id="frokostNei"> Nei<br>
-          Ekstraaktiviteter? <br>
-          <input type="checkbox" name="aktivitet" id="aktBo"> Dagspass Bø Sommarland (300 kr)<br>
-          <input type="checkbox" name="aktivitet" id="aktHoyt"> Dagspass Høyt og Lavt klatrepark (250 kr)<br>
-          <input type="checkbox" name="aktivitet" id="aktFrukt"> Omvisning på fruktgård (200 kr)<br>
-          <input type="checkbox" name="aktivitet" id="aktTelemark"> Dagstur på Telemarkskanalen (800 kr) <br>
-          <button id="send">Registrer</button>
-      </div>
-      <div id="kvittering"></div>
-      <script>
-				var sendEl = document.querySelector("#send");
-				sendEl.addEventListener("click", sendSvar);
-				var kvitteringEl = document.querySelector("#kvittering");
-        var svar = {
-          navn: "",
-          tlf: "",
-          gjester: 0,
-          frokost: "",
-          aktiviteter: []
-        };
-
-				function sendSvar(){
-					// henter inn svar
-					var navnEl = document.querySelector("#navn");
-					var tlfEl = document.querySelector("#tlf");
-					var gjesterEl = document.querySelector("#ant");
-					var frokostJaEl = document.querySelector("#frokostJa");
-					var frokostNeiEl = document.querySelector("#frokostNei");
-					var aktBoEl = document.querySelector("#aktBo");
-					var aktHoytEl = document.querySelector("#aktHoyt");
-					var aktFruktEl = document.querySelector("#aktFrukt");
-					var aktTelemarkEl = document.querySelector("#aktTelemark");
-
-          // fyller inn navn, telefonnr og antall gjester i objectet
-          svar.navn = navnEl.value;
-          svar.tlf = tlfEl.value;
-          svar.gjester=gjesterEl.value;
-
-					// finner ut om gjestene skal ha frokost
-					if(frokostJaEl.checked){
-					  svar.frokost="ja";
-					}
-					else if(frokostNeiEl.checked){
-            svar.frokost="nei";
-					}
-
-					// finner ut hvilke aktiviteter
-					if(aktBoEl.checked){
-					   svar.aktiviteter.push("Bø Sommarland");
-					}
-					var aktHoyt = "";
-					if(aktHoytEl.checked){
-					   svar.aktiviteter.push("Høyt og Lavt klatrepark");
-					}
-					var aktFrukt = "";
-					if(aktFruktEl.checked){
-					   svar.aktiviteter.push("Omvisning på fruktgård");
-					}
-					var aktTelemark = "";
-					if(aktTelemarkEl.checked){
-						svar.aktiviteter.push("Dagstur på Telemarkskanalen");
-					}
-          console.log(svar);
-          var ulEl = document.createElement("ul");
-          for(i = 0; i < svar.aktiviteter.length; i++){
-            liEl = document.createElement("li");
-            liEl.innerHTML= svar.aktiviteter[i];
-            ulEl.appendChild(liEl);
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title> Repetisjon </title>
+      <link rel="stylesheet" type="text/css" href="../grid.css">
+      <link rel="stylesheet" type="text/css" href="../stil.css">
+      <link rel="stylesheet" type="text/css" href="css/skjema.css">
+    </head>
+    <body>
+      <div class="col-12 row header">
+        Repetisjon
+    	</div>
+    	<script type="text/javascript" src="menyN.js"></script>
+    	<div class="innhold">
+        <div id="skjema"></div>
+        <script>
+          var skjemaEl=document.querySelector("#skjema");
+          var skjema = [
+            navn = {
+              id: "navn",
+              placeholder: "skriv inn navn",
+              type: "text",
+              svar: ""
+            },
+            telefon = {
+              id: "tlf",
+              placeholder: "skriv inn telefonnr",
+              type: "text",
+              svar:""
+            },
+            gjester = {
+              valg: ["1", "2", "3", "4", "5", "6"],
+              svar:""
+            },
+            frokost = {
+              id: "frokost",
+              type: "radio",
+              alternativer: ["ja", "nei"],
+              svar: ""
+            },
+            aktiviteter = {
+              id: ["aktBo", "aktHoyt", "aktFrukt", "aktTelemark"],
+              name: "aktiviteter",
+              type: "checkbox",
+              navn: ["Dagspass Bø Sommarland", "Dagspass Høyt og Lavt klatrepark", "Omvisning på fruktgård","Dagstur på Telemarkskanalen"],
+              pris: [300, 250, 200, 800],
+              svar: ""
           }
+          ]
+          console.log(skjema);
 
-          pEl = document.createElement("p");
-          pEl.innerHTML="Navnet er " + svar.navn + " og du er registrert med telefonnr " + svar.tlf + ". Du har registrert " + svar.gjester + " gjester, og du har svart " + svar.frokost + " til frokost. Av aktiviteter har du valgt: ";
-          kvitteringEl.appendChild(pEl);
-          kvitteringEl.appendChild(ulEl)
-				}
-			</script>
-    </div>
-  </body>
-</html>
+          // fyller skjema fra object
+          // navn og telefon
+          for(var i = 0; i < 2; i++){
+            var inputEl = document.createElement("input");
+            inputEl.type=skjema[i].type;
+            inputEl.placeholder=skjema[i].placeholder;
+            inputEl.id=skjema[i].id;
+            skjemaEl.appendChild(inputEl);
+          }
+          // antall gjester
+          var gjesterEl = document.createElement("select")
+          gjesterEl.name="gjester";
+          gjesterEl.id="gjester";
+          for(var i = 0; i<skjema[2]["valg"].length; i++){
+            var optionEl = document.createElement("option");
+            optionEl.value = skjema[2]["valg"][i];
+            optionEl.innerHTML = skjema[2]["valg"][i]+" gjester";
+            gjesterEl.appendChild(optionEl);
+          }
+          skjemaEl.appendChild(gjesterEl);
+          // frokost
+          var frokostEl = document.createElement("p");
+          frokostEl.innerHTML = "Vil dere ha frokost? <br>";
+          for(var i = 0; i < skjema[3]["alternativer"].length; i++){
+            var inputEl = document.createElement("input");
+            inputEl.type= skjema[3].type;
+            inputEl.name= skjema[3].id;
+            inputEl.id= skjema[3].id;
+            inputEl.value =skjema[3]["alternativer"][i];
+            frokostEl.appendChild(inputEl);
+            frokostEl.innerHTML+=skjema[3]["alternativer"][i]+"<br>"
+          }
+          skjemaEl.appendChild(frokostEl);
+          // aktiviteter
+          var aktiviteterEl = document.createElement("p");
+          aktiviteterEl.innerHTML = "Hvilke aktiviteter skal du delta på? <br>"
+          for(var i = 0; i < skjema[4]["id"].length; i++){
+            var inputEl = document.createElement("input");
+            inputEl.type= skjema[4].type;
+            inputEl.name= skjema[4].name;
+            inputEl.id= skjema[4].id[i];
+            inputEl.value =skjema[4]["navn"][i];
+            aktiviteterEl.appendChild(inputEl);
+            aktiviteterEl.innerHTML+=skjema[4]["navn"][i]+"<br>"
+          }
+          skjemaEl.appendChild(aktiviteterEl)
+          // svarknapp
+          var knappEl = document.createElement("button");
+          knappEl.id="send";
+          knappEl.innerHTML="send";
+          skjemaEl.appendChild(knappEl)
+        </script>
+
+        <div id="kvittering"></div>
+        <script>
+        // henter inn svarene
+  			/*	var sendEl = document.querySelector("#send");
+  				sendEl.addEventListener("click", sendSvar);
+  				var kvitteringEl = document.querySelector("#kvittering");
+          var svar = {
+            navn: "",
+            tlf: "",
+            gjester: 0,
+            frokost: "",
+            aktiviteter: []
+          };
+
+  				function sendSvar(){
+  					// henter inn svar
+  					var navnEl = document.querySelector("#navn");
+  					var tlfEl = document.querySelector("#tlf");
+  					var gjesterEl = document.querySelector("#ant");
+  					var frokostJaEl = document.querySelector("#frokostJa");
+  					var frokostNeiEl = document.querySelector("#frokostNei");
+  					var aktBoEl = document.querySelector("#aktBo");
+  					var aktHoytEl = document.querySelector("#aktHoyt");
+  					var aktFruktEl = document.querySelector("#aktFrukt");
+  					var aktTelemarkEl = document.querySelector("#aktTelemark");
+
+            // fyller inn navn, telefonnr og antall gjester i objectet
+            svar.navn = navnEl.value;
+            svar.tlf = tlfEl.value;
+            svar.gjester=gjesterEl.value;
+
+  					// finner ut om gjestene skal ha frokost
+  					if(frokostJaEl.checked){
+  					  svar.frokost="ja";
+  					}
+  					else if(frokostNeiEl.checked){
+              svar.frokost="nei";
+  					}
+
+  					// finner ut hvilke aktiviteter
+  					if(aktBoEl.checked){
+  					   svar.aktiviteter.push("Bø Sommarland");
+  					}
+  					var aktHoyt = "";
+  					if(aktHoytEl.checked){
+  					   svar.aktiviteter.push("Høyt og Lavt klatrepark");
+  					}
+  					var aktFrukt = "";
+  					if(aktFruktEl.checked){
+  					   svar.aktiviteter.push("Omvisning på fruktgård");
+  					}
+  					var aktTelemark = "";
+  					if(aktTelemarkEl.checked){
+  						svar.aktiviteter.push("Dagstur på Telemarkskanalen");
+  					}
+            console.log(svar);
+            var ulEl = document.createElement("ul");
+            for(i = 0; i < svar.aktiviteter.length; i++){
+              liEl = document.createElement("li");
+              liEl.innerHTML= svar.aktiviteter[i];
+              ulEl.appendChild(liEl);
+            }
+
+            pEl = document.createElement("p");
+            pEl.innerHTML="Navnet er " + svar.navn + " og du er registrert med telefonnr " + svar.tlf + ". Du har registrert " + svar.gjester + " gjester, og du har svart " + svar.frokost + " til frokost. Av aktiviteter har du valgt: ";
+            kvitteringEl.appendChild(pEl);
+            kvitteringEl.appendChild(ulEl)
+  				}*/
+  			</script>
+      </div>
+    </body>
+  </html>

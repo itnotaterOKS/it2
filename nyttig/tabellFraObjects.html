@@ -18,27 +18,31 @@
       var elev1 = {
     		fnavn: "Andrea",
     		enavn: "Fredriksen",
-    		alder: 18
+    		alder: 18,
+        klasse: "3A"
       };
     	var elev2 = {
     		fnavn: "Damir",
     		enavn: "Hansen",
-    		alder: 19
+    		alder: 19,
+        klasse: "3B"
       };
     	var elev3 = {
     		fnavn: "Silje",
     		enavn: "Aasen",
-    		alder: 17
+    		alder: 17,
+        klasse: "2C"
     	};
     	var elev4 = {
     		fnavn: "Thomas",
     		enavn: "Fris",
-    		alder: 18
+    		alder: 18,
+        klasse: "3A"
     	};
     	var elever = [elev1, elev2, elev3, elev4];
       // Oppretter en array med overskriftene for å kunne legge inn en overskriftrad i tabellen
-      var overskrifter = ["Fornavn", "Etternavn", "Alder"]
-      var bodyEl = document.querySelector("body")
+      var overskrifter = ["Fornavn", "Etternavn", "Alder", "Klasse"];
+      var bodyEl = document.querySelector("body");
       var tabellEl = document.createElement("table");
       var overskriftEl = document.createElement("tr");
       for(var i = 0; i < overskrifter.length; i++){ // løkker gjennom overskriftene

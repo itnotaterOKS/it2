@@ -1,0 +1,10 @@
+body, html, .innhold{
+  height: 100%;
+}
+.firkanter{
+ width: 20px;
+ height: 20px;
+ position: fixed;
+ left: 0;
+ top: 0;
+}
