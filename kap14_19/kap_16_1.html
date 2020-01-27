@@ -111,13 +111,13 @@
 
       <p> I js-koden <br>
       &nbsp;&nbsp;< script > <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; var bodyEl = document.querySelector("body"); (henter element) <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; var mouseEl = document.querySelector("#folgerMus"); (henter element)<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; bodyEl.addEventListener ("mousemove", flyttSirkel); (legger til lytter)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; var bodyEl = document.querySelector("body"); //henter element <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; var mouseEl = document.querySelector("#folgerMus"); //henter element<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; bodyEl.addEventListener ("mousemove", flyttSirkel); //legger til lytte<br>
       &nbsp;&nbsp;&nbsp;&nbsp; function flyttSirkel(e) { (hendelsesstyrt funksjon)<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.left = (e.clientX - 25) + "px"; (x-posisjon)<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.top = (e.clientY - 25) + "px"; (y-posisjon)<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.backgroundColor = " hsl(" + e.clientX + "," + e.clientY + "% , 50%) "; (farge er avhenging av posisjonen)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.left = (e.clientX - 25) + "px"; //x-posisjon<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.top = (e.clientY - 25) + "px"; //y-posisjon<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.backgroundColor = " hsl(" + e.clientX + "," + e.clientY + "% , 50%) "; //farge er avhenging av posisjonen<br>
       &nbsp;&nbsp;&nbsp;&nbsp; }<br>
       &nbsp;&nbsp; < /script ><br>
       </p>
@@ -125,7 +125,7 @@
      <script>
         var bodyEl = document.querySelector("body");
         var mouseEl = document.querySelector("#folgerMus");
-        bodyEl.addEventListener ("mousemove", flyttSirkel);
+    //    bodyEl.addEventListener ("mousemove", flyttSirkel);
         function flyttSirkel(e) {
             mouseEl.style.left = (e.clientX - 25) + "px";
             mouseEl.style.top = (e.clientY - 25) + "px";
@@ -153,27 +153,27 @@
       &nbsp;&nbsp;}</p>
 
       <p> I js-koden <br>
-      &nbsp;&nbsp; var bodyEl = document.querySelector("body"); (henter element) <br>
-      &nbsp;&nbsp; var pilEl = document.querySelector("#folgerPil"); (henter element)<br>
-      &nbsp;&nbsp; var venstre = 0; (setter avstandsvariabel)<br>
-      &nbsp;&nbsp; var topp = 0; (setter avstandsvariabel)<br>
-      &nbsp;&nbsp; var dist = 10; (hvor langt den flyttes)<br><br>
-      &nbsp;&nbsp;&nbsp;&nbsp; bodyEl.addEventListener ("keydown", flyttFirkant); (legger til lytter)<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; function flyttFirkant(e) { (hendelsesstyrt funksjon)<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; if (e.keyCode === 37) { (pil venstre) <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; venstre -= dist; (flytter mot venstre) <br>
+      &nbsp;&nbsp; var bodyEl = document.querySelector("body"); //henter element <br>
+      &nbsp;&nbsp; var pilEl = document.querySelector("#folgerPil"); //henter element<br>
+      &nbsp;&nbsp; var venstre = 0; //setter avstandsvariabel<br>
+      &nbsp;&nbsp; var topp = 0; //setter avstandsvariabel<br>
+      &nbsp;&nbsp; var dist = 10; //hvor langt den flyttes<br><br>
+      &nbsp;&nbsp;&nbsp;&nbsp; bodyEl.addEventListener ("keydown", flyttFirkant); //legger til lytter<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; function flyttFirkant(e) { //hendelsesstyrt funksjon<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; if (e.keyCode === 37) { //pil venstre <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; venstre -= dist; //flytter mot venstre <br>
       &nbsp;&nbsp;&nbsp;&nbsp;} <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;else if (e.keyCode === 39) { (pil høyre) <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;venstre += dist; (flytter mot høyre) <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;else if (e.keyCode === 39) { //pil høyre <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;venstre += dist; //flytter mot høyre <br>
       &nbsp;&nbsp;&nbsp;&nbsp;} <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; else if (e.keyCode === 38) { (pil opp)<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;topp -= dist; (flytter opp)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; else if (e.keyCode === 38) { //pil opp<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;topp -= dist; //flytter opp<br>
       &nbsp;&nbsp;&nbsp;&nbsp;} <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; else if (e.keyCode === 40) { (pil ned)<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; topp += dist; (flytter ned)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; else if (e.keyCode === 40) { //pil ned<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; topp += dist; //flytter ned<br>
       &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;pilEl.style.top = topp + "px"; (setter ny avstand) <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;pilEl.style.left = venstre + "px"; (setter ny avstand)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;pilEl.style.top = topp + "px"; //setter ny avstand <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;pilEl.style.left = venstre + "px"; //setter ny avstand<br>
       &nbsp;&nbsp;} </p>
 
      <script>
@@ -182,7 +182,7 @@
           var venstre = 0;
           var topp = 0;
           var dist = 10;
-          bodyEl.addEventListener ("keydown", flyttFirkant);
+    //      bodyEl.addEventListener ("keydown", flyttFirkant);
           function flyttFirkant(e) {
             if (e.keyCode === 37) {
               venstre -= dist;

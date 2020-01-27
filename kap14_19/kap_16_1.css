@@ -1,4 +1,7 @@
-#ramme{
+body{
+	margin-left: 50px;
+	}
+	#ramme{
 	width: 500px;
 	height: 300px;
 	background-color: #F16699;
