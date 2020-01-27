@@ -75,11 +75,11 @@
       &nbsp;&nbsp; position: fixed; <br>
       &nbsp;&nbsp; left: 0px; <br>
       &nbsp;&nbsp; top: 150px; <br>
-      &nbsp;&nbsp; border: 1px solid black; <br>
       } </p>
 
       <h2> Oppgaver: </h2>
       <p> 1) Oppgaver s. 253: Oppg. 16.1 - 16.4 <br><br>
+
       2) Lag et .html-side med følgende elementer: <br>
       &nbsp;&nbsp; < div > <br>
       &nbsp;&nbsp;&nbsp;&nbsp; < h1 > Overskrift < /h1 > <br>
@@ -114,7 +114,7 @@
       &nbsp;&nbsp;&nbsp;&nbsp; var bodyEl = document.querySelector("body"); //henter element <br>
       &nbsp;&nbsp;&nbsp;&nbsp; var mouseEl = document.querySelector("#folgerMus"); //henter element<br>
       &nbsp;&nbsp;&nbsp;&nbsp; bodyEl.addEventListener ("mousemove", flyttSirkel); //legger til lytte<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; function flyttSirkel(e) { (hendelsesstyrt funksjon)<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; function flyttSirkel(e) { // hendelsesstyrt funksjon<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.left = (e.clientX - 25) + "px"; //x-posisjon<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.top = (e.clientY - 25) + "px"; //y-posisjon<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.backgroundColor = " hsl(" + e.clientX + "," + e.clientY + "% , 50%) "; //farge er avhenging av posisjonen<br>
@@ -125,7 +125,7 @@
      <script>
         var bodyEl = document.querySelector("body");
         var mouseEl = document.querySelector("#folgerMus");
-       bodyEl.addEventListener ("mousemove", flyttSirkel);
+      //  bodyEl.addEventListener ("mousemove", flyttSirkel);
         function flyttSirkel(e) {
             mouseEl.style.left = (e.clientX - 25) + "px";
             mouseEl.style.top = (e.clientY - 25) + "px";
