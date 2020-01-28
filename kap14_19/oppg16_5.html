@@ -30,7 +30,9 @@
     // Setter sirkelens top-egenskap lik musepekerens y-koordinat
   //  sirkelEl.style.top = (e.clientY - 25) + "px";
     // Lar musepekerens posisjon styre sirkelens farge
-    sirkelEl.style.backgroundColor = "hsl(" + e.clientX + "," + e.clientY + "% , 50%)";
+    var h = (e.clientX/e.clientY)*200
+    sirkelEl.style.backgroundColor = " hsl(" + h + ",70% , 50%) ";
+    //sirkelEl.style.backgroundColor = "hsl(" + e.clientX + "," + e.clientY + "% , 50%)";
 
     // Løser oppgave 10.5 herfra
     // gjør om koden ovenfor slik at sirkelens størrelse også bestemmes av posisjonen i nettleservinduet

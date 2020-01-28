@@ -117,7 +117,8 @@
       &nbsp;&nbsp;&nbsp;&nbsp; function flyttSirkel(e) { // hendelsesstyrt funksjon<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.left = (e.clientX - 25) + "px"; //x-posisjon<br>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.top = (e.clientY - 25) + "px"; //y-posisjon<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.backgroundColor = " hsl(" + e.clientX + "," + e.clientY + "% , 50%) "; //farge er avhenging av posisjonen<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var h = (e.clientX/e.clientY)*200 //farge er avhenging av posisjonen<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; mouseEl.style.backgroundColor = " hsl(" + h + ",70% , 50%) "; <br>
       &nbsp;&nbsp;&nbsp;&nbsp; }<br>
       &nbsp;&nbsp; < /script ><br>
       </p>
@@ -130,7 +131,8 @@
             mouseEl.style.left = (e.clientX - 25) + "px";
             mouseEl.style.top = (e.clientY - 25) + "px";
             //mouseEl.style.backgroundColor = "#F16699";
-            mouseEl.style.backgroundColor = " hsl(" + e.clientX + "," + e.clientY + "% , 50%) ";
+            var h = (e.clientX/e.clientY)*200
+            mouseEl.style.backgroundColor = " hsl(" + h + ",70% , 50%) ";
       }
       </script>
 
@@ -181,7 +183,7 @@
           var pilEl = document.querySelector("#folgerPil");
           var venstre = 0;
           var topp = 0;
-          var dist = 10;
+          var dist = 100;
           bodyEl.addEventListener ("keydown", flyttFirkant);
           function flyttFirkant(e) {
             if (e.keyCode === 37) {
