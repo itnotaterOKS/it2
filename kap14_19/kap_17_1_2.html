@@ -14,16 +14,16 @@
     <script type="text/javascript" src="meny14.js"></script>
     <div class="innhold">
     	<h1> Overganger og animasjoner med CSS </h1>
-    	<h2> Timer til kapittel 17: </h2>
-    	<p> Hvor mye kan vi få til med css? Transition-egenskapen. <br>
-    	Kombinasjon av transitions og script. Animation-egenskapen. Kombinasjoner av animation og script. <br>
+    	<p> Hvor mye kan vi få til med css? Transition-egenskapen gir overganger mellom ulike css-settinger. <br>
+    	Kombinasjon av transitions og script. <br>
+      Animation-egenskapen. Kombinasjoner av animation og script. <br>
       <b>Må</b> jobbe med oppgaver </p>
 
     	<h2> Hvilke muligheter gir CSS oss? </h2>
     	<p>Egenskapene knyttet til transitions og animations gir oss mulighet til å bytte gradvis fra én CSS-verdi til en annen <br>
     	Transitions: ingen repetisjoner av det som skjer, enkle overganger <br>
     	Animations: brukes når vi vil repetere endringene eller når overgangene er stegvise <br>
-    	Vi må i all hovesak bruke JavaScript til å hendelsesstyre når dette skal skje </p>
+    	Vi må i all hovesak bruke JavaScript til å hendelsesstyre når dette skal skje (unntak av hover) </p>
 
     	<h2> Transitions </h2>
     	<p> Vi skal endre egenskapene til et element etter en gitt tid <br>
@@ -88,6 +88,145 @@
       <h1> Oppgaver </h1>
       <p> s. 272: Oppgave 17.1 - 17.4 <br>
       s. 273: Oppgave 17.5 - 17.6 </p>
+
+      <h1> Endre flere egenskaper samtidig </h1>
+      <p> Så langt har vi endret enten størrelse, form eller farge på elementer i overgangene. Vi kan endre flere egenskaper på en gang, men endringene vil da skje samtidig. Dersom vi ønsker å endre egenskaper til ulik tid, må vi bruke animations.<br><br>
+
+      Eksempel: Lag et div-element som skifter både farge og størrelse når vi hovrer over. </p>
+      <div id="byttMye"></div> <br>
+      <p> I html:<br>
+      &nbsp;&nbsp; < div id="byttMye" >< /div > < br ><br><br>
+      I css: <br>
+      &nbsp;&nbsp; #byttMye{<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; width: 200px; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; height: 200px; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: darkgreen; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; transition-property: background-color, width, height; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; transition-delay: 2s; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; transition-duration: 4s;<br>
+      &nbsp;&nbsp; }<br>
+      &nbsp;&nbsp; #byttMye:hover{<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: yellow;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; width: 400px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; height: 400px;<br>
+      &nbsp;&nbsp; }<br><br>
+
+      Overgangsstilsettingen kan også settes sammen: <br>
+      &nbsp;&nbsp; transition: property duration timing-function delay; <br>
+      I eksempelet over vil dette si <br>
+      &nbsp;&nbsp; transition: all 4s 2s;</p>
+
+      <h1> Oppgaver </h1>
+      <p> S. 276: Oppgave 17.7 - 17.10 </p>
+
+      <h1>Styre transitions med JavaScript </h1>
+      <p> I forrige time brukte vi #byttForm:hover{} til å styre når en overgang skulle skje. For å la det skje kan vi også bruke hendelser i JavaScript som vi kjenner til: f.eks. med click. Jeg viser to metoder: Knappen legger til style-egenskaper til elementet og knappen legger til en klasse til elementet. </p>
+
+      <p> Legger i funksjonen hvordan style skal endres: <br>
+      &nbsp;&nbsp; < div id="byttForm3" > < /div > <br>
+      &nbsp;&nbsp; < button id="bytteKnapp" > Bytt < /button > <br><br>
+      I css: <br>
+      &nbsp;&nbsp; #byttForm3{<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; width: 200px; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; height: 200px; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: darkgreen; <br>
+      &nbsp;&nbsp;}<br><br>
+
+      I script: <br>
+      &nbsp;&nbsp; var knappEl = document.querySelector("#bytteKnapp"); <br>
+      &nbsp;&nbsp; var byttForm3El = document.querySelector("#byttForm"); <br>
+      <!--&nbsp;&nbsp; var byttFargeEl = document.querySelector("#byttFarge"); <br>-->
+      &nbsp;&nbsp; knappEl.addEventListener("click", byttFunksjon) <br>
+      &nbsp;&nbsp; function byttFunksjon(){<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; byttForm3El.style.transitionDelay="2s"; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; byttForm3El.style.transitionDuration="5s"; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; byttForm3El.style.borderRadius="70%"; <br>
+      &nbsp;&nbsp;} </p>
+
+      <div id="byttForm3"> </div>
+      <button id="bytteKnapp"> Bytt </button>
+
+      <script>
+        var knappEl = document.querySelector("#bytteKnapp");
+        var byttForm3El = document.querySelector("#byttForm3");
+        knappEl.addEventListener("click", byttFunksjon)
+        function byttFunksjon(){
+          byttForm3El.style.transitionDelay="2s";
+          byttForm3El.style.transitionDuration="5s";
+          byttForm3El.style.borderRadius="70%";
+        }
+      </script>
+
+      <p> Den andre metoden er å legge inn en klasse i css med overgangsegenskapene og legge til denne klassen når knappen trykkes: <br>
+      &nbsp;&nbsp; < div id="bytteForm4" > < /div > <br>
+      &nbsp;&nbsp; < button id="bytteKnapp2" > Bytt < /button > <br><br>
+      I css-fila: <br>
+      &nbsp;&nbsp; #byttForm4{<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; width: 200px; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; height: 200px; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: darkgreen; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; transition-property: border-radius; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; transition-delay: 2s; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; transition-duration: 10s;<br>
+      &nbsp;&nbsp;}<br>
+      &nbsp;&nbsp; .byttForm4{<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; border-radius: 70%; <br>
+      &nbsp;&nbsp;} <br>
+      I script: <br>
+      &nbsp;&nbsp; var knapp2El = document.querySelector("#byttKnapp2"); <br>
+      &nbsp;&nbsp; var byttForm4El = document.querySelector("#byttForm4"); <br>
+      &nbsp;&nbsp; knapp4El.addEventListener("click", byttFunksjon2); <br>
+      &nbsp;&nbsp; function byttFunksjon2(){<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; byttForm4El.classList.add("byttForm2") <br>
+      &nbsp;&nbsp;} </p>
+
+      <div id="byttForm4"> </div>
+      <button id="bytteKnapp2"> Bytt </button>
+      <script>
+        var knapp2El = document.querySelector("#bytteKnapp2");
+        var byttForm4El = document.querySelector("#byttForm4");
+        knapp2El.addEventListener("click", byttFunksjon2)
+        function byttFunksjon2(){
+          byttForm4El.classList.add("byttForm4")
+        }
+      </script>
+
+      <h1> Sjekke når en overgang er ferdig </h1>
+      <p> Vi kan undersøke når en overgang er ferdig ved å legge til en lytter som sjekker om overgangselementet (elementet som har gjennomgått en overgang) har egenskapen "transitionend". Dermed har vi muligheten til å kjøre en funksjon når elementet har gjennomgått en overgang, der funksjonen endrer en annen egenskap. <br><br>
+      Eksempel: La et div-element først endre farge og deretter border-radius: </p>
+
+      <div id="byttToGanger"></div> <br>
+
+      <script>
+        var byttToGangerEl = document.querySelector("#byttToGanger");
+        byttToGangerEl.addEventListener("transitionend", byttMer)
+        function byttMer(){
+          byttToGangerEl.style.borderRadius="70%";
+        }
+      </script>
+
+      <p> I html:<br>
+      &nbsp;&nbsp; < div id="byttToGanger" >< /div > < br > <br><br>
+      I css:<br>
+      &nbsp;&nbsp; #byttToGanger{<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; width: 200px; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; height: 200px; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: darkgreen; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; transition: background-color 2s 0.5s;<br>
+      &nbsp;&nbsp; }<br>
+      &nbsp;&nbsp; #byttToGanger:hover{<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: yellow;<br>
+      &nbsp;&nbsp; }<br><br>
+      I script:<br>
+      &nbsp;&nbsp; var byttToGangerEl = document.querySelector("#byttToGanger"); <br>
+      &nbsp;&nbsp; byttToGangerEl.addEventListener("transitionend", byttMer);<br>
+      &nbsp;&nbsp; function byttMer(){<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; byttToGangerEl.style.borderRadius="70%"; <br>
+      &nbsp;&nbsp; }</p>
+
+      <h1> Oppgaver </h1>
+      <p> Side 277: Oppgave 17.11 - 17.12 </p>
+
     </div>
     <a href="../index.html"><img class="hjem" src="../hjem.png"></a>
   </body>
