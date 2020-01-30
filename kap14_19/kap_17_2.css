@@ -18,7 +18,7 @@
 	transition-delay: 5s;
 	transition-duration: 10s;
 }
-#byttForm2:hover, #byttForm2:hover{
+#byttForm:hover, #byttForm2:hover{
 	border-radius: 70%
 }
 #byttFarge:hover{
