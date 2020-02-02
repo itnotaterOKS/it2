@@ -34,35 +34,19 @@
     	<h1> Animasjoner  med css </h1>
     	<p> Nå får vi blant annet muligheten til å gjenta overgangene og sette sammen ulike overganger. </p>
     	<table>
-    		<tr>
-    			<th> Metode </th> <th> Forklaring </th>
-    		</tr> <tr>
-    			<td> @keyframes </td> <td> Tilstanden av animasjonen</td>
-    		</tr><tr>
-  		    <th>Eksempel: </th> <th> Forklaring </th>
-  		  </tr><tr>
-  			  <td> @keyframes radius{ </td> <td> angir hvilken animasjon som endres </td>
-  		  </tr><tr>
-  			  <td> from { border-radius: 0% } </td> <td> angir gammel verdi </td>
-  		  </tr><tr>
-  			  <td> to { border-radius: 70%} } </td> <td> angir ny verdi </td>
-    		</tr><tr>
-          <th> Egenskaper </th> <th> Forklaring </th>
-    		</tr> <tr>
-    			<td> animation-name: </td> <td> Legger inn navnet på keyframen </td>
-    		</tr> <tr>
-    			<td> animation-duration: </td> <td> Legger inn hvor lang tid animasjonen skal ta </td>
-    		</tr> <tr>
-    			<td> animation-delay: </td> <td> Legger inn forsinkelse i animasjonen </td>
-    		</tr> <tr>
-    			<td> animation-iteration-count </td> <td> Hvor mange ganger skal animasjonen gjentas? <br>
-    			Heltall eller infinite</td>
-    		</tr> <tr>
-    			<td> animation-direction </td> <td> fra 0% til 100% (standard), 0 til 100%  (reverse) eller annen hver (alternate) </td>
-    		</tr> <tr>
-    			<td> animation-fill-mode </td> <td> Legger inn hvordan animasjonen skal avsluttes <br>
-    			For eksempel forwards: det siste utseendet </td>
-  		  </tr>
+    		<tr><th> Metode </th> <th> Forklaring </th></tr>
+        <tr><td> @keyframes </td> <td> Tilstanden av animasjonen</td></tr>
+        <tr><th>Eksempel: </th> <th> Forklaring </th></tr>
+        <tr><td> @keyframes radius{ </td> <td> angir hvilken animasjon som endres </td></tr>
+        <tr><td> from { border-radius: 0% } </td> <td> angir gammel verdi </td></tr>
+        <tr><td> to { border-radius: 70%} } </td> <td> angir ny verdi </td></tr>
+        <tr><th> Egenskaper </th> <th> Forklaring </th></tr>
+        <tr><td> animation-name: </td> <td> Legger inn navnet på keyframen </td></tr>
+        <tr><td> animation-duration: </td> <td> Legger inn hvor lang tid animasjonen skal ta </td></tr>
+        <tr><td> animation-delay: </td> <td> Legger inn forsinkelse i animasjonen </td></tr>
+        <tr><td> animation-iteration-count </td> <td> Hvor mange ganger skal animasjonen gjentas? <br>Heltall eller infinite</td></tr>
+        <tr><td> animation-direction </td> <td> fra 0% til 100% (standard), 0 til 100%  (reverse) eller annen hver (alternate) </td></tr>
+        <tr><td> animation-fill-mode </td> <td> Legger inn hvordan animasjonen skal avsluttes <br>For eksempel forwards: det siste utseendet </td></tr>
     	</table>
 
       <h1> Eksempel </h1>
@@ -95,16 +79,161 @@
 
       <div id="animasjon"></div>
 
-      <h1> Animasjoner med js </h1>
-      <p> Vi kan bruke javascript til å legge til flere elementer som tilhører samme klasse og dermed samme animasjon. Vi kan også legge til animasjonsklasser ved hendelser slik at de ikke starter ved lasting av siden. Dette vil bli gjennomgått senere, men oppgave 6 gir en liten smakebit. </p>
-
       <h1> Oppgaver </h1>
       <p> 1) Lag en overgang (eks: farge, form, plassering på siden, størrelse) som styres ved en knapp eller en annen hendelse <br>
       2) Lag et div-element med absolutt posisjonering og få det til å flytte seg til akkurat dert stedet der du klikker på skjermen. <br>
       3) Lag en animasjon der du inkluderer ulike overganger. Undersøk de ulike egenskapene listet opp ovenfor <br>
       4) La animasjonen styres av JavaScript (tips: legg til div-elementet i < script > ved å bruke document.createElement("div" og appendChild)) <br>
       5) Bruk timing-funksjoner (<a href="http://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp">mer her</a>) for å styre timingen på animasjonen slik vi gjorde med overganger <br>
-      6) Jobb gjennom eksemplene på s. 280 - 285. Gjør deretter oppgaver 17.18, 17.20, 17.22.</p>
+      6) Jobb gjennom eksemplene på s. 280 - 285. Gjør deretter oppgaver 17.16, 17.17, 17.18, 17.19, 17.20, 17.21, 17.22.</p>
+
+      <h1> Animasjoner i kombinasjon med js </h1>
+      <p> Når vi styrer animasjoner med JavaScript kan vi både styre animasjonens start til spesielle hendelser og styre animasjonstilstand (går animasjonen eller ikke?) ved hjelp av egenskapen elapsedTime (hvor lenge har animasjonen gått) og egenskapen animationPlayState. Vi kan også legge til elementene som skal animeres ved hjelp av createElement og deretter gi dem klasser slik at ikke alle animasjoner skjer etter samme tid. Vi illustrerer begge deler ved hjelp av to eksempler. </p>
+
+      <h1> Eksempel 1: Bokser som faller: ulike tidspunkter for animasjonshendelsen </h1>
+      <div class="innpakning"> </div>
+      <p>
+      <b> HTML-kode: </b><br>
+      Lager en div som amimasjonselementene skal legges inn i. <br>
+      &nbsp;&nbsp; < div class="innpakning" > < /div > <br><br>
+
+      <b> CSS-kode: </b><br>
+      Styrer utseendet til diven: <br>
+      &nbsp;&nbsp; .innpakning {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; width: 600px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; height: 300px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; margin: 50px auto;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: #1a4741;	<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; position: relative;<br>
+      &nbsp;&nbsp; }<br>
+      Legger inn utseendet til boksene som faller inkludert animasjonen med navn sprett. <br>
+      &nbsp;&nbsp; .animer {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; position: absolute;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; top: 0px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; width: 20px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; height: 5px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: #54ffe8;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; animation: sprett 5s infinite ease-in-out;<br>
+      &nbsp;&nbsp; }<br>
+      Bestemmer animasjonen sprett: like lang tid opp og ned i innpakkingsdiv'en.<br>
+      &nbsp;&nbsp; @keyframes sprett {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; 0%{top: 0px;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; 50%{top: 295px;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; 100%{top: 0px;}<br>
+      &nbsp;&nbsp; }	<br><br>
+
+      <b> JS-kode: </b><br>
+      Henter først inn innpakingsdiven for å kunne plassere bokser <br>
+    &nbsp;&nbsp; var innpakningEl = document.querySelector(".innpakning");<br>
+    Bestemmer så hvor mange bokser vi vil animere at faller <br>
+    &nbsp;&nbsp; var antallBokser = 30;<br>
+    Lager en løkke som oppretter og animerer alle boksene med et tidsintervall for animasjonen<br>
+    &nbsp;&nbsp; for (var i = 0; i < antallBokser; i++) {<br>
+    Legger til boks med klassen animer<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; var nyBoks = document.createElement("div");<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; nyBoks.className = "animer"; // Her kan også nyBoks.classList.add("animer") brukes <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; nyBoks.style.left = i * 20 + "px";<br>
+    Styrer tiden for animasjonen <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; nyBoks.style.animationDelay = i * 0.2 + "s";<br>
+      Legger boksen til i innpakningen<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; innpakningEl.appendChild(nyBoks); <br>
+    &nbsp;&nbsp; }</p>
+
+    <!--  <div class="innpakning"> </div>-->
+
+    <script>
+    var innpakningEl = document.querySelector(".innpakning");
+    var antallBokser = 30;
+    for (var i = 0; i < antallBokser; i++) {
+      var nyBoks = document.createElement("div");
+        nyBoks.className = "animer"; // Her kan også nyBoks.classList.add("animer") brukes
+      nyBoks.style.left = i * 20 + "px";
+      nyBoks.style.animationDelay = i * 0.2 + "s";
+      innpakningEl.appendChild(nyBoks);
+    }
+    </script>
+
+      <h1> Eksempel 2: Animasjoner som starter avhengig av om andre animasjoner er avsluttet </h1>
+      <!--<div class="boks"> </div>
+      <div class="sirkel"> </div>-->
+      <p>
+      <b> HTML-kode: </b><br>
+      Oppretter de to elementene som skal animeres: <br>
+      &nbsp;&nbsp; < div class="boks" > < /div ><br>
+    &nbsp;&nbsp; < div class="sirkel" > < /div ><br><br>
+
+      <b> CSS-kode: </b><br>
+      Styrer utseendet til de to elementene som skal animeres og legger til informasjon om animasjonen <br>
+      &nbsp;&nbsp; .boks, .sirkel {<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; width: 100px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; height: 100px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; margin: 10px;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; animation: vis 2s linear alternate;<br>
+    &nbsp;&nbsp; }<br>
+    &nbsp;&nbsp; .boks {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: red;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; animation-play-state: running;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; animation-iteration-count: 5;<br>
+    &nbsp;&nbsp; }<br>
+    &nbsp;&nbsp; .sirkel {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; background-color: blue;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; border-radius: 50%;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; animation-play-state: paused;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; animation-iteration-count: 3;<br>
+    &nbsp;&nbsp; }<br>
+    &nbsp;&nbsp; @keyframes vis {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; 0%{opacity: 0;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; 100%{opacity: 1;}<br>
+    &nbsp;&nbsp; }<br><br>
+
+      <b> JS-kode: </b><br>
+    Henter inn de to elementene<br>
+    &nbsp;&nbsp; var boksEl = document.querySelector(".boks");<br>
+    &nbsp;&nbsp; var sirkelEl = document.querySelector(".sirkel");<br>
+    Legger til lyttere etter animasjonshendelsene start, antall og slutt på begge elementene<br>
+    &nbsp;&nbsp; boksEl.addEventListener("animationstart", lytteFunksjon);<br>
+    &nbsp;&nbsp; boksEl.addEventListener("animationiteration", lytteFunksjon);<br>
+    &nbsp;&nbsp; boksEl.addEventListener("animationend", lytteFunksjon);<br>
+    &nbsp;&nbsp; sirkelEl.addEventListener("animationstart", lytteFunksjon);<br>
+    &nbsp;&nbsp; sirkelEl.addEventListener("animationiteration", lytteFunksjon);<br>
+    &nbsp;&nbsp; sirkelEl.addEventListener("animationend", lytteFunksjon);<br>
+    Lager en funksjon som kjører hver gang en hendelse skjer<br>
+    &nbsp;&nbsp; function lytteFunksjon(e) {<br>
+      Sjekker hvilken hendelse og hvor lang tid som har gått<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; console.log(e.type + " tid: " + e.elapsedTime);<br>
+      Starter animasjon av blå ring når animasjon av rød firkant er ferdig <br>
+    &nbsp;&nbsp;&nbsp;&nbsp; if (e.type === "animationend") {<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; sirkelEl.style.animationPlayState = "running";<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    &nbsp;&nbsp; }</p>
+
+      <div class="boks"> </div>
+      <div class="sirkel"> </div>
+
+    <script>
+    var boksEl = document.querySelector(".boks");
+    var sirkelEl = document.querySelector(".sirkel");
+    boksEl.addEventListener("animationstart", lytteFunksjon);
+    boksEl.addEventListener("animationiteration", lytteFunksjon);
+    boksEl.addEventListener("animationend", lytteFunksjon);
+    sirkelEl.addEventListener("animationstart", lytteFunksjon);
+    sirkelEl.addEventListener("animationiteration", lytteFunksjon);
+    sirkelEl.addEventListener("animationend", lytteFunksjon);
+    function lytteFunksjon(e) {
+        console.log(e.type + " tid: " + e.elapsedTime);
+        if (e.type === "animationend") {
+          sirkelEl.style.animationPlayState = "running";
+        }
+    }
+    </script>
+
+    <h1> Oppsummert fra de to eksemplene: </h1>
+    <p> Dersom vi vil at animasjoner skal skje for flere like elementer med et gitt tidsintervall, opprettter vi elementene i en løkke og gir dem en klasse her samt legger inn et animationDelay som er avhengig av telleren (i).<br>
+    Dersom vi ønsker at en animasjon skal starte når en annen animasjon er ferdig legger vi til lyttere med hendelsen animationend og endrer animationPlayState fra <i> paused </i> til <i> running </i>.<br>
+    Husk at vi i css kan bestemme retning på animasjonene (animation-direction) og antall gjentakelser (animation-iteration-count)</p>
+
+    <h1> Oppgave før pause </h1>
+    <p> Oppgave 17.22, 17.23 s. 285. <br>Hint: bruk primtallsfunksjonen fra standardfunksjonene. </p>
     </div>
     <a href="../index.html"><img class="hjem" src="../hjem.png"></a>
   </body>
