@@ -21,9 +21,10 @@
     	Animations: brukes når vi vil repetere endringene eller når overgangene er stegvise <br>
     	Vi må i all hovesak bruke JavaScript til å hendelsesstyre når dette skal skje </p>
 
-      <h2> Typisk spørsmål 1: hvorfor bruker vi av og til -webkit-? </h2>
-      <p> Dette er egentlig ikke nødvendig annet enn når koden skal leses i Safari, men det skader ikke å ha det med. <br><br>
-      Typisk spørsmål 2: hvorfor lytter ikke hele siden etter musebevegelser? <br>
+      <h2> Typiske spørsmål </h2>
+      <p> Spørsmål 1: hvorfor bruker vi av og til -webkit-? <br>
+      Dette er egentlig ikke nødvendig annet enn når koden skal leses i Safari, men det skader ikke å ha det med. <br><br>
+      Spørsmål 2: hvorfor lytter ikke hele siden etter musebevegelser? <br>
       Fordi body ikke er større enn innholdet. Legg inn i css <br>
       &nbsp;&nbsp; html, body{<br>
       &nbsp;&nbsp;&nbsp;&nbsp; height: 100%; <br>
@@ -45,7 +46,7 @@
         <tr><td> animation-duration: </td> <td> Legger inn hvor lang tid animasjonen skal ta </td></tr>
         <tr><td> animation-delay: </td> <td> Legger inn forsinkelse i animasjonen </td></tr>
         <tr><td> animation-iteration-count </td> <td> Hvor mange ganger skal animasjonen gjentas? <br>Heltall eller infinite</td></tr>
-        <tr><td> animation-direction </td> <td> fra 0% til 100% (standard), 0 til 100%  (reverse) eller annen hver (alternate) </td></tr>
+        <tr><td> animation-direction </td> <td> fra 0% til 100% (standard), 100% til 0  (reverse) eller annen hver (alternate) </td></tr>
         <tr><td> animation-fill-mode </td> <td> Legger inn hvordan animasjonen skal avsluttes <br>For eksempel forwards: det siste utseendet </td></tr>
     	</table>
 
@@ -80,12 +81,8 @@
       <div id="animasjon"></div>
 
       <h1> Oppgaver </h1>
-      <p> 1) Lag en overgang (eks: farge, form, plassering på siden, størrelse) som styres ved en knapp eller en annen hendelse <br>
-      2) Lag et div-element med absolutt posisjonering og få det til å flytte seg til akkurat dert stedet der du klikker på skjermen. <br>
-      3) Lag en animasjon der du inkluderer ulike overganger. Undersøk de ulike egenskapene listet opp ovenfor <br>
-      4) La animasjonen styres av JavaScript (tips: legg til div-elementet i < script > ved å bruke document.createElement("div" og appendChild)) <br>
-      5) Bruk timing-funksjoner (<a href="http://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp">mer her</a>) for å styre timingen på animasjonen slik vi gjorde med overganger <br>
-      6) Jobb gjennom eksemplene på s. 280 - 285. Gjør deretter oppgaver 17.16, 17.17, 17.18, 17.19, 17.20, 17.21, 17.22.</p>
+      <p> Side 280: oppgave 17.16, 17.17. Gjør først ferdig oppgave 17.15 hvis du ikke har gjort den. </h1>
+
 
       <h1> Animasjoner i kombinasjon med js </h1>
       <p> Når vi styrer animasjoner med JavaScript kan vi både styre animasjonens start til spesielle hendelser og styre animasjonstilstand (går animasjonen eller ikke?) ved hjelp av egenskapen elapsedTime (hvor lenge har animasjonen gått) og egenskapen animationPlayState. Vi kan også legge til elementene som skal animeres ved hjelp av createElement og deretter gi dem klasser slik at ikke alle animasjoner skjer etter samme tid. Vi illustrerer begge deler ved hjelp av to eksempler. </p>
@@ -232,8 +229,13 @@
     Dersom vi ønsker at en animasjon skal starte når en annen animasjon er ferdig legger vi til lyttere med hendelsen animationend og endrer animationPlayState fra <i> paused </i> til <i> running </i>.<br>
     Husk at vi i css kan bestemme retning på animasjonene (animation-direction) og antall gjentakelser (animation-iteration-count)</p>
 
-    <h1> Oppgave før pause </h1>
-    <p> Oppgave 17.22, 17.23 s. 285. <br>Hint: bruk primtallsfunksjonen fra standardfunksjonene. </p>
+    <h1> Oppgaver </h1>
+    <p> 1) Lag en overgang (eks: farge, form, plassering på siden, størrelse) som styres ved en knapp eller en annen hendelse <br>
+    2) Lag et div-element med absolutt posisjonering og få det til å flytte seg til akkurat det stedet der du klikker på skjermen. <br>
+    3) Lag en animasjon der du inkluderer ulike overganger. Undersøk de ulike egenskapene listet opp ovenfor <br>
+    4) La animasjonen styres av JavaScript (tips: legg til div-elementet i < script > ved å bruke document.createElement("div" og appendChild)) <br>
+    5) Bruk timing-funksjoner (<a href="http://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp">mer her</a>) for å styre timingen på animasjonen slik vi gjorde med overganger <br>
+    6) Jobb gjennom eksemplene på s. 280 - 285. Gjør deretter oppgaver 17.16, 17.17, 17.18, 17.19, 17.20, 17.21, 17.22, 17.23 <br>Hint: bruk primtallsfunksjonen fra standardfunksjonene..</p>
     </div>
     <a href="../index.html"><img class="hjem" src="../hjem.png"></a>
   </body>
