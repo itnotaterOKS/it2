@@ -4,7 +4,7 @@
     <title>Animasjoner med css</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../grid.css">
-    <link rel="stylesheet" type="text/css" href="../stil.css">
+    <link rel="stylesheet" type="text/css" href="../time.css">
     <link rel="stylesheet" type="text/css" href="kap_17_3.css">
     </head>
     <body>
@@ -81,7 +81,8 @@
       <div id="animasjon"></div>
 
       <h1> Oppgaver </h1>
-      <p> Side 280: oppgave 17.16, 17.17. Gjør først ferdig oppgave 17.15 hvis du ikke har gjort den. </h1>
+      <p> Side 279: oppgave 17.14, 17.15 <br>
+        Side 280: oppgave 17.16, 17.17.  <p>
 
 
       <h1> Animasjoner i kombinasjon med js </h1>
@@ -128,7 +129,7 @@
     &nbsp;&nbsp; for (var i = 0; i < antallBokser; i++) {<br>
     Legger til boks med klassen animer<br>
       &nbsp;&nbsp;&nbsp;&nbsp; var nyBoks = document.createElement("div");<br>
-    &nbsp;&nbsp;&nbsp;&nbsp; nyBoks.className = "animer"; // Her kan også nyBoks.classList.add("animer") brukes <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;       nyBoks.classList.add("animer");<br>
     &nbsp;&nbsp;&nbsp;&nbsp; nyBoks.style.left = i * 20 + "px";<br>
     Styrer tiden for animasjonen <br>
     &nbsp;&nbsp;&nbsp;&nbsp; nyBoks.style.animationDelay = i * 0.2 + "s";<br>
@@ -143,7 +144,7 @@
     var antallBokser = 30;
     for (var i = 0; i < antallBokser; i++) {
       var nyBoks = document.createElement("div");
-        nyBoks.className = "animer"; // Her kan også nyBoks.classList.add("animer") brukes
+      nyBoks.classList.add("animer");
       nyBoks.style.left = i * 20 + "px";
       nyBoks.style.animationDelay = i * 0.2 + "s";
       innpakningEl.appendChild(nyBoks);
