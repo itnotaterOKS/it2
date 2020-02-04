@@ -64,18 +64,20 @@
   	  &nbsp;&nbsp;&nbsp;&nbsp; animation-duration: 10s;<br>
   	  &nbsp;&nbsp;&nbsp;&nbsp; animation-delay: 2s;<br>
   	  &nbsp;&nbsp;&nbsp;&nbsp; animation-iteration-count: infinite;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp; animation-direction: alternate;<br>
   	  &nbsp;&nbsp; }<br><br>
   	  &nbsp;&nbsp; @keyframes radiusFarge{<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 10% { background-color: red;}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 20% { background-color: orange;}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 30% { background-color: yellow;}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 40% { background-color: green;}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 50% { border-radius: 70%}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 60% { background-color: darkgreen}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 70% { background-color: blue;}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 80% { background-color: darkblue;}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 90% { background-color: violet;}<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; 100% {border-radius: 0%;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;0%{background-color: pink; border-radius: 0%}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;10% { background-color: red;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;20% { background-color: orange;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;30% { background-color: yellow;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;40% { background-color: green;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;50% { border-radius: 50%}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;60% { background-color: darkgreen}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;70% { background-color: blue;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;80% { background-color: darkblue;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;90% { background-color: violet;}<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;100% {background-color: pink; border-radius: 0%;}<br>
       &nbsp;&nbsp; }</p>
 
       <div id="animasjon"></div>
@@ -231,9 +233,11 @@
     Husk at vi i css kan bestemme retning på animasjonene (animation-direction) og antall gjentakelser (animation-iteration-count)</p>
 
     <h1> Oppgaver </h1>
-    <p> 1) Lag en overgang (eks: farge, form, plassering på siden, størrelse) som styres ved en knapp eller en annen hendelse <br>
+    <p> <b>Transition/position</b> (repetisjonsoppgaver) <br>
+      1) Lag en overgang (eks: farge, form, plassering på siden, størrelse) som styres ved en knapp eller en annen hendelse <br>
     2) Lag et div-element med absolutt posisjonering og få det til å flytte seg til akkurat det stedet der du klikker på skjermen. <br>
-    3) Lag en animasjon der du inkluderer ulike overganger. Undersøk de ulike egenskapene listet opp ovenfor <br>
+    <b> Animation </b><br>
+    3) Lag en animasjon der du inkluderer ulike egenskaper. Undersøk de ulike egenskapene listet opp ovenfor <br>
     4) La animasjonen styres av JavaScript (tips: legg til div-elementet i < script > ved å bruke document.createElement("div" og appendChild)) <br>
     5) Bruk timing-funksjoner (<a href="http://www.w3schools.com/cssref/css3_pr_animation-timing-function.asp">mer her</a>) for å styre timingen på animasjonen slik vi gjorde med overganger <br>
     6) Jobb gjennom eksemplene på s. 280 - 285. Gjør deretter oppgaver 17.16, 17.17, 17.18, 17.19, 17.20, 17.21, 17.22, 17.23 <br>Hint: bruk primtallsfunksjonen fra standardfunksjonene..</p>
