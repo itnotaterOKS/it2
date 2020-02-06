@@ -89,7 +89,7 @@
     b) Prøv deg frem med andre transformasjoner (se tabellen over for eksempler) og kombinasjoner av disse <br>
     c) Jobb deg gjennom de tre sidene om 2D-transformasjoner <a href="https://www.w3schools.com/cssref/css3_pr_transform.asp" target="_blank">her</a>.</p>
 
-    <h1> Overganger med transformasjoner </h1>
+    <h1> Overganger og animasjoner med transformasjoner </h1>
     <p> Nå kan vi kombinere overganger og animasjoner: Vi kan f.eks. lage en overgang der et element roterer når vi hovrer over: <br>
 
     <b>HTML-kode:</b><br>
@@ -118,9 +118,9 @@
     &nbsp;&nbsp;&nbsp;&nbsp; animation: flytt 6s linear infinite;<br>
     &nbsp;&nbsp;}<br>
     &nbsp;&nbsp; @keyframes flytt{<br>
-    &nbsp;&nbsp;&nbsp;&nbsp; 0% {transform: translate(0px, 0px);}<br>
-    &nbsp;&nbsp;&nbsp;&nbsp; 50% {transform: translate(400px, 0px);}<br>
-    &nbsp;&nbsp;&nbsp;&nbsp; 100% {transform: translate(0px, 0px);}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 0% {transform: translate(0px, 0px);} /* eller 0%{transform: translateX(0px);} */<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 50% {transform: translate(400px, 0px);} /* eller 50%{transform: translateX(400px);} */<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 100% {transform: translate (0px, 0px);} /* eller 1000%{transform: translateX(0px);} */<br>
     &nbsp;&nbsp; }</p>
     <div id="translasjon"></div>
 
