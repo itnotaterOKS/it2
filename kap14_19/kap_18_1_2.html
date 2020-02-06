@@ -19,8 +19,9 @@
   	Animations gir oss mulighet til å gjenta overganger og til å sette sammen ulike overganger <br>
   	Animasjoner styrer vi enten med start- og slutt-verdi eller med prosentvise overganger <br>
   	Vi kan kombinere css-animasjoner med enkle script for å hendelsesstyre overgangene </p>
+
   	<h1> Transfomasjoner med CSS </h1>
-  	<p> Transformasjoner er en måte å endre utseendet til et element uten at det påvirker resten av siden <br>
+  	<p> Transformasjoner er en måte å endre utseendet til et element uten at det påvirker resten av siden. Det er denne egenskapen vi styrer for å få animasjoner som inneholder rotasjon og skalering, og det er også en fin måte å lage animasjoner med forflytning på. <br>
   	I CSS gjøres dette med egenskapen transform, der egenskaper som forflytning (translate), rotasjon (rotate), skalering (scale) inngår <br>
   	Dette kombineres gjerne med en gridstruktur for plassering av elementer. <br>
   	Som vanlig: link til <a href="http://www.w3schools.com/cssref/css3_pr_transform.asp">w3schools.com</a> hvis dere vil ha mer info. </p>
@@ -46,7 +47,7 @@
   	&nbsp;&nbsp; < div id="samlet" >< /div > <br><br>
   	<b> CSS-kode: </b><br>
   	&nbsp;&nbsp; #flytt{<br>
-	&nbsp;&nbsp;&nbsp;&nbsp; background-color: pink;<br>
+	&nbsp;&nbsp;&nbsp;&nbsp; background-color: black;<br>
 	&nbsp;&nbsp;&nbsp;&nbsp; width: 400px;<br>
 	&nbsp;&nbsp;&nbsp;&nbsp; height: 200px;<br>
 	&nbsp;&nbsp;&nbsp;&nbsp; transform: translate(400px, 50px);<br>
@@ -82,13 +83,54 @@
   	<div id="punktforflytt"></div>
   	<div id="samlet"></div>
 
-  	<h1> Transformasjon med JavaScript - eksempel 2: boks som roterer når knapp trykkes </h2>
+    <h1> Oppgaver </h1>
+    <p> Fordi vi bruker grid og ikke flexbox er det ikke naturlig å bruke mye tid på oppgavene s. 289. Ta heller utgangspunkt i filene på its: eksempel_18_1.html og eksempel_18_1.css. De gir koden for boksene på denne siden. <br>
+      a) Kopier koden og se hvordan den ser ut uten transformasjonene <br>
+      b) Prøv deg frem med andre transformasjoner (se tabellen over for eksempler) og kombinasjoner av disse <br>
+      c) Jobb deg gjennom de tre sidene om 2D-transformasjoner <a href="https://www.w3schools.com/cssref/css3_pr_transform.asp" target="_blank">her</a>.</p>
+
+    <h1> Overganger med transformasjoner </h1>
+    <p> Nå kan vi kombinere overganger og animasjoner: Vi kan f.eks. lage en overgang der et element roterer når vi hovrer over: <br>
+
+    <b>HTML-kode:</b><br>
+    &nbsp;&nbsp; < div id="snurr" >< /div ><br><br>
+    <b>CSS-kode: </b><br>
+    &nbsp;&nbsp;#snurr{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; width: 200px;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; height: 200px;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; background-color: green;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; transition: all 2s linear 1s;<br>
+    &nbsp;&nbsp; }<br>
+    &nbsp;&nbsp; #snurr:hover{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; transform: rotate(720deg);<br>
+    &nbsp;&nbsp; }</p>
+
+    <div id="snurr"></div>
+
+    <p> Vi kan også lage en animasjon der et element forflytter seg frem og tilbake i x-retning: <br>
+    <b>HTML-kode:</b><br>
+    &nbsp;&nbsp; < div id="flytt" >< /div ><br><br>
+    <b>CSS-kode: </b><br>
+    &nbsp;&nbsp;#flytt{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; width: 200px;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; height: 200px;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; background-color: red;<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; animation: flytt 6s linear infinite;<br>
+    &nbsp;&nbsp;}<br>
+    &nbsp;&nbsp; @keyframes flytt{<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 0% {transform: translate(0px, 0px);}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 50% {transform: translate(400px, 0px);}<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; 100% {transform: translate(0px, 0px);}<br>
+    &nbsp;&nbsp; }</p>
+    <div id="flytt"></div>
+
+  	<h1> Transformasjon med JavaScript - eksempel: boks som roterer når knapp trykkes </h2>
   	<p> <b> HTML-kode:</b> Lager først boksen og en knapp for å rotere boksen: <br>
    	&nbsp;&nbsp; < div id="boks" > < /div ><br>
- 	&nbsp;&nbsp; < button id="roterKnapp" > Roter < /button > <br><br>
+ 	  &nbsp;&nbsp; < button id="roterKnapp" > Roter < /button > <br><br>
 
   	<b> CSS-kode:</b><br>
-	&nbsp;&nbsp; #boks{<br>
+	  &nbsp;&nbsp; #boks{<br>
   	&nbsp;&nbsp;&nbsp;&nbsp; width: 300px;<br>
   	&nbsp;&nbsp;&nbsp;&nbsp; height: 300px;<br>
   	&nbsp;&nbsp;&nbsp;&nbsp; background-color: lightBlue;<br>
@@ -112,29 +154,29 @@
     &nbsp;&nbsp;&nbsp;&nbsp; 80% {transform:rotate(288deg);}<br>
     &nbsp;&nbsp;&nbsp;&nbsp; 90% {transform:rotate(324deg);}<br>
     &nbsp;&nbsp;&nbsp;&nbsp; 100% {transform:rotate(360deg);}<br>
-	&nbsp;&nbsp; }<br><br>
+	   &nbsp;&nbsp; }<br><br>
 
   	<b> JS-kode:</b><br>
   	I script tillegger jeg boksen klassen rotereBoks når knappen trykkes: <br>
-	&nbsp;&nbsp; var knappEl = document.querySelector("#roterKnapp");<br>
-	&nbsp;&nbsp; var boksEl = document.querySelector("#boks");<br>
-	&nbsp;&nbsp; knappEl.addEventListener("click", roterFunksjon);<br>
-	&nbsp;&nbsp; function roterFunksjon(){<br>
-	&nbsp;&nbsp;&nbsp;&nbsp; boksEl.classList.add("rotereBoks");<br>
-	&nbsp;&nbsp; } </p>
+	  &nbsp;&nbsp; var knappEl = document.querySelector("#roterKnapp");<br>
+	  &nbsp;&nbsp; var boksEl = document.querySelector("#boks");<br>
+	  &nbsp;&nbsp; knappEl.addEventListener("click", roterFunksjon);<br>
+	  &nbsp;&nbsp; function roterFunksjon(){<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp; boksEl.classList.add("rotereBoks");<br>
+	  &nbsp;&nbsp; } </p>
 
   	<div id="boks"></div>
   	<button id="roterKnapp">Roter </button>
-	<script>
-		var knappEl = document.querySelector("#roterKnapp");
-		var boksEl = document.querySelector("#boks");
-		knappEl.addEventListener("click", roterFunksjon);
-		function roterFunksjon(){
-			boksEl.classList.add("rotereBoks");
-		}
-	</script>
+	  <script>
+  		var knappEl = document.querySelector("#roterKnapp");
+  		var boksEl = document.querySelector("#boks");
+  		knappEl.addEventListener("click", roterFunksjon);
+  		function roterFunksjon(){
+  			boksEl.classList.add("rotereBoks");
+  		}
+  	</script>
 
-	<h1> 3D-transformasjoner: eksempel 3 </h1>
+	<h1> 3D-transformasjoner - eksempel: rotasjon om ulike akser  </h1>
 	<p> Transformasjoner kan skje om tre akser. Dette kalles 3D-transformasjoner. <br>
 	Lager først et element å rotere: setter inn skrift for å illustrere rotasjonen: <br>
 	< div class="boks3D" > Se på dette! < / div > </p>
@@ -164,10 +206,10 @@
 	<p> Prøv dere frem: <br>
 	Hva forventer dere fra transform: translate3d(x,y,z), transform: scale3d(x,y,z) og transform: rotate3d(x,y,z,angle)? Test de forskjellige. <br>
 	Knytt transformasjonsanimasjonen til en hendelse: f.eks. en boks som begynner å rotere når du klikker på den. <br>
-	Side 289: Oppgave 18.2 <br>
 	Side 290-291: Se på kodeeksempel 18.2, oppgave 18.4, 18.5 <br>
-	Side 292-293: Se på kodeeksempel 18,4, oppgave 18.7, 18.8 <br>
-	Evt jobbe med øveoppgaver (ligger på its)</p>
+	Side 292-293: Se på kodeeksempel 18,4, men tilpass så du bruker grid i stedet for flexbox for innpakningen, oppgave 18.7, 18.8 <br>
+	Jobb med rakettoppgaven på its. Denne blir gjennomgått neste uke.</p>
+
 </div>
 <a href="../index.html"><img class="hjem" src="../hjem.png"></a>
   </body>

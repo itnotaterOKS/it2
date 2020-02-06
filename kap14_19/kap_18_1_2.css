@@ -30,7 +30,30 @@
 	transform: translate(800px, -40px) scale(2, 0.8) rotate(20deg);
 }
 
+/* transformasjoner med overganger */
+#snurr{
+	width: 200px;
+	height: 200px;
+	background-color: green;
+	transition: all 2s linear 1s;
+}
+#snurr:hover{
+	transform: rotate(720deg);
+}
+
 /* transformasjoner med animasjoner */
+#flytt{
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	animation: flytt 6s linear infinite;
+}
+@keyframes flytt{
+	0% {transform: translate(0px, 0px);}
+	50% {transform: translate(400px, 0px);}
+	100% {transform: translate(0px, 0px);}
+}
+
 #boks{
 	width: 300px;
 	height: 300px;
