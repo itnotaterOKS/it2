@@ -31,13 +31,13 @@
 }
 
 /* transformasjoner med overganger */
-#snurr{
+#rotasjon{
 	width: 200px;
 	height: 200px;
 	background-color: green;
 	transition: all 2s linear 1s;
 }
-#snurr:hover{
+#rotasjon:hover{
 	transform: rotate(720deg);
 }
 
