@@ -16,30 +16,7 @@
     	<h1> Introduksjon til objektorientert programmering i JavaScript </h1>
     	<h1> Om perioden: </h1>
     	<p> Kompetansemålet i læreplanen som handler om objektorientert programmering sier følgende: <b>gjøre rede for hensikten med objektorientert utvikling og begrepene klasse, objekt og arv</b>. Vi kommer til å gå litt dypere i dette temaet og bruke det som utgangspunkt for scriptanimasjoner. <br><br>
-    	<b> Uke 17: </b> <br>
-    	&nbsp;&nbsp; Mandag: ingen time<br>
-    	&nbsp;&nbsp; Torsdag: set, map<br>
-    	&nbsp;&nbsp; Fredag: kap 20.1: introduksjon til objektorientert programmering <br>
-    	<b> Uke 18: </b><br>
-    	&nbsp;&nbsp; Mandag: kap 20.2, 20.3: mer om objektorientert programmering <br>
-    	&nbsp;&nbsp; Torsdag: objektorientert utvikling <br>
-    	&nbsp;&nbsp; Fredag: jobbe med oppgaver til objektorientert programmering <br>
-    	<b> Uke 19: </b><br>
-    	&nbsp;&nbsp; Mandag: kap 21.1, 21.2: requestAnimationFrame, enkle kollisjoner <br>
-    	&nbsp;&nbsp; Torsdag, fredag: ingen timer (himmelspretten)<br>
-    	<b> Uke 20: </b><br>
-    	&nbsp;&nbsp; Mandag: kap 21.3, 21.4: kollisjoner, cancelAnimationFrame <br>
-    	&nbsp;&nbsp; Tirsdag: eksamenstrekk <br>
-    	&nbsp;&nbsp; Torsdag: ingen time (grunnlovsdagen) <br>
-    	&nbsp;&nbsp; Fredag: planlegging og utvikling <br>
-    	<b> Uke 21: </b><br>
-    	&nbsp;&nbsp; Alle dager: eksamenstrening/vi lager spill <br>
-    	<b> Uke 22: </b><br>
-    	&nbsp;&nbsp; Alle dager; eksamenstrening/vi lager spill <br>
-    	&nbsp;&nbsp; Eksamen IT-2 onsdag 30. mai. <br><br>
-
-    	Skulle det være nødvendig at noen av dere har vippeprøver i faget, vil det bli en vurdering i kapittel 21. Dere får i så fall beskjed om det samtidig som dere får tilbake heldags. Vi avtaler et tidspunkt som passer når skriftlig trekk er over.
-
+        Kapittel 21.1 er ikke avhengig av objektorientering og er relevant uansett. Før vi begynner med klasser og objekter skal vi innom to andre datakolleksjoner: set og map. </p>
 
   	<h1> Set og map </h1>
   	<p> Arrays og objects er to av mage typer datakolleksjoner. Set og map er to nye vi skal bli kjent med i dag </p>
@@ -140,9 +117,9 @@
   	Set-metodene fungerer akkurat som vanlig. Et eksempel vises under:<br>
   	&nbsp;&nbsp; var filmer = new Set(["Harry Potter", "Hobbiten", "Fabeldyr"]);<br>
   	&nbsp;&nbsp; if(filmer.has("Hobbiten")){<br>
-  	&nbsp;&nbsp; document.write("Hobbiten finnes i samlingen");<br>
-  	&nbsp;&nbsp; filmer.add("Ringenes Herre");<br>
-  	&nbsp;&nbsp; document.write("Alle som eier Hobbiten eier også Ringenes Herre. Denne er lagt til");<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; document.write("Hobbiten finnes i samlingen");<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; filmer.add("Ringenes Herre");<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; document.write("Alle som eier Hobbiten eier også Ringenes Herre. Denne er lagt til");<br>
   	&nbsp;&nbsp; }<br>
   	<script>
   	var filmer = new Set(["Harry Potter", "Hobbiten", "Fabeldyr"]);
@@ -166,13 +143,13 @@
   	<h1> Transversere en set </h1>
   	<p> Å transversere en set vil si å jobbe seg gjennom en set verdi-for-verdi: dersom vi ønsker å utføre den samme operasjonen på alle elementene (f.eks. skrive ut alle verdiene i en tekst). Her bruker vi en for-of-løkke: <br>
   	&nbsp;&nbsp; for (var elementNavn of setNavn){<br>
-  	&nbsp;&nbsp; kode som skjer <br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; // kode som skjer <br>
   	&nbsp;&nbsp;}<br>
   	Et eksempel er hvis vi har en set med ulike blomster og vil liste dem opp:<br>
   	&nbsp;&nbsp; var blomster = new Set(["Solsikke", "Engsoleie", "Løvetann", "Hestehov"]); <br>
   	&nbsp;&nbsp; document.write("< ul >") <br>
   	&nbsp;&nbsp; for(var blomst of blomster){ <br>
-  	&nbsp;&nbsp; document.write("< li >" + blomst + "< /li >"); <br>
+  	&nbsp;&nbsp;&nbsp;&nbsp; document.write("< li >" + blomst + "< /li >"); <br>
   	&nbsp;&nbsp;} <br>
   	&nbsp;&nbsp; document.write("< /ul >") <br>
   	<script>
@@ -184,7 +161,8 @@
   	document.write("</ul>")
   	</script>
   	<h1> Oppgave med set </h1>
-  	<p> Oppgaven går ut på å lage en applikasjon der du kan bruke en kalender til å sjekke om du har planer på en bestemt dag. Legg inn alle datoer som årstall-måned-dato (2018-05-17) og la bruker velge dato ved hjelp av inputtypen dato (< input type="date">). Legg alle datoer som velges inn i en set og sett som utgangspunkt at 17. mai er opptatt og alle andre datoer er ledige. Gi så brukeren tilbakemelding på om datoen er opptatt eller ikke og legg til valgte datoer som opptatte. </p>
+  	<p> Oppgaven går ut på å lage en applikasjon der du kan bruke en kalender til å sjekke om du har planer på en bestemt dag. Legg inn alle datoer som årstall-måned-dato (2020-03-02) og la bruker velge dato ved hjelp av inputtypen dato (< input type="date">). Legg alle datoer som velges inn i en set og sett som utgangspunkt at 17. mai er opptatt og alle andre datoer er ledige. Gi så brukeren tilbakemelding på om datoen er opptatt eller ikke og legg til valgte datoer som opptatte.<br>
+    Løsningen til oppgaven ligger <a href="setOppgaveKalender.html" target="_blank">her</a>. </p>
 
   	<h1> Map </h1>
     	<p> Vi så at vi kan bruke set i stedet for arrays der det kun er unike verdier og der rekkefølgen ikke spiller noen rolle <br>
@@ -402,11 +380,11 @@
   		<tr>
   			<th> Kolleksjon </th> <th> forEach-syntax </th>
   		</tr> <tr>
-  			<td> Array </td> <td> arrayNavn.forEach(function(verdi, indeks, array){kode}) </td>
+  			<td> <a href="https://www.w3schools.com/jsref/jsref_foreach.asp" target="_blank">Array</a> </td> <td> arrayNavn.forEach(function(verdi, indeks, array){kode}) </td>
   		</tr> <tr>
-  			<td> Set </td> <td> mapNavn.forEach(function(verdi, verdi, set){kode}) </td>
+  			<td> <a href="https://javascript.info/map-set" target="_blank"> Set </a> </td> <td> setNavn.forEach(function(verdi, verdi, set){kode}) </td>
   		</tr> <tr>
-  			<td> Map </td> <td> mapNavn.forEach(function(verdi, nøkkel, map){kode}) </td>
+  			<td> <a href="https://javascript.info/map-set" target="_blank">  Map </a></td> <td> mapNavn.forEach(function(verdi, nøkkel, map){kode}) </td>
   		</tr>
   	</table>
   	</p>
