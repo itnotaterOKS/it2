@@ -189,10 +189,16 @@
       &nbsp;&nbsp;&nbsp;&nbsp; }</p>
 
       <h1> Local storage </h1>
-      <p> Local storage er en metode for å lagre data (tekst eller tall) lokalt i nettleseren. Vi lagrer data ved hjelp av nøkler: <br>
-      &nbsp;&nbsp; localStorage.nøkkel = verdi;<br>
+      <p> Local storage er en metode for å lagre data (tekst eller tall) lokalt i nettleseren. Dette er tilleggsinfo, og du finner ressurser <a href="https://www.w3schools.com/jsref/prop_win_localstorage.asp">her</a>. Vi lagrer data ved hjelp av nøkler: <br>
+      &nbsp;&nbsp; localStorage.key = verdi; <br>
+      eller med <br>
+      &nbsp;&nbsp; localStorage.setItem("key", "verdi");<br>
       Og henter ut data ved bruk av samme nøkkel: <br>
-      &nbsp;&nbsp; var variabel = localStorage.nøkkel <br>
+      &nbsp;&nbsp; var variabel = localStorage.key <br>
+      eller med <br>
+      &nbsp;&nbsp; var variabel = localStorage.getItem("key");<br>
+      og vi fjerner verdier med <br>
+      &nbsp;&nbsp; localStorage.removeItem("key");<br><br>
       Vi kan ikke bruke local storage til å lagre objekter videre fordi objekter ikke er string eller number. Derfor må data som skal lagres først gjøres om til tekst. Dette gjøres ved hjelp av metodene: <br>
       &nbsp;&nbsp; JSON.stringify (gjør om data til tekst)<br>
       &nbsp;&nbsp; JSON.parse (gjør om data fra tekst til opprinnelig dataformat)<br><br>
@@ -200,40 +206,47 @@
       &nbsp;&nbsp; var figurer = ["Harry Potter", "Hermione Granger", "Ron Weasley"];<br>
       &nbsp;&nbsp; figurerTekst = JSON.stringify(figurer); <br>
       &nbsp;&nbsp; localStorage.mineFigurer = figurerTekst; <br>
-      &nbsp;&nbsp; var kjendiserOpprinnelig = JSON.parse(localStorage.mineFigurer); <br>
+      &nbsp;&nbsp; var figurerOpprinnelig = JSON.parse(localStorage.mineFigurer); </p>
+      <script>
+      var figurer = ["Harry Potter", "Hermione Granger", "Ron Weasley"];
+      console.log(figurer);
+      figurerTekst = JSON.stringify(figurer);
+      console.log(figurerTekst);
+      localStorage.mineFigurer = figurerTekst;
+      var figurerOpprinnelig = JSON.parse(localStorage.mineFigurer);
+      console.log(figurerOpprinnelig);
+      </script>
 
       <p><b> Å telle poeng: </b><br>
       I pong kan vi telle poeng for hver gang vi treffer ballen med rackerten. Her ønsker vi selvfølgelig å lagre tidligere highscore for å vite at vi har forbedret oss. Highscoren kan vi lagre i local storage. <br>
       Rent praktisk gjøres dette ved <br><br>
       Oppretter html-element for å telle poeng: <br>
       < div id="poeng"> <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; < h1 id="poengSpill> Poeng: 0 < /h1> <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; < h1 id="poengRekord"> Poeng: 0 < /h1> <br>
+      &nbsp;&nbsp; < h1 id="poengSpill> Poeng: 0 < /h1> <br>
+      &nbsp;&nbsp; < h1 id="poengRekord"> Poeng: 0 < /h1> <br>
       < /div> <br>
       Henter inn poengene: <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; var poengSpill = document.querySelector("#poengSpill"); <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; var poengRekord = document.querySelector("#poengRekord"); <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; var poeng = 0; <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; if(localStorage.rekord === undefined){ // hvis det ikke finnes noen high score <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localStorage.rekord=0;<br>
-      &nbsp;&nbsp;&nbsp;&nbsp; } <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; if(betingelse for vunnet poeng){ <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poeng += 1; <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poengSpill.innerHTML = "Poeng: " + poeng; <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(poeng > localStorage.rekord){ <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localStorage.rekord = poeng; <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poengRekord.innerHTML = "Ny rekord: " + poeng; <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poengRekord.style.color = "Red"; <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <br>
-      &nbsp;&nbsp;&nbsp;&nbsp;}</p>
-
+      &nbsp;&nbsp; var poengSpill = document.querySelector("#poengSpill"); <br>
+      &nbsp;&nbsp; var poengRekord = document.querySelector("#poengRekord"); <br>
+      &nbsp;&nbsp; var poeng = 0; <br>
+      &nbsp;&nbsp; if(localStorage.rekord === undefined){ // hvis det ikke finnes noen high score <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; localStorage.rekord=0;<br>
+      &nbsp;&nbsp; } <br>
+      &nbsp;&nbsp; if(betingelse for vunnet poeng){ <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; poeng += 1; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; poengSpill.innerHTML = "Poeng: " + poeng; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp; if(poeng > localStorage.rekord){ <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; localStorage.rekord = poeng; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poengRekord.innerHTML = "Ny rekord: " + poeng; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; poengRekord.style.color = "Red"; <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+      &nbsp;&nbsp;}</p>
 
       <h1> Oppgaver </h1>
       <p> 1. Utvid koden med ballene slik at de kan kollidere. Dersom det skjer skal begge to endre retning 180 grader. <br>
       2. Utvid koden slik at du kan styre den ene ballen med piltaster mens den andre er styrt av datamaskinen. Dersom du kolliderer med veggene eller den andre ballen skal spillet avsluttes (cancelAnimationFrame()). <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; Tips 1: Lag en superklasse ball med subklasser spiller og motstander <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; Tips 2: Hvis du står helt fast kan du se i læreboka fra side 315 og utover <br>
-      &nbsp;&nbsp;&nbsp;&nbsp; Ja, løsningsforslag legges ut! <br>
+      &nbsp;&nbsp; Tips 1: Lag en superklasse ball med subklasser spiller og motstander <br>
+      &nbsp;&nbsp; Tips 2: Hvis du står helt fast kan du se i læreboka fra side 315 og utover <br>
       Andre forslag: Snake, flappy bird eller andre spill du har lyst til å teste ut. Pong går vi gjennom i plenum.</p>
     </div>
     <a href="../index.html"><img class="hjem" src="../hjem.png"></a>

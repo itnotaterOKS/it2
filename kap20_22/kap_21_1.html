@@ -72,7 +72,7 @@
       	&nbsp;&nbsp;&nbsp;&nbsp; rotasjon += rotHast;<br>
       	&nbsp;&nbsp;&nbsp;&nbsp; xPos += xHast;<br>
       	&nbsp;&nbsp;&nbsp;&nbsp; bildeEl.style.transform = "translate(" + xPos + "px) rotate(" + rotasjon +"deg)";<br>
-      	&nbsp;&nbsp;&nbsp;&nbsp; if (xPos>=(window.innerWidth-260)){ // hvis avsluttvariablen er sann<br>
+      	&nbsp;&nbsp;&nbsp;&nbsp; if (xPos>=(window.innerWidth-400)){ // hvis avsluttvariablen er sann<br>
       	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cancelAnimationFrame(animasjonID)<br>
       	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
       	&nbsp;&nbsp;&nbsp;&nbsp; else{<br>
@@ -91,7 +91,7 @@
       		rotasjon += rotHast;
       		xPos += xHast;
       		bildeEl.style.transform = "translate(" + xPos + "px) rotate(" + rotasjon +"deg)";
-      		if (xPos>=(window.innerWidth-260)){ // hvis avsluttvariablen er sann
+      		if (xPos>=(window.innerWidth-400)){ // hvis avsluttvariablen er sann
       			cancelAnimationFrame(animasjonID);
       		}
       		else{
