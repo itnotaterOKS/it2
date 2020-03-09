@@ -134,7 +134,10 @@
         Dersom du ønsker å utforske lokal lagring for at det du skriver inn ikke skal forsvinne når siden lastes på nytt, kan du utforske local storage. En kort intro til dette er lagt ut rett under oppgaven, og løsningsforslaget tar i bruk dette. Dette er på siden av fagpensum, men veldig nyttig. </p>
 
       <h1> Local storage </h1>
-      <p> Local storage er en metode for å lagre data (tekst eller tall) lokalt i nettleseren. Vi lagrer data ved hjelp av nøkler: <br>
+      <p> Local storage er en metode for å lagre data (tekst eller tall) lokalt i nettleseren.
+        Her kan vi for eksempel lagre en highscore til spillet dere skal lage i kapittel 22. Merk at dette er lokal lagring, dere kan ikke bruke dette til lagring av score på spill som kjøres fra flere maskiner.
+        I det tilfellet er det mer aktuelt å lagre i en database ved bruk av firebase.
+        Vi lagrer data ved hjelp av nøkler: <br>
       &nbsp;&nbsp; localStorage.nøkkel = verdi;<br>
       Og henter ut data ved bruk av samme nøkkel: <br>
       &nbsp;&nbsp; var variabel = localStorage.nøkkel <br>
