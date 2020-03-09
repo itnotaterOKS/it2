@@ -17,7 +17,7 @@
       <p> c) I denne oppgaven skal du opprette to klasser: klassen Sirkel og klassen Kule.
         Klassen Sirkel skal ha konstruktørargumentet radius og en metode for å regne ut areal. Klassen Kule skal være en subklasse av Sirkel og arve radius fra denne. Metodene skal overskrives med areal og volum av kula. Du skal så legge til to sirkler og to kuler og skrive ut verdiene for omkrets og areal / areal og volum av disse.<br><br>
 
-        Først: oppretter klassen Sirkel med ett argument to metoder <br>
+        Først: oppretter klassen Sirkel med ett argument og to metoder <br>
         &nbsp;&nbsp; class Sirkel{<br>
         &nbsp;&nbsp;&nbsp;&nbsp; constructor(radius){<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; this.radius = radius;<br>
@@ -55,13 +55,13 @@
         &nbsp;&nbsp; let k1 = new Kule(4);<br>
         &nbsp;&nbsp; console.log(k1.omkrets.toFixed(2), k1.areal.toFixed(2));<br><br>
         <script>
-          class Kule extends Sirkel{
+          class Kulen extends Sirkel{
             constructor(radius){
               super(radius);
             }
           }
-          let k1 = new Kule(4);
-          console.log(k1.omkrets.toFixed(2), k1.areal.toFixed(2));
+          let k2 = new Kulen(4);
+          console.log(k2.omkrets.toFixed(2), k2.areal.toFixed(2), "dette stemmer jo ikke");
         </script>
         Derfor overskriver vi slik at vi heller har korrekt arealmetode og legger til en volummetode. <br>
         &nbsp;&nbsp; class Kule extends Sirkel{<br>
@@ -78,7 +78,7 @@
         &nbsp;&nbsp; let k1 = new Kule(4);<br>
         &nbsp;&nbsp; console.log(k1.areal.toFixed(2), k1.volum.toFixed(2));</p>
         <script>
-         /* class Kule extends Sirkel{
+          class Kule extends Sirkel{
             constructor(radius){
               super(radius);
             }
@@ -90,7 +90,7 @@
             }
           }
           let k1 = new Kule(4);
-          console.log(k1.areal.toFixed(2), k1.volum.toFixed(2));*/
+          console.log(k1.areal.toFixed(2), k1.volum.toFixed(2), "dette stemmer bedre");
         </script>
     	<h1> Objektorientert utvikling </h1>
     	<h1> Hva er objektorientert utvikling? </h1>
@@ -104,7 +104,7 @@
     	Dersom vi har et sub-super-system tegner vi klassene under hverandre i stedet.
     	</p>
 
-    	<p> Oppgave: <br>
+    	<p> <b>Oppgave:</b> <br>
     	Tegn klassediagram for bil-hybridbil. <br><br><br>
     		<img src="klassediagram2.png"></p>
 
@@ -126,10 +126,9 @@
     		&nbsp;&nbsp;&nbsp;&nbsp; < script src="mappenavn/filnavn.js">< /script> <br>
     	</p>
     	<h1> Oppgave: lage en klasse med kontakter </h1>
-    	<p> Lag en html-fil med et skjema der man kan legge inn fornavn, etternavn og telefonnummer. Dette skal lagres inn i en klasse. <br>
+    	<p> Lag en html-fil med et skjema der man kan legge inn fornavn, etternavn og telefonnummer. Hver nye registrering skal lagres inn som objekt i en klasse. <br>
     		Lag en js-fil der du oppretter klassen Kontakt. Klassen skal inneholde en metode for å returnere fullt navn og en metode for å skrive ut en tabell med fullt navn (ved hjelp av den første metoden) og telefonnummer samt en knapp for å slette kontakten fra klassen. <br>
     		Lag en js-fil der du lagrer inputen fra feltene og oppretter objekter til klassen. <br>
-    		Det er meningen at dere skal måtte bruke litt tid på komme i gang med denne oppgaven, men det vil komme løsningsforslag  (men ikke med en gang, dere skal måtte tenke litt først)<br>
         <b> Bonus! </b><br>
         Dersom du ønsker å utforske lokal lagring for at det du skriver inn ikke skal forsvinne når siden lastes på nytt, kan du utforske local storage. En kort intro til dette er lagt ut rett under oppgaven, og løsningsforslaget tar i bruk dette. Dette er på siden av fagpensum, men veldig nyttig. </p>
 

@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rakettoppgaven</title>
+    <link rel="stylesheet" href="../grid.css">
+    <link rel="stylesheet" href="rakett.css">
+  </head>
+  <body>
+    <div class="row">
+      <div class="start col-6">Start</div>
+      <div class="slutt col-6">Slutt</div>
+    </div>
+    <div id="maane"></div>
+    <div id="romferge"></div>
+    <div id="jordklode"></div>
+    <script>
+      /* del 1: plassere elementene på skjermen */
+      // Jeg setter posisjonene i script for å kunne tilpasse nettleser med window.innerWidth og window.innerHeight
+      var bredde = window.innerWidth;
+      var hoyde = window.innerHeight;
+
+      // posisjonerer med style.left og style.top fordi jeg vil styre posisjonene fra 0,0. Divene har position:fixed
+      var maaneEl = document.querySelector("#maane");
+      var maaneX = bredde-120-60; // avstanden fra 0: høyre kant av nettleser - bredden til månen - den avstanden jeg vil ha til kanten
+      var maaneY = hoyde/2; // avstanden fra 0: 200 px fra øvre kant av nettleser
+      maaneEl.style.left = maaneX + "px";
+      maaneEl.style.top = maaneY + "px";
+
+      var romfergeEl = document.querySelector("#romferge");
+      var romfergeX = 50 + 75 - 28; // avstanden fra 0: 50 px + halve bredden til jordkloden - halve bredden til romfergen
+      var romfergeY = hoyde - 150 - 80 - 30; // avtanden fra 0: nedre kant av nettsiden - høyden til jordkloden - høyden til romfergen - den avstanden jeg vil ha til kanten
+      romfergeEl.style.left = romfergeX + "px";
+      romfergeEl.style.top = romfergeY + "px";
+
+      var jordklodeEl = document.querySelector("#jordklode");
+      var jordklodeX = 50; // avstanden fra 0: 50 px
+      var jordklodeY = hoyde - 150 - 30; // avtanden fra 0: nedre kant av nettsiden - høyden til jordkloden - den avstanden jeg vil ha til kanten
+      jordklodeEl.style.left = jordklodeX + "px";
+      jordklodeEl.style.top = jordklodeY + "px";
+
+      /* del 2: bevege romfergen */
+      /* for all bevegelse bruker jeg en transformasjon fordi dette tar utgangspunkt i hvor romfergen er nå og gjør det enkelt å både legge inn forflytning i x- og y-retning og rotasjon */
+      /* først lagrer jeg alle posisjoner (x og y) i variabler jeg kan sette inn i keyframes */
+      var startX = 0;
+      var startY = 0;
+      var toppX = bredde-120-60-56-10;
+      var toppY = -hoyde/2 + 100 // -245; /* 245px fra start*/
+      var landeX = toppX + 50;/* samme sted som månen, men tar hensyn til bredden til romfergen*/
+      var landeY = toppY + 80; /* samme som månen */
+      var rotasjon = 0;
+      var rotasjonHast = 1;
+      var flyttX = 0;
+      var xHast = 3;
+      var flyttY = 0;
+      var yHast = 3;
+      var animasjonsID
+
+      /* deler opp animasjonen i fire "etapper" */
+      function del1(){ //animasjon til toppunktet
+        rotasjon += rotasjonHast;
+        flyttX += xHast;
+        flyttY -= yHast;
+        romfergeEl.style.transform = "translate(" + flyttX + "px," + flyttY + "px) rotate(" + rotasjon +"deg)";
+        if(rotasjon >= 90){
+          rotasjonHast = 0;
+          rotasjon = 90;
+        }
+        if (flyttY <= toppY){
+          yHast = 0;
+          flyttY = toppY;
+        }
+        if(flyttX >= toppX){
+          flyttX = toppX;
+          cancelAnimationFrame(animasjonsID);
+          yHast = 3;
+          rotasjonHast = 4;
+          requestAnimationFrame(del2)
+        }
+        else{
+          requestAnimationFrame(del1)
+        }
+      }
+      requestAnimationFrame(del1)
+
+      function del2(){ // animasjon til landing på månen
+        rotasjon -= rotasjonHast;
+        flyttY += yHast;
+        romfergeEl.style.transform = "translate(" + flyttX + "px," + flyttY + "px) rotate(" + rotasjon +"deg)";
+        if(rotasjon <= 0){
+          rotasjonHast = 0;
+          rotasjon = 0;
+        }
+        if (flyttY >= landeY){
+          flyttY = landeY;
+          cancelAnimationFrame(animasjonsID);
+          yHast = 3;
+          rotasjonHast = 1;
+          requestAnimationFrame(del3)
+        }
+        else{
+          requestAnimationFrame(del2)
+        }
+      }
+      function del3(){ // animasjon tilbake
+        rotasjon -= rotasjonHast;
+        flyttX -= xHast;
+        flyttY -= yHast;
+        romfergeEl.style.transform = "translate(" + flyttX + "px," + flyttY + "px) rotate(" + rotasjon +"deg)";
+        if(rotasjon <= -90){
+          rotasjonHast = 0;
+          rotasjon = -90;
+        }
+        if (flyttY <= toppY){
+          yHast = 0;
+          flyttY = toppY;
+        }
+        if(flyttX <= toppX/4){
+          flyttX = toppX/4;
+          cancelAnimationFrame(animasjonsID);
+          yHast = 3;
+          rotasjonHast = 4;
+          requestAnimationFrame(del4)
+        }
+        else{
+          requestAnimationFrame(del3)
+        }
+      }
+      function del4(){ // animasjon til landing på jorda
+        // FIKS ROTASJON
+        flyttX -= xHast;
+        flyttY += yHast;
+        romfergeEl.style.transform = "translate(" + flyttX + "px," + flyttY + "px) rotate(" + rotasjon +"deg)";
+        if (flyttY >= startY+10){
+          rotasjonHast = 4;
+          rotasjon += rotasjonHast;
+        }
+        else{
+          rotasjon -= rotasjonHast;
+        }
+        if(rotasjon >= 0){
+          rotasjonHast = 0;
+          rotasjon = 0;
+        }
+        if(flyttX <= startX){
+          flyttX = startX;
+          xHast = 0;
+          //cancelAnimationFrame(animasjonsID);
+        }
+        if(flyttY >= startY){
+          flyttY = startY;
+          yHast = 0;
+          cancelAnimationFrame(animasjonsID);
+        }
+        else{
+          requestAnimationFrame(del4)
+        }
+
+      }
+
+      /* legger inn hele animasjonen i en funksjon */
+      function animasjon(){
+
+      }
+      /* deretter oppretter jeg et dynamisk stilark for å legge inn keyframen */
+
+      /*bruker knappene til å starte og stoppe animasjonen*/
+      var startEl = document.querySelector(".start");
+      var sluttEl = document.querySelector(".slutt")
+      startEl.addEventListener("click", startFunksjon);
+      sluttEl.addEventListener("click", sluttFunksjon);
+      function startFunksjon(){
+        requestAnimationFrame(animasjon);
+        //romfergeEl.style.animationPlayState="running";
+      }
+      function sluttFunksjon(){
+        cancelAnimationFrame(animasjonsID)
+      //  romfergeEl.style.animationPlayState="paused";
+      }
+    </script>
+  </body>
+</html>

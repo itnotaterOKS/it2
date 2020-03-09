@@ -1,0 +1,53 @@
+html, body{
+  height: 98%;
+}
+body{
+  background-color:  #f0f2f1;
+  border: 10px solid #cacbca;
+}
+.start,.slutt{
+  background-color: #f1581d;
+  color: #434343;
+  border: 3px solid #a8a9a8;
+  font-family: "Century Gothic", Arial, sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+
+/* del 1: plassere elementene på skjermen */
+/* finner bredden og høyden til bildene ved å se på egenskapene og bruker dette for divene .
+Alternativt kan man skalere dem en faktor */
+  #maane{
+    width: 120px;
+    height: 120px;
+    background-image: url('bildefiler/maane.png');
+    background-size: 100%; /* bare nødvendig hvis man har skalert divene, for at bildet skal fylle hele diven */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  #romferge{
+    width: 56px;
+    height: 80px;
+    background-image: url('bildefiler/romferge.png');
+    background-size: 100%;/* bare nødvendig hvis man har skalert divene, for at bildet skal fylle hele diven */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  #jordklode{
+    width: 150px;
+    height: 150px;
+    background-image: url('bildefiler/jordklode.png');
+    background-size: 100%;/* bare nødvendig hvis man har skalert divene, for at bildet skal fylle hele diven */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  /* del 2: bevege romfergen */
+  /* legger inn en keyframe med translasjonene. Denne settes til running i script senere */
+  #romferge{
+    animation: rakett 10s linear infinite;
+    animation-play-state: running;
+  }
