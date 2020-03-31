@@ -46,14 +46,15 @@
       	</p>
       	<img src="bildefiler/sol.png" width = "200px" id ="solBilde">
       	<script>
-      	var bildeEl = document.querySelector("#solBilde");
-      	var rotasjon = 0;
-      	var xPos = 0;
-      	var rotHast = 4;
-      	var xHast = 3;
+      	// var bildeEl = document.querySelector("#solBilde");
+      	// var rotasjon = 0;
+      	// var xPos = 0;
+      	// var rotHast = 4;
+      	// var xHast = 3;
       	// function animasjon(){
       	// 	rotasjon += rotHast;
       	// 	xPos += xHast;
+        //   console.log(xPos, xHast);
       	// 	bildeEl.style.transform = "translate(" + xPos + "px) rotate(" + rotasjon +"deg)";
       	// 	requestAnimationFrame(animasjon);
       	// }
@@ -84,7 +85,7 @@
       	var rotasjon = 0;
       	var xPos = 0;
       	var rotHast = 4;
-      	var xHast = 3;
+      	var xHast = 30;
       	var animasjonID;
       	function animasjon(){
       		rotasjon += rotHast;
@@ -103,7 +104,7 @@
 
       	<h2> Oppgaver </h2>
       	<p> a) Lag en animasjon av en ﬁrkant som ﬂytter seg fra øvre høyre hjørne av skjermen til nedre venstre hjørne ved å bruke requestAnimationFrame. Firkanten skal stoppe når den når hjørnet. <br>
-      	b) Lag en animasjon av et bilde som ”danser” over siden: kombiner rotasjon og translasjon av bildet i en animasjonFunksjon. <br>
+      	b) Lag en animasjon av et bilde som ”danser” over siden: kombiner rotasjon og (tilfeldig) translasjon i både x- og y-retning av bildet i en animasjonFunksjon. <br>
         c) Lag rakettanimasjonen med requestAnimationFrame i stedet for keyframes. Da slipper vi dynamisk stilark. </p>
       </div>
       <a href="../index.html"><img class="hjem" src="../hjem.png"></a>
