@@ -16,17 +16,17 @@
 		<h2> String </h2>
 		<p> Datatypen string brukes for tekstvariabler. All tekst skal legges i fnutter ('tekst') eller dobbeltfnutter ("tekst"): <br>
 		&nbsp;&nbsp; < script ><br>
-		&nbsp;&nbsp;&nbsp;&nbsp; var tekstVar = 'En setning med tekst!';
-		&nbsp;&nbsp; < script ><br>< /script ><br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var tekstVar = 'En setning med tekst!';<br>
+		&nbsp;&nbsp;< /script ><br><br>
 		En tekststreng er indexert fra 0  til (n-1) der n er antall tegn. Vi kan behandle tekstvariabler ved flere metoder, blant annet </p>
 			<table>
 				<tr> <th> Metode </th> <th> Forklaring </th> <th> Eksempel </th> </tr>
-				<tr> <td> [plass] </td> <td> Gir tegnet på en gitt plassering </td> <td> console.log(tekstVar[3]); returnerer s</td> </tr>
-				<tr> <td> indexOf() </td> <td> Finner plasseringen til første element av typen et spørres etter </td> <td> console.log(tekstVar.indexOf('n')); returnerer 1 </td></tr>
-				<tr> <td> toUpperCase() </td> <td> Gjør om til kun store bokstaver </td> <td> console.log(tekstVar.toUpperCase()); returnerer EN SETNING MED TEKST! </td> </tr>
-				<tr> <td> toLowerCase() </td> <td> Gjør om til kun små bokstaver </td> <td> console.log(tekstVar.toLowerCase()); returnerer en setning med tekst!</td> </tr>
-				<tr> <td> length </td> <td> Gir antall tegn i stringen </td> <td> console.log(tekstVar.length); returnerer 21 </td> </tr>
-				<tr> <td> substring() </td> <td> Gir tegnene i et intervall </td> <td> console.log(tekstVar.substring(11, 14)); returnerer med</td> </tr>
+				<tr> <td> [plass] </td> <td> Gir tegnet på en gitt plassering </td> <td> console.log(tekstVar[3]);<br> returnerer s</td> </tr>
+				<tr> <td> indexOf() </td> <td> Finner plasseringen til første element av typen et spørres etter </td> <td> console.log(tekstVar.indexOf('n')); <br> returnerer 1 </td></tr>
+				<tr> <td> toUpperCase() </td> <td> Gjør om til kun store bokstaver </td> <td> console.log(tekstVar.toUpperCase());<br> returnerer EN SETNING MED TEKST! </td> </tr>
+				<tr> <td> toLowerCase() </td> <td> Gjør om til kun små bokstaver </td> <td> console.log(tekstVar.toLowerCase()); <br> returnerer en setning med tekst!</td> </tr>
+				<tr> <td> length </td> <td> Gir antall tegn i stringen </td> <td> console.log(tekstVar.length);<br> returnerer 21 </td> </tr>
+				<tr> <td> substring() </td> <td> Gir tegnene i et intervall </td> <td> console.log(tekstVar.substring(11, 14)); <br>returnerer med</td> </tr>
 			</table>
 
 		<script>
@@ -65,9 +65,48 @@
 			document.write("<p>"+ tall1 + " + " + tall2 + " = " + (tall1+tall2)+ "</p>")
 		</script>
 
+		<h1> Sjekke datatype </h1>
+		<p> Dersom vi lurer på hva slags datatype en variabel har kan vi sjekke det i konsollen. Skriv inn følgende kode og se hva som logges: <br>
+		&nbsp;&nbsp; < script > <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var heltall = 13; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var decimaltall = 155.34; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var tekst = '10'; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var boolsk = true; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var boolskTall = 0; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; console.log(typeof heltall, typeof decimaltall, typeof tekst, typeof boolsk, typeof boolskTall); <br>
+		&nbsp;&nbsp;	< /script > </p>
+		<script>
+			var heltall = 13;
+			var decimaltall = 155.34;
+			var tekst = '10';
+			var boolsk = true;
+			var boolskTall = 0;
+			console.log(typeof heltall, typeof decimaltall, typeof tekst, typeof boolsk, typeof boolskTall);
+		</script>
+
+		<h1> Ekstra: må vi alltid skrive var? </h1>
+		<p> JavaScript er et av språkene som godkjenner mye syntax som egentlig ikke er lovlig. Hva skjer hvis du skriver inn følgende kode?<br><br>
+		&nbsp;&nbsp; < script ><br>
+		&nbsp;&nbsp;&nbsp;&nbsp; fornavn = "Kaia";<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; fodselsar = 1900;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; console.log(fornavn + ' ville vært ' + (2020-fodselsar) + ' år gammel.');<br>
+		&nbsp;&nbsp; < /script ></p>
+
+		<script>
+			fornavn = "Kaia";
+			fodselsar = 1900;
+			console.log(fornavn + ' ville vært ' + (2020-fodselsar) + ' år gammel.');
+		</script>
+
+		<p> I IT-2-faget holder det å alltid bruke var for nye variabler, uansett hvilken datatype de har. Selv om det <b>ofte</b> går fint uten var også, skal dere bruke det av god vane. <br><br>
+
+		Dersom du er vant til ulike måter å deklarere ulike variabler på kan vi bruke både var, let og const. let og const har det vi kaller Block Skope, som er å bevege seg et godt stykke ut fra hva som forventes i IT-2. Du kan lese mer om det <a href="https://www.w3schools.com/js/js_let.asp">på w3schools</a>.</p>
+
+
 		<h1> Oppgaver </h1>
 		<p> I boka: 2.6 - 2.8 s. 31 <br>
 			På w3schools: besøk <a href="https://www.w3schools.com/js/js_strings.asp" target="_blank">string</a>, <a href="https://www.w3schools.com/js/js_numbers.asp" target="_blank">number</a> og <a href="https://www.w3schools.com/js/js_booleans.asp" target="_blank">boolske</a>.  </p>
+<img src="media/oppg31.png" width="70%">
 		</div>
 		<a href="../index.html"><img class="hjem" src="../hjem.png"></a>
 </body>
