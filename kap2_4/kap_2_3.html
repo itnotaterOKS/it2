@@ -28,7 +28,7 @@
 			document.write(tekstVar + tallVar1 + tallVar2 + '<br>');
 		</script>
 
-		Aritmetiske operasjoner har med andre ord ikke mye for seg på tall lagret i tekststrenger. Skal vi bruke aritmetiske operasjoner, må tall lagres som number </p>
+		Aritmetiske operasjoner har med andre ord ikke mye for seg på tall lagret i tekststrenger. Skal vi bruke aritmetiske operasjoner, må tall lagres med datatypen number </p>
 
 		<h1> Oppgave </h1>
 		<p> Skriv inn følgende kode og legg merke til hva som skrives til konsollen <br>
@@ -37,28 +37,28 @@
 			&nbsp;&nbsp;&nbsp;&nbsp; var var1 = 'Tallet er ';<br>
 			&nbsp;&nbsp;&nbsp;&nbsp; var var2 = 42;<br>
 			&nbsp;&nbsp;&nbsp;&nbsp; var var3 = 17;<br>
-			&nbsp;&nbsp;&nbsp;&nbsp; document.write(var1 + var2 + var3 +'< br >');<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; console.log(var1 + var2 + var3);<br>
 			&nbsp;&nbsp;&nbsp;&nbsp; //2<br>
-			&nbsp;&nbsp;&nbsp;&nbsp; document.write(var1 + (var2+var3) +'< br >')<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; console.log(var1 + (var2+var3))<br>
 			&nbsp;&nbsp;&nbsp;&nbsp; //3<br>
 			&nbsp;&nbsp;&nbsp;&nbsp; var1 = 42;<br>
 			&nbsp;&nbsp;&nbsp;&nbsp; var2 = 17;<br>
-			&nbsp;&nbsp;&nbsp;&nbsp; var3 = 'er tallet';<br>
-			&nbsp;&nbsp;&nbsp;&nbsp; document.write (var1 + var2 + var3  +'< br >');<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var3 = ' er tallet';<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; console.log (var1 + var2 + var3);<br>
 			&nbsp;&nbsp; < /script > </p>
 		<script>
 		// 1
 		var var1 = 'Tallet er ';
 		var var2 = 42;
 		var var3 = 17;
-		document.write(var1 + var2 + var3 +'<br>');
+		console.log(var1 + var2 + var3 );
 		//2
-		document.write(var1 + (var2+var3) +'<br>')
+		console.log(var1 + (var2+var3))
 		//3
 		var1 = 42;
 		var2 = 17;
-		var3 = 'er tallet';
-		document.write (var1 + var2 + var3  +'<br>');
+		var3 = ' er tallet';
+		console.log(var1 + var2 + var3  +'<br>');
 		</script>
 
 		<h1> Hvordan vet vi hva som er datatypen? </h1>
@@ -86,10 +86,14 @@
 		</script>
 
 		<h1> Endre datatype </h1>
-		<p> Dersom vi oppdager at en variabel er lagret som feil datatype, kan vi gjøre om mellom de to. Dette gir oss f.eks. mulighet til å sjekke antall siffer i et tall. Husk at det ikke gir mening å gjøre om tekst til number. <br>
+		<p> Dersom vi oppdager at en variabel er lagret som feil datatype, kan vi gjøre om mellom de to. Dette gir oss f.eks. mulighet til å sjekke antall siffer i et tall. Husk at det ikke gir mening å gjøre om tekst (altså bokstaver og tegn) til number, kun tall som har fått feil datatype <br>
 		var nyVariabel = Number(gammelVariabel) gjør om til tall <br>
 		var nyVariabel = String(gammelVariabel) gjør om til tekst <br>
 		&nbsp;&nbsp; < script > <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var tall1 = 3; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var tall2 = '4'; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var tall2tall = Number(tall2); <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; console.log(tall1 + tall2tall); <br>
 		&nbsp;&nbsp;&nbsp;&nbsp; var tekstTallVar = '42';<br>
 		&nbsp;&nbsp;&nbsp;&nbsp; var tallTekstVar = 3489;<br>
 		&nbsp;&nbsp;&nbsp;&nbsp; console.log(tekstTallVar + typeof tekstTallVar);<br>
@@ -100,6 +104,10 @@
 		&nbsp;&nbsp;&nbsp;&nbsp; console.log(tekstFraTall + typeof tekstFraTall + tekstFraTall.length);<br>
 		&nbsp;&nbsp; < /script > </p>
 		<script>
+		var tall1 = 3;
+		var tall2 = '4';
+		var tall2tall = Number(tall2);
+		console.log(tall1 + tall2tall);
 		var tekstTallVar = '42';
 		var tallTekstVar = 3489;
 		console.log(tekstTallVar + typeof tekstTallVar);
@@ -139,8 +147,15 @@
 			var rest = c % a;
 			console.log(c + ' % ' + a + ' = ' + rest);
 		</script>
+
 		<h1> Modulo-operatoren </h1>
-		<p> Modulo handler om restregning: her blir 12 % 10 = 2 fordi vi har 2 i rest ved 12 / 10. Dette kan f.eks brukes til å finne <br>
+		<p> Modulo handler om restregning: her blir 12 % 10 = 2 fordi vi har 2 i rest ved 12 / 10. Dette kan f.eks brukes til å regne med klokka: <br>
+		Klokka 17 og klokka 5 er det samme fordi 17 / 12 gir 5 i rest: <br>
+		&nbsp;&nbsp; 17/12 = 1,4166 <br>
+		&nbsp;&nbsp; 0,4166* 12 = 5 <br>
+		Altså er <br>
+		&nbsp;&nbsp; 17 % 12 = 5. <br>
+		Det kan også brukes til å finne <br>
 		&nbsp;&nbsp; Partall: alle tall der tall % 2 = 0 <br>
 		&nbsp;&nbsp; Oddetall: alle tall der tall % 2 = 1 <br>
 		&nbsp;&nbsp; Tall delelig med 7: alle tall der tall % 7 = 0 <br>
@@ -199,6 +214,8 @@
 		<h1> Oppgaver </h1>
 		<p> S. 33: Oppgave 2.9. Noter først hva dere forventer som resultat, deretter kan dere kjøre koden. <br>
 		S. 35: Oppgave 2.10. Noter først hva dere forventer som resultat, deretter kan dere kjøre koden. </p>
+		<img src="media/oppg33.png" width="70%">
+		<img src="media/oppg35.png" width="70%">
 	</div>
 	<a href="../index.html"><img class="hjem" src="../hjem.png"></a>
 </body>
