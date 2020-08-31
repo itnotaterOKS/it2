@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Løsningsforslag</title>
+  </head>
+  <body>
+  <script>
+  // oppgave 1
+      var a = 7;
+      var b = 17;
+      var c = a + b;
+      console.log('differansen mellom c og a er ' + (c-a));
+      console.log('produktet av a og b er ' + (a*b));
+      console.log('dersom resten er ulik 0 er c ikke delelig med a, resten er ' + (c%a));
+
+
+  // oppgave 2
+      var tilfTall=Math.floor((Math.random()*21)-10);
+      if (tilfTall%2==0) {
+        console.log('tallet ' + tilfTall + ' er et partall');
+      }
+      else {
+        console.log('tallet ' + tilfTall + ' er et oddetall');
+      }
+      if (tilfTall>=0) {
+        console.log('Tallet ' + tilfTall + ' er større eller lik 0')
+      }
+      else {
+        console.log('tallet ' + tilfTall + ' er mindre enn 0');
+      }
+
+    // oppgave 3
+      for (var i = 5; i <=50; i+=5){
+        console.log(i);
+      }
+
+      var sum = 0;
+      var tall = 7;
+      while (sum < 100) {
+        sum += tall;
+      }
+      console.log(sum);
+
+      /* Variabelen sum får startverdi 0. Deretter legges tallet 7 til, dette gjentas så lenge summen er mindre eller lik 100.
+      Til slutt skrives summen ut, som da er det første tallet i syvgangeren som er over 100.*/
+
+      var tall1 = 0;
+      var tall2 = 1;
+      console.log(tall1);
+      console.log(tall2);
+      for (var i = 3; i <= 20; i++) {
+        fib = tall1 + tall2;
+        tall1 = tall2;
+        tall2 = fib;
+        console.log(fib);
+      }
+
+    // oppgave 4
+      function kube(l,b,h){
+        if (l>=0 && b>=0 && h>=0) {
+          var volum = l*b*h;
+          console.log('Volumet av kuben er ' + volum);
+        }
+        else {
+          console.log('Du har skrevet inn en negativ sidekant');
+        }
+      }
+      kube(2,4,3);
+      kube(-1,4,7);
+    </script>
+  </body>
+</html>
