@@ -30,29 +30,29 @@
 
     <h1> Eksempel </h1>
     <p> Lag en funksjon som kaster en terning på nytt og på nytt til terningen viser 6 og som teller antall forsøk før suksess <br><br>
-    Funksjonen får navnet terningFunksjon: <br>
+    // Funksjonen får navnet terningFunksjon: <br>
     &nbsp;&nbsp; function terningFunksjon(){<br>
-    Funksjonen skal først opprette en tellevariabel som teller antall forsøk. Denne settes til 0: <br>
+  	// Funksjonen skal først opprette en tellevariabel som teller antall forsøk. Denne settes til 0: <br>
     &nbsp;&nbsp;&nbsp;&nbsp; var teller = 0;<br>
-    Deretter opprettes en terningvariabel som vil vil inneholde terningens øyne. Denne får startverdi 0 for å sikre at datatypen er number <br>
+    // Deretter opprettes en terningvariabel som vil vil inneholde terningens øyne. Denne får startverdi 0 for å sikre at datatypen er number <br>
     &nbsp;&nbsp;&nbsp;&nbsp; var terning = 0;<br>
-    Vi vet ikke hvor mange ganger vi må slå terningen for å få 6, derfor bruker vi en whileløkke som fortsetter så lenge terningen ikke viser 6. <br>
+    // Vi vet ikke hvor mange ganger vi må slå terningen for å få 6, derfor bruker vi en whileløkke som fortsetter så lenge terningen ikke viser 6. <br>
     &nbsp;&nbsp;&nbsp;&nbsp; while (terning != 6) {<br>
-    Hver gang whileløkken kjøres kastes terningen på nytt: et tall mellom 1 og 6. <br>
+    // Hver gang whileløkken kjøres kastes terningen på nytt: et tall mellom 1 og 6. <br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; terning = Math.floor(Math.random() * 6) + 1;<br>
-    Terningkastet logges (for nysgjerrighetens skyld)<br>
+    // Terningkastet logges (for nysgjerrighetens skyld)<br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(terning);<br>
-    Og tellevariabelen økes med en <br>
+    // Og tellevariabelen økes med en <br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; teller++; <br>
-    Deretter avsluttes whileløkken <br>
+    // Deretter avsluttes whileløkken <br>
     &nbsp;&nbsp;&nbsp;&nbsp; } <br>
-    Og en beskjed til bruker skrives ut <br>
+    // Og en beskjed til bruker skrives ut <br>
     &nbsp;&nbsp;&nbsp;&nbsp; document.write("< p >Det tok "+teller+" forsøk å få terningkast "+terning+"< /p >");<br>
-    Før funksjonen avsluttes <br>
+    // Før funksjonen avsluttes <br>
     &nbsp;&nbsp; }<br>
-    For å ta i bruk funksjonen må den kalles: <br>
+    // For å ta i bruk funksjonen må den kalles: <br>
     &nbsp;&nbsp; terningFunksjon();<br><br>
-    Vi kan kalle funksjonen så mange ganger vi vil:<br>
+    // Vi kan kalle funksjonen så mange ganger vi vil:<br>
     &nbsp;&nbsp; terningFunksjon();<br>
     &nbsp;&nbsp; terningFunksjon();<br>
     &nbsp;&nbsp; terningFunksjon();</p>
