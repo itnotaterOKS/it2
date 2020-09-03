@@ -152,6 +152,94 @@
 		<p> En «Magic 8-ball» er en kule som svarer på typiske ja-/nei-spørsmål, med svar som ‘Ja, garantert’, ‘Ikke regn med det’, ‘Spør senere’ osv. Det vil for eksempel si at vi kan stille spørsmålet ‘Vinner jeg i lotto til helgen’ og få svaret ‘Tviler på det’.<br>
 		Lag din egen tekstbaserte Magic 8-ball som gir opptil 6 ulike svar hver gang brukeren stiller et spørsmål og laster inn siden på nytt.</p>
 
+		<h1> Oppgaver: tilfeldige tall, avrunding, sammenlikningsoperatorer og if-setninger  </h1>
+		<p> Oppgave a) og b) kan du gjerne løse både med å runde opp (ceil) og ned (floor) når du oppretter det tilfeldige tallet. <br>
+			a) Opprett et tilfeldig desimaltall mellom 0 og 0,99999. <br>
+			Bruk dette til å opprette et tilfeldig desimaltall mellom 0 og 9,99999. <br>
+			Bruk dette til å opprette et tilfeldig heltall mellom 0 og 9. <br>
+			b) Opprett et tilfeldig desimaltall mellom 0 og 0,99999. <br>
+			Bruk dette til å opprette et tilfeldig desimaltall mellom 0 og 19,9999. <br>
+			Bruk dette til å opprette et tilfeldig heltall mellom 1 og 20. <br>
+			c) Fullfør tabellen under der du antar at <br>
+			&nbsp;&nbsp; var tall = 17;<br>
+			&nbsp;&nbsp; var tekst = "Nils"
+			<table>
+				<tr> <th> Kode </th> <th> Resultat </th> </tr>
+				<tr> <td> console.log(tall > 1) </td> <td> true </td> </tr>
+				<tr> <td> console.log(tall <= 17)	</td> <td> </td> </tr>
+				<tr> <td> console.log(tall != 20)	</td> <td> </td> </tr>
+				<tr> <td> console.log(tall === ‘’17’’)</td> <td>	 </td> </tr>
+				<tr> <td> console.log(tekst == ‘’Nils’’)</td> <td>	 </td> </tr>
+				<tr> <td> console.log(tall > 20 || tall > 40) </td> <td> </td> </tr>
+			</table>
+			d) Lag et script som
+			<ul>
+				<li> Oppretter en variabel med teksten «Nå har jeg lært mye om variabler, men jeg vil lære mer» </li>
+				<li> Gjør om hele teksten til store bokstaver </li>
+				<li> Gjør om hele teksten til små bokstaver </li>
+				<li> Finner ut hvilken plass i teksten bokstaven y har </li>
+			</ul>
+			e) Skriv kode som genererer et tilfeldig tall mellom 0 og 100 og sjekker om det det er et partall eller oddetall. <br>
+			f)	Skriv kode som genererer et tilfeldig tall mellom 0 og 100 og sjekker om det er et partall eller oddetall OG om det er delelig med tre og fem.<br>
+			&nbsp;&nbsp; Eksempel:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 45 skal det returneres ‘Tallet er et oddetall og er delelig med 3 og 5.’<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 42 skal det returneres ‘Tallet er et partall og er delelig med 3.’<br>
+			g)	Skriv kode som genererer et tilfeldig tall mellom 500 og 1000 (obs! ikke bruk integrerte metoder i JavaScript, bruk Math.random() osv) og sjekker om tallet er større eller lik 750 ELLER om det er delelig med 100.<br>
+			&nbsp;&nbsp; Eksempel:<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 699 skal det returneres ‘Tallet er mindre enn 750.’<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 700 skal det returneres ‘Tallet er større eller lik 750, eller delelig med 100.’<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; Dersom tallet er 820 skal det returneres ‘Tallet er større eller lik 750, eller delelig med 100.’<br>
+			h) Skriv et program som generer to tilfeldige tall mellom 0 og 100. Programmet skal skrive ut det største av de to tallene. Hvis tallene er like skal programmet skrive at tallene er like.<br>
+			i) Får du rabatt hos NSB? Skriv et program lager en tilfeldig alder mellom 0 og 100 år. Programmet skal avgjøre om brukeren får rabatt hos NSB, og eventuelt hvor stor rabatten er. Barn fra 0 til og med 3 år kjører gratis, barn fra 4 til og med 15 år får 50 % rabatt og de som er 67 år eller mer får 50 % rabatt.
+		</p>
+
+		<h1> Oppgaver: løkker </h1>
+		<p>  a)	Skriv ut tallene fra og med 10 til og med 20 med en for-løkke. <br>
+		b)	Skriv ut alle partallene fra og med 2 til og med 30 med en for-løkke.<br>
+		c)	Forklar koden nedenfor. <br>
+		&nbsp;&nbsp; var terning = 0; <br>
+		&nbsp;&nbsp; while (terning != 6) {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; terning = Math.floor(Math.random() * 6) + 1; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; console.log(terning); <br>
+		&nbsp;&nbsp; }<br>
+		d) Skriv om koden fra oppgaven ovenfor slik at den teller antall forsøk den bruker før løkken stopper. <br>
+		e) Lag en funksjon gangetabell(tall1, tall2) der du skriver ut gangetabellen opp til de to tallene på siden. <br>
+		&nbsp;&nbsp; Eksempel: gangetabell(7, 10) skriver ut tabellen opp til 7*10 (dvs 7 kolonner og 10 rader).<br>
+		f) Lag en funksjon primfinner(max) som finner alle primtallene til og med dette tallet. </p>
+		<script>
+			// et tall er et primtall dersom det kun er delelig med seg selv og 1
+			// vi tar utgangspunkt i at alle tall er primtall og leter etter et tall det ikke er delelig med
+			for(i=1; i<=100; i++){ // løkker gjennom så mange primtall vi vil finne, her til og med 100
+				var primtall = true; // antar at tallet er et primtall
+				for(j = 2; j < i; j++){ // sjekker om det finnes et tall mellom 2 og tallet selv som det er delelig med
+					if(i%j==0){
+						var primtall = false; // i så fall avkrefter vi at tallet er et primtall
+					}
+				}
+				if(primtall == true){ // dersom vi ikke har funnet noe tall det er delelig med
+					console.log(i); // logger vi tallet, som er et primtall
+				}
+			}
+
+			// kan lage en funksjon som tar inn et tall og sjekker alle tall opp til dette
+			function primfinner(max){
+				var primArray = []; // lager en tom array der vi kan legge inn alle primtall
+				for(i=1; i<=max; i++){
+					var primtall = true;
+					for(j = 2; j < i; j++){
+						if(i%j==0){
+							var primtall = false;
+						}
+					}
+					if(primtall == true){
+						primArray.push(i); // legger inn tallet i arrayen dersom det er et primtall
+					}
+				}
+				return primArray // når jeg kjører primtallfunksjonen vil arrayen returneres
+			}
+			console.log(primfinner(300)); //finner primtallene mellom 1 og 300
+		</script>
+
 		<h1> Større oppgaver kapittel 2 - 4 </h1>
 		<h2> Oppgave 1: quiz </h2>
 		<p> Lag et script for en quiz. Quizen skal ha 5 spørsmål og hvert av svarene skal være et navn (fornavn+etternavn). Dere kan for eksempel ta inn svaret via prompt eller som et skjema.</p>
