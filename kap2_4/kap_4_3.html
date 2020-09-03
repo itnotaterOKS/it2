@@ -41,7 +41,7 @@
     // Hver gang whileløkken kjøres kastes terningen på nytt: et tall mellom 1 og 6. <br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; terning = Math.floor(Math.random() * 6) + 1;<br>
     // Terningkastet logges (for nysgjerrighetens skyld)<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(terning);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(terning);<br>
     // Og tellevariabelen økes med en <br>
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; teller++; <br>
     // Deretter avsluttes whileløkken <br>
@@ -55,7 +55,23 @@
     // Vi kan kalle funksjonen så mange ganger vi vil:<br>
     &nbsp;&nbsp; terningFunksjon();<br>
     &nbsp;&nbsp; terningFunksjon();<br>
-    &nbsp;&nbsp; terningFunksjon();</p>
+    &nbsp;&nbsp; terningFunksjon();<br><br>
+		Uten kommentarene underveis blir dette: <br>
+		&nbsp;&nbsp; function terningFunksjon(){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var teller = 0;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var terning = 0;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; while (terning != 6) {<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; terning = Math.floor(Math.random() * 6) + 1;<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; console.log(terning);<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; teller++; <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; } <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; document.write("< p >Det tok "+teller+" forsøk å få terningkast "+terning+"< /p >");<br>
+		&nbsp;&nbsp; }<br>
+		&nbsp;&nbsp; terningFunksjon();<br><br>
+
+		<b> Tenk etter: </b>
+		Hvorfor får terningen verdi 0 før whileløkken og ikke et tilfeldig tall mellom 1 og 6 med en gang? </p>
+
     <script>
     function terningFunksjon(){
         var teller = 0;
