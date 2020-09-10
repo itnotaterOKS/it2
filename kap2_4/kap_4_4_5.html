@@ -12,15 +12,75 @@
 	</div>
 	<script type="text/javascript" src="meny2.js"></script>
 	<div class="innhold">
-	<h1> Globale og lokale variabler </h1>
-	<p> I forrige time la vi inn returverdier i en funksjon, for eksempel returnerer tilfeldigTall-funksjonen et tilfedig tall. Vi så at koden <br>
-	&nbsp;&nbsp; < script > <br>
-	&nbsp;&nbsp;&nbsp;&nbsp; function tilfeldigTall(min, max){<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var tilfeldig = (Math.floor(Math.random()*(max - min + 1)+min));<br>
-	&nbsp;&nbsp;&nbsp;&nbsp; } <br>
-	&nbsp;&nbsp;&nbsp;&nbsp; tilfeldigTall(2, 10);<br>
-	&nbsp;&nbsp;&nbsp;&nbsp; document.write(tilfeldig);<br>
-	&nbsp;&nbsp; < /script > <br>
+		<h1> Lokale/globale variabler </h1>
+		<p> Når vi skriver kode med funksjoner må vi kunne forskjellen på lokale og globale variabler. <br>
+			En global variabel <i>defineres</i> utenfor funksjonen, og kan brukes både utenfor og inni funksjonen <br>
+			En lokal variabel <i>defineres</i> inni funksjonen, og kan kun brukes her. Utenfor funksjonen er den udefinert <br>
+			Lokale og globale variabler har hver sine fordeler: <br>
+			&nbsp;&nbsp; ved å bruke lokale variabler der de likevel ikke skal brukes utenfor funksjonen "bruker vi ikke opp" funksjonsnavn, og de samme navnene kan brukes uproblematisk lokalt i andre funksjoner også <br>
+			&nbsp;&nbsp; ved å bruke globale variabler er vi sikre på at vi kan kalle dem hvor som helst utenfor funksjonen. </p>
+
+		<h1> Eksempel </h1>
+		<p> Lokale og globale variabler i tilfeldigtallsfunksjonen <br><br>
+			Lokal tilfeldig-variabel gir feilmelding når den brukes globalt: <br>
+			&nbsp;&nbsp; function tilfeldigTall(min, max){<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; var tilfeldig1= (Math.floor(Math.random()*(max - min + 1)+min));<br>
+			&nbsp;&nbsp; } <br>
+			&nbsp;&nbsp; tilfeldigTall(2, 10);<br>
+			&nbsp;&nbsp; document.write(tilfeldig1);<br><br>
+
+		<script>
+			function tilfeldigTall(min, max){
+				var tilfeldig1 = (Math.floor(Math.random()*(max - min + 1)+min)); // lager et tilfeldig tall mellom max og min
+			}
+			tilfeldigTall(2, 10);
+			document.write(tilfeldig1+"<br>");
+		</script>
+		Dette gir feilmeldingen "Uncaught ReferenceError: var tilfeldig1 is not defined at funksjoner.html:linjenr" fordi variabelen ikke er definert utenfor funksjonen.<br><br>
+
+		Dersom vi definerer variabelen både globalt og lokalt, vil den ha ulike verdier før, i og etter funksjonen: <br>
+		&nbsp;&nbsp; var tilfeldig2 = (Math.floor(Math.random()*(10 - 2 + 1)+2)); <br>
+		&nbsp;&nbsp; document.write (tilfeldig2 + ' er verdien før funksjonen'); <br>
+		&nbsp;&nbsp; function tilfeldigTall(min, max){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; var tilfeldig2 = (Math.floor(Math.random()*(max - min + 1)+min)); <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; document.write (tilfeldig2 + ' er verdien i funksjonen')<br>
+		&nbsp;&nbsp; }<br>
+		&nbsp;&nbsp; tilfeldigTall(2, 10);<br>
+		&nbsp;&nbsp; document.write(tilfeldig2 + ' er verdien etter funksjonen');<br><br>
+
+		<script>
+			var tilfeldig2 = (Math.floor(Math.random()*(10 - 2 + 1)+2));
+			document.write (tilfeldig2 + ' er verdien før funksjonen <br>');
+			function tilfeldigTall(min, max){
+				var tilfeldig2 = (Math.floor(Math.random()*(max - min + 1)+min)); // lager et tilfeldig tall mellom max og min
+				document.write (tilfeldig2 + ' er verdien i funksjonen <br>')
+			}
+			tilfeldigTall(2, 10);
+			document.write(tilfeldig2 + ' er verdien etter funksjonen <br>');
+		</script><br><br>
+
+		Dersom variabelen overskrives i funksjonen blir resultatet annerledes: <br>
+		&nbsp;&nbsp; var tilfeldig3 = (Math.floor(Math.random()*(10 - 2 + 1)+2)); <br>
+		&nbsp;&nbsp; document.write (tilfeldig3 + ' er verdien før funksjon'); <br>
+		&nbsp;&nbsp; function tilfeldigTall(min, max){<br>
+		&nbsp;&nbsp;&nbsp;&nbsp; tilfeldig3 = (Math.floor(Math.random()*(max - min + 1)+min)); <br>
+		&nbsp;&nbsp;&nbsp;&nbsp; document.write (tilfeldig3 + ' er verdien i funksjonen')<br>
+		&nbsp;&nbsp; }<br>
+		&nbsp;&nbsp; tilfeldigTall(2, 10);<br>
+		&nbsp;&nbsp; document.write(tilfeldig3 + ' er verdien etter funksjonen');<br><br>
+
+		<script>
+			var tilfeldig3 = (Math.floor(Math.random()*(10 - 2 + 1)+2));
+			document.write (tilfeldig3 + ' er verdien før funksjonen <br>');
+			function tilfeldigTall(min, max){
+				tilfeldig3 = (Math.floor(Math.random()*(max - min + 1)+min)); // lager et tilfeldig tall mellom max og min
+				document.write(tilfeldig3 + ' er verdien i funksjonen <br>')
+			}
+			tilfeldigTall(2, 10);
+			document.write(tilfeldig3 + ' er verdien etter funksjonen <br>');
+		</script>
+
+		<b> Moralen er: vær nøye på hvordan du definerer variabler når du bruker funksjoner. Hvis du får en feilmelding om en udefinert variabel, er den sannsynligvis definert lokalt og brukt globalt. Dersom du får en uventet verdi, bruker du den globale verdien til en variabel som både er definert lokalt og globalt. </b></p>
 
 	<script>
 		function tilfeldigTall(min, max){
