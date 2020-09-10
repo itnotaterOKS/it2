@@ -80,43 +80,7 @@
 			document.write(tilfeldig3 + ' er verdien etter funksjonen <br>');
 		</script>
 
-		<p><b> Moralen er: vær nøye på hvordan du definerer variabler når du bruker funksjoner. Hvis du får en feilmelding om en udefinert variabel, er den sannsynligvis definert lokalt og brukt globalt. Dersom du får en uventet verdi, bruker du den globale verdien til en variabel som både er definert lokalt og globalt. Husk at (manglende) bruk av <i>var</i> bestemmer om en global verdi overskrives eller ikke. </b></p>
-
-	<script>
-		function tilfeldigTall(min, max){
-			var tilfeldig = (Math.floor(Math.random()*(max - min + 1)+min)); // lager et tilfeldig tall mellom max og min
-		}
-		tilfeldigTall(2, 10);
-		document.write(tilfeldig);
-	</script><br><br>
-
-	gir oss en feilmelding som sier at variablen tilfeldig ikke er definert. Årsaken til dette er at den er det vi kaller en lokal variabel: den finnes kun inne i funksjonen. <br>
-	Variabler slik vi tidligere har brukt dem ved å deklare den utenfor funksjoner kaller vi globale variabler, og de finnes for hele programmet. <br> <br>
-
-	Vi ser at variabler med samme variabelnavn vil ha ulike verdier før, i og etter funksjonen: <br>
-	&nbsp;&nbsp; < script ><br>
-	&nbsp;&nbsp;&nbsp;&nbsp; var tilfeldig2 = (Math.floor(Math.random()*(10 - 2 + 1)+2)); <br>
-	&nbsp;&nbsp;&nbsp;&nbsp; document.write (tilfeldig2 + ' er verdien før funksjon < br >'); <br>
-	&nbsp;&nbsp;&nbsp;&nbsp; function tilfeldigTall(min, max){<br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; var tilfeldig2 = (Math.floor(Math.random()*(max - min + 1)+min)); <br>
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.write (tilfeldig2 + ' er verdien i funksjonen < br >')<br>
-	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-	&nbsp;&nbsp;&nbsp;&nbsp; tilfeldigTall(2, 10);<br>
-	&nbsp;&nbsp;&nbsp;&nbsp; document.write(tilfeldig2 + ' er verdien etter funksjonen < br >');<br>
-	&nbsp;&nbsp; < /script ><br><br>
-
-	<script>
-		var tilfeldig2 = (Math.floor(Math.random()*(10 - 2 + 1)+2));
-		document.write (tilfeldig2 + ' er verdien før funksjonen <br>');
-		function tilfeldigTall(min, max){
-			var tilfeldig2 = (Math.floor(Math.random()*(max - min + 1)+min)); // lager et tilfeldig tall mellom max og min
-			document.write (tilfeldig2 + ' er verdien i funksjonen <br>')
-		}
-		tilfeldigTall(2, 10);
-		document.write(tilfeldig2 + ' er verdien etter funksjonen <br>');
-	</script><br><br>
-
-	Løsningen er altså at vi må bruke returverdier i slike sammenhenger. <br>
+		<p><b> Moralen er: vær nøye på hvordan du definerer variabler når du bruker funksjoner. Hvis du får en feilmelding om en udefinert variabel, er den sannsynligvis definert lokalt og brukt globalt. Dersom du får en uventet verdi, bruker du den globale verdien til en variabel som både er definert lokalt og globalt. Husk at (manglende) bruk av <i>var</i> bestemmer om en global verdi overskrives eller ikke. Hvis vi blir gode til å bruke funskjoner med returverdier unngår vi mange problemer knyttet til lokale og globale variabler. </b></p>
 
 	<h1> Kommentering av kode </h1>
 	<p> Vi husker hvordan vi kan kommenterere kode i html, css og js: <br>
@@ -129,19 +93,18 @@
 		&nbsp;&nbsp;< script ><br>
 		&nbsp;&nbsp;&nbsp;&nbsp; /* Koden under viser en funksjon som tar inn et heltall n og skriver ut gangetabellen opp til n*n */<br>
 		&nbsp;&nbsp;&nbsp;&nbsp; function gangetabell(n){ // definerer funksjonen, med parameter n<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.write('< table >'); // starter html-tabell<br>
-      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var i=1; i<=n; i++){ // ønsker n rader<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.write('< tr >');<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(var j=1; j<=n; j++){ // ønsker n kolonner<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write('< td >'+i*j+'< /td >'); // fyller hver celle med et produkt<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.write('< /tr >'); <br>
-      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-      	&nbsp;&nbsp;&nbsp;&nbsp; document.write('< /table >');<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; }<br>
-   		&nbsp;&nbsp;&nbsp;&nbsp; // kaller funksjonen for to ulike verdier av n<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; gangetabell(10);<br>
-    	&nbsp;&nbsp;&nbsp;&nbsp; gangetabell(20);<br>
+  	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.write('< table >'); // starter html-tabell<br>    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for (var i=1; i<=n; i++){ // ønsker n rader<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.write('< tr >');<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(var j=1; j<=n; j++){ // ønsker n kolonner<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.write('< td >'+i*j+'< /td >'); // fyller hver celle med et produkt<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; document.write('< /tr >'); <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; document.write('< /table >');<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; }<br>
+   	&nbsp;&nbsp;&nbsp;&nbsp; // kaller funksjonen for to ulike verdier av n<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; gangetabell(10);<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; gangetabell(20);<br>
 		&nbsp;&nbsp; < /script ><br>
 
 		<script>
@@ -181,6 +144,9 @@
 			&nbsp;&nbsp; generere tilfeldig farge (til f.eks. tegning i canvas, denne blir mer aktuell fra kapittel 7 og utover)<br>
 			&nbsp;&nbsp; finne størst og minst tall i en samling av tall (denne blir mer aktuell når vi begynner med arrays)<br>
 			&nbsp;&nbsp; sortere array med bubblesort (denne blir mer aktuell når vi begynner med arrays)</p>
+
+			<h2> Oppgave: Zellers algoritme </h2>
+			<p> Oppgaveteksten ligger <a href="oppgaver/Zellers algoritme.pdf">her</a>, et løsningsforslag finnes <a href="zellers_algoritme.html">her</a>. Denne oppgaven er ment som en ekstraoppgave for å fortså pseudokode og for å få trening i å jobbe med større funksjoner. </p>
 	</div>
 	<a href="../index.html"><img class="hjem" src="../hjem.png"></a>
 </body>
