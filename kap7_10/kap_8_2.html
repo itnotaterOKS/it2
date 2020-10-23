@@ -22,7 +22,7 @@
     		<li> Spilleren får valget om å velge en ny dør. Lønner det seg? </li>
     		<li> Når spilleren har bestemt seg, åpnes den valgte døra. </li>
     	</ol>
-    	<p> Vi opererer først med en veldig forenklet versjon, der vi kun undersøker hvilken dør som åpnes.<br>
+    	<p> Vi opererer først med en veldig forenklet versjon, der vi kun undersøker hvilken dør som klikkes på og åpner denne.<br>
     	Her er altså lytteren knyttet til den døra spilleren velger (trykker på). Selve hendelsen skjer derimot i den døra som åpnes. For at dette skal fungere, må vi vite hvilken dør som er valgt. Dette gjør vi ved å angi argumentet e i funksjonen som sjekker dør, der e representerer hendelsen (event), i dette tilfellet hvilket element som er valgt:<br>
     	&nbsp;&nbsp; function sjekkDor(e){<br>
     	&nbsp;&nbsp;&nbsp;&nbsp; console.log(e.target) // logger html-koden for bildet som er valgt  <br>
@@ -30,16 +30,16 @@
     	&nbsp;&nbsp; } </p>
 
     	<h1> Kort "pseudokode" for oppgaven </h1>
-    	<p> Dette er en forenklet versjon av MontyHall. Spillet i sin helhet ligger forklart på siden kap_8_2_Ekstra mens koden er realisert i montyHallEkstra. <br>
-        Oppgave 8.5 til 8.8 s. 131 dekker også dette <br><br>
-    		Nettsiden inneholder tre dører som kan velges<br>
-    		Hent inn de tre dørene som variabler i script og legg til lyttere<br>
-    		Når en dør velges, skal funksjonen sjekkDor kjøres. Her vil vi finne id'en til døra <br>
-    		Til slutt skal vi logge id'en til døra som åpnes. <br><br>
-    		Dersom du vil prøve deg videre:<br>
-    		1. La bilen ligge bak en tilfeldig dør (bruk tilfeldige tall mellom 0 og 2 (0 = rød, 1 = grønn, 2 = blå)) og geiter bak de to andre. Å åpne døra vil si å bytte ut bildet av en dør med enten geita eller bilen. Dersom bildet er en geit, skal du skrive til skjerm "Gratulerer, du vant en geit!" og dersom bildet er en bil, skal du skrive til skjerm "Gratulerer, du vant en bil!".
-    		<br><br>
-    		2. Når brukeren velger en dør, skal denne ikke åpnes, men du skal åpne en av dørene med geit bak. Brukeren skal deretter få velge dør på ny. Åpne denne døra ved å bytte ut bildet med enten geit eller bil, avhengig av hva som ligger bak døra </p>
+    	<p> 1. Dette er en forenklet versjon av MontyHall.<br>
+    	&nbsp;&nbsp; Nettsiden inneholder tre dører som kan velges<br>
+    	&nbsp;&nbsp; Hent inn de tre dørene som variabler i script og legg til lyttere<br>
+    	&nbsp;&nbsp; Når en dør velges, skal funksjonen sjekkDor kjøres. Her vil vi finne id'en til døra <br>
+    	&nbsp;&nbsp; Til slutt skal vi logge id'en til døra som åpnes. <br><br>
+      2. Dersom du vil prøve deg videre:<br>
+    	&nbsp;&nbsp; 1. La bilen ligge bak en tilfeldig dør (bruk tilfeldige tall mellom 0 og 2 (0 = rød, 1 = grønn, 2 = blå)) og geiter bak de to andre.<br>
+      &nbsp;&nbsp; Å åpne døra vil si å bytte ut bildet av en dør med enten geita eller bilen.<br>
+      &nbsp;&nbsp; Dersom bildet er en geit, skal du skrive til skjerm "Gratulerer, du vant en geit!" og dersom bildet er en bil, skal du skrive til skjerm "Gratulerer, du vant en bil!".<br>
+    	Skriv kode for det ekte spillet.  Spillet i sin helhet, der reglene følger de som er listet opp over, ligger forklart på siden kap_8_2_Ekstra mens koden er realisert i montyHallEkstra. </p>
         <img src="media/oppgaver8_2.png" width="60%">
         <img src="media/oppgaver8_2b.png" width="60%">
   </div>
