@@ -13,7 +13,7 @@
 	<script type="text/javascript" src="meny11.js"></script>
 	<div class="innhold">
 		<h1> Arrays og objects </h1>
-		<p> Det neste temaet er datakolleksjonene arrays og objects. Dette er to måter å strukturere informasjon på. Vi kommer til å bruke timene frem til jul på å bli kjent med metoder knyttet til disse. Til temaet hører det et litt større repetisjonsarbeidssett med oppgaver, disse er lagt ut under "oppgaver".</p>
+		<p> Det neste temaet er datakolleksjonene arrays og objects. Dette er to måter å strukturere informasjon på. Vi kommer til å bruke timene frem til jul og i januar på å bli kjent med metoder knyttet til disse. Til temaet hører det et litt større repetisjonsarbeidssett med oppgaver, disse er lagt ut under "oppgaver".</p>
 
 		<h1> Arrays </h1>
 		<p> Så langt har vi sortert all data i enkeltvariabler, noe som er greit når vi ikke har mye data og når vi ikke skal gjenta funksjoner for flere variabler. <br>
@@ -37,8 +37,8 @@
 		<h1> Oppgave </h1>
 		<p> Lag to arrayer: en array navn som inneholder navn på familiemedlemmene dine og en array alder som inneholder alderen deres. Skriv ut lengden av hver array (navn.length og alder.length) og den første og siste verdien i arrayen. </p>
 		<script>
-			var navn = ['Asta', 'Christian'];
-			var alder = [27, 29];
+			var navn = ['Iver', 'Asta', 'Christian'];
+			var alder = [1, 30, 32];
 			console.log(navn.length, alder.length);
 			console.log(navn[0], navn[navn.length-1], alder[0], alder[alder.length-1])
 		</script>
@@ -46,16 +46,16 @@
 		<h1> Array inni array </h1>
 		<p> Vi kan også slå sammen navn- og alder-arrayene til én familiearray med to dimensjoner: <br>
 			&nbsp;&nbsp; var familie = [<br>
-			&nbsp;&nbsp;&nbsp;&nbsp; ['Asta', 'Christian'],<br>
-			&nbsp;&nbsp;&nbsp;&nbsp; [27, 29]<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; ['Iver', 'Asta', 'Christian'],<br>
+			&nbsp;&nbsp;&nbsp;&nbsp; [1, 30, 32]<br>
 			&nbsp;&nbsp; ];<br><br>
 			For å henge ut enkeltverdier vil nå <br>
-			familie[0] returnere ['Asta', 'Christian']<br>
-			familie[1] returnere [27, 29]<br>
-			familie[0][0] returnere 'Asta'<br>
-			familie[0][1] returnere 'Christian'<br>
-			familie[1][0] returnere 27<br>
-			familie[1][1] returnere 29<br>
+			familie[0] returnere ['Iver', 'Asta', 'Christian']<br>
+			familie[1] returnere [1, 30, 32]<br>
+			familie[0][0] returnere 'Iver'<br>
+			familie[0][1] returnere 'Asta'<br>
+			familie[1][0] returnere 1<br>
+			familie[1][1] returnere 30<br>
 		</p>
 
 		<h1> Oppgave </h1>
@@ -64,7 +64,7 @@
 		<script>
 			var familie = [
 				['Asta', 'Christian'],
-				[27, 29]
+				[30, 32]
 			];
 			console.log(familie[0], familie[1]);
 			console.log(familie.length, familie[0].length);
